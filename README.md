@@ -34,7 +34,7 @@ Speichern, Darstellen und Bearbeiten von Teams und Spielern.
 
 ### GUI-Skizze
 
-**TODO**: Gilad
+![Text User Interface](/pictures/GUI_Mockup.png)
 
 ## Datenhaltung
 
