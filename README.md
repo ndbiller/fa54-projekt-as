@@ -47,11 +47,6 @@ Speichern, Darstellen und Bearbeiten von Teams und Spielern.
 
 ## Meilensteine
 
-Markdown | Less | Pretty
---- | --- | ---
-*Still* | `renders` | **nicely**
-1 | 2 | 3
-
 **Meilenstein** | **Beschreibung** | **Zwischenprodukt** | **Datum**
 --- | --- | --- | --- 
 MS-1 | Anforderungsanalyse, Anforderungsdefinition | Erste Dokumentation ("Pflichtenheft") | 12.10.2017
