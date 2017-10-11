@@ -47,11 +47,12 @@ Speichern, Darstellen und Bearbeiten von Teams und Spielern.
 
 ## Meilensteine
 
-**Meilenstein** |**Beschreibung** |**Zwischenprodukt** |**Datum** |
-MS-1 |Anforderungsanalyse, Anforderungsdefinition |Erste Dokumentation ("Pflichtenheft") |12.10.2017 |
-MS-2 |Implementierung TUI, Fachkonzept1, relationale DB |erste Version für Testszenarien |17.01.2017 |
-MS-3 |Implementierung GUI, Fachkonzept2, nicht-relationale DB, Testen |Softwareprodukt |08.12.2017 |
-MS-4 |Vorführung der Software |Softwareprodukt, zweite Dokumentation |04.01.2018 |
+**Meilenstein** | **Beschreibung** | **Zwischenprodukt** | **Datum**
+--- | --- | --- | --- 
+MS-1 | Anforderungsanalyse, Anforderungsdefinition | Erste Dokumentation ("Pflichtenheft") | 12.10.2017
+MS-2 | Implementierung TUI, Fachkonzept1, relationale DB | Erste Version für Testszenarien | 17.01.2017
+MS-3 | Implementierung GUI, Fachkonzept2, nicht-relationale DB, Testen | Softwareprodukt | 08.12.2017
+MS-4 | Vorführung der Software | Softwareprodukt, zweite Dokumentation | 04.01.2018
 
 ## Testszenarien
 
