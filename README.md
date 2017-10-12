@@ -58,7 +58,7 @@ TODO: Gilad txt
 --- | --- | --- | --- 
 MS-1 | Anforderungsanalyse, Anforderungsdefinition | Erste Dokumentation ("Pflichtenheft") | 12.10.2017
 MS-2 | Implementierung TUI, Fachkonzept1, relationale DB | Erste Version für Testszenarien | 17.01.2017
-MS-3 | Implementierung GUI, Fachkonzept2, nicht-relationale DB, Tests | Refarat | 04.12.2017
+MS-3 | Implementierung GUI, Fachkonzept2, nicht-relationale DB, Tests | Referat | 04.12.2017
 MS-4 | Implementierung GUI, Fachkonzept2, nicht-relationale DB, Tests | Softwareprodukt | 08.12.2017
 MS-5 | Vorführung der Software | Softwareprodukt, zweite Dokumentation | 04.01.2018
 
@@ -72,3 +72,5 @@ MS-5 | Vorführung der Software | Softwareprodukt, zweite Dokumentation | 04.01.
 - Spielerdaten ändern
 - Team löschen
 - Spieler löschen
+- Spielertransfer
+
