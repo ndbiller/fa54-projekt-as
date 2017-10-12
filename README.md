@@ -71,8 +71,8 @@ If Unsigned Players clicked:
 
 ## Datenhaltung
 
-- relationale Datenbank: MySQL
-- nicht-relationale Datenbank: MongoDB
+- relationale Datenbank: MSSQL  
+- nicht-relationale Datenbank: MongoDB  
 
 ## ER-Model
 
