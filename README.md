@@ -74,9 +74,9 @@ If Unsigned Players clicked:
 - relationale Datenbank: MSSQL  
 - nicht-relationale Datenbank: MongoDB  
 
-## ER-Model
+## ER-Modell
 
-![Entity Relationship Model](/pictures/ER_Model.png)
+![Entitytype Relationshiptype Modell](/pictures/ER_Model.png)
 
 ## Meilensteine
 
