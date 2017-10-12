@@ -27,7 +27,7 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
 ## Problem- und Aufgabenstellung
 
-Speichern, Darstellen und Bearbeiten von Teams und Spielern.
+Erstellen, Darstellen und Bearbeiten von Teams und ihren Spielern sowohl über eine GUI- wie auch über eine TUI-Version des Programms. Darstellung sowohl in normaler wie auch in umgekehrter Reihenfolge über zwei verschiedene Fachkonzepte.  
 
 ## Mock-ups
 
