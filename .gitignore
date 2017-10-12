@@ -1,2 +1,4 @@
 # TODO
 
+*.ide
+src/TeamManager/TeamManager/obj/
