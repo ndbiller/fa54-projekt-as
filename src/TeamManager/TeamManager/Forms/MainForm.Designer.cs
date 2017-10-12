@@ -1,4 +1,4 @@
-﻿namespace TeamManager
+﻿namespace TeamManager.Forms
 {
     partial class MainForm
     {
