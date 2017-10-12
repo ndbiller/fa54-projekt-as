@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TeamManager.Forms;
-using TeamManager.Utilities;
 
 namespace TeamManager
 {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TeamManager.Utilities
+namespace TeamManager.Main.ConceptTypes
 {
     /// <summary>
     /// ConceptType affects the way the data structure will get initialized from the database.
