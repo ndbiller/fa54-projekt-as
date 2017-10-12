@@ -7,8 +7,8 @@ Entwickeln und Bereitstellen von Anwendungssystemen. Softwaresystem als 3-Schich
 * [Team\- bzw\. Arbeitsteilung (Gruppe 3)](#team--bzw-arbeitsteilung-gruppe-3)
 * [Problem\- und Aufgabenstellung](#problem--und-aufgabenstellung)
 * [Mock\-up](#mock-up)
-* [TUI\-Skizze](#tui-skizze)
-* [GUI\-Skizze](#gui-skizze)
+  * [TUI\-Skizze](#tui-skizze)
+  * [GUI\-Skizze](#gui-skizze)
 * [Datenhaltung](#datenhaltung)
 * [ER\-Model](#er-model)
 * [Meilensteine](#meilensteine)
@@ -18,15 +18,15 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
 ## Team- bzw. Arbeitsteilung (Gruppe 3)
 
-**Benutzungsoberfläche**: Gilad Reich
-**Fachkonzept**: Rico Krüger
-**Datenhaltung**: Andreas Biller (Teamsprecher)
+**Benutzungsoberfläche**: Gilad Reich  
+**Fachkonzept**: Rico Krüger  
+**Datenhaltung**: Andreas Biller (Teamsprecher)  
 
 ## Problem- und Aufgabenstellung
 
 Speichern, Darstellen und Bearbeiten von Teams und Spielern.
 
-## Mock-up
+## Mock-ups
 
 ### TUI-Skizze
 
@@ -35,6 +35,10 @@ Speichern, Darstellen und Bearbeiten von Teams und Spielern.
 ### GUI-Skizze
 
 ![Text User Interface](/pictures/GUI_Mockup.png)
+
+### Funktionsbeschreibung
+
+TODO: Gilad txt
 
 ## Datenhaltung
 
@@ -51,7 +55,8 @@ Speichern, Darstellen und Bearbeiten von Teams und Spielern.
 --- | --- | --- | --- 
 MS-1 | Anforderungsanalyse, Anforderungsdefinition | Erste Dokumentation ("Pflichtenheft") | 12.10.2017
 MS-2 | Implementierung TUI, Fachkonzept1, relationale DB | Erste Version für Testszenarien | 17.01.2017
-MS-3 | Implementierung GUI, Fachkonzept2, nicht-relationale DB, Testen | Softwareprodukt | 08.12.2017
+MS-3 | Implementierung GUI, Fachkonzept2, nicht-relationale DB, Tests | Refarat | 04.12.2017
+MS-3 | Implementierung GUI, Fachkonzept2, nicht-relationale DB, Tests | Softwareprodukt | 08.12.2017
 MS-4 | Vorführung der Software | Softwareprodukt, zweite Dokumentation | 04.01.2018
 
 ## Testszenarien
