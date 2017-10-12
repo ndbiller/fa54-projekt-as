@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("TeamManager")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Team Manager")]
+[assembly: AssemblyDescription("Application to control soccer teams to create or assign them for a team. Goal -> To learn more about OOP and work in teams.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TeamManager")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCompany("Andreas Biller, Gilad Reich, Rico Krüger")]
+[assembly: AssemblyProduct("Team Manager")]
+[assembly: AssemblyCopyright("Copyright ©  2017 Andreas Biller, Gilad Reich, Rico Krüger")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
