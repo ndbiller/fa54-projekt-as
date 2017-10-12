@@ -41,7 +41,33 @@ Speichern, Darstellen und Bearbeiten von Teams und Spielern.
 
 ## Funktionsbeschreibung
 
-TODO: Gilad txt
+If Teams -> Create clicked:  
+- Show *Edit/Create Window*  
+- Hide *Team: Manchester United* so only name of the team textbox available.  
+- After *Save* clicked, show *Unsigned Players List Window* to assign players to the new team.  
+- Show *Edit/Create Window* again.  
+- Hide *Name: Fred Erentz* so we can choose only available teams.  
+- Update *Main Window*.  
+
+If Teams -> Edit clicked:  
+- Show *Edit/Create Window*  
+- Hide *Team: Manchester United* so only name of the team textbox available.  
+- Update *Main Window*.  
+
+If Players -> Edit clicked:  
+- Show *Edit/Create Window*+ as is.  
+- Update *Main Window*.  
+
+If Players -> Create clicked:  
+- Show *Edit/Create Window* as is.  
+- Update *Main Window*.  
+
+If Unsigned Players clicked:  
+- Show *Unsigned Players Window*.  
+  If *Add To Team* clicked:  
+  - Show *Edit/Create Window*.  
+  - Disable *Name: Fred Erentz* text box from editing.  
+  - Update *Main Window*.  
 
 ## Datenhaltung
 
