@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CustomUI">
+      <HintPath>..\packages\CustomUI-1.0.3\CustomUI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -73,11 +76,11 @@
     <Compile Include="Forms\ChildForms\EditForm.Designer.cs">
       <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ChildForms\ShowAllPlayersForm.cs">
+    <Compile Include="Forms\ChildForms\AllPlayersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ChildForms\ShowAllPlayersForm.Designer.cs">
-      <DependentUpon>ShowAllPlayersForm.cs</DependentUpon>
+    <Compile Include="Forms\ChildForms\AllPlayersForm.Designer.cs">
+      <DependentUpon>AllPlayersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ChildForms\UnsignedPlayersForm.cs">
       <SubType>Form</SubType>
@@ -85,6 +88,7 @@
     <Compile Include="Forms\ChildForms\UnsignedPlayersForm.Designer.cs">
       <DependentUpon>UnsignedPlayersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ViewType.cs" />
     <Compile Include="GUI.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -107,8 +111,8 @@
     <EmbeddedResource Include="Forms\ChildForms\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ChildForms\ShowAllPlayersForm.resx">
-      <DependentUpon>ShowAllPlayersForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ChildForms\AllPlayersForm.resx">
+      <DependentUpon>AllPlayersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ChildForms\UnsignedPlayersForm.resx">
       <DependentUpon>UnsignedPlayersForm.cs</DependentUpon>
