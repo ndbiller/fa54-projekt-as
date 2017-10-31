@@ -23,7 +23,7 @@ namespace TeamManager
         private static void StartProgram()
         {
             // TODO: Implement console.
-            Console.Write("Hello from console");
+            Console.WriteLine("Hello from console");
             Console.ReadKey();
         }
     }

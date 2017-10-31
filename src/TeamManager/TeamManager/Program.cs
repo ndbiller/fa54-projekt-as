@@ -1,10 +1,14 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TeamManager.Database;
 using TeamManager.Main.ConceptTypes;
+using TeamManager.Main.ResourceData;
 
 namespace TeamManager
 {
@@ -25,45 +29,165 @@ namespace TeamManager
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            if (args.Length != 0)
-            {
-                if (!args[0].ToLower().StartsWith("/g")) // We don't want to allocate console when using gui.
-                    AllocConsole();
+            //if (args.Length != 0)
+            //{
+            //    if (!args[0].ToLower().StartsWith("/g")) // We don't want to allocate console when using gui.
+            //        AllocConsole();
 
-                switch (args[0].ToLower())
-                {
-                    case "/t:1":
-                        InitializeDataStructure(ConceptType.First);
-                        TUI.Start();
-                        break;
-                    case "/t:2":
-                        InitializeDataStructure(ConceptType.Second);
-                        TUI.Start();
-                        break;
-                    case "/g:1":
-                        InitializeDataStructure(ConceptType.First);
-                        GUI.Start();
-                        break;
-                    case "/g:2":
-                        InitializeDataStructure(ConceptType.Second);
-                        GUI.Start();
-                        break;
-                    case "/?":
-                        PrintHelp();
-                        break;
-                    default:
-                        Console.WriteLine("Invalid syntax. Use /? parameter to display help.");
-                        Console.ReadKey();
-                        break;
-                }
-            }
-            else // -> when you start the app through the windows explorer or from the console without parameters.
-            {
-                InitializeDataStructure(ConceptType.First); // Default = First concept type.
-                GUI.Start();
-            }
+            //    switch (args[0].ToLower())
+            //    {
+            //        case "/t:1":
+            //            InitializeDataStructure(ConceptType.First);
+            //            TUI.Start();
+            //            break;
+            //        case "/t:2":
+            //            InitializeDataStructure(ConceptType.Second);
+            //            TUI.Start();
+            //            break;
+            //        case "/g:1":
+            //            InitializeDataStructure(ConceptType.First);
+            //            GUI.Start();
+            //            break;
+            //        case "/g:2":
+            //            InitializeDataStructure(ConceptType.Second);
+            //            GUI.Start();
+            //            break;
+            //        case "/?":
+            //            PrintHelp();
+            //            break;
+            //        default:
+            //            Console.WriteLine("Invalid syntax. Use /? parameter to display help.");
+            //            Console.ReadKey();
+            //            break;
+            //    }
+            //}
+            //else // -> when you start the app through the windows explorer or from the console without parameters.
+            //{
+            //    //InitializeDataStructure(ConceptType.First); // Default = First concept type.
+            //    //GUI.Start();
+            //    Console.WriteLine("Hello from console");
+            //    Console.ReadKey();
+            //}
+
+            Console.WriteLine("mLab MongoDB Connection via MongoDB.Driver 2.4.4 for ConceptType.Second:\n");
+            Console.WriteLine("- TeamManager temporarily set to Output type: Console Application. \n- Code in Program.cs Main temporarily commented out.\n");
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
+            FillMongoDB();
+            TestMongoDB();
         }
 
+        private static void FillMongoDB()
+        {
+            Console.Clear();
+            Console.WriteLine("Dropping old collections.");
+            DB.Database.DropCollection("team");
+            DB.Database.DropCollection("player");
+
+            Console.WriteLine("Creating Team.");
+            DB.Teams.InsertOne(new Team()
+            {
+                Name = "Team One"
+            });
+            DB.Teams.InsertOne(new Team()
+            {
+                Name = "Team Two"
+            });
+            DB.Teams.InsertOne(new Team()
+            {
+                Name = "Team Three"
+            });
+
+            Console.WriteLine("Getting first Team Id.");
+            string teamId = DB.Teams.Find(t => t.Name == "Team One").First().Id;
+
+            Console.WriteLine("Creating first Team Players.");
+            DB.Players.InsertOne(new Player()
+            {
+                Name = "Player One",
+                Team = teamId
+            });
+            DB.Players.InsertOne(new Player()
+            {
+                Name = "Player Two",
+                Team = teamId
+            });
+            DB.Players.InsertOne(new Player()
+            {
+                Name = "Player Three",
+                Team = teamId
+            });
+
+            Console.WriteLine("Getting second Team Id.");
+            string secondTeamId = DB.Teams.Find(t => t.Name == "Team Two").First().Id;
+
+            Console.WriteLine("Creating second Team Players.");
+            DB.Players.InsertOne(new Player()
+            {
+                Name = "Player Four",
+                Team = secondTeamId
+            });
+            DB.Players.InsertOne(new Player()
+            {
+                Name = "Player Five",
+                Team = secondTeamId
+            });
+
+            Console.WriteLine("Getting third Team Id.");
+            string thirdTeamId = DB.Teams.Find(t => t.Name == "Team Three").First().Id;
+
+            Console.WriteLine("Creating third Team Players.");
+            DB.Players.InsertOne(new Player()
+            {
+                Name = "Player Six",
+                Team = thirdTeamId
+            });
+            DB.Players.InsertOne(new Player()
+            {
+                Name = "Player Seven",
+                Team = thirdTeamId
+            });
+            DB.Players.InsertOne(new Player()
+            {
+                Name = "Player Eight",
+                Team = thirdTeamId
+            });
+            DB.Players.InsertOne(new Player()
+            {
+                Name = "Player Nine",
+                Team = thirdTeamId
+            });
+
+            Console.WriteLine("Finished creating Teams and Players.");
+            Console.WriteLine("\nPress any key to continue.");
+            Console.ReadKey();
+        }
+
+        private static void TestMongoDB()
+        {
+            Console.Clear();
+            Console.WriteLine("Querying for Team One.");
+            List<Team> teams = DB.Teams.Find(t => t.Name == "Team One").ToList();
+            Console.WriteLine("Teams found: {0}", teams.Count());
+            string teamId = "";
+            foreach (Team team in teams)
+            {
+                Console.WriteLine(team.Name);
+                teamId = team.Id;
+
+                Console.WriteLine("Querying for Players of {0}.", team.Name);
+                List<Player> players = DB.Players.Find(p => p.Team == teamId).ToList();
+                Console.WriteLine("Players found: {0}", players.Count());
+                foreach (Player player in players)
+                {
+                    Console.WriteLine(player.Name);
+                }
+            }
+
+            Console.WriteLine("Query finished.");
+            Console.WriteLine("\nPress any key to quit.");
+            Console.ReadKey();
+        }
 
         /// <summary>
         /// Initialize the data structure from the database.
