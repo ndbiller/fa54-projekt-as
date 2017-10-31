@@ -77,7 +77,7 @@ If Unsigned Players clicked:
 
 ### relationale Datenbank: MSSQL
 
-This will be added to the project as an embedded database file.  
+The relational database will be added to the project as an embedded database file.  
 
 ### nicht-relationale Datenbank: MongoDB
 
@@ -98,7 +98,7 @@ This will be added to the project as an embedded database file.
   ```shell
   mongo
   ```
-- to use local DB with project switch from *mlab connection* in DB.cs to commented *local connection* code  
+- to use local DB with project switch from *mlab connection* in DB.cs to commented out *local connection* code  
 
 #### hosted mongoDB server on mLab:
 
