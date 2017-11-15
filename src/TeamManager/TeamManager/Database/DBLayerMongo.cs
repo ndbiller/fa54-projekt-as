@@ -35,39 +35,53 @@ namespace TeamManager.Database
             throw new NotImplementedException();
         }
 
-        public bool CreatePlayer(string name)
+        public bool CreatePlayer(string name, string id)
         {
-            throw new NotImplementedException();
+            DBLayerMongo.Players.InsertOne(new Player()
+            {
+                Name = name,
+                Team = id
+            });
+            return true;
         }
 
         public bool CreateTeam(string name)
         {
-            throw new NotImplementedException();
+            DBLayerMongo.Teams.InsertOne(new Team()
+            {
+                Name = name
+            });
+            return true;
         }
 
         public bool DeletePlayer(string id)
         {
-            throw new NotImplementedException();
+            DBLayerMongo.Players.DeleteOne(a => a.Id == id);
+            return true;
         }
 
         public bool DeleteTeam(string id)
         {
-            throw new NotImplementedException();
+            DBLayerMongo.Teams.DeleteOne(a => a.Id == id);
+            return true;
         }
 
         public Player ReadPlayer(string id)
         {
-            throw new NotImplementedException();
+            Player player = DBLayerMongo.Players.Find(p => p.Id == id).First<Player>();
+            return player;
         }
 
         public Team ReadTeam(string id)
         {
-            throw new NotImplementedException();
+            Team teams = DBLayerMongo.Teams.Find(t => t.Id == id).First<Team>();
+            return teams;
         }
 
-        public Player ShowPlayer(string id)
+        public List<Player> ShowPlayers(string teamId)
         {
-            throw new NotImplementedException();
+            List<Player> players = DBLayerMongo.Players.Find(p => p.Team == teamId).ToList();
+            return players;
         }
 
         public bool UpdatePlayer(string id)
@@ -82,12 +96,14 @@ namespace TeamManager.Database
 
         List<Player> IDataLayer.Players()
         {
-            throw new NotImplementedException();
+            List<Player> players = DBLayerMongo.Players.Find(_ => true).ToList();
+            return players;
         }
 
         List<Team> IDataLayer.Teams()
         {
-            throw new NotImplementedException();
+            List<Team> teams = DBLayerMongo.Teams.Find(_ => true).ToList();
+            return teams;
         }
     }
 }

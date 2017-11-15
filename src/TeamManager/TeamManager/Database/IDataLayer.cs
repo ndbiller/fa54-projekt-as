@@ -7,7 +7,7 @@ using TeamManager.Main.ResourceData;
 
 namespace TeamManager.Database
 {
-    interface IDataLayer
+    public interface IDataLayer
     {
         void ConnectDB(string connectionString);
 
@@ -18,8 +18,8 @@ namespace TeamManager.Database
         bool DeleteTeam(string id);
 
         List<Player> Players();
-        Player ShowPlayer(string id);
-        bool CreatePlayer(string name);
+        List<Player> ShowPlayers(string teamId);
+        bool CreatePlayer(string name, string id);
         Player ReadPlayer(string id);
         bool UpdatePlayer(string id);
         bool DeletePlayer(string id);
