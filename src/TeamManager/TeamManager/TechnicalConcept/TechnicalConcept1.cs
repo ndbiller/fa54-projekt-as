@@ -9,11 +9,13 @@ namespace TeamManager.TechnicalConcept
 {
     public class TechnicalConcept1 : ITechnicalConcept
     {
+        public IDataLayer DataLayer { get; set; }
         public Team ATeam { get; set; }
         public Player APlayer { get; set; }
 
-        public TechnicalConcept1()
+        public TechnicalConcept1(IDataLayer dataLayer)
         {
+            this.DataLayer = dataLayer;
         }
 
         public List<string> GetAllTeams()

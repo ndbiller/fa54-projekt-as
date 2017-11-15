@@ -9,6 +9,7 @@ namespace TeamManager.TechnicalConcept
 {
     public class TechnicalConcept2 : ITechnicalConcept
     {
+        public IDataLayer DataLayer { get; set; }
         public Team ATeam { get; set; }
         public Player APlayer { get; set; }
 

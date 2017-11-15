@@ -7,7 +7,7 @@ using TeamManager.Main.ResourceData;
 
 namespace TeamManager.Database
 {
-    interface IDataLayer
+    public interface IDataLayer
     {
         void ConnectDB(string connectionString);
 
