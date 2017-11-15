@@ -187,6 +187,7 @@
             this.btnPDelete.TabIndex = 0;
             this.btnPDelete.Text = "Delete";
             this.btnPDelete.UseVisualStyleBackColor = false;
+            this.btnPDelete.Click += new System.EventHandler(this.btnPDelete_Click);
             // 
             // customTableLayoutPanel1
             // 

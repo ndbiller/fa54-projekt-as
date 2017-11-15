@@ -25,29 +25,28 @@ namespace TeamManager.Views.Forms
         {
             InitializeComponent();
             presenter = new MainPresenter(this);
+            presenter.BindTeamsData();
+            presenter.BindPlayersData();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            // TODO: Implement search behavior.
-            if (tbxSearch.TextS == tbxSearch.TextSearch)
-                tbxSearch.Focus();
-
+            presenter.Search(tbxSearch, rbnTeams.Checked);
         }
 
         private void btnPDelete_Click(object sender, EventArgs e)
         {
-            // TODO: Implement delete player.
+            presenter.DeletePlayer();
         }
 
         private void btnTDelete_Click(object sender, EventArgs e)
         {
-            // TODO: Implement delete team.
+            presenter.DeleteTeam();
         }
 
         private void lbxTeams_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // TODO: Display players of the selected team.
+            presenter.BindPlayersData();
         }
 
 
@@ -86,8 +85,8 @@ namespace TeamManager.Views.Forms
 
         public string SearchText
         {
-            get => tbxSearch.Text;
-            set => tbxSearch.Text = value;
+            get => tbxSearch.TextS;
+            set => tbxSearch.TextS = value;
         }
 
         public List<string> ListBoxTeams
@@ -101,5 +100,6 @@ namespace TeamManager.Views.Forms
             get => lbxPlayers.Items.Cast<string>().ToList();
             set => lbxPlayers.DataSource = value;
         }
+
     }
 }

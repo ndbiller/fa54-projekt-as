@@ -22,11 +22,12 @@ namespace TeamManager.Views.Forms.ChildForms
         {
             InitializeComponent();
             presenter = new UnsignedPlayersPresenter(this);
+            presenter.BindPlayersData();
         }
 
         private void btnPDelete_Click(object sender, EventArgs e)
         {
-
+            presenter.DeletePlayer();
         }
 
         #region ------------------- Show Dialogs -------------------
@@ -43,8 +44,8 @@ namespace TeamManager.Views.Forms.ChildForms
 
         public List<string> ListBoxPlayers
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get => lbxPlayers.Items.Cast<string>().ToList();
+            set => lbxPlayers.DataSource = value;
         }
     }
 }

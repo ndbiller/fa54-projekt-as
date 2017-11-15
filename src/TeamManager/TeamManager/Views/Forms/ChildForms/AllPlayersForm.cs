@@ -24,16 +24,17 @@ namespace TeamManager.Views.Forms.ChildForms
             presenter = new AllPlayersPresenter(this);
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnPDelete_Click(object sender, EventArgs e)
         {
-            Close();
+            presenter.DeletePlayer();
         }
 
-        private void btnMinimize_Click(object sender, EventArgs e)
+        private void lbxPlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Minimized;
+            presenter.UpdateView(lbxPlayers.Text);
         }
 
+        #region ------------------- Show Dialogs -------------------
         private void btnPEdit_Click(object sender, EventArgs e)
         {
             new EditForm(ViewType.PlayerEdit).ShowDialog();
@@ -43,11 +44,7 @@ namespace TeamManager.Views.Forms.ChildForms
         {
             new EditForm(ViewType.PlayerCreate).ShowDialog();
         }
-
-        private void lbxPlayers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            presenter.UpdateView(lbxPlayers.Text);
-        }
+        #endregion -------------- Show Dialogs -------------------
 
         public int SelectedPlayerIndex
         {
@@ -72,5 +69,7 @@ namespace TeamManager.Views.Forms.ChildForms
             get => lbxPlayers.Items.Cast<string>().ToList();
             set => lbxPlayers.DataSource = value;
         }
+
+
     }
 }

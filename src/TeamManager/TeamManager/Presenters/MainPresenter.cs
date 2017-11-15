@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Forms.Custom;
 using TeamManager.Models.ResourceData;
 using TeamManager.Views.Interfaces;
 
@@ -17,19 +19,61 @@ namespace TeamManager.Presenters
             this.mainView = mainView;
         }
 
-#if !MONGO_DB
+        public void DeletePlayer()
+        {
+            // TODO: Implement delete player.
+
+            BindPlayersData();
+        }
+
+        public void DeleteTeam()
+        {
+            // TODO: Implement delete team.
+
+            BindTeamsData();
+            BindPlayersData();
+        }
+
+        public void Search(CustomTextBoxSearch tbxSearch, bool searchInTeams)
+        {
+            if (tbxSearch.TextS == tbxSearch.TextSearch)
+            {
+                tbxSearch.Focus();
+                return;
+            }
+
+            BindTeamsData();
+            BindPlayersData();
+
+            // TODO: Implement wildcard with regex.
+            if (searchInTeams)
+            {
+                List<string> teams = mainView.ListBoxTeams;
+                mainView.ListBoxTeams = teams.FindAll(t => t.ToLower().Contains(tbxSearch.TextS.ToLower()));
+            }
+            else // search in players.
+            {
+                List<string> players = mainView.ListBoxPlayers;
+                mainView.ListBoxPlayers = players.FindAll(t => t.ToLower().Contains(tbxSearch.TextS.ToLower()));
+            }
+
+        }
+
+
         public void BindTeamsData()
         {
+#if !MONGO_DB
             // TODO: Get all teams from database and bind data to the view.
             // Example:
             List<Team> teams = GetAllTeamsFromDatabase();
             mainView.ListBoxTeams = teams.Select(t => t.Name).ToList();
-        }
 #endif
+        }
+
 
         public void BindPlayersData()
         {
-            // TODO: Get all players from database and bind data to the view.
+            // TODO: Get all players from database and bind data to the view with the selected Index of the teams.
         }
 
 #if !MONGO_DB
@@ -49,6 +93,5 @@ namespace TeamManager.Presenters
 
         }
 #endif
-
     }
 }
