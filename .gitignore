@@ -4,3 +4,4 @@
 src/TeamManager/TeamManager/obj/
 src/TeamManager/TeamManager/bin/
 .env*
+src/TeamManager/.vs/
