@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace TeamManager.Presenters
 {
-    public class BasePresenter
+    /// <summary>
+    /// The base presenter will contain the Concept Type that will be used in the way 
+    /// we retrieve data from the database and all commmon data between all presenters.
+    /// </summary>
+    public abstract class BasePresenter
     {
     }
 }

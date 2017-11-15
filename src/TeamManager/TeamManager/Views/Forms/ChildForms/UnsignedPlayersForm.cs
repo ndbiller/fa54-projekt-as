@@ -41,5 +41,10 @@ namespace TeamManager.Views.Forms.ChildForms
         }
         #endregion -------------- Show Dialogs -------------------
 
+        public List<string> ListBoxPlayers
+        {
+            get { throw new NotImplementedException(); }
+            set { throw new NotImplementedException(); }
+        }
     }
 }

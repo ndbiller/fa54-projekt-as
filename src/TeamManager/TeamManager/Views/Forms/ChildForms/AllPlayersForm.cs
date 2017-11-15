@@ -46,8 +46,31 @@ namespace TeamManager.Views.Forms.ChildForms
 
         private void lbxPlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tbxName.Text = lbxPlayers.Text;
-            tbxTeam.Text = "0xFFFFFF";
+            presenter.UpdateView(lbxPlayers.Text);
+        }
+
+        public int SelectedPlayerIndex
+        {
+            get => lbxPlayers.SelectedIndex;
+            set => lbxPlayers.SelectedIndex = value;
+        }
+
+        public string PlayerNameText
+        {
+            get => tbxName.Text;
+            set => tbxName.Text = value;
+        }
+
+        public string TeamNameText
+        {
+            get => tbxTeam.Text;
+            set => tbxTeam.Text = value;
+        }
+
+        public List<string> ListBoxPlayers
+        {
+            get => lbxPlayers.Items.Cast<string>().ToList();
+            set => lbxPlayers.DataSource = value;
         }
     }
 }

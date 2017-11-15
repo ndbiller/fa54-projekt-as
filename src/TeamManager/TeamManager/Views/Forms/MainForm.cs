@@ -84,5 +84,22 @@ namespace TeamManager.Views.Forms
         }
         #endregion -------------- Show Dialogs -------------------
 
+        public string SearchText
+        {
+            get => tbxSearch.Text;
+            set => tbxSearch.Text = value;
+        }
+
+        public List<string> ListBoxTeams
+        {
+            get => lbxTeams.Items.Cast<string>().ToList();
+            set => lbxTeams.DataSource = value;
+        }
+
+        public List<string> ListBoxPlayers
+        {
+            get => lbxPlayers.Items.Cast<string>().ToList();
+            set => lbxPlayers.DataSource = value;
+        }
     }
 }

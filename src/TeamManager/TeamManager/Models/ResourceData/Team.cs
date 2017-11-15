@@ -10,8 +10,11 @@ namespace TeamManager.Models.ResourceData
 {
     public class Team
     {
-        //public int Id { get; set; }
+#if MONGO_DB
         public string Id { get; set; } = Guid.NewGuid().ToString();
+#else
+        public int Id { get; set; }
+#endif
         public string Name { get; set; }
     }
 }
