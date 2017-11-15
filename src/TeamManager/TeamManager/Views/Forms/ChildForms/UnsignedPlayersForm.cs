@@ -8,15 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Custom;
+using TeamManager.Presenters;
 using TeamManager.Views.Enums;
+using TeamManager.Views.Interfaces;
 
 namespace TeamManager.Views.Forms.ChildForms
 {
-    public partial class UnsignedPlayersForm : CustomForm
+    public partial class UnsignedPlayersForm : CustomForm, IUnsignedPlayersView
     {
+        private UnsignedPlayersPresenter presenter;
+
         public UnsignedPlayersForm()
         {
             InitializeComponent();
+            presenter = new UnsignedPlayersPresenter(this);
         }
 
         private void btnPDelete_Click(object sender, EventArgs e)

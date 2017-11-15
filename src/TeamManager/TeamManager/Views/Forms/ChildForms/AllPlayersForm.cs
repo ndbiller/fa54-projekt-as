@@ -8,15 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Custom;
+using TeamManager.Presenters;
 using TeamManager.Views.Enums;
+using TeamManager.Views.Interfaces;
 
 namespace TeamManager.Views.Forms.ChildForms
 {
-    public partial class AllPlayersForm : CustomForm
+    public partial class AllPlayersForm : CustomForm, IAllPlayersView
     {
+        private AllPlayersPresenter presenter;
+
         public AllPlayersForm()
         {
             InitializeComponent();
+            presenter = new AllPlayersPresenter(this);
         }
 
         private void btnExit_Click(object sender, EventArgs e)

@@ -10,16 +10,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Custom;
+using TeamManager.Presenters;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Forms.ChildForms;
+using TeamManager.Views.Interfaces;
 
 namespace TeamManager.Views.Forms
 {
-    public partial class MainForm : CustomForm
+    public partial class MainForm : CustomForm, IMainView
     {
+        private MainPresenter presenter;
+
         public MainForm()
         {
             InitializeComponent();
+            presenter = new MainPresenter(this);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
