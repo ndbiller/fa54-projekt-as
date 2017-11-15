@@ -29,6 +29,9 @@ namespace TeamManager
         /// <param name="args"></param>
         static void Main(string[] args)
         {
+            //AllocConsole();
+            //TUI.Start();
+
             //if (args.Length != 0)
             //{
             //    if (!args[0].ToLower().StartsWith("/g")) // We don't want to allocate console when using gui.
@@ -81,78 +84,78 @@ namespace TeamManager
         {
             Console.Clear();
             Console.WriteLine("Dropping old collections.");
-            DB.Database.DropCollection("team");
-            DB.Database.DropCollection("player");
+            DBLayerMongo.Database.DropCollection("team");
+            DBLayerMongo.Database.DropCollection("player");
 
             Console.WriteLine("Creating Team.");
-            DB.Teams.InsertOne(new Team()
+            DBLayerMongo.Teams.InsertOne(new Team()
             {
                 Name = "Team One"
             });
-            DB.Teams.InsertOne(new Team()
+            DBLayerMongo.Teams.InsertOne(new Team()
             {
                 Name = "Team Two"
             });
-            DB.Teams.InsertOne(new Team()
+            DBLayerMongo.Teams.InsertOne(new Team()
             {
                 Name = "Team Three"
             });
 
             Console.WriteLine("Getting first Team Id.");
-            string teamId = DB.Teams.Find(t => t.Name == "Team One").First().Id;
+            string teamId = DBLayerMongo.Teams.Find(t => t.Name == "Team One").First().Id;
 
             Console.WriteLine("Creating first Team Players.");
-            DB.Players.InsertOne(new Player()
+            DBLayerMongo.Players.InsertOne(new Player()
             {
                 Name = "Player One",
                 Team = teamId
             });
-            DB.Players.InsertOne(new Player()
+            DBLayerMongo.Players.InsertOne(new Player()
             {
                 Name = "Player Two",
                 Team = teamId
             });
-            DB.Players.InsertOne(new Player()
+            DBLayerMongo.Players.InsertOne(new Player()
             {
                 Name = "Player Three",
                 Team = teamId
             });
 
             Console.WriteLine("Getting second Team Id.");
-            string secondTeamId = DB.Teams.Find(t => t.Name == "Team Two").First().Id;
+            string secondTeamId = DBLayerMongo.Teams.Find(t => t.Name == "Team Two").First().Id;
 
             Console.WriteLine("Creating second Team Players.");
-            DB.Players.InsertOne(new Player()
+            DBLayerMongo.Players.InsertOne(new Player()
             {
                 Name = "Player Four",
                 Team = secondTeamId
             });
-            DB.Players.InsertOne(new Player()
+            DBLayerMongo.Players.InsertOne(new Player()
             {
                 Name = "Player Five",
                 Team = secondTeamId
             });
 
             Console.WriteLine("Getting third Team Id.");
-            string thirdTeamId = DB.Teams.Find(t => t.Name == "Team Three").First().Id;
+            string thirdTeamId = DBLayerMongo.Teams.Find(t => t.Name == "Team Three").First().Id;
 
             Console.WriteLine("Creating third Team Players.");
-            DB.Players.InsertOne(new Player()
+            DBLayerMongo.Players.InsertOne(new Player()
             {
                 Name = "Player Six",
                 Team = thirdTeamId
             });
-            DB.Players.InsertOne(new Player()
+            DBLayerMongo.Players.InsertOne(new Player()
             {
                 Name = "Player Seven",
                 Team = thirdTeamId
             });
-            DB.Players.InsertOne(new Player()
+            DBLayerMongo.Players.InsertOne(new Player()
             {
                 Name = "Player Eight",
                 Team = thirdTeamId
             });
-            DB.Players.InsertOne(new Player()
+            DBLayerMongo.Players.InsertOne(new Player()
             {
                 Name = "Player Nine",
                 Team = thirdTeamId
@@ -167,7 +170,7 @@ namespace TeamManager
         {
             Console.Clear();
             Console.WriteLine("Querying for Team One.");
-            List<Team> teams = DB.Teams.Find(t => t.Name == "Team One").ToList();
+            List<Team> teams = DBLayerMongo.Teams.Find(t => t.Name == "Team One").ToList();
             Console.WriteLine("Teams found: {0}", teams.Count());
             string teamId = "";
             foreach (Team team in teams)
@@ -176,7 +179,7 @@ namespace TeamManager
                 teamId = team.Id;
 
                 Console.WriteLine("Querying for Players of {0}.", team.Name);
-                List<Player> players = DB.Players.Find(p => p.Team == teamId).ToList();
+                List<Player> players = DBLayerMongo.Players.Find(p => p.Team == teamId).ToList();
                 Console.WriteLine("Players found: {0}", players.Count());
                 foreach (Player player in players)
                 {

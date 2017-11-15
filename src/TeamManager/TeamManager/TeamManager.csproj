@@ -80,7 +80,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\DB.cs" />
+    <Compile Include="Database\DBLayerMongo.cs" />
+    <Compile Include="Database\IDataLayer.cs" />
     <Compile Include="Database\TeamManagerDb.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
