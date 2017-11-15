@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using TeamManager.Database;
 using TeamManager.Main.ConceptTypes;
 using TeamManager.Models.ResourceData;
+using TeamManager.Views;
 
 namespace TeamManager
 {
@@ -38,20 +39,16 @@ namespace TeamManager
                 switch (args[0].ToLower())
                 {
                     case "/t:1":
-                        InitializeDataStructure(ConceptType.First);
-                        TUI.Start();
+                        TUI.Start(ConceptType.First);
                         break;
                     case "/t:2":
-                        InitializeDataStructure(ConceptType.Second);
-                        TUI.Start();
+                        TUI.Start(ConceptType.Second);
                         break;
                     case "/g:1":
-                        InitializeDataStructure(ConceptType.First);
-                        GUI.Start();
+                        GUI.Start(ConceptType.First);
                         break;
                     case "/g:2":
-                        InitializeDataStructure(ConceptType.Second);
-                        GUI.Start();
+                        GUI.Start(ConceptType.Second);
                         break;
                     case "/?":
                         PrintHelp();
@@ -64,8 +61,7 @@ namespace TeamManager
             }
             else // -> when you start the app through the windows explorer or from the console without parameters.
             {
-                InitializeDataStructure(ConceptType.First); // Default = First concept type.
-                GUI.Start();
+                GUI.Start(ConceptType.First);
             }
 #endif
             #region MongoDB-Stuff
