@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TeamManager.Database;
 
-namespace TeamManager.TechnicalConcept
+namespace TeamManager.Models.TechnicalConcept
 {
     public interface ITechnicalConcept
     {

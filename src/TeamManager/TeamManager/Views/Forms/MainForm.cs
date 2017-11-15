@@ -10,11 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Custom;
-using TeamManager.Properties;
-using TeamManager.Forms.ChildForms;
+using TeamManager.Views.Enums;
+using TeamManager.Views.Forms.ChildForms;
 
-
-namespace TeamManager.Forms
+namespace TeamManager.Views.Forms
 {
     public partial class MainForm : CustomForm
     {

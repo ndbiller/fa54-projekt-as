@@ -1,4 +1,4 @@
-﻿namespace TeamManager.Forms
+﻿namespace TeamManager.Views.Enums
 {
     public enum ViewType
     {

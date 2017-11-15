@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TeamManager.Database;
 using TeamManager.Main.ConceptTypes;
-using TeamManager.Main.ResourceData;
+using TeamManager.Models.ResourceData;
 
 namespace TeamManager
 {

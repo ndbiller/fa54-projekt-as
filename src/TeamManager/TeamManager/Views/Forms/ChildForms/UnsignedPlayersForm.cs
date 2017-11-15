@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Custom;
+using TeamManager.Views.Enums;
 
-namespace TeamManager.Forms.ChildForms
+namespace TeamManager.Views.Forms.ChildForms
 {
     public partial class UnsignedPlayersForm : CustomForm
     {
