@@ -8,25 +8,18 @@ namespace TeamManager.TechnicalConcept
 {
     public class Team
     {
-        public String Name
-        {
-            get { return Name; }
-            private set { Name = value; }
-        }
-        public String Id
-        {
-            get { return Id; }
-            private set { Id = value; }
-        }
+        public string Name { get; private set; }
+        public string Id { get; private set; }
+
         public Team()
         {
             this.Name = "New Team";
         }
-        public Team(String name)
+        public Team(string name)
         {
             this.Name = name;
         }
-        public Team(String name, String id)
+        public Team(string name, string id)
         {
             this.Name = name;
             this.Id = id;

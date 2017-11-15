@@ -9,65 +9,51 @@ namespace TeamManager.TechnicalConcept
 {
     public class TechnicalConcept1 : ITechnicalConcept
     {
-        public IDbManager ADbManager
+        public Team ATeam { get; set; }
+        public Player APlayer { get; set; }
+
+        public TechnicalConcept1()
         {
-            get { return ADbManager; }
-            set { ADbManager = value; }
-        }
-        public Team ATeam
-        {
-            get { return ATeam; }
-            set { ATeam = value; }
-        }
-        public Player APlayer
-        {
-            get { return APlayer; }
-            set { APlayer = value; }
         }
 
-        public TechnicalConcept1(IDbManager aDbManager)
-        {
-            this.ADbManager = aDbManager;
-        }
-
-        public List<String> GetAllTeams()
+        public List<string> GetAllTeams()
         {
             throw new NotImplementedException();
         }
-        public String AddNewTeam(String teamName)
+        public string AddNewTeam(string teamName)
         {
             throw new NotImplementedException();
         }
-        public String ChangeTeamName(String teamId, String NewTeamName)
+        public string ChangeTeamName(string teamId, string NewTeamName)
         {
             throw new NotImplementedException();
         }
-        public String RemoveTeam(String teamId)
+        public string RemoveTeam(string teamId)
         {
             throw new NotImplementedException();
         }
 
-        public List<String> GetAllPlayer()
+        public List<string> GetAllPlayer()
         {
             throw new NotImplementedException();
         }
-        public List<String> GetTeamPlayers(String teamId)
+        public List<string> GetTeamPlayers(string teamId)
         {
             throw new NotImplementedException();
         }
-        public String AddNewPlayer(String playerName)
+        public string AddNewPlayer(string playerName)
         {
             throw new NotImplementedException();
         }
-        public String ChangePlayerName(String playerId)
+        public string ChangePlayerName(string playerId)
         {
             throw new NotImplementedException();
         }
-        public String RemovePlayer(String playerId)
+        public string RemovePlayer(string playerId)
         {
             throw new NotImplementedException();
         }
-        public String TransferPlayer(String playerId, String teamId)
+        public string TransferPlayer(string playerId, string teamId)
         {
             throw new NotImplementedException();
         }

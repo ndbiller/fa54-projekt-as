@@ -9,21 +9,20 @@ namespace TeamManager.TechnicalConcept
 {
     public interface ITechnicalConcept
     {
-        IDbManager ADbManager { get; set; }
 
         Team ATeam { get; set; }
         Player APlayer { get; set; }
         
-        List<String> GetAllTeams();
-        String AddNewTeam(String teamName);
-        String ChangeTeamName(String teamId, String NewTeamName);
-        String RemoveTeam(String teamId);
+        List<string> GetAllTeams();
+        string AddNewTeam(string teamName);
+        string ChangeTeamName(string teamId, string NewTeamName);
+        string RemoveTeam(string teamId);
 
-        List<String> GetAllPlayer();
-        List<String> GetTeamPlayers(String teamId);
-        String AddNewPlayer(String playerName);
-        String ChangePlayerName(String playerId);
-        String RemovePlayer(String playerId);
-        String TransferPlayer(String playerId, String teamId);
+        List<string> GetAllPlayer();
+        List<string> GetTeamPlayers(string teamId);
+        string AddNewPlayer(string playerName);
+        string ChangePlayerName(string playerId);
+        string RemovePlayer(string playerId);
+        string TransferPlayer(string playerId, string teamId);
     }
 }
