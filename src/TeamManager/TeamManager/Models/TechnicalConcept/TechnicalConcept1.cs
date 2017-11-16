@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TeamManager.Database;
+using TeamManager.Models.ResourceData;
 
 namespace TeamManager.Models.TechnicalConcept
 {
@@ -11,46 +12,54 @@ namespace TeamManager.Models.TechnicalConcept
     {
         public TechnicalConcept1(DataType dataType) : base(dataType) { }
 
-        public List<string> GetAllTeams()
-        {
-            throw new NotImplementedException();
-        }
-        public string AddNewTeam(string teamName)
-        {
-            throw new NotImplementedException();
-        }
-        public string ChangeTeamName(string teamId, string NewTeamName)
-        {
-            throw new NotImplementedException();
-        }
-        public string RemoveTeam(string teamId)
+        public bool AddNewPlayer(string playerName)
         {
             throw new NotImplementedException();
         }
 
-        public List<string> GetAllPlayer()
+        public bool AddNewTeam(string teamName)
         {
             throw new NotImplementedException();
         }
-        public List<string> GetTeamPlayers(string teamId)
+
+        public bool ChangePlayerName(string playerId)
         {
             throw new NotImplementedException();
         }
-        public string AddNewPlayer(string playerName)
+
+        public bool ChangeTeamName(string teamId, string NewTeamName)
         {
             throw new NotImplementedException();
         }
-        public string ChangePlayerName(string playerId)
+
+        public List<Player> GetAllPlayer()
         {
             throw new NotImplementedException();
         }
-        public string RemovePlayer(string playerId)
+
+        public List<Team> GetAllTeams()
         {
             throw new NotImplementedException();
         }
-        public string TransferPlayer(string playerId, string teamId)
+
+        public List<Player> GetTeamPlayers(string teamId)
         {
             throw new NotImplementedException();
         }
-}
+
+        public bool RemovePlayer(string playerId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RemoveTeam(string teamId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool TransferPlayer(string playerId, string teamId)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

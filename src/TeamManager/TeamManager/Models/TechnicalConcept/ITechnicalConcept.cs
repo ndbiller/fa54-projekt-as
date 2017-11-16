@@ -10,16 +10,16 @@ namespace TeamManager.Models.TechnicalConcept
 {
     public interface ITechnicalConcept
     {       
-        List<string> GetAllTeams();
-        string AddNewTeam(string teamName);
-        string ChangeTeamName(string teamId, string NewTeamName);
-        string RemoveTeam(string teamId);
+        List<Team> GetAllTeams();
+        bool AddNewTeam(string teamName);
+        bool ChangeTeamName(string teamId, string NewTeamName);
+        bool RemoveTeam(string teamId);
 
-        List<string> GetAllPlayer();
-        List<string> GetTeamPlayers(string teamId);
-        string AddNewPlayer(string playerName);
-        string ChangePlayerName(string playerId);
-        string RemovePlayer(string playerId);
-        string TransferPlayer(string playerId, string teamId);
+        List<Player> GetAllPlayer();
+        List<Player> GetTeamPlayers(string teamId);
+        bool AddNewPlayer(string playerName);
+        bool ChangePlayerName(string playerId);
+        bool RemovePlayer(string playerId);
+        bool TransferPlayer(string playerId, string teamId);
     }
 }
