@@ -27,13 +27,21 @@ namespace TeamManager.Database
         static private string connectionString = "mongodb://"+MLAB_USERNAME+":"+MLAB_PASSWORD+"@"+MLAB_URI+":"+MLAB_PORT+"/"+MLAB_DATABASE_NAME;
 
         static private MongoClient Client { get; set; }
-        static public IMongoDatabase Database { get; private set; } = Client.GetDatabase(databaseName);
-        static public IMongoCollection<Team> Teams { get; set; } = Database.GetCollection<Team>("team");
-        static public IMongoCollection<Player> Players { get; set; } = Database.GetCollection<Player>("player");
+        static public IMongoDatabase Database { get; private set; }
+        static public IMongoCollection<Team> Teams { get; set; }
+        static public IMongoCollection<Player> Players { get; set; }
 
-        public void ConnectDB(string connectionString)
+        public DBLayerMongo() : base()
+        {
+            this.ConnectDB();
+        }
+
+        public void ConnectDB()
         {
             Client = new MongoClient(connectionString);
+            Database = Client.GetDatabase(databaseName);
+            Teams = Database.GetCollection<Team>("team");
+            Players = Database.GetCollection<Player>("player");
         }
 
         public bool CreatePlayer(string name, string id)

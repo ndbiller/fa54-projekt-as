@@ -67,11 +67,11 @@ namespace TeamManager
             #region MongoDB-Stuff
 #if MONGO_DB
             Console.WriteLine("mLab MongoDB Connection via MongoDB.Driver 2.4.4 for ConceptType.Second:\n");
-            Console.WriteLine("- TeamManager temporarily set to Output type: Console Application. \n- Code in Program.cs Main temporarily commented out.\n");
-            Console.WriteLine("Press any key to continue.");
-            Console.ReadKey();
-            FillMongoDB();
-            TestMongoDB();
+        Console.WriteLine("- TeamManager temporarily set to Output type: Console Application. \n- Code in Program.cs Main temporarily commented out.\n");
+        Console.WriteLine("Press any key to continue.");
+        Console.ReadKey();
+        FillMongoDB();
+        TestMongoDB();
 #endif
             #endregion MongoDB-Stuff
         }
@@ -81,83 +81,87 @@ namespace TeamManager
         private static void FillMongoDB()
         {
             Console.Clear();
-            Console.WriteLine("Dropping old collections.");
-            DBLayerMongo.Database.DropCollection("team");
-            DBLayerMongo.Database.DropCollection("player");
+            Console.WriteLine("Connecting to MongoDB.");
+            DBLayerMongo mongo = new DBLayerMongo();
+            Console.WriteLine("DB connected.");
 
-            Console.WriteLine("Creating Team.");
-            DBLayerMongo.Teams.InsertOne(new Team()
-            {
-                Name = "Team One"
-            });
-            DBLayerMongo.Teams.InsertOne(new Team()
-            {
-                Name = "Team Two"
-            });
-            DBLayerMongo.Teams.InsertOne(new Team()
-            {
-                Name = "Team Three"
-            });
+            //Console.WriteLine("Dropping old collections.");
+            //DBLayerMongo.Database.DropCollection("team");
+            //DBLayerMongo.Database.DropCollection("player");
 
-            Console.WriteLine("Getting first Team Id.");
-            string teamId = DBLayerMongo.Teams.Find(t => t.Name == "Team One").First().Id;
+            //Console.WriteLine("Creating Team.");
+            //DBLayerMongo.Teams.InsertOne(new Team()
+            //{
+            //    Name = "Team One"
+            //});
+            //DBLayerMongo.Teams.InsertOne(new Team()
+            //{
+            //    Name = "Team Two"
+            //});
+            //DBLayerMongo.Teams.InsertOne(new Team()
+            //{
+            //    Name = "Team Three"
+            //});
 
-            Console.WriteLine("Creating first Team Players.");
-            DBLayerMongo.Players.InsertOne(new Player()
-            {
-                Name = "Player One",
-                Team = teamId
-            });
-            DBLayerMongo.Players.InsertOne(new Player()
-            {
-                Name = "Player Two",
-                Team = teamId
-            });
-            DBLayerMongo.Players.InsertOne(new Player()
-            {
-                Name = "Player Three",
-                Team = teamId
-            });
+            //Console.WriteLine("Getting first Team Id.");
+            //string teamId = DBLayerMongo.Teams.Find(t => t.Name == "Team One").First().Id;
 
-            Console.WriteLine("Getting second Team Id.");
-            string secondTeamId = DBLayerMongo.Teams.Find(t => t.Name == "Team Two").First().Id;
+            //Console.WriteLine("Creating first Team Players.");
+            //DBLayerMongo.Players.InsertOne(new Player()
+            //{
+            //    Name = "Player One",
+            //    Team = teamId
+            //});
+            //DBLayerMongo.Players.InsertOne(new Player()
+            //{
+            //    Name = "Player Two",
+            //    Team = teamId
+            //});
+            //DBLayerMongo.Players.InsertOne(new Player()
+            //{
+            //    Name = "Player Three",
+            //    Team = teamId
+            //});
 
-            Console.WriteLine("Creating second Team Players.");
-            DBLayerMongo.Players.InsertOne(new Player()
-            {
-                Name = "Player Four",
-                Team = secondTeamId
-            });
-            DBLayerMongo.Players.InsertOne(new Player()
-            {
-                Name = "Player Five",
-                Team = secondTeamId
-            });
+            //Console.WriteLine("Getting second Team Id.");
+            //string secondTeamId = DBLayerMongo.Teams.Find(t => t.Name == "Team Two").First().Id;
 
-            Console.WriteLine("Getting third Team Id.");
-            string thirdTeamId = DBLayerMongo.Teams.Find(t => t.Name == "Team Three").First().Id;
+            //Console.WriteLine("Creating second Team Players.");
+            //DBLayerMongo.Players.InsertOne(new Player()
+            //{
+            //    Name = "Player Four",
+            //    Team = secondTeamId
+            //});
+            //DBLayerMongo.Players.InsertOne(new Player()
+            //{
+            //    Name = "Player Five",
+            //    Team = secondTeamId
+            //});
 
-            Console.WriteLine("Creating third Team Players.");
-            DBLayerMongo.Players.InsertOne(new Player()
-            {
-                Name = "Player Six",
-                Team = thirdTeamId
-            });
-            DBLayerMongo.Players.InsertOne(new Player()
-            {
-                Name = "Player Seven",
-                Team = thirdTeamId
-            });
-            DBLayerMongo.Players.InsertOne(new Player()
-            {
-                Name = "Player Eight",
-                Team = thirdTeamId
-            });
-            DBLayerMongo.Players.InsertOne(new Player()
-            {
-                Name = "Player Nine",
-                Team = thirdTeamId
-            });
+            //Console.WriteLine("Getting third Team Id.");
+            //string thirdTeamId = DBLayerMongo.Teams.Find(t => t.Name == "Team Three").First().Id;
+
+            //Console.WriteLine("Creating third Team Players.");
+            //DBLayerMongo.Players.InsertOne(new Player()
+            //{
+            //    Name = "Player Six",
+            //    Team = thirdTeamId
+            //});
+            //DBLayerMongo.Players.InsertOne(new Player()
+            //{
+            //    Name = "Player Seven",
+            //    Team = thirdTeamId
+            //});
+            //DBLayerMongo.Players.InsertOne(new Player()
+            //{
+            //    Name = "Player Eight",
+            //    Team = thirdTeamId
+            //});
+            //DBLayerMongo.Players.InsertOne(new Player()
+            //{
+            //    Name = "Player Nine",
+            //    Team = thirdTeamId
+            //});
 
             Console.WriteLine("Finished creating Teams and Players.");
             Console.WriteLine("\nPress any key to continue.");
@@ -168,22 +172,22 @@ namespace TeamManager
         {
             Console.Clear();
             Console.WriteLine("Querying for Team One.");
-            List<Team> teams = DBLayerMongo.Teams.Find(t => t.Name == "Team One").ToList();
-            Console.WriteLine("Teams found: {0}", teams.Count());
-            string teamId = "";
-            foreach (Team team in teams)
-            {
-                Console.WriteLine(team.Name);
-                teamId = team.Id;
+            //List<Team> teams = DBLayerMongo.Teams.Find(t => t.Name == "Team One").ToList();
+            //Console.WriteLine("Teams found: {0}", teams.Count());
+            //string teamId = "";
+            //foreach (Team team in teams)
+            //{
+            //    Console.WriteLine(team.Name);
+            //    teamId = team.Id;
 
-                Console.WriteLine("Querying for Players of {0}.", team.Name);
-                List<Player> players = DBLayerMongo.Players.Find(p => p.Team == teamId).ToList();
-                Console.WriteLine("Players found: {0}", players.Count());
-                foreach (Player player in players)
-                {
-                    Console.WriteLine(player.Name);
-                }
-            }
+            //    Console.WriteLine("Querying for Players of {0}.", team.Name);
+            //    List<Player> players = DBLayerMongo.Players.Find(p => p.Team == teamId).ToList();
+            //    Console.WriteLine("Players found: {0}", players.Count());
+            //    foreach (Player player in players)
+            //    {
+            //        Console.WriteLine(player.Name);
+            //    }
+            //}
 
             Console.WriteLine("Query finished.");
             Console.WriteLine("\nPress any key to quit.");
