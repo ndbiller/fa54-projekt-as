@@ -34,7 +34,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;MONGO_DB</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -88,54 +88,70 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TeamManagerDb.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ChildForms\EditForm.cs">
+    <Compile Include="Presenters\AllPlayersPresenter.cs" />
+    <Compile Include="Presenters\BasePresenter.cs" />
+    <Compile Include="Presenters\ConsolePresenter.cs" />
+    <Compile Include="Presenters\EditPresenter.cs" />
+    <Compile Include="Presenters\MainPresenter.cs" />
+    <Compile Include="Presenters\UnsignedPlayersPresenter.cs" />
+    <Compile Include="Views\Forms\ChildForms\EditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ChildForms\EditForm.Designer.cs">
+    <Compile Include="Views\Forms\ChildForms\EditForm.Designer.cs">
       <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ChildForms\AllPlayersForm.cs">
+    <Compile Include="Views\Forms\ChildForms\AllPlayersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ChildForms\AllPlayersForm.Designer.cs">
+    <Compile Include="Views\Forms\ChildForms\AllPlayersForm.Designer.cs">
       <DependentUpon>AllPlayersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ChildForms\UnsignedPlayersForm.cs">
+    <Compile Include="Views\Forms\ChildForms\UnsignedPlayersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ChildForms\UnsignedPlayersForm.Designer.cs">
+    <Compile Include="Views\Forms\ChildForms\UnsignedPlayersForm.Designer.cs">
       <DependentUpon>UnsignedPlayersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ViewType.cs" />
-    <Compile Include="GUI.cs" />
-    <Compile Include="Forms\MainForm.cs">
+    <Compile Include="Views\Enums\ViewType.cs" />
+    <Compile Include="Views\GUI.cs" />
+    <Compile Include="Views\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainForm.Designer.cs">
+    <Compile Include="Views\Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main\ConceptTypes\FirstConcept.cs" />
-    <Compile Include="Main\ConceptTypes\IConceptType.cs" />
-    <Compile Include="Main\ConceptTypes\SecondConcept.cs" />
-    <Compile Include="Main\ResourceData\Player.cs" />
-    <Compile Include="Main\ResourceData\Team.cs" />
-    <Compile Include="Main\ServeData\PlayersMgr.cs" />
-    <Compile Include="Main\ServeData\TeamsMgr.cs" />
-    <Compile Include="Main\TeamManager.cs" />
+    <Compile Include="Models\TechnicalConcept\ITechnicalConcept.cs" />
+    <Compile Include="Models\Temp\ConceptTypes\FirstConcept.cs" />
+    <Compile Include="Models\Temp\ConceptTypes\IConceptType.cs" />
+    <Compile Include="Models\Temp\ConceptTypes\SecondConcept.cs" />
+    <Compile Include="Models\ResourceData\Player.cs" />
+    <Compile Include="Models\ResourceData\Team.cs" />
+    <Compile Include="Models\Temp\ServeData\PlayersMgr.cs" />
+    <Compile Include="Models\Temp\ServeData\TeamsMgr.cs" />
+    <Compile Include="Models\Temp\TeamManager.cs" />
+    <Compile Include="Models\TechnicalConcept\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TUI.cs" />
-    <Compile Include="Main\ConceptTypes\ConceptType.cs" />
-    <EmbeddedResource Include="Forms\ChildForms\EditForm.resx">
+    <Compile Include="Models\TechnicalConcept\Team.cs" />
+    <Compile Include="Models\TechnicalConcept\TechnicalConcept1.cs" />
+    <Compile Include="Models\TechnicalConcept\TechnicalConcept2.cs" />
+    <Compile Include="Views\Interfaces\IAllPlayersView.cs" />
+    <Compile Include="Views\Interfaces\IConsoleView.cs" />
+    <Compile Include="Views\Interfaces\IEditView.cs" />
+    <Compile Include="Views\Interfaces\IMainView.cs" />
+    <Compile Include="Views\Interfaces\IUnsignedPlayersView.cs" />
+    <Compile Include="Views\TUI.cs" />
+    <Compile Include="Models\Temp\ConceptTypes\ConceptType.cs" />
+    <EmbeddedResource Include="Views\Forms\ChildForms\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ChildForms\AllPlayersForm.resx">
+    <EmbeddedResource Include="Views\Forms\ChildForms\AllPlayersForm.resx">
       <DependentUpon>AllPlayersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ChildForms\UnsignedPlayersForm.resx">
+    <EmbeddedResource Include="Views\Forms\ChildForms\UnsignedPlayersForm.resx">
       <DependentUpon>UnsignedPlayersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForm.resx">
+    <EmbeddedResource Include="Views\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

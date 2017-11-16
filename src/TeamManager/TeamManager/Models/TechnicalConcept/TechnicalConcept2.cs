@@ -3,68 +3,58 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TeamManager.Models.ResourceData;
+using TeamManager.Database;
 
-namespace TeamManager.Database
+namespace TeamManager.Models.TechnicalConcept
 {
-    class DBLayerSql : IDataLayer
+    public class TechnicalConcept2 : ITechnicalConcept
     {
-        public void ConnectDB(string connectionString)
+        public Team ATeam { get; set; }
+        public Player APlayer { get; set; }
+
+        public TechnicalConcept2()
+        {
+
+        }
+
+        public List<string> GetAllTeams()
+        {
+            throw new NotImplementedException();
+        }
+        public string AddNewTeam(string teamName)
+        {
+            throw new NotImplementedException();
+        }
+        public string ChangeTeamName(string teamId, string NewTeamName)
+        {
+            throw new NotImplementedException();
+        }
+        public string RemoveTeam(string teamId)
         {
             throw new NotImplementedException();
         }
 
-        public bool CreatePlayer(string name)
+        public List<string> GetAllPlayer()
         {
             throw new NotImplementedException();
         }
-
-        public bool CreateTeam(string name)
+        public List<string> GetTeamPlayers(string teamId)
         {
             throw new NotImplementedException();
         }
-
-        public bool DeletePlayer(string id)
+        public string AddNewPlayer(string playerName)
         {
             throw new NotImplementedException();
         }
-
-        public bool DeleteTeam(string id)
+        public string ChangePlayerName(string playerId)
         {
             throw new NotImplementedException();
         }
-
-        public List<Player> Players()
+        public string RemovePlayer(string playerId)
         {
             throw new NotImplementedException();
         }
-
-        public Player ReadPlayer(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Team ReadTeam(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Player ShowPlayer(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Team> Teams()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool UpdatePlayer(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool UpdateTeam(string id)
+        public string TransferPlayer(string playerId, string teamId)
         {
             throw new NotImplementedException();
         }
