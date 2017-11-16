@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,14 +26,14 @@ namespace TeamManager.Database
         static private string databaseName = MLAB_DATABASE_NAME;
         static private string connectionString = "mongodb://"+MLAB_USERNAME+":"+MLAB_PASSWORD+"@"+MLAB_URI+":"+MLAB_PORT+"/"+MLAB_DATABASE_NAME;
 
-        static private MongoClient Client = new MongoClient(connectionString);
+        static private MongoClient Client { get; set; }
         static public IMongoDatabase Database { get; private set; } = Client.GetDatabase(databaseName);
         static public IMongoCollection<Team> Teams { get; set; } = Database.GetCollection<Team>("team");
         static public IMongoCollection<Player> Players { get; set; } = Database.GetCollection<Player>("player");
 
         public void ConnectDB(string connectionString)
         {
-            throw new NotImplementedException();
+            Client = new MongoClient(connectionString);
         }
 
         public bool CreatePlayer(string name, string id)
@@ -84,14 +85,22 @@ namespace TeamManager.Database
             return players;
         }
 
-        public bool UpdatePlayer(string id)
+        public async Task<bool> UpdatePlayerAsync(string id, string name)
         {
-            throw new NotImplementedException();
+            var collection = Database.GetCollection<BsonDocument>("player");
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var update = Builders<BsonDocument>.Update.Set("Name", name);
+            var result = await collection.UpdateOneAsync(filter, update);
+            return true;
         }
 
-        public bool UpdateTeam(string id)
+        public async Task<bool> UpdateTeamAsync(string id, string name)
         {
-            throw new NotImplementedException();
+            var collection = Database.GetCollection<BsonDocument>("team");
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var update = Builders<BsonDocument>.Update.Set("Name", name);
+            var result = await collection.UpdateOneAsync(filter, update);
+            return true;
         }
 
         List<Player> IDataLayer.Players()
