@@ -80,6 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\DataType.cs" />
     <Compile Include="Database\DBLayerMongo.cs" />
     <Compile Include="Database\DBLayerSql.cs" />
     <Compile Include="Database\IDataLayer.cs" />
@@ -88,6 +89,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TeamManagerDb.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\TechnicalConcept\TechnicalConceptBase.cs" />
     <Compile Include="Presenters\AllPlayersPresenter.cs" />
     <Compile Include="Presenters\BasePresenter.cs" />
     <Compile Include="Presenters\ConsolePresenter.cs" />
@@ -129,10 +131,8 @@
     <Compile Include="Models\Temp\ServeData\PlayersMgr.cs" />
     <Compile Include="Models\Temp\ServeData\TeamsMgr.cs" />
     <Compile Include="Models\Temp\TeamManager.cs" />
-    <Compile Include="Models\TechnicalConcept\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\TechnicalConcept\Team.cs" />
     <Compile Include="Models\TechnicalConcept\TechnicalConcept1.cs" />
     <Compile Include="Models\TechnicalConcept\TechnicalConcept2.cs" />
     <Compile Include="Views\Interfaces\IAllPlayersView.cs" />
