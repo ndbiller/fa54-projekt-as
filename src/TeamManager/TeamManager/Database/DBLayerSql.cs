@@ -9,7 +9,7 @@ namespace TeamManager.Database
 {
     class DBLayerSql : IDataLayer
     {
-        public void ConnectDB(string connectionString)
+        public void ConnectDB()
         {
             throw new NotImplementedException();
         }
