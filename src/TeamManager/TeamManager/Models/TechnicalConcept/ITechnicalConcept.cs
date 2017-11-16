@@ -4,15 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TeamManager.Database;
+using TeamManager.Models.ResourceData;
 
 namespace TeamManager.Models.TechnicalConcept
 {
     public interface ITechnicalConcept
-    {
-
-        Team ATeam { get; set; }
-        Player APlayer { get; set; }
-        
+    {       
         List<string> GetAllTeams();
         string AddNewTeam(string teamName);
         string ChangeTeamName(string teamId, string NewTeamName);

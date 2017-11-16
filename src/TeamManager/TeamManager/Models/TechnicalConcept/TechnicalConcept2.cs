@@ -7,15 +7,9 @@ using TeamManager.Database;
 
 namespace TeamManager.Models.TechnicalConcept
 {
-    public class TechnicalConcept2 : ITechnicalConcept
+    public class TechnicalConcept2 : TechnicalConceptBase, ITechnicalConcept
     {
-        public Team ATeam { get; set; }
-        public Player APlayer { get; set; }
-
-        public TechnicalConcept2()
-        {
-
-        }
+        public TechnicalConcept2(DataType dataType) : base(dataType) { }
 
         public List<string> GetAllTeams()
         {
