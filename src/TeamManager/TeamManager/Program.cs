@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TeamManager.Database;
 using TeamManager.Main.ConceptTypes;
-using TeamManager.Main.ResourceData;
+using TeamManager.Models.ResourceData;
+using TeamManager.Views;
 
 namespace TeamManager
 {
@@ -29,57 +30,54 @@ namespace TeamManager
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            //AllocConsole();
-            //TUI.Start();
+#if !MONGO_DB
+            if (args.Length != 0)
+            {
+                if (!args[0].ToLower().StartsWith("/g")) // We don't want to allocate console when using gui.
+                    AllocConsole();
 
-            //if (args.Length != 0)
-            //{
-            //    if (!args[0].ToLower().StartsWith("/g")) // We don't want to allocate console when using gui.
-            //        AllocConsole();
-
-            //    switch (args[0].ToLower())
-            //    {
-            //        case "/t:1":
-            //            InitializeDataStructure(ConceptType.First);
-            //            TUI.Start();
-            //            break;
-            //        case "/t:2":
-            //            InitializeDataStructure(ConceptType.Second);
-            //            TUI.Start();
-            //            break;
-            //        case "/g:1":
-            //            InitializeDataStructure(ConceptType.First);
-            //            GUI.Start();
-            //            break;
-            //        case "/g:2":
-            //            InitializeDataStructure(ConceptType.Second);
-            //            GUI.Start();
-            //            break;
-            //        case "/?":
-            //            PrintHelp();
-            //            break;
-            //        default:
-            //            Console.WriteLine("Invalid syntax. Use /? parameter to display help.");
-            //            Console.ReadKey();
-            //            break;
-            //    }
-            //}
-            //else // -> when you start the app through the windows explorer or from the console without parameters.
-            //{
-            //    //InitializeDataStructure(ConceptType.First); // Default = First concept type.
-            //    //GUI.Start();
-            //    Console.WriteLine("Hello from console");
-            //    Console.ReadKey();
-            //}
-
+                switch (args[0].ToLower())
+                {
+                    case "/t:1":
+                        TUI.Start(ConceptType.First);
+                        break;
+                    case "/t:2":
+                        TUI.Start(ConceptType.Second);
+                        break;
+                    case "/g:1":
+                        GUI.Start(ConceptType.First);
+                        break;
+                    case "/g:2":
+                        GUI.Start(ConceptType.Second);
+                        break;
+                    case "/?":
+                        PrintHelp();
+                        break;
+                    default:
+                        Console.WriteLine("Invalid syntax. Use /? parameter to display help.");
+                        Console.ReadKey();
+                        break;
+                }
+            }
+            else // -> when you start the app through the windows explorer or from the console without parameters.
+            {
+                GUI.Start(ConceptType.First);
+            }
+#endif
+            #region MongoDB-Stuff
+#if MONGO_DB
             Console.WriteLine("mLab MongoDB Connection via MongoDB.Driver 2.4.4 for ConceptType.Second:\n");
             Console.WriteLine("- TeamManager temporarily set to Output type: Console Application. \n- Code in Program.cs Main temporarily commented out.\n");
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
             FillMongoDB();
             TestMongoDB();
+#endif
+            #endregion MongoDB-Stuff
         }
 
+        #region MongoDB-Stuff
+#if MONGO_DB
         private static void FillMongoDB()
         {
             Console.Clear();
@@ -191,6 +189,9 @@ namespace TeamManager
             Console.WriteLine("\nPress any key to quit.");
             Console.ReadKey();
         }
+
+#endif
+        #endregion MongoDB-Stuff
 
         /// <summary>
         /// Initialize the data structure from the database.

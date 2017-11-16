@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TeamManager.Forms;
+using TeamManager.Main.ConceptTypes;
+using TeamManager.Presenters;
+using TeamManager.Views.Forms;
 
-namespace TeamManager
+namespace TeamManager.Views
 {
     /// <summary>
     /// Opening the Team Manager app in user interface mode(GUI).
@@ -17,8 +19,10 @@ namespace TeamManager
         /// Main entry point for the GUI application.
         /// </summary>
         [STAThread]
-        public static void Start()
+        public static void Start(ConceptType type)
         {
+            BasePresenter.SetConceptType(type);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

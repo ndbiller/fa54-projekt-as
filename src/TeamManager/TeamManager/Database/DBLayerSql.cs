@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TeamManager.Main.ResourceData;
+using TeamManager.Models.ResourceData;
 
 namespace TeamManager.Database
 {
@@ -14,7 +14,7 @@ namespace TeamManager.Database
             throw new NotImplementedException();
         }
 
-        public bool CreatePlayer(string name)
+        public bool CreatePlayer(string name, string id)
         {
             throw new NotImplementedException();
         }
@@ -49,7 +49,7 @@ namespace TeamManager.Database
             throw new NotImplementedException();
         }
 
-        public Player ShowPlayer(string id)
+        public List<Player> ShowPlayers(string teamId)
         {
             throw new NotImplementedException();
         }
@@ -59,12 +59,12 @@ namespace TeamManager.Database
             throw new NotImplementedException();
         }
 
-        public bool UpdatePlayer(string id)
+        public Task<bool> UpdatePlayerAsync(string id, string name)
         {
             throw new NotImplementedException();
         }
 
-        public bool UpdateTeam(string id)
+        public Task<bool> UpdateTeamAsync(string id, string name)
         {
             throw new NotImplementedException();
         }

@@ -1,9 +1,10 @@
-﻿using System;
+﻿using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TeamManager.Main.ResourceData;
+using TeamManager.Models.ResourceData;
 
 namespace TeamManager.Database
 {
@@ -14,14 +15,14 @@ namespace TeamManager.Database
         List<Team> Teams();
         bool CreateTeam(string name);
         Team ReadTeam(string id);
-        bool UpdateTeam(string id);
+        Task<bool> UpdateTeamAsync(string id, string name);
         bool DeleteTeam(string id);
 
         List<Player> Players();
-        Player ShowPlayer(string id);
-        bool CreatePlayer(string name);
+        List<Player> ShowPlayers(string teamId);
+        bool CreatePlayer(string name, string id);
         Player ReadPlayer(string id);
-        bool UpdatePlayer(string id);
+        Task<bool> UpdatePlayerAsync(string id, string name);
         bool DeletePlayer(string id);
     }
 }

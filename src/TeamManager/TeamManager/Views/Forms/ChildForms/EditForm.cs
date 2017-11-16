@@ -9,17 +9,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Custom;
+using TeamManager.Presenters;
+using TeamManager.Views.Enums;
+using TeamManager.Views.Interfaces;
 
-namespace TeamManager.Forms.ChildForms
+namespace TeamManager.Views.Forms.ChildForms
 {
-    public partial class EditForm : CustomForm
+    public partial class EditForm : CustomForm, IEditView
     {
         private ViewType currentView;
+        private EditPresenter presenter;
 
         public EditForm(ViewType viewType)
         {
             InitializeComponent();
             InitializeComponentExtend(viewType);
+            presenter = new EditPresenter(this);
         }
 
         private void InitializeComponentExtend(ViewType viewType)

@@ -8,19 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.Custom;
+using TeamManager.Presenters;
+using TeamManager.Views.Enums;
+using TeamManager.Views.Interfaces;
 
-namespace TeamManager.Forms.ChildForms
+namespace TeamManager.Views.Forms.ChildForms
 {
-    public partial class UnsignedPlayersForm : CustomForm
+    public partial class UnsignedPlayersForm : CustomForm, IUnsignedPlayersView
     {
+        private UnsignedPlayersPresenter presenter;
+
         public UnsignedPlayersForm()
         {
             InitializeComponent();
+            presenter = new UnsignedPlayersPresenter(this);
+            presenter.BindPlayersData();
         }
 
         private void btnPDelete_Click(object sender, EventArgs e)
         {
-
+            presenter.DeletePlayer();
         }
 
         #region ------------------- Show Dialogs -------------------
@@ -35,5 +42,10 @@ namespace TeamManager.Forms.ChildForms
         }
         #endregion -------------- Show Dialogs -------------------
 
+        public List<string> ListBoxPlayers
+        {
+            get => lbxPlayers.Items.Cast<string>().ToList();
+            set => lbxPlayers.DataSource = value;
+        }
     }
 }

@@ -1,10 +1,11 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TeamManager.Main.ResourceData;
+using TeamManager.Models.ResourceData;
 
 namespace TeamManager.Database
 {
@@ -25,69 +26,93 @@ namespace TeamManager.Database
         static private string databaseName = MLAB_DATABASE_NAME;
         static private string connectionString = "mongodb://"+MLAB_USERNAME+":"+MLAB_PASSWORD+"@"+MLAB_URI+":"+MLAB_PORT+"/"+MLAB_DATABASE_NAME;
 
-        static private MongoClient Client = new MongoClient(connectionString);
+        static private MongoClient Client { get; set; }
         static public IMongoDatabase Database { get; private set; } = Client.GetDatabase(databaseName);
         static public IMongoCollection<Team> Teams { get; set; } = Database.GetCollection<Team>("team");
         static public IMongoCollection<Player> Players { get; set; } = Database.GetCollection<Player>("player");
 
         public void ConnectDB(string connectionString)
         {
-            throw new NotImplementedException();
+            Client = new MongoClient(connectionString);
         }
 
-        public bool CreatePlayer(string name)
+        public bool CreatePlayer(string name, string id)
         {
-            throw new NotImplementedException();
+            DBLayerMongo.Players.InsertOne(new Player()
+            {
+                Name = name,
+                Team = id
+            });
+            return true;
         }
 
         public bool CreateTeam(string name)
         {
-            throw new NotImplementedException();
+            DBLayerMongo.Teams.InsertOne(new Team()
+            {
+                Name = name
+            });
+            return true;
         }
 
         public bool DeletePlayer(string id)
         {
-            throw new NotImplementedException();
+            DBLayerMongo.Players.DeleteOne(a => a.Id == id);
+            return true;
         }
 
         public bool DeleteTeam(string id)
         {
-            throw new NotImplementedException();
+            DBLayerMongo.Teams.DeleteOne(a => a.Id == id);
+            return true;
         }
 
         public Player ReadPlayer(string id)
         {
-            throw new NotImplementedException();
+            Player player = DBLayerMongo.Players.Find(p => p.Id == id).First<Player>();
+            return player;
         }
 
         public Team ReadTeam(string id)
         {
-            throw new NotImplementedException();
+            Team teams = DBLayerMongo.Teams.Find(t => t.Id == id).First<Team>();
+            return teams;
         }
 
-        public Player ShowPlayer(string id)
+        public List<Player> ShowPlayers(string teamId)
         {
-            throw new NotImplementedException();
+            List<Player> players = DBLayerMongo.Players.Find(p => p.Team == teamId).ToList();
+            return players;
         }
 
-        public bool UpdatePlayer(string id)
+        public async Task<bool> UpdatePlayerAsync(string id, string name)
         {
-            throw new NotImplementedException();
+            var collection = Database.GetCollection<BsonDocument>("player");
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var update = Builders<BsonDocument>.Update.Set("Name", name);
+            var result = await collection.UpdateOneAsync(filter, update);
+            return true;
         }
 
-        public bool UpdateTeam(string id)
+        public async Task<bool> UpdateTeamAsync(string id, string name)
         {
-            throw new NotImplementedException();
+            var collection = Database.GetCollection<BsonDocument>("team");
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var update = Builders<BsonDocument>.Update.Set("Name", name);
+            var result = await collection.UpdateOneAsync(filter, update);
+            return true;
         }
 
         List<Player> IDataLayer.Players()
         {
-            throw new NotImplementedException();
+            List<Player> players = DBLayerMongo.Players.Find(_ => true).ToList();
+            return players;
         }
 
         List<Team> IDataLayer.Teams()
         {
-            throw new NotImplementedException();
+            List<Team> teams = DBLayerMongo.Teams.Find(_ => true).ToList();
+            return teams;
         }
     }
 }

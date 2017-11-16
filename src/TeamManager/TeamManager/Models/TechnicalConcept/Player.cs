@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TeamManager.TechnicalConcept
+namespace TeamManager.Models.TechnicalConcept
 {
     public class Player
     {

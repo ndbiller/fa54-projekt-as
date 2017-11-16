@@ -5,17 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using TeamManager.Database;
 
-namespace TeamManager.TechnicalConcept
+namespace TeamManager.Models.TechnicalConcept
 {
-    public class TechnicalConcept2 : ITechnicalConcept
+    public class TechnicalConcept1 : ITechnicalConcept
     {
         public IDataLayer DataLayer { get; set; }
         public Team ATeam { get; set; }
         public Player APlayer { get; set; }
 
-        public TechnicalConcept2()
+        public TechnicalConcept1(IDataLayer dataLayer)
         {
-
+            this.DataLayer = dataLayer;
         }
 
         public List<string> GetAllTeams()
@@ -59,5 +59,5 @@ namespace TeamManager.TechnicalConcept
         {
             throw new NotImplementedException();
         }
-    }
+}
 }
