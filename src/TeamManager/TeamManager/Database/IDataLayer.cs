@@ -20,9 +20,10 @@ namespace TeamManager.Database
 
         List<Player> Players();
         List<Player> ShowPlayers(string teamId);
-        bool CreatePlayer(string name, string id);
+        bool CreatePlayer(string name, string teamId);
         Player ReadPlayer(string id);
         Task<bool> UpdatePlayerAsync(string id, string name);
+        Task<bool> UpdatePlayerAsync(string id, string teamId, string name);
         bool DeletePlayer(string id);
     }
 }

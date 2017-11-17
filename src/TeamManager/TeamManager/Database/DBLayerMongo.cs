@@ -28,8 +28,8 @@ namespace TeamManager.Database
 
         static private MongoClient Client { get; set; }
         static public IMongoDatabase Database { get; private set; }
-        static public IMongoCollection<Team> Teams { get; set; }
-        static public IMongoCollection<Player> Players { get; set; }
+        static public IMongoCollection<Team> TeamCollection { get; set; }
+        static public IMongoCollection<Player> PlayerCollection { get; set; }
 
         public DBLayerMongo() : base()
         {
@@ -40,23 +40,23 @@ namespace TeamManager.Database
         {
             Client = new MongoClient(connectionString);
             Database = Client.GetDatabase(databaseName);
-            Teams = Database.GetCollection<Team>("team");
-            Players = Database.GetCollection<Player>("player");
+            TeamCollection = Database.GetCollection<Team>("team");
+            PlayerCollection = Database.GetCollection<Player>("player");
         }
 
-        public bool CreatePlayer(string name, string id)
+        public bool CreatePlayer(string name, string teamId)
         {
-            DBLayerMongo.Players.InsertOne(new Player()
+            DBLayerMongo.PlayerCollection.InsertOne(new Player()
             {
                 Name = name,
-                Team = id
+                Team = teamId
             });
             return true;
         }
 
         public bool CreateTeam(string name)
         {
-            DBLayerMongo.Teams.InsertOne(new Team()
+            DBLayerMongo.TeamCollection.InsertOne(new Team()
             {
                 Name = name
             });
@@ -65,35 +65,44 @@ namespace TeamManager.Database
 
         public bool DeletePlayer(string id)
         {
-            DBLayerMongo.Players.DeleteOne(a => a.Id == id);
+            DBLayerMongo.PlayerCollection.DeleteOne(a => a.Id == id);
             return true;
         }
 
         public bool DeleteTeam(string id)
         {
-            DBLayerMongo.Teams.DeleteOne(a => a.Id == id);
+            DBLayerMongo.TeamCollection.DeleteOne(a => a.Id == id);
             return true;
         }
 
         public Player ReadPlayer(string id)
         {
-            Player player = DBLayerMongo.Players.Find(p => p.Id == id).First<Player>();
+            Player player = DBLayerMongo.PlayerCollection.Find(p => p.Id == id).First<Player>();
             return player;
         }
 
         public Team ReadTeam(string id)
         {
-            Team teams = DBLayerMongo.Teams.Find(t => t.Id == id).First<Team>();
+            Team teams = DBLayerMongo.TeamCollection.Find(t => t.Id == id).First<Team>();
             return teams;
         }
 
         public List<Player> ShowPlayers(string teamId)
         {
-            List<Player> players = DBLayerMongo.Players.Find(p => p.Team == teamId).ToList();
+            List<Player> players = DBLayerMongo.PlayerCollection.Find(p => p.Team == teamId).ToList();
             return players;
         }
 
         public async Task<bool> UpdatePlayerAsync(string id, string name)
+        {
+            var collection = Database.GetCollection<BsonDocument>("player");
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var update = Builders<BsonDocument>.Update.Set("Name", name);
+            var result = await collection.UpdateOneAsync(filter, update);
+            return true;
+        }
+
+        public async Task<bool> UpdatePlayerAsync(string id, string teamId, string name)
         {
             var collection = Database.GetCollection<BsonDocument>("player");
             var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
@@ -111,15 +120,15 @@ namespace TeamManager.Database
             return true;
         }
 
-        List<Player> IDataLayer.Players()
+        public List<Player> Players()
         {
-            List<Player> players = DBLayerMongo.Players.Find(_ => true).ToList();
+            List<Player> players = DBLayerMongo.PlayerCollection.Find(_ => true).ToList();
             return players;
         }
 
-        List<Team> IDataLayer.Teams()
+        public List<Team> Teams()
         {
-            List<Team> teams = DBLayerMongo.Teams.Find(_ => true).ToList();
+            List<Team> teams = DBLayerMongo.TeamCollection.Find(_ => true).ToList();
             return teams;
         }
     }

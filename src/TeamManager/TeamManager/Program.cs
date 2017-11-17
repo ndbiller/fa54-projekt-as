@@ -85,6 +85,9 @@ namespace TeamManager
             DBLayerMongo mongo = new DBLayerMongo();
             Console.WriteLine("DB connected.");
 
+            Console.WriteLine("Showing all Teams.");
+            
+
             //Console.WriteLine("Dropping old collections.");
             //DBLayerMongo.Database.DropCollection("team");
             //DBLayerMongo.Database.DropCollection("player");
