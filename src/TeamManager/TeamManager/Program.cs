@@ -70,7 +70,7 @@ namespace TeamManager
         Console.WriteLine("- TeamManager temporarily set to Output type: Console Application. \n- Code in Program.cs Main temporarily commented out.\n");
         Console.WriteLine("Press any key to continue.");
         Console.ReadKey();
-        FillMongoDB();
+
         TestMongoDB();
 #endif
             #endregion MongoDB-Stuff
@@ -78,7 +78,7 @@ namespace TeamManager
 
         #region MongoDB-Stuff
 #if MONGO_DB
-        private static void FillMongoDB()
+        private static void TestMongoDB()
         {
             Console.Clear();
             Console.WriteLine("Connecting to MongoDB.");
@@ -166,10 +166,7 @@ namespace TeamManager
             Console.WriteLine("Finished creating Teams and Players.");
             Console.WriteLine("\nPress any key to continue.");
             Console.ReadKey();
-        }
 
-        private static void TestMongoDB()
-        {
             Console.Clear();
             Console.WriteLine("Querying for Team One.");
             //List<Team> teams = DBLayerMongo.Teams.Find(t => t.Name == "Team One").ToList();
@@ -214,7 +211,6 @@ namespace TeamManager
                     break;
             }
         }
-
 
         /// <summary>
         /// Prints help to the user when using the application through the console.
