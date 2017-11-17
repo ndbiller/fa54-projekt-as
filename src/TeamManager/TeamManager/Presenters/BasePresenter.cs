@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TeamManager.Database;
-using TeamManager.Main.ConceptTypes;
 using TeamManager.Models.TechnicalConcept;
 
 namespace TeamManager.Presenters
@@ -18,15 +17,15 @@ namespace TeamManager.Presenters
         protected static ITechnicalConcept concept;
 
 
-        public static void SetConceptAndDatabaseType(ConceptType conceptType, DatabaseType dbType)
+        public static void SetConceptAndDatabaseType(TechnicalConceptType conceptType, DatabaseType dbType)
         {
             switch (conceptType)
             {
-                case ConceptType.First:
+                case TechnicalConceptType.First:
                     concept = new TechnicalConcept1(dbType);
                     break;
 
-                case ConceptType.Second:
+                case TechnicalConceptType.Second:
                     concept = new TechnicalConcept2(dbType);
                     break;
 

@@ -1,14 +1,7 @@
-﻿using MongoDB.Bson;
-using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using TeamManager.Database;
-using TeamManager.Main.ConceptTypes;
-using TeamManager.Models.ResourceData;
+using TeamManager.Models.TechnicalConcept;
 using TeamManager.Views;
 
 namespace TeamManager
@@ -30,58 +23,104 @@ namespace TeamManager
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-#if !MONGO_DB
+            // Default = First and MongoDB Connections.
+            var conceptType = TechnicalConceptType.First;
+            var dbType      = DatabaseType.MongoDB;
+            var startGui    = false;
+
             if (args.Length != 0)
             {
                 if (!args[0].ToLower().StartsWith("/g")) // We don't want to allocate console when using gui.
                     AllocConsole();
+                else
+                    startGui = true;
+                 
 
                 switch (args[0].ToLower())
                 {
                     case "/t:1":
-                        TUI.Start(ConceptType.First);
-                        break;
-                    case "/t:2":
-                        TUI.Start(ConceptType.Second);
-                        break;
                     case "/g:1":
-                        GUI.Start(ConceptType.First);
+                        conceptType = TechnicalConceptType.First;
                         break;
+
+                    case "/t:2":
                     case "/g:2":
-                        GUI.Start(ConceptType.Second);
+                        conceptType = TechnicalConceptType.Second;
                         break;
+
                     case "/?":
                         PrintHelp();
-                        break;
+                        return;
+
                     default:
-                        Console.WriteLine("Invalid syntax. Use /? parameter to display help.");
-                        Console.ReadKey();
-                        break;
+                        InvalidSyntax();
+                        return;
                 }
+
+                if (args.Length < 2)
+                {
+                    InvalidSyntax();
+                    return;
+                }
+
+                switch (args[1].ToLower())
+                {
+                    case "/db:mongo-db":
+                        dbType = DatabaseType.MongoDB;
+                        break;
+
+                    case "/db:sql":
+                        dbType = DatabaseType.SQL;
+                        break;
+
+                    default:
+                        InvalidSyntax();
+                        return;
+                }
+
+                if (startGui)
+                    GUI.Start(conceptType, dbType);
+                else
+                    TUI.Start(conceptType, dbType);
             }
             else // -> when you start the app through the windows explorer or from the console without parameters.
             {
-                GUI.Start(ConceptType.First);
+                GUI.Start(conceptType, dbType);
             }
-#endif
         }
+
 
         /// <summary>
         /// Prints help to the user when using the application through the console.
         /// </summary>
         private static void PrintHelp()
         {
-            Console.WriteLine("\nStarts the team manager app from the console or gui and allows you choose " +
+            Console.WriteLine("\nStarts the team manager app from the console or gui and allows you to choose " +
                               "the concept type.");
 
-            Console.WriteLine("\n\nTeamManager [/T:[CONCEPT_TYPE]] | [/G:[CONCEPT_TYPE]]\n");
+            Console.WriteLine("\nTeamManager [/T:[CONCEPT_TYPE] /DB:[DATABASE_TYPE]] | " +
+                              "\n            [/G:[CONCEPT_TYPE] /DB:[DATABASE_TYPE]]\n");
+
+            Console.WriteLine("\tFirst Parameter:");
             Console.WriteLine("\t/T:1 \t Starts the app in console/terminal (TUI) mode with concept 1.");
             Console.WriteLine("\t/T:2 \t Starts the app in console/terminal (TUI) mode with concept 2.");
             Console.WriteLine("\t/G:1 \t Starts the app in windows user interface (GUI) mode with concept 1.");
-            Console.WriteLine("\t/G:2 \t Starts the app in windows user interface (GUI) mode with concept 2.");
+            Console.WriteLine("\t/G:2 \t Starts the app in windows user interface (GUI) mode with concept 2.\n");
 
-            Console.WriteLine("\nExample: TeamManager /t:1");
+            Console.WriteLine("\tSecond Parameter:");
+            Console.WriteLine("\t/DB:SQL \t Using relational SQL database.");
+            Console.WriteLine("\t/DB:MONGO-DB \t Using no-relational Mongo-DB Database.");
 
+            Console.WriteLine("\n### Example: TeamManager /t:1 /db:mongo-db ###");
+            Console.WriteLine("### Example: TeamManager /g:2 /db:sql ###");
+
+            Console.ReadKey();
+        }
+
+
+        private static void InvalidSyntax()
+        {
+            Console.WriteLine("Invalid syntax. Use /? parameter to display help.");
             Console.ReadKey();
         }
     }

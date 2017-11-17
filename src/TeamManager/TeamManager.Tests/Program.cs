@@ -4,9 +4,6 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using TeamManager.Database;
-using TeamManager.Main.ConceptTypes;
-using TeamManager.Models.ResourceData;
-using TeamManager.Views;
 
 namespace TeamManager.Tests
 {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TeamManager.Database;
-using TeamManager.Main.ConceptTypes;
+using TeamManager.Models.TechnicalConcept;
 using TeamManager.Presenters;
 using TeamManager.Views.Interfaces;
 using presenter = TeamManager.Presenters.ConsolePresenter;
@@ -19,7 +19,7 @@ namespace TeamManager.Views
         /// <summary>
         /// Main entry point for the console application.
         /// </summary>
-        public static void Start(DatabaseType dbType, ConceptType conceptType)
+        public static void Start(TechnicalConceptType conceptType, DatabaseType dbType)
         {
             BasePresenter.SetConceptAndDatabaseType(conceptType, dbType);
             StartProgram();

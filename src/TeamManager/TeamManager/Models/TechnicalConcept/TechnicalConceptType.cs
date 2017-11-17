@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TeamManager.Main.ConceptTypes
+namespace TeamManager.Models.TechnicalConcept
 {
     /// <summary>
-    /// ConceptType affects the way the data structure will get initialized from the database.
+    /// This enum controls the way the data will get initialized from the database.
     /// </summary>
-    public enum ConceptType
+    public enum TechnicalConceptType
     {
         /// <summary>
         /// Retrieves the data in ascending order.
