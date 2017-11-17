@@ -15,7 +15,7 @@ namespace TeamManager.Models.TechnicalConcept
         bool ChangeTeamName(string teamId, string NewTeamName);
         bool RemoveTeam(string teamId);
 
-        List<Player> GetAllPlayer();
+        List<Player> GetAllPlayers();
         List<Player> GetTeamPlayers(string teamId);
         bool AddNewPlayer(string playerName);
         bool ChangePlayerName(string playerId);

@@ -10,7 +10,7 @@ namespace TeamManager.Models.TechnicalConcept
 {
     public abstract class TechnicalConceptBase
     {
-        protected IDataLayer dataLayer;
+        protected IDataLayer dbLayer;
         public Team Team { get; set; }
         public Player Player { get; set; }
 
@@ -20,13 +20,13 @@ namespace TeamManager.Models.TechnicalConcept
             switch (dbType)
             {
                 case DatabaseType.MongoDB:
-                    this.dataLayer = new DBLayerMongo();
+                    this.dbLayer = new DBLayerMongo();
                     break;
                 case DatabaseType.SQL:
-                    this.dataLayer = new DBLayerSql();
+                    this.dbLayer = new DBLayerSql();
                     break;
                 default:
-                    this.dataLayer = new DBLayerSql();
+                    this.dbLayer = new DBLayerSql();
                     break;
             }
         }

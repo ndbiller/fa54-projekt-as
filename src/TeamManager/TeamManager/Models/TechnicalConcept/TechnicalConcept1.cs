@@ -32,9 +32,9 @@ namespace TeamManager.Models.TechnicalConcept
             throw new NotImplementedException();
         }
 
-        public List<Player> GetAllPlayer()
+        public List<Player> GetAllPlayers()
         {
-            throw new NotImplementedException();
+            return dbLayer.Players().OrderBy(p => p.Name).ToList();
         }
 
         public List<Team> GetAllTeams()

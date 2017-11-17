@@ -32,7 +32,7 @@ namespace TeamManager.Models.TechnicalConcept
             throw new NotImplementedException();
         }
 
-        public List<Player> GetAllPlayer()
+        public List<Player> GetAllPlayers()
         {
             throw new NotImplementedException();
         }

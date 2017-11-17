@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace TeamManager.Tests
 {
     [TestFixture]
-    public class TestClass
+    public class DatabaseTests
     {
         [Test]
         public void TestMethod()
