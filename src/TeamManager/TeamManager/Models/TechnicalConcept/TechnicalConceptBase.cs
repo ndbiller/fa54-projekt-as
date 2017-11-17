@@ -10,22 +10,23 @@ namespace TeamManager.Models.TechnicalConcept
 {
     public abstract class TechnicalConceptBase
     {
-        protected IDataLayer DataLayer { get; set; }
-        public Team ATeam { get; set; }
-        public Player APlayer { get; set; }
+        protected IDataLayer dataLayer;
+        public Team Team { get; set; }
+        public Player Player { get; set; }
 
-        public TechnicalConceptBase(DataType dataType)
+
+        public TechnicalConceptBase(DatabaseType dbType)
         {
-            switch (dataType)
+            switch (dbType)
             {
-                case DataType.MongoDB:
-                    this.DataLayer = new DBLayerMongo();
+                case DatabaseType.MongoDB:
+                    this.dataLayer = new DBLayerMongo();
                     break;
-                case DataType.SQL:
-                    this.DataLayer = new DBLayerSql();
+                case DatabaseType.SQL:
+                    this.dataLayer = new DBLayerSql();
                     break;
                 default:
-                    this.DataLayer = new DBLayerSql();
+                    this.dataLayer = new DBLayerSql();
                     break;
             }
         }

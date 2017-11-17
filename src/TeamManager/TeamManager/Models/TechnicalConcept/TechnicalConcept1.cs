@@ -10,7 +10,7 @@ namespace TeamManager.Models.TechnicalConcept
 {
     public class TechnicalConcept1 : TechnicalConceptBase, ITechnicalConcept
     {
-        public TechnicalConcept1(DataType dataType) : base(dataType) { }
+        public TechnicalConcept1(DatabaseType dbType) : base(dbType) { }
 
         public bool AddNewPlayer(string playerName)
         {

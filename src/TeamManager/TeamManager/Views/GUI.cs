@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TeamManager.Database;
 using TeamManager.Main.ConceptTypes;
 using TeamManager.Presenters;
 using TeamManager.Views.Forms;
@@ -19,9 +20,9 @@ namespace TeamManager.Views
         /// Main entry point for the GUI application.
         /// </summary>
         [STAThread]
-        public static void Start(ConceptType type)
+        public static void Start(DatabaseType dbType, ConceptType conceptType)
         {
-            BasePresenter.SetConceptType(type);
+            BasePresenter.SetConceptAndDatabaseType(conceptType, dbType);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

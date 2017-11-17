@@ -76,6 +76,11 @@ namespace TeamManager
             #endregion MongoDB-Stuff
         }
 
+        private static DatabaseType WhichDatabase()
+        {
+            throw new NotImplementedException();
+        }
+
         #region MongoDB-Stuff
 #if MONGO_DB
         private static void TestMongoDB()
@@ -93,96 +98,96 @@ namespace TeamManager
             //DBLayerMongo.Database.DropCollection("player");
 
             //Console.WriteLine("Creating Team.");
-            //DBLayerMongo.Teams.InsertOne(new Team()
+            //DBLayerMongo.Team.InsertOne(new Team()
             //{
             //    Name = "Team One"
             //});
-            //DBLayerMongo.Teams.InsertOne(new Team()
+            //DBLayerMongo.Team.InsertOne(new Team()
             //{
             //    Name = "Team Two"
             //});
-            //DBLayerMongo.Teams.InsertOne(new Team()
+            //DBLayerMongo.Team.InsertOne(new Team()
             //{
             //    Name = "Team Three"
             //});
 
             //Console.WriteLine("Getting first Team Id.");
-            //string teamId = DBLayerMongo.Teams.Find(t => t.Name == "Team One").First().Id;
+            //string teamId = DBLayerMongo.Team.Find(t => t.Name == "Team One").First().Id;
 
-            //Console.WriteLine("Creating first Team Players.");
-            //DBLayerMongo.Players.InsertOne(new Player()
+            //Console.WriteLine("Creating first Team Player.");
+            //DBLayerMongo.Player.InsertOne(new Player()
             //{
             //    Name = "Player One",
             //    Team = teamId
             //});
-            //DBLayerMongo.Players.InsertOne(new Player()
+            //DBLayerMongo.Player.InsertOne(new Player()
             //{
             //    Name = "Player Two",
             //    Team = teamId
             //});
-            //DBLayerMongo.Players.InsertOne(new Player()
+            //DBLayerMongo.Player.InsertOne(new Player()
             //{
             //    Name = "Player Three",
             //    Team = teamId
             //});
 
             //Console.WriteLine("Getting second Team Id.");
-            //string secondTeamId = DBLayerMongo.Teams.Find(t => t.Name == "Team Two").First().Id;
+            //string secondTeamId = DBLayerMongo.Team.Find(t => t.Name == "Team Two").First().Id;
 
-            //Console.WriteLine("Creating second Team Players.");
-            //DBLayerMongo.Players.InsertOne(new Player()
+            //Console.WriteLine("Creating second Team Player.");
+            //DBLayerMongo.Player.InsertOne(new Player()
             //{
             //    Name = "Player Four",
             //    Team = secondTeamId
             //});
-            //DBLayerMongo.Players.InsertOne(new Player()
+            //DBLayerMongo.Player.InsertOne(new Player()
             //{
             //    Name = "Player Five",
             //    Team = secondTeamId
             //});
 
             //Console.WriteLine("Getting third Team Id.");
-            //string thirdTeamId = DBLayerMongo.Teams.Find(t => t.Name == "Team Three").First().Id;
+            //string thirdTeamId = DBLayerMongo.Team.Find(t => t.Name == "Team Three").First().Id;
 
-            //Console.WriteLine("Creating third Team Players.");
-            //DBLayerMongo.Players.InsertOne(new Player()
+            //Console.WriteLine("Creating third Team Player.");
+            //DBLayerMongo.Player.InsertOne(new Player()
             //{
             //    Name = "Player Six",
             //    Team = thirdTeamId
             //});
-            //DBLayerMongo.Players.InsertOne(new Player()
+            //DBLayerMongo.Player.InsertOne(new Player()
             //{
             //    Name = "Player Seven",
             //    Team = thirdTeamId
             //});
-            //DBLayerMongo.Players.InsertOne(new Player()
+            //DBLayerMongo.Player.InsertOne(new Player()
             //{
             //    Name = "Player Eight",
             //    Team = thirdTeamId
             //});
-            //DBLayerMongo.Players.InsertOne(new Player()
+            //DBLayerMongo.Player.InsertOne(new Player()
             //{
             //    Name = "Player Nine",
             //    Team = thirdTeamId
             //});
 
-            Console.WriteLine("Finished creating Teams and Players.");
+            Console.WriteLine("Finished creating Team and Player.");
             Console.WriteLine("\nPress any key to continue.");
             Console.ReadKey();
 
             Console.Clear();
             Console.WriteLine("Querying for Team One.");
-            //List<Team> teams = DBLayerMongo.Teams.Find(t => t.Name == "Team One").ToList();
-            //Console.WriteLine("Teams found: {0}", teams.Count());
+            //List<Team> teams = DBLayerMongo.Team.Find(t => t.Name == "Team One").ToList();
+            //Console.WriteLine("Team found: {0}", teams.Count());
             //string teamId = "";
             //foreach (Team team in teams)
             //{
             //    Console.WriteLine(team.Name);
             //    teamId = team.Id;
 
-            //    Console.WriteLine("Querying for Players of {0}.", team.Name);
-            //    List<Player> players = DBLayerMongo.Players.Find(p => p.Team == teamId).ToList();
-            //    Console.WriteLine("Players found: {0}", players.Count());
+            //    Console.WriteLine("Querying for Player of {0}.", team.Name);
+            //    List<Player> players = DBLayerMongo.Player.Find(p => p.Team == teamId).ToList();
+            //    Console.WriteLine("Player found: {0}", players.Count());
             //    foreach (Player player in players)
             //    {
             //        Console.WriteLine(player.Name);
@@ -197,23 +202,6 @@ namespace TeamManager
 #endif
         #endregion MongoDB-Stuff
 
-        /// <summary>
-        /// Initialize the data structure from the database.
-        /// </summary>
-        /// <param name="conceptType"></param>
-        private static void InitializeDataStructure(ConceptType conceptType)
-        {
-            // In this part we initializing our data structure from the db depending on the concept type.
-            // TODO: Implement data structure.
-            switch (conceptType)
-            {
-                case ConceptType.First:
-                    break;
-
-                case ConceptType.Second:
-                    break;
-            }
-        }
 
         /// <summary>
         /// Prints help to the user when using the application through the console.

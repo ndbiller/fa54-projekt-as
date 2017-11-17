@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TeamManager.Database;
 using TeamManager.Main.ConceptTypes;
+using TeamManager.Models.TechnicalConcept;
 
 namespace TeamManager.Presenters
 {
@@ -13,23 +15,23 @@ namespace TeamManager.Presenters
     /// </summary>
     public abstract class BasePresenter
     {
-        protected static IConceptType conceptType;
+        protected static ITechnicalConcept concept;
 
 
-        public static void SetConceptType(ConceptType type)
+        public static void SetConceptAndDatabaseType(ConceptType conceptType, DatabaseType dbType)
         {
-            switch (type)
+            switch (conceptType)
             {
                 case ConceptType.First:
-                    conceptType = new FirstConcept();
+                    concept = new TechnicalConcept1(dbType);
                     break;
 
                 case ConceptType.Second:
-                    conceptType = new SecondConcept();
+                    concept = new TechnicalConcept2(dbType);
                     break;
 
                 default:
-                    conceptType = new FirstConcept();
+                    concept = new TechnicalConcept1(dbType);
                     break;
             }
         }

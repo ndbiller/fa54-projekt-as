@@ -80,7 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\DataType.cs" />
+    <Compile Include="Database\DatabaseType.cs" />
     <Compile Include="Database\DBLayerMongo.cs" />
     <Compile Include="Database\DBLayerSql.cs" />
     <Compile Include="Database\IDataLayer.cs" />
@@ -123,9 +123,6 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\TechnicalConcept\ITechnicalConcept.cs" />
-    <Compile Include="Models\Temp\ConceptTypes\FirstConcept.cs" />
-    <Compile Include="Models\Temp\ConceptTypes\IConceptType.cs" />
-    <Compile Include="Models\Temp\ConceptTypes\SecondConcept.cs" />
     <Compile Include="Models\ResourceData\Player.cs" />
     <Compile Include="Models\ResourceData\Team.cs" />
     <Compile Include="Models\Temp\ServeData\PlayersMgr.cs" />
@@ -141,7 +138,7 @@
     <Compile Include="Views\Interfaces\IMainView.cs" />
     <Compile Include="Views\Interfaces\IUnsignedPlayersView.cs" />
     <Compile Include="Views\TUI.cs" />
-    <Compile Include="Models\Temp\ConceptTypes\ConceptType.cs" />
+    <Compile Include="Models\TechnicalConcept\TechnicalConceptType.cs" />
     <EmbeddedResource Include="Views\Forms\ChildForms\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>

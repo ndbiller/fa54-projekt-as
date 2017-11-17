@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TeamManager.Database
 {
-    public enum DataType
+    public enum DatabaseType
     {
         MongoDB,
         SQL

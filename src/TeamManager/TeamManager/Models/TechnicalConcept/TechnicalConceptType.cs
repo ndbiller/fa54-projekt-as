@@ -12,12 +12,12 @@ namespace TeamManager.Main.ConceptTypes
     public enum ConceptType
     {
         /// <summary>
-        /// TODO: Add details.
+        /// Retrieves the data in ascending order.
         /// </summary>
         First,
 
         /// <summary>
-        /// TODO: Add details.
+        /// Retrieves the data in descending order.
         /// </summary>
         Second
     }

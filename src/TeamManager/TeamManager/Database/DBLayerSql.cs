@@ -24,6 +24,11 @@ namespace TeamManager.Database
             throw new NotImplementedException();
         }
 
+        public Task<bool> UpdatePlayerAsync(string id, string teamId, string name)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool DeletePlayer(string id)
         {
             throw new NotImplementedException();
