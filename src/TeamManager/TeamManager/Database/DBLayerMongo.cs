@@ -18,14 +18,16 @@ namespace TeamManager.Database
         internal readonly static string MLAB_PORT = Environment.GetEnvironmentVariable("MLAB_PORT");
         internal readonly static string MLAB_DATABASE_NAME = Environment.GetEnvironmentVariable("MLAB_DATABASE_NAME");
 
-        // connect to local mongodb server
-        // static private string databaseName = "teamplayer";
-        // static private string connectionString = "mongodb://localhost:27017";
 
+#if MONGO_DB_LOCAL
+// connect to local mongodb server
+        static private string databaseName = "teamplayer";
+        static private string connectionString = "mongodb://localhost:27017";
+#else
         // connect to mLab mongodb server
         static private string databaseName = MLAB_DATABASE_NAME;
-        static private string connectionString = "mongodb://"+MLAB_USERNAME+":"+MLAB_PASSWORD+"@"+MLAB_URI+":"+MLAB_PORT+"/"+MLAB_DATABASE_NAME;
-
+        static private string connectionString = "mongodb://" + MLAB_USERNAME + ":" + MLAB_PASSWORD + "@" + MLAB_URI + ":" + MLAB_PORT + "/" + MLAB_DATABASE_NAME;
+#endif
         static private MongoClient Client { get; set; }
         static public IMongoDatabase Database { get; private set; }
         static public IMongoCollection<Team> TeamCollection { get; set; }

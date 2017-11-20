@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using MongoDB.Driver;
 using TeamManager.Database;
+using TeamManager.Models.ResourceData;
 
 namespace TeamManager.Tests
 {
@@ -18,6 +20,8 @@ namespace TeamManager.Tests
             Console.ReadKey();
 
             TestMongoDB();
+
+            //FillMongoDb();
         }
 
         private static void TestMongoDB()
@@ -135,6 +139,53 @@ namespace TeamManager.Tests
             Console.WriteLine("\nPress any key to quit.");
             Console.ReadKey();
         }
+
+
+        private static void FillMongoDb()
+        {
+            new DBLayerMongo();
+            DBLayerMongo.Database.DropCollection("team");
+            DBLayerMongo.Database.DropCollection("player");
+
+            var teams = new List<Team>
+            {
+                new Team("England"),
+                new Team("Arsenal"),
+                new Team("Chelsea"),
+                new Team("Manchester United"),
+                new Team("Scotland"),
+                new Team("Wales")
+            };
+
+            var players = new List<Player>
+            {
+                new Player("Neville Southall"),
+                new Player("James Chester"),
+                new Player("Gareth Southgate"),
+                new Player("Clarke Carlisle"),
+                new Player("Jermaine Darlington"),
+                new Player("Stuart Ripley"),
+                new Player("Steve Stone")
+            };
+
+            DBLayerMongo.TeamCollection.InsertMany(teams);
+            DBLayerMongo.PlayerCollection.InsertMany(players);
+
+            var manchesterUnitedId = DBLayerMongo.TeamCollection.Find(t => t.Name == "Manchester United").First().Id;
+            var playersManchester = new List<Player>
+            {
+                new Player("Bob Donaldson"    , manchesterUnitedId),
+                new Player("Fred Erentz"      , manchesterUnitedId),
+                new Player("Joe Cassidy"      , manchesterUnitedId),
+                new Player("James McNaught"   , manchesterUnitedId),
+                new Player("Dick Smith"       , manchesterUnitedId),
+                new Player("Walter Cartwright", manchesterUnitedId),
+                new Player("Harry Stafford"   , manchesterUnitedId)
+            };
+
+            DBLayerMongo.PlayerCollection.InsertMany(playersManchester);
+        }
+
 
     }
 }
