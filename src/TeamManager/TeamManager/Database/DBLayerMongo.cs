@@ -46,20 +46,13 @@ namespace TeamManager.Database
 
         public bool CreatePlayer(string name, string teamId)
         {
-            DBLayerMongo.PlayerCollection.InsertOne(new Player()
-            {
-                Name = name,
-                Team = teamId
-            });
+            DBLayerMongo.PlayerCollection.InsertOne(new Player(name, teamId));
             return true;
         }
 
         public bool CreateTeam(string name)
         {
-            DBLayerMongo.TeamCollection.InsertOne(new Team()
-            {
-                Name = name
-            });
+            DBLayerMongo.TeamCollection.InsertOne(new Team(name));
             return true;
         }
 
@@ -89,7 +82,7 @@ namespace TeamManager.Database
 
         public List<Player> ShowPlayers(string teamId)
         {
-            List<Player> players = DBLayerMongo.PlayerCollection.Find(p => p.Team == teamId).ToList();
+            List<Player> players = DBLayerMongo.PlayerCollection.Find(p => p.TeamId == teamId).ToList();
             return players;
         }
 
