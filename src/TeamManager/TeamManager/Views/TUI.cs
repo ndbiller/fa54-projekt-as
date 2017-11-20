@@ -7,7 +7,6 @@ using TeamManager.Database;
 using TeamManager.Models.TechnicalConcept;
 using TeamManager.Presenters;
 using TeamManager.Views.Interfaces;
-using presenter = TeamManager.Presenters.ConsolePresenter;
 
 namespace TeamManager.Views
 {
@@ -16,6 +15,7 @@ namespace TeamManager.Views
     /// </summary>
     public class TUI : IConsoleView
     {
+        
         /// <summary>
         /// Main entry point for the console application.
         /// </summary>
@@ -25,75 +25,87 @@ namespace TeamManager.Views
             StartProgram();
         }
 
+        private static ConsolePresenter presenter;
 
-        private static List<ConsoleKey> AllowedKeys = new List<ConsoleKey>
+        private static readonly List<ConsoleKey> AllowedKeys = new List<ConsoleKey>
         {
-            ConsoleKey.A,
-            ConsoleKey.B,
-            ConsoleKey.C,
-            ConsoleKey.D,
-            ConsoleKey.E,
-            ConsoleKey.F,
-            ConsoleKey.G,
-            ConsoleKey.H,
-            ConsoleKey.I,
-            ConsoleKey.J
+            ConsoleKey.A, ConsoleKey.B, ConsoleKey.C, ConsoleKey.D, ConsoleKey.E,
+            ConsoleKey.F, ConsoleKey.G, ConsoleKey.H, ConsoleKey.I, ConsoleKey.J
         };
 
         private static void StartProgram()
         {
+            presenter = new ConsolePresenter();
+
             while (true)
             {
-
-                PrintMenu();
-                Console.Write($"\nInput: ");
+                presenter.PrintMenu();
+                Console.Write("\nInput: ");
                 ConsoleKeyInfo input = Console.ReadKey();
 
-                PrintMenu();
+                presenter.PrintMenu();
                 Console.Write($"\nInput: {input.KeyChar}");
 
                 if (AllowedKeys.Contains(input.Key)
                     && Console.ReadKey().Key == ConsoleKey.Enter)
-                    ParseKey(input);
-
+                    ParseKeyCommand(input);
             }
         }
 
 
-        private static void ParseKey(ConsoleKeyInfo input)
+        private static void ParseKeyCommand(ConsoleKeyInfo input)
         {
             Console.Clear();
             switch (input.Key)
             {
                 case ConsoleKey.A:
-                    Console.WriteLine("Show Teams");
+                    Console.WriteLine("--- Show Teams ---");
+                    presenter.AllTeams();
                     break;
+
                 case ConsoleKey.B:
-                    Console.WriteLine("New Team");
+                    Console.WriteLine("--- New Team ---");
+                    presenter.CreateNewTeam();
                     break;
+
                 case ConsoleKey.C:
-                    Console.WriteLine("Edit Team ");
+                    Console.WriteLine("--- Edit Team ---");
+                    presenter.EditTeam();
                     break;
+
                 case ConsoleKey.D:
-                    Console.WriteLine("Delete Team");
+                    Console.WriteLine("--- Delete Team ---");
+                    presenter.DeleteTeam();
                     break;
+
                 case ConsoleKey.E:
-                    Console.WriteLine("Show Players");
+                    Console.WriteLine("--- Show Players ---");
+                    presenter.AllPlayers();
                     break;
+
                 case ConsoleKey.F:
-                    Console.WriteLine("New Player");
+                    Console.WriteLine("--- New Player ---");
+                    presenter.CreateNewPlayer();
                     break;
+
                 case ConsoleKey.G:
-                    Console.WriteLine("Edit Player");
+                    Console.WriteLine("--- Edit Player ---");
+                    presenter.EditPlayer();
                     break;
+
                 case ConsoleKey.H:
-                    Console.WriteLine("Delete Player");
+                    Console.WriteLine("--- Delete Player ---");
+                    presenter.DeletePlayer();
                     break;
+
                 case ConsoleKey.I:
-                    Console.WriteLine("Show Unsigned Players");
+                    Console.WriteLine("--- Show Unsigned Players ---");
+                    presenter.ShowUnsignedPlayers();
                     break;
+
                 case ConsoleKey.J:
-                    Console.WriteLine("Close");
+                    Console.WriteLine("--- Close ---");
+                    presenter.Close();
                     break;
 
                 default:
@@ -103,24 +115,6 @@ namespace TeamManager.Views
             Console.ReadKey();
         }
 
-        private static void PrintMenu()
-        {
-            Console.Clear();
-            Console.WriteLine("         TEAM-MANAGER-SYSTEM            ");
-            Console.WriteLine("========================================");
-            Console.WriteLine("    Show Teams            \t(a)         ");
-            Console.WriteLine("    New Team              \t(b)         ");
-            Console.WriteLine("    Edit Team             \t(c)         ");
-            Console.WriteLine("    Delete Team           \t(d)         ");
-            Console.WriteLine("========================================");
-            Console.WriteLine("    Show Players          \t(e)         ");
-            Console.WriteLine("    New Player            \t(f)         ");
-            Console.WriteLine("    Edit Player           \t(g)         ");
-            Console.WriteLine("    Delete Player         \t(h)         ");
-            Console.WriteLine("========================================");
-            Console.WriteLine("    Show Unsigned Players \t(i)         ");
-            Console.WriteLine("    Close                 \t(j)         ");
-        }
 
     }
 }

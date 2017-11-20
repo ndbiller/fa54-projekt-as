@@ -28,6 +28,7 @@ namespace TeamManager
             var dbType      = DatabaseType.MongoDB;
             var startGui    = false;
 
+            //args = new[] { "/t:1", "/db:mongo" };
             if (args.Length != 0)
             {
                 if (!args[0].ToLower().StartsWith("/g")) // We don't want to allocate console when using gui.
@@ -65,7 +66,7 @@ namespace TeamManager
 
                 switch (args[1].ToLower())
                 {
-                    case "/db:mongo-db":
+                    case "/db:mongo":
                         dbType = DatabaseType.MongoDB;
                         break;
 
@@ -109,9 +110,9 @@ namespace TeamManager
 
             Console.WriteLine("\tSecond Parameter:");
             Console.WriteLine("\t/DB:SQL \t Using relational SQL database.");
-            Console.WriteLine("\t/DB:MONGO-DB \t Using no-relational Mongo-DB Database.");
+            Console.WriteLine("\t/DB:MONGO \t Using no-relational Mongo-DB Database.");
 
-            Console.WriteLine("\n### Example: TeamManager /t:1 /db:mongo-db ###");
+            Console.WriteLine("\n### Example: TeamManager /t:1 /db:mongo ###");
             Console.WriteLine("### Example: TeamManager /g:2 /db:sql ###");
 
             Console.ReadKey();
