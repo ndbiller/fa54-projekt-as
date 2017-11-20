@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using TeamManager.Models.ResourceData;
 
 namespace TeamManager.Presenters
@@ -13,22 +14,48 @@ namespace TeamManager.Presenters
     {
         public List<Team> AllTeams()
         {
-            throw new NotImplementedException();
+            List<Team> teams = concept.GetAllTeams();
+            for (var i = 0; i < teams.Count; i++)
+            {
+                Team team = teams[i];
+                Console.WriteLine($"[{i + 1,3}] - {team.Name}");
+            }
+
+            return teams;
         }
 
         public List<Player> AllPlayers()
         {
-            throw new NotImplementedException();
+            List<Player> players = concept.GetAllPlayers();
+            for (var i = 0; i < players.Count; i++)
+            {
+                Player player = players[i];
+                Console.WriteLine($"[{i + 1,3}] - {player.Name}");
+            }
+
+            return players;
         }
 
         public void CreateNewTeam()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("\nEnter the name of the new Team:");
+            Console.Write("Team Name: ");
+            string teamName = Console.ReadLine();
+            if (!string.IsNullOrEmpty(teamName) && concept.AddNewTeam(teamName))
+                Console.WriteLine($"Successfully created \"{teamName}\" as a new team!");
+            else
+                Console.WriteLine($"Failed to create \"{teamName}\" as a new team...");
         }
 
         public void CreateNewPlayer()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("\nEnter the name of the new player:");
+            Console.Write("Player Name: ");
+            string playerName = Console.ReadLine();
+            if (!string.IsNullOrEmpty(playerName) && concept.AddNewPlayer(playerName))
+                Console.WriteLine($"Successfully created \"{playerName}\" as a new player!");
+            else
+                Console.WriteLine($"Failed to create \"{playerName}\" as a new player...");
         }
 
         public void EditTeam()
@@ -53,12 +80,21 @@ namespace TeamManager.Presenters
 
         public void ShowUnsignedPlayers()
         {
-            throw new NotImplementedException();
+            List<Player> unsignedPlayers = concept.GetAllPlayers().Where(p => p.TeamId == "0").ToList();
+            for (var i = 0; i < unsignedPlayers.Count; i++)
+            {
+                Player player = unsignedPlayers[i];
+                Console.WriteLine($"[{i + 1,3}] - {player.Name}");
+            }
         }
 
         public void Close()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Are you sure you want to exit? (Y/N)");
+            Console.Write("Input: ");
+            string readLine = Console.ReadLine();
+            if (readLine != null && readLine.ToLower().StartsWith("y"))
+                Environment.Exit(0);
         }
 
         public void PrintMenu()

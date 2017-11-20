@@ -56,36 +56,14 @@ namespace TeamManager.Presenters
 
         public void BindTeamsData()
         {
-#if !MONGO_DB
             // TODO: Get all teams from database and bind data to the view.
-            // Example:
-            List<Team> teams = GetAllTeamsFromDatabase();
-            mainView.ListBoxTeams = teams.Select(t => t.Name).ToList();
-#endif
-        }
 
+        }
 
         public void BindPlayersData()
         {
             // TODO: Get all players from database and bind data to the view with the selected Index of the teams.
         }
 
-#if !MONGO_DB
-        // TODO: Remove me after finish.
-        // Just a temp example to demonstrate retrieving data from the db.
-        private List<Team> GetAllTeamsFromDatabase()
-        {
-            return new List<Team>
-            {
-                new Team{Id = 1, Name = "England"},
-                new Team{Id = 2, Name = "Arsenal"},
-                new Team{Id = 3, Name = "Chelsea"},
-                new Team{Id = 4, Name = "Manchester United"},
-                new Team{Id = 5, Name = "Scotland"},
-                new Team{Id = 6, Name = "Wales"}
-            };
-
-        }
-#endif
     }
 }
