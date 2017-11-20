@@ -60,22 +60,135 @@ namespace TeamManager.Presenters
 
         public void EditTeam()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("\nSelect Team by using the index number:");
+            List<Team> teams = AllTeams();
+            int teamIndex = GetUserInput();
+            if (teamIndex <= 0)
+            {
+                InvalidInput();
+                return;
+            }
+
+            Team team = teams[--teamIndex];
+            Console.Write("Team New Name: ");
+            string newName = Console.ReadLine();
+
+            if (!string.IsNullOrEmpty(newName) && concept.ChangeTeamName(team.Id, newName))
+                Console.WriteLine($"Successfully changed team name from \"{team.Name}\" to \"{newName}\"!");
+            else
+                Console.WriteLine("Failed to change team name...");
         }
 
         public void EditPlayer()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("\nSelect a player by using the index number:");
+            List<Player> players = AllPlayers();
+            int playerIndex = GetUserInput();
+            if (playerIndex <= 0)
+            {
+                InvalidInput();
+                return;
+            }
+
+            Player player = players[--playerIndex];
+
+            Console.WriteLine("What would you like to edit?");
+            Console.WriteLine("\t[1] - Name");
+            Console.WriteLine("\t[2] - Change Team");
+            int inputIndex = GetUserInput();
+            if (inputIndex != 1 && inputIndex != 2)
+            {
+                InvalidInput();
+                return;
+            }
+
+            if (inputIndex == 1) // Edit Name
+            {
+                Console.WriteLine("Write the new name for the selected player: ");
+                Console.Write("Player New Name: ");
+                string playerNewName = Console.ReadLine();
+                if (!string.IsNullOrEmpty(playerNewName) && concept.ChangePlayerName(player.Id, playerNewName))
+                    Console.WriteLine($"Successfully changed player name from \"{player.Name}\" to \"{playerNewName}\"!");
+                else
+                    Console.WriteLine("Failed to change player name...");
+            }
+            else // Edit Team
+            {
+                Console.WriteLine("Select the team by the index that you would like to assign the player to: ");
+                List<Team> teams = AllTeams();
+
+                string playerTeamName = teams.Find(t => t.Id == player.TeamId)?.Name;
+                if (string.IsNullOrEmpty(playerTeamName)) playerTeamName = "Unsigned Team";
+
+                Console.WriteLine($"Current Player Team: \"{playerTeamName}\"");
+                int teamIndex = GetUserInput();
+                if (teamIndex <= 0)
+                {
+                    InvalidInput();
+                    return;
+                }
+
+                Team team = teams[--teamIndex];
+                if (concept.ChangePlayerTeam(player.Id, team.Id))
+                    Console.WriteLine($"Successfully changed player team from \"{playerTeamName}\" to \"{team.Name}\"!");
+                else
+                    Console.WriteLine("Failed to change player team...");
+            }
+
         }
 
         public void DeleteTeam()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("\nSelect a team by using the index number:");
+            List<Team> teams = AllTeams();
+            int teamIndex = GetUserInput();
+            if (teamIndex <= 0)
+            {
+                InvalidInput();
+                return;
+            }
+
+            Team team = teams[--teamIndex];
+
+            Console.WriteLine($"Are you sure you want to delete {team.Name} from teams? (Y/N)");
+            Console.Write("Input: ");
+            string answer = Console.ReadLine();
+            if (answer == null || !answer.ToLower().StartsWith("y")) return;
+
+            // Set all players team id to 0 that contains the team id before we removing team.
+            List<Player> players = concept.GetAllPlayers();
+            foreach (var player in players)
+                if (player.TeamId == team.Id)
+                    concept.ChangePlayerTeam(player.Id, "0");
+
+            if (concept.RemoveTeam(team.Id))
+                Console.WriteLine($"Successfully removed {team.Name} from teams!");
+            else
+                Console.WriteLine($"Failed to remove {team.Name} from teams...");
         }
 
         public void DeletePlayer()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("\nSelect a player by using the index number:");
+            List<Player> players = AllPlayers();
+            int playerIndex = GetUserInput();
+            if (playerIndex <= 0)
+            {
+                InvalidInput();
+                return;
+            }
+
+            Player player = players[--playerIndex];
+
+            Console.WriteLine($"Are you sure you want to delete {player.Name} from players? (Y/N)");
+            Console.Write("Input: ");
+            string answer = Console.ReadLine();
+            if (answer == null || !answer.ToLower().StartsWith("y")) return;
+
+            if (concept.RemovePlayer(player.Id))
+                Console.WriteLine($"Successfully removed {player.Name} from players!");
+            else
+                Console.WriteLine($"Failed to remove {player.Name} from players...");
         }
 
         public void ShowUnsignedPlayers()
@@ -114,6 +227,20 @@ namespace TeamManager.Presenters
                               "========================================\n" +
                               "    Show Unsigned Players \t(i)         \n" +
                               "    Close                 \t(j)         \n");
+        }
+
+        private static int GetUserInput()
+        {
+            Console.Write("\nInput: ");
+            int input;
+            int.TryParse(Console.ReadLine(), out input);
+            Console.WriteLine(Environment.NewLine);
+            return input;
+        }
+
+        private static void InvalidInput()
+        {
+            Console.WriteLine("Invalid input. Please try again...");
         }
     }
 }
