@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TeamManager.Database;
 using TeamManager.Models.ResourceData;
 
@@ -22,19 +19,19 @@ namespace TeamManager.Models.TechnicalConcept
             throw new NotImplementedException();
         }
 
-        public bool ChangePlayerName(string playerId)
+        public bool ChangePlayerName(string playerId, string playerNewName)
         {
             throw new NotImplementedException();
         }
 
-        public bool ChangeTeamName(string teamId, string NewTeamName)
+        public bool ChangeTeamName(string teamId, string teamNewName)
         {
             throw new NotImplementedException();
         }
 
         public List<Player> GetAllPlayers()
         {
-            return dbLayer.Players().OrderBy(p => p.Name).ToList();
+            throw new NotImplementedException();
         }
 
         public List<Team> GetAllTeams()
@@ -57,7 +54,7 @@ namespace TeamManager.Models.TechnicalConcept
             throw new NotImplementedException();
         }
 
-        public bool TransferPlayer(string playerId, string teamId)
+        public bool ChangePlayerTeam(string playerId, string teamId)
         {
             throw new NotImplementedException();
         }

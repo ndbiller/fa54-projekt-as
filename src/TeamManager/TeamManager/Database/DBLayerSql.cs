@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TeamManager.Models.ResourceData;
 
@@ -70,6 +68,11 @@ namespace TeamManager.Database
         }
 
         public Task<bool> UpdateTeamAsync(string id, string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ChangePlayerTeam(string playerId, string teamId)
         {
             throw new NotImplementedException();
         }

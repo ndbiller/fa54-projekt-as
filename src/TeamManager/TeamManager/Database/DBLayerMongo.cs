@@ -2,8 +2,6 @@
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TeamManager.Models.ResourceData;
 
@@ -125,6 +123,15 @@ namespace TeamManager.Database
         {
             List<Team> teams = DBLayerMongo.TeamCollection.Find(_ => true).ToList();
             return teams;
+        }
+
+        public bool ChangePlayerTeam(string playerId, string teamId)
+        {
+            var collection = Database.GetCollection<BsonDocument>("player");
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", playerId);
+            var update = Builders<BsonDocument>.Update.Set("TeamId", teamId);
+            collection.UpdateOne(filter, update);
+            return true;
         }
     }
 }

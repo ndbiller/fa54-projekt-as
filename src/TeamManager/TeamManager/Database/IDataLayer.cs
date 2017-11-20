@@ -1,8 +1,4 @@
-﻿using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using TeamManager.Models.ResourceData;
 
@@ -25,5 +21,6 @@ namespace TeamManager.Database
         Task<bool> UpdatePlayerAsync(string id, string name);
         Task<bool> UpdatePlayerAsync(string id, string teamId, string name);
         bool DeletePlayer(string id);
+        bool ChangePlayerTeam(string playerId, string teamId);
     }
 }

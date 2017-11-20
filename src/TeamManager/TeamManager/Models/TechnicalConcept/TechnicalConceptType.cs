@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TeamManager.Models.TechnicalConcept
+﻿namespace TeamManager.Models.TechnicalConcept
 {
     /// <summary>
     /// This enum controls the way the data will get initialized from the database.
