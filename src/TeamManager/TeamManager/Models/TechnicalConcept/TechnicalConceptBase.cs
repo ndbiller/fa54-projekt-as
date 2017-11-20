@@ -15,7 +15,7 @@ namespace TeamManager.Models.TechnicalConcept
         public Player Player { get; set; }
 
 
-        public TechnicalConceptBase(DatabaseType dbType)
+        protected TechnicalConceptBase(DatabaseType dbType)
         {
             switch (dbType)
             {

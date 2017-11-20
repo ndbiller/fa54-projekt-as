@@ -12,26 +12,26 @@ namespace TeamManager.Database
     public class DBLayerMongo : IDataLayer
     {
         // get the mlab db servers credentials from environment variables (set them with .env.bat)
-        internal readonly static string MLAB_USERNAME = Environment.GetEnvironmentVariable("MLAB_USERNAME");
-        internal readonly static string MLAB_PASSWORD = Environment.GetEnvironmentVariable("MLAB_PASSWORD");
-        internal readonly static string MLAB_URI = Environment.GetEnvironmentVariable("MLAB_URI");
-        internal readonly static string MLAB_PORT = Environment.GetEnvironmentVariable("MLAB_PORT");
-        internal readonly static string MLAB_DATABASE_NAME = Environment.GetEnvironmentVariable("MLAB_DATABASE_NAME");
+        internal static readonly string MLAB_USERNAME = Environment.GetEnvironmentVariable("MLAB_USERNAME");
+        internal static readonly string MLAB_PASSWORD = Environment.GetEnvironmentVariable("MLAB_PASSWORD");
+        internal static readonly string MLAB_URI = Environment.GetEnvironmentVariable("MLAB_URI");
+        internal static readonly string MLAB_PORT = Environment.GetEnvironmentVariable("MLAB_PORT");
+        internal static readonly string MLAB_DATABASE_NAME = Environment.GetEnvironmentVariable("MLAB_DATABASE_NAME");
 
 
 #if MONGO_DB_LOCAL
 // connect to local mongodb server
-        static private string databaseName = "teamplayer";
-        static private string connectionString = "mongodb://localhost:27017";
+        private static string databaseName = "teamplayer";
+        private static string connectionString = "mongodb://localhost:27017";
 #else
         // connect to mLab mongodb server
-        static private string databaseName = MLAB_DATABASE_NAME;
-        static private string connectionString = "mongodb://" + MLAB_USERNAME + ":" + MLAB_PASSWORD + "@" + MLAB_URI + ":" + MLAB_PORT + "/" + MLAB_DATABASE_NAME;
+        private static string databaseName = MLAB_DATABASE_NAME;
+        private static string connectionString = "mongodb://" + MLAB_USERNAME + ":" + MLAB_PASSWORD + "@" + MLAB_URI + ":" + MLAB_PORT + "/" + MLAB_DATABASE_NAME;
 #endif
-        static private MongoClient Client { get; set; }
-        static public IMongoDatabase Database { get; private set; }
-        static public IMongoCollection<Team> TeamCollection { get; set; }
-        static public IMongoCollection<Player> PlayerCollection { get; set; }
+        private static MongoClient Client { get; set; }
+        public static IMongoDatabase Database { get; private set; }
+        public static IMongoCollection<Team> TeamCollection { get; set; }
+        public static IMongoCollection<Player> PlayerCollection { get; set; }
 
         public DBLayerMongo() : base()
         {

@@ -125,9 +125,6 @@
     <Compile Include="Models\TechnicalConcept\ITechnicalConcept.cs" />
     <Compile Include="Models\ResourceData\Player.cs" />
     <Compile Include="Models\ResourceData\Team.cs" />
-    <Compile Include="Models\Temp\ServeData\PlayersMgr.cs" />
-    <Compile Include="Models\Temp\ServeData\TeamsMgr.cs" />
-    <Compile Include="Models\Temp\TeamManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\TechnicalConcept\TechnicalConcept1.cs" />
