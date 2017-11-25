@@ -10,7 +10,16 @@ namespace TeamManager.Presenters
 {
     public class MainPresenter : BasePresenter
     {
-        private IMainView view;
+        /// <summary>
+        /// Main view object that will be accessed to update the ui.
+        /// </summary>
+        private readonly IMainView view;
+
+        /// <summary>
+        /// Since the PlayersListBox depend on the TeamsListBox, we want in certain situations to temporary 
+        /// disable SelectedIndexChanged event from binding the players data to avoid indexing errors.
+        /// </summary>
+        private bool allowPlayersDataBinding = true;
 
         /// <summary>
         /// Filtering variables when using the search functionality.
@@ -78,12 +87,48 @@ namespace TeamManager.Presenters
 
         public void DeleteTeam()
         {
-            throw new NotImplementedException();
+            List<Team> teams = Teams();
+            if (teams.Count == 0) return;
+
+            int teamSelIndex = view.TeamSelectedIndex;
+            List<Player> teamPlayers = TeamPlayers(teams[teamSelIndex].Id);
+
+            // Change all players of the deleted team to Unsigned Team("0").
+            if (teamPlayers.Count > 0)
+                for (int i = teamPlayers.Count - 1; i >= 0; i--)
+                    concept.ChangePlayerTeam(teamPlayers[i].Id, "0");
+
+            concept.RemoveTeam(teams[teamSelIndex].Id);
+
+            allowPlayersDataBinding = false;
+            view.TeamsListBox.RemoveAt(teamSelIndex);
+
+            if (teams.Count == teamSelIndex + 1)
+                teamSelIndex--;
+
+            allowPlayersDataBinding = true;
+
+            view.TeamSelectedIndex = teamSelIndex;
         }
 
         public void DeletePlayer()
         {
-            throw new NotImplementedException();
+            List<Team> teams = Teams();
+            if (teams.Count == 0) return;
+
+            int teamSelIndex = view.TeamSelectedIndex;
+            List<Player> teamPlayers = TeamPlayers(teams[teamSelIndex].Id);
+            if (teamPlayers.Count == 0) return;
+
+            int playerSelIndex = view.PlayerSelectedIndex;
+            concept.ChangePlayerTeam(teamPlayers[playerSelIndex].Id, "0");
+            view.PlayersListBox.RemoveAt(playerSelIndex);
+
+            // Last index -> Go step back.
+            if (teamPlayers.Count == playerSelIndex + 1)
+                playerSelIndex--;
+
+            view.PlayerSelectedIndex = playerSelIndex;
         }
 
         public List<Team> BindTeamsData()
@@ -102,6 +147,8 @@ namespace TeamManager.Presenters
 
         public List<Player> BindPlayersData()
         {
+            if (!allowPlayersDataBinding) return null;
+
             view.PlayersListBox.Clear();
             List<Team> teams = Teams();
             if (teams.Count == 0) return null; ;
