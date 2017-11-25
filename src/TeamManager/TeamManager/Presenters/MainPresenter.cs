@@ -227,7 +227,19 @@ namespace TeamManager.Presenters
 
         private void Form_ChildClose(object sender, PresenterArgs args)
         {
-            throw new NotImplementedException();
+            int tSelIndex = view.TeamSelectedIndex;
+            int pSelIndex = view.PlayerSelectedIndex;
+            int oldTeamsCount = view.TeamsListBox.Count;
+            List<Team> teams = BindTeamsData();
+            // Saftey check if child form removed or created team.
+            if (teams.Count != oldTeamsCount) return;
+
+            view.TeamSelectedIndex = tSelIndex;
+
+            if (view.PlayersListBox.Count == pSelIndex)
+                pSelIndex--;
+
+            view.PlayerSelectedIndex = pSelIndex;
         }
 
         public override void FormClosed()
