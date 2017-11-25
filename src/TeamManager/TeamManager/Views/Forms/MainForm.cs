@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.Custom;
 using TeamManager.Models.ResourceData;
@@ -9,6 +7,7 @@ using TeamManager.Presenters;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Forms.ChildForms;
 using TeamManager.Views.Interfaces;
+using TeamManager.Views.Loader;
 
 namespace TeamManager.Views.Forms
 {
@@ -48,6 +47,8 @@ namespace TeamManager.Views.Forms
 
         public MainForm()
         {
+            Loaders.StartLoader(LoaderSelector.Loader, 3500);
+
             InitializeComponent();
             presenter = new MainPresenter(this);
             presenter.BindTeamsData();
@@ -64,6 +65,8 @@ namespace TeamManager.Views.Forms
                 tbxSearch.TextS = string.Empty;
                 tbxSearch.Focus();
             };
+
+            Loaders.StopLoader(Handle);
         }
 
 
