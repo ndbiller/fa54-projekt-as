@@ -1,0 +1,92 @@
+﻿using System;
+using System.Windows.Forms.Custom;
+using TeamManager.Presenters;
+using TeamManager.Views.Enums;
+using TeamManager.Views.Interfaces;
+
+namespace TeamManager.Views.Forms.ChildForms
+{
+    public partial class EditForm : CustomForm, IEditView
+    {
+        private ViewType currentView;
+        private EditPresenter presenter;
+
+        public EditForm(ViewType viewType)
+        {
+            InitializeComponent();
+            InitializeComponentExtend(viewType);
+            presenter = new EditPresenter(this);
+        }
+
+        private void InitializeComponentExtend(ViewType viewType)
+        {
+            switch (viewType)
+            {
+                case ViewType.TeamCreate:
+                    currentView = ViewType.TeamCreate;
+                    lbTeam.Hide();
+                    cbxTeams.Hide();
+                    Text = "Team Create";
+                    break;
+
+                case ViewType.TeamEdit:
+                    currentView = ViewType.TeamEdit;
+                    lbTeam.Hide();
+                    cbxTeams.Hide();
+                    Text = "Team Edit";
+                    break;
+
+                case ViewType.PlayerEdit:
+                    currentView = ViewType.PlayerEdit;
+                    Text = "Player Edit";
+                    // TODO: Display player name in textbox and teams list.
+
+                    break;
+
+                case ViewType.PlayerCreate:
+                    currentView = ViewType.PlayerCreate;
+                    Text = "Player Create";
+                    // TODO: Display teams list.
+
+                    break;
+
+                case ViewType.PlayerAssignToTeam:
+                    currentView = ViewType.PlayerAssignToTeam;
+                    tbxName.ReadOnly = true;
+                    tbxName.Enabled = false;
+                    Text = "Assign Player to Team";
+                    // TODO: Display player name and teams list.
+
+                    break;
+            }
+        }
+
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            // TODO: Implement save.
+            switch (currentView)
+            {
+                case ViewType.TeamCreate:
+                    new UnsignedPlayersForm().ShowDialog();
+                    break;
+                case ViewType.TeamEdit:
+                    break;
+                case ViewType.PlayerEdit:
+                    break;
+                case ViewType.PlayerCreate:
+                    break;
+                case ViewType.PlayerAssignToTeam:
+                    break;
+
+            }
+
+            Close();
+        }
+    }
+}
