@@ -203,11 +203,11 @@ namespace TeamManager.Presenters
 
         public Tuple<Team, Player> GetSelectedPlayerAndTeam()
         {
-            List<Team> teams = concept.GetAllTeams();
+            List<Team> teams = Teams();
             if (teams.Count == 0) return new Tuple<Team, Player>(null, null);
 
             int teamSelIndex = view.TeamSelectedIndex;
-            List<Player> teamPlayers = concept.GetTeamPlayers(teams[teamSelIndex].Id);
+            List<Player> teamPlayers = TeamPlayers(teams[teamSelIndex].Id);
             if (teamPlayers.Count == 0) return new Tuple<Team, Player>(null, null);
 
             int playerSelIndex = view.PlayerSelectedIndex;
@@ -219,7 +219,7 @@ namespace TeamManager.Presenters
 
         public Team GetSelectedTeam()
         {
-            List<Team> teams = concept.GetAllTeams();
+            List<Team> teams = Teams();
             if (teams.Count == 0) return null;
 
             return teams[view.TeamSelectedIndex];
