@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using TeamManager.Models.ResourceData;
 using TeamManager.Presenters.Events;
@@ -10,7 +9,7 @@ namespace TeamManager.Presenters
 {
     public class UnsignedPlayersPresenter : BasePresenter
     {
-        private IUnsignedPlayersView view;
+        private readonly IUnsignedPlayersView view;
 
 
 
@@ -26,12 +25,28 @@ namespace TeamManager.Presenters
 
         public void DeletePlayer()
         {
-            throw new NotImplementedException();
+            List<Player> players = concept.GetAllPlayers().Where(p => p.TeamId == "0").ToList();
+            if (players.Count == 0) return;
+
+            int playerSelIndex = view.PlayerSelectedIndex;
+            concept.RemovePlayer(players[playerSelIndex].Id);
+            view.PlayersListBox.RemoveAt(playerSelIndex);
+            if (players.Count == playerSelIndex + 1)
+                playerSelIndex--;
+
+            view.PlayerSelectedIndex = playerSelIndex;
         }
 
         public void BindPlayersData()
         {
-            throw new NotImplementedException();
+            view.PlayersListBox.Clear();
+            List<Player> players = concept.GetAllPlayers().Where(p => p.TeamId == "0").ToList();
+            if (players.Count == 0) return;
+
+            foreach (string player in players.Select(p => p.Name))
+                view.PlayersListBox.Add(player);
+
+            view.PlayerSelectedIndex = 0;
         }
 
         public Player GetPlayer()
@@ -44,12 +59,19 @@ namespace TeamManager.Presenters
 
         void Form_ChildClose(object sender, PresenterArgs args)
         {
-            throw new NotImplementedException();
+            int pSelIndex = view.PlayerSelectedIndex;
+            BindPlayersData();
+
+            if (view.PlayersListBox.Count == pSelIndex)
+                pSelIndex--;
+
+            view.PlayerSelectedIndex = pSelIndex;
         }
 
         public override void FormClosed()
         {
             OnChildClosed(this, new PresenterArgs(FormType.UnsignedPlayers));
         }
+
     }
 }
