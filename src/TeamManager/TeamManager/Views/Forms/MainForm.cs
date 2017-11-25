@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.Custom;
+using TeamManager.Models.ResourceData;
 using TeamManager.Presenters;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Forms.ChildForms;
@@ -89,22 +90,31 @@ namespace TeamManager.Views.Forms
 
         private void btnTCreate_Click(object sender, EventArgs e)
         {
-            new EditForm(EditMode.TeamCreate).ShowDialog();
+            new EditForm(EditMode.TeamCreate, null, null).ShowDialog();
         }
 
         private void btnPCreate_Click(object sender, EventArgs e)
         {
-            new EditForm(EditMode.PlayerCreate).ShowDialog();
+            Team team = presenter.GetSelectedTeam();
+            if (TeamsListBox.Count == 0) return;
+
+            new EditForm(EditMode.PlayerCreate, team, null).ShowDialog();
         }
 
         private void btnTEdit_Click(object sender, EventArgs e)
         {
-            new EditForm(EditMode.TeamEdit).ShowDialog();
+            Team team = presenter.GetSelectedTeam();
+            if (TeamsListBox.Count == 0 && team == null) return;
+
+            new EditForm(EditMode.TeamEdit, team, null).ShowDialog();
         }
 
         private void btnPEdit_Click(object sender, EventArgs e)
         {
-            new EditForm(EditMode.PlayerEdit).ShowDialog();
+            Tuple<Team, Player> teamAndPlayer = presenter.GetSelectedPlayerAndTeam();
+            if (PlayersListBox.Count == 0 && teamAndPlayer.Item2 == null) return;
+
+            new EditForm(EditMode.PlayerEdit, teamAndPlayer.Item1, teamAndPlayer.Item2).ShowDialog();
         }
 
         #endregion --- Show Dialogs ---

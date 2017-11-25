@@ -31,11 +31,14 @@ namespace TeamManager.Views.Forms.ChildForms
 
 
 
-        public EditForm(EditMode viewType)
+        public EditForm(EditMode editMode, Team team, Player player)
         {
+            Team = team;
+            Player = player;
             InitializeComponent();
-            InitializeComponentExtend(viewType);
             presenter = new EditPresenter(this);
+
+            InitializeComponentExtend(editMode);
         }
 
 

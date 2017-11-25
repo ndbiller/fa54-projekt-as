@@ -49,6 +49,30 @@ namespace TeamManager.Presenters
             throw new NotImplementedException();
         }
 
+        public Tuple<Team, Player> GetSelectedPlayerAndTeam()
+        {
+            List<Team> teams = concept.GetAllTeams();
+            if (teams.Count == 0) return new Tuple<Team, Player>(null, null);
+
+            int teamSelIndex = view.TeamSelectedIndex;
+            List<Player> teamPlayers = concept.GetTeamPlayers(teams[teamSelIndex].Id);
+            if (teamPlayers.Count == 0) return new Tuple<Team, Player>(null, null);
+
+            int playerSelIndex = view.PlayerSelectedIndex;
+            Player player = teamPlayers[playerSelIndex];
+            Team team = teams[teamSelIndex];
+
+            return new Tuple<Team, Player>(team, player);
+        }
+
+        public Team GetSelectedTeam()
+        {
+            List<Team> teams = concept.GetAllTeams();
+            if (teams.Count == 0) return null;
+
+            return teams[view.TeamSelectedIndex];
+        }
+
         private void Form_ChildClose(object sender, PresenterArgs args)
         {
             throw new NotImplementedException();

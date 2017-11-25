@@ -51,12 +51,15 @@ namespace TeamManager.Views.Forms.ChildForms
 
         private void btnPAddToTeam_Click(object sender, EventArgs e)
         {
-            new EditForm(EditMode.PlayerAssignToTeam).ShowDialog();
+            Player player = presenter.GetPlayer();
+            if (player == null) return;
+
+            new EditForm(EditMode.PlayerAssignToTeam, null, player).ShowDialog();
         }
 
         private void btnPCreate_Click(object sender, EventArgs e)
         {
-            new EditForm(EditMode.PlayerCreate).ShowDialog();
+            new EditForm(EditMode.PlayerCreate, null, null).ShowDialog();
         }
 
         #endregion --- Show Dialogs ---

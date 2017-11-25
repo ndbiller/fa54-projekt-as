@@ -14,6 +14,11 @@ namespace TeamManager.Models.TechnicalConcept
             throw new NotImplementedException();
         }
 
+        public bool AddNewPlayer(string playerName, string teamId)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool AddNewTeam(string teamName)
         {
             throw new NotImplementedException();
@@ -35,6 +40,11 @@ namespace TeamManager.Models.TechnicalConcept
         }
 
         public List<Team> GetAllTeams()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Team GetPlayerTeam(string teamId)
         {
             throw new NotImplementedException();
         }

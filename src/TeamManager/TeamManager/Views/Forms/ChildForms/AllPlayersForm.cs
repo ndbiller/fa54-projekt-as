@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.Custom;
+using TeamManager.Models.ResourceData;
 using TeamManager.Presenters;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Interfaces;
@@ -45,6 +46,7 @@ namespace TeamManager.Views.Forms.ChildForms
         {
             InitializeComponent();
             presenter = new AllPlayersPresenter(this);
+            presenter.BindPlayersData();
         }
 
         private void btnPDelete_Click(object sender, EventArgs e)
@@ -67,12 +69,15 @@ namespace TeamManager.Views.Forms.ChildForms
 
         private void btnPEdit_Click(object sender, EventArgs e)
         {
-            new EditForm(EditMode.PlayerEdit).ShowDialog();
+            Tuple<Team, Player> teamAndPlayer = presenter.GetPlayerAndTeam();
+            if (teamAndPlayer.Item2 == null) return;
+
+            new EditForm(EditMode.PlayerEdit, teamAndPlayer.Item1, teamAndPlayer.Item2).ShowDialog();
         }
 
         private void btnPCreate_Click(object sender, EventArgs e)
         {
-            new EditForm(EditMode.PlayerCreate).ShowDialog();
+            new EditForm(EditMode.PlayerCreate, null, null).ShowDialog();
         }
 
         #endregion --- Show Dialogs ---
