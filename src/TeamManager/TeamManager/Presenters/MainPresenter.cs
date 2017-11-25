@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms.Custom;
 using TeamManager.Models.ResourceData;
 using TeamManager.Presenters.Events;
@@ -87,12 +88,34 @@ namespace TeamManager.Presenters
 
         public List<Team> BindTeamsData()
         {
-            throw new NotImplementedException();
+            view.TeamsListBox.Clear();
+            List<Team> teams = Teams();
+            if (teams.Count == 0) return null;
+
+            foreach (string teamName in teams.Select(t => t.Name))
+                view.TeamsListBox.Add(teamName);
+
+            view.TeamSelectedIndex = 0;
+
+            return teams;
         }
 
         public List<Player> BindPlayersData()
         {
-            throw new NotImplementedException();
+            view.PlayersListBox.Clear();
+            List<Team> teams = Teams();
+            if (teams.Count == 0) return null; ;
+
+            int teamSelIndex = view.TeamSelectedIndex;
+            List<Player> teamPlayers = TeamPlayers(teams[teamSelIndex].Id);
+            if (teamPlayers.Count == 0) return null;
+
+            foreach (string playerName in teamPlayers.Select(p => p.Name))
+                view.PlayersListBox.Add(playerName);
+
+            view.PlayerSelectedIndex = 0;
+
+            return teamPlayers;
         }
 
         /// <summary>
