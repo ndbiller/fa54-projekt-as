@@ -1,68 +1,47 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms.Custom;
+using TeamManager.Models.ResourceData;
 using TeamManager.Views.Interfaces;
 
 namespace TeamManager.Presenters
 {
     public class MainPresenter : BasePresenter
     {
-        private IMainView mainView;
+        private IMainView view;
 
-        public MainPresenter(IMainView mainView)
+
+
+        public MainPresenter(IMainView view)
         {
-            this.mainView = mainView;
+            this.view = view;
         }
 
-        public void DeletePlayer()
-        {
-            // TODO: Implement delete player.
 
-            BindPlayersData();
+
+        public void Search(CustomTextBoxSearch tbxSearch, bool searchInTeams)
+        {
+            throw new NotImplementedException();
         }
 
         public void DeleteTeam()
         {
-            // TODO: Implement delete team.
-
-            BindTeamsData();
-            BindPlayersData();
+            throw new NotImplementedException();
         }
 
-        public void Search(CustomTextBoxSearch tbxSearch, bool searchInTeams)
+        public void DeletePlayer()
         {
-            if (tbxSearch.TextS == tbxSearch.TextSearch)
-            {
-                tbxSearch.Focus();
-                return;
-            }
-
-            BindTeamsData();
-            BindPlayersData();
-
-            // TODO: Implement wildcard with regex.
-            if (searchInTeams)
-            {
-                List<string> teams = mainView.ListBoxTeams;
-                mainView.ListBoxTeams = teams.FindAll(t => t.ToLower().Contains(tbxSearch.TextS.ToLower()));
-            }
-            else // search in players.
-            {
-                List<string> players = mainView.ListBoxPlayers;
-                mainView.ListBoxPlayers = players.FindAll(t => t.ToLower().Contains(tbxSearch.TextS.ToLower()));
-            }
-
+            throw new NotImplementedException();
         }
 
-
-        public void BindTeamsData()
+        public List<Team> BindTeamsData()
         {
-            // TODO: Get all teams from database and bind data to the view.
-
+            throw new NotImplementedException();
         }
 
-        public void BindPlayersData()
+        public List<Player> BindPlayersData()
         {
-            // TODO: Get all players from database and bind data to the view with the selected Index of the teams.
+            throw new NotImplementedException();
         }
 
     }

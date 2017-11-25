@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 using System.Windows.Forms.Custom;
 using TeamManager.Presenters;
 using TeamManager.Views.Enums;
@@ -10,7 +11,35 @@ namespace TeamManager.Views.Forms.ChildForms
 {
     public partial class AllPlayersForm : CustomForm, IAllPlayersView
     {
+
+        #region --- View Interface Items ---
+
+        public int PlayerSelectedIndex
+        {
+            get => lbxPlayers.SelectedIndex;
+            set => lbxPlayers.SelectedIndex = value;
+        }
+
+        public string TeamNameText
+        {
+            get => tbxTeam.Text;
+            set => tbxTeam.Text = value;
+        }
+
+        public string PlayerNameText
+        {
+            get => tbxName.Text;
+            set => tbxName.Text = value;
+        }
+
+        public ListBox.ObjectCollection PlayersListBox => lbxPlayers.Items;
+
+        #endregion --- View Interface Items ---
+
+
         private AllPlayersPresenter presenter;
+
+
 
         public AllPlayersForm()
         {
@@ -25,10 +54,12 @@ namespace TeamManager.Views.Forms.ChildForms
 
         private void lbxPlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            presenter.UpdateView(lbxPlayers.Text);
+            presenter.UpdateView();
         }
 
-        #region ------------------- Show Dialogs -------------------
+
+        #region --- Show Dialogs ---
+
         private void btnPEdit_Click(object sender, EventArgs e)
         {
             new EditForm(ViewType.PlayerEdit).ShowDialog();
@@ -38,32 +69,8 @@ namespace TeamManager.Views.Forms.ChildForms
         {
             new EditForm(ViewType.PlayerCreate).ShowDialog();
         }
-        #endregion -------------- Show Dialogs -------------------
 
-        public int SelectedPlayerIndex
-        {
-            get => lbxPlayers.SelectedIndex;
-            set => lbxPlayers.SelectedIndex = value;
-        }
-
-        public string PlayerNameText
-        {
-            get => tbxName.Text;
-            set => tbxName.Text = value;
-        }
-
-        public string TeamNameText
-        {
-            get => tbxTeam.Text;
-            set => tbxTeam.Text = value;
-        }
-
-        public List<string> ListBoxPlayers
-        {
-            get => lbxPlayers.Items.Cast<string>().ToList();
-            set => lbxPlayers.DataSource = value;
-        }
-
+        #endregion --- Show Dialogs ---
 
     }
 }

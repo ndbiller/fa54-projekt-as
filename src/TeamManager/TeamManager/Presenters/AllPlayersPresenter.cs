@@ -1,34 +1,35 @@
-﻿using TeamManager.Views.Interfaces;
+﻿using System;
+using TeamManager.Views.Interfaces;
 
 namespace TeamManager.Presenters
 {
     public class AllPlayersPresenter : BasePresenter
     {
-        private IAllPlayersView allPlayersView;
+        private IAllPlayersView view;
 
-        public AllPlayersPresenter(IAllPlayersView allPlayersView)
+
+
+        public AllPlayersPresenter(IAllPlayersView view)
         {
-            this.allPlayersView = allPlayersView;
+            this.view = view;
         }
+        
+
 
         public void DeletePlayer()
         {
-            // TODO: Implement delete player.   
-            
+            throw new NotImplementedException();
         }
 
         public void BindPlayersData()
         {
-            // TODO: Get all players from database and bind data to the view.
-
+            throw new NotImplementedException();
         }
 
-        public void UpdateView(string playerName)
+        public void UpdateView()
         {
-            allPlayersView.PlayerNameText = playerName;
-            // TODO: Get the team name of selected player from the database.
-
-            allPlayersView.TeamNameText = "0xFFFFFF"; // GetPlayerTeamNameByPlayerName
+            throw new NotImplementedException();
         }
+
     }
 }

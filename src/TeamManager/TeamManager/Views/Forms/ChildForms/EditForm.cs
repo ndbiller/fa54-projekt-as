@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Windows.Forms;
 using System.Windows.Forms.Custom;
+using TeamManager.Models.ResourceData;
 using TeamManager.Presenters;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Interfaces;
@@ -8,8 +10,26 @@ namespace TeamManager.Views.Forms.ChildForms
 {
     public partial class EditForm : CustomForm, IEditView
     {
-        private ViewType currentView;
+
+        #region --- View Interface Items ---
+
+        public int TeamSelectedIndex
+        {
+            get => cbxTeams.SelectedIndex;
+            set => cbxTeams.SelectedIndex = value;
+        }
+        public string NameText => tbxName.Text;
+        public Team Team { get; }
+        public Player Player { get; }
+        public ComboBox.ObjectCollection TeamsComboBox => cbxTeams.Items;
+
+        #endregion --- View Interface Items ---
+
+
         private EditPresenter presenter;
+        private ViewType currentView;
+
+
 
         public EditForm(ViewType viewType)
         {
@@ -17,6 +37,9 @@ namespace TeamManager.Views.Forms.ChildForms
             InitializeComponentExtend(viewType);
             presenter = new EditPresenter(this);
         }
+
+
+
 
         private void InitializeComponentExtend(ViewType viewType)
         {
@@ -61,32 +84,41 @@ namespace TeamManager.Views.Forms.ChildForms
             }
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (tbxName.Text == string.Empty) return;
+
+            switch (currentView)
+            {
+                case ViewType.TeamCreate:
+                    presenter.CreateTeam();
+                    new UnsignedPlayersForm().ShowDialog();
+                    break;
+
+                case ViewType.TeamEdit:
+                    presenter.EditTeam();
+                    break;
+
+                case ViewType.PlayerEdit:
+                    presenter.EditPlayer();
+                    break;
+
+                case ViewType.PlayerCreate:
+                    presenter.CreatePlayer();
+                    break;
+
+                case ViewType.PlayerAssignToTeam:
+                    presenter.AssignToTeam();
+                    break;
+            }
+
+            Close();
+        }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            // TODO: Implement save.
-            switch (currentView)
-            {
-                case ViewType.TeamCreate:
-                    new UnsignedPlayersForm().ShowDialog();
-                    break;
-                case ViewType.TeamEdit:
-                    break;
-                case ViewType.PlayerEdit:
-                    break;
-                case ViewType.PlayerCreate:
-                    break;
-                case ViewType.PlayerAssignToTeam:
-                    break;
-
-            }
-
-            Close();
-        }
     }
 }
