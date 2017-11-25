@@ -11,6 +11,14 @@ namespace TeamManager.Presenters
     {
         private IMainView view;
 
+        /// <summary>
+        /// Filtering variables when using the search functionality.
+        /// </summary>
+        private string teamFilterText;
+        private string playerFilterText;
+        private bool filterTeams;
+        private bool filterPlayers;
+
 
 
         public MainPresenter(IMainView view)
@@ -26,7 +34,45 @@ namespace TeamManager.Presenters
 
         public void Search(CustomTextBoxSearch tbxSearch, bool searchInTeams)
         {
-            throw new NotImplementedException();
+            if (tbxSearch.TextS == tbxSearch.TextSearch)
+            {
+                filterTeams = false;
+                filterPlayers = false;
+                teamFilterText = string.Empty;
+                playerFilterText = string.Empty;
+                BindTeamsData();
+                return;
+            }
+
+            if (searchInTeams)
+            {
+                filterTeams = true;
+                filterPlayers = false;
+                teamFilterText = tbxSearch.TextS;
+
+                view.TeamsListBox.Clear();
+                List<Team> teams = Teams();
+                if (teams.Count == 0) return;
+
+                teams.ForEach(t => view.TeamsListBox.Add(t.Name));
+                view.TeamSelectedIndex = 0;
+            }
+            else // search in players.
+            {
+                filterPlayers = true;
+                playerFilterText = tbxSearch.TextS;
+
+                view.PlayersListBox.Clear();
+                List<Team> teams = Teams();
+                if (teams.Count == 0) return;
+
+                List<Player> teamPlayers = TeamPlayers(teams[view.TeamSelectedIndex].Id);
+                if (teamPlayers.Count == 0) return;
+
+                teamPlayers.ForEach(p => view.PlayersListBox.Add(p.Name));
+                view.PlayerSelectedIndex = 0;
+            }
+
         }
 
         public void DeleteTeam()
@@ -47,6 +93,42 @@ namespace TeamManager.Presenters
         public List<Player> BindPlayersData()
         {
             throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Use that instead of the concept type to get all teams as it will differentiate between the 
+        /// filtered method or the clean to avoid duplicated code.
+        /// </summary>
+        /// <returns></returns>
+        public List<Team> Teams()
+        {
+            return filterTeams
+                ? concept.GetAllTeams(teamFilterText, true)
+                : concept.GetAllTeams();
+        }
+
+        /// <summary>
+        /// Use that instead of the concept type to get all players as it will differentiate between the 
+        /// filtered method or the clean to avoid duplicated code.
+        /// </summary>
+        /// <returns></returns>
+        public List<Player> Players()
+        {
+            return filterPlayers
+                ? concept.GetAllPlayers(playerFilterText, true)
+                : concept.GetAllPlayers();
+        }
+
+        /// <summary>
+        /// Use that instead of the concept type to get all team players as it will differentiate between the 
+        /// filtered method or the clean to avoid duplicated code.
+        /// </summary>
+        /// <returns></returns>
+        public List<Player> TeamPlayers(string teamId)
+        {
+            return filterPlayers
+                ? concept.GetTeamPlayers(teamId, playerFilterText, true)
+                : concept.GetTeamPlayers(teamId);
         }
 
         public Tuple<Team, Player> GetSelectedPlayerAndTeam()

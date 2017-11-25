@@ -39,7 +39,17 @@ namespace TeamManager.Models.TechnicalConcept
             throw new NotImplementedException();
         }
 
+        public List<Player> GetAllPlayers(string filterText, bool ignoreCase)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Team> GetAllTeams()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Team> GetAllTeams(string filterText, bool ignoreCase)
         {
             throw new NotImplementedException();
         }
@@ -50,6 +60,11 @@ namespace TeamManager.Models.TechnicalConcept
         }
 
         public List<Player> GetTeamPlayers(string teamId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Player> GetTeamPlayers(string teamId, string filterText, bool ignoreCase)
         {
             throw new NotImplementedException();
         }

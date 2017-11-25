@@ -42,11 +42,9 @@ namespace TeamManager.Views.Forms.ChildForms
         }
 
 
-
-
-        private void InitializeComponentExtend(EditMode viewType)
+        private void InitializeComponentExtend(EditMode editMode)
         {
-            switch (viewType)
+            switch (editMode)
             {
                 case EditMode.TeamCreate:
                     currentView = EditMode.TeamCreate;
@@ -60,20 +58,20 @@ namespace TeamManager.Views.Forms.ChildForms
                     lbTeam.Hide();
                     cbxTeams.Hide();
                     Text = "Team Edit";
+                    tbxName.Text = Team.Name;
                     break;
 
                 case EditMode.PlayerEdit:
                     currentView = EditMode.PlayerEdit;
                     Text = "Player Edit";
-                    // TODO: Display player name in textbox and teams list.
-
+                    tbxName.Text = Player.Name;
+                    presenter.InitializeTeams();
                     break;
 
                 case EditMode.PlayerCreate:
                     currentView = EditMode.PlayerCreate;
                     Text = "Player Create";
-                    // TODO: Display teams list.
-
+                    presenter.InitializeTeams();
                     break;
 
                 case EditMode.PlayerAssignToTeam:
@@ -81,8 +79,8 @@ namespace TeamManager.Views.Forms.ChildForms
                     tbxName.ReadOnly = true;
                     tbxName.Enabled = false;
                     Text = "Assign Player to Team";
-                    // TODO: Display player name and teams list.
-
+                    tbxName.Text = Player.Name;
+                    presenter.InitializeTeams();
                     break;
             }
         }
@@ -126,7 +124,6 @@ namespace TeamManager.Views.Forms.ChildForms
         private void EditForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             presenter.FormClosed();
-
         }
 
     }

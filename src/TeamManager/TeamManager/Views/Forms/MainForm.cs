@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.Custom;
@@ -50,11 +51,23 @@ namespace TeamManager.Views.Forms
             InitializeComponent();
             presenter = new MainPresenter(this);
             presenter.BindTeamsData();
-            presenter.BindPlayersData();
+
+            // Small issue with tbxSearch in panels when losing focus size increases once. this resolves it.
+            tbxSearch.Focus();
+            lbxTeams.Focus();
+            tbxSearch.Size = new Size(95, 30);
+
+            tbxSearch.GotFocus += delegate { searchTimer.Start(); };
+            tbxSearch.Leave += delegate { searchTimer.Stop(); };
+            rbnTeams.CheckedChanged += delegate
+            {
+                tbxSearch.TextS = string.Empty;
+                tbxSearch.Focus();
+            };
         }
 
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void searchTimer_Tick(object sender, EventArgs e)
         {
             presenter.Search(tbxSearch, rbnTeams.Checked);
         }

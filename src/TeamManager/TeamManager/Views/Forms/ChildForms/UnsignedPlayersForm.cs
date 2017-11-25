@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.Custom;
 using TeamManager.Models.ResourceData;
@@ -63,5 +61,6 @@ namespace TeamManager.Views.Forms.ChildForms
         }
 
         #endregion --- Show Dialogs ---
+
     }
 }
