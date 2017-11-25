@@ -86,21 +86,30 @@ namespace TeamManager.Views.Forms.ChildForms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // TODO: Implement save.
+            if (tbxName.Text == string.Empty) return;
+
             switch (currentView)
             {
                 case ViewType.TeamCreate:
+                    presenter.CreateTeam();
                     new UnsignedPlayersForm().ShowDialog();
                     break;
+
                 case ViewType.TeamEdit:
-                    break;
-                case ViewType.PlayerEdit:
-                    break;
-                case ViewType.PlayerCreate:
-                    break;
-                case ViewType.PlayerAssignToTeam:
+                    presenter.EditTeam();
                     break;
 
+                case ViewType.PlayerEdit:
+                    presenter.EditPlayer();
+                    break;
+
+                case ViewType.PlayerCreate:
+                    presenter.CreatePlayer();
+                    break;
+
+                case ViewType.PlayerAssignToTeam:
+                    presenter.AssignToTeam();
+                    break;
             }
 
             Close();

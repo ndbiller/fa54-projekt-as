@@ -1,25 +1,29 @@
-﻿using TeamManager.Views.Interfaces;
+﻿using System;
+using TeamManager.Views.Interfaces;
 
 namespace TeamManager.Presenters
 {
     public class UnsignedPlayersPresenter : BasePresenter
     {
-        private IUnsignedPlayersView unsignedPlayersView;
+        private IUnsignedPlayersView view;
 
-        public UnsignedPlayersPresenter(IUnsignedPlayersView unsignedPlayersView)
+
+
+        public UnsignedPlayersPresenter(IUnsignedPlayersView view)
         {
-            this.unsignedPlayersView = unsignedPlayersView;
+            this.view = view;
         }
+
+
 
         public void DeletePlayer()
         {
-            // TODO: Implement delete player.
+            throw new NotImplementedException();
         }
 
         public void BindPlayersData()
         {
-            // TODO: Get all unsigned players from database and bind data to the view.
-
+            throw new NotImplementedException();
         }
 
     }
