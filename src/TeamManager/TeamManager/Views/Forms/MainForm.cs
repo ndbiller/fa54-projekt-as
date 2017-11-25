@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 using System.Windows.Forms.Custom;
 using TeamManager.Presenters;
 using TeamManager.Views.Enums;
@@ -13,6 +14,35 @@ namespace TeamManager.Views.Forms
     {
         private MainPresenter presenter;
 
+        #region --- View Interface Items ---
+
+        public int TeamSelectedIndex
+        {
+            get => lbxTeams.SelectedIndex;
+            set => lbxTeams.SelectedIndex = value;
+        }
+
+        public int PlayerSelectedIndex
+        {
+            get => lbxPlayers.SelectedIndex;
+            set => lbxPlayers.SelectedIndex = value;
+        }
+
+        public string SearchText
+        {
+            get => tbxSearch.TextS;
+            set => tbxSearch.TextS = value;
+        }
+
+        public ListBox.ObjectCollection TeamsListBox => lbxTeams.Items;
+
+        public ListBox.ObjectCollection PlayersListBox => lbxPlayers.Items;
+
+        #endregion --- View Interface Items ---
+
+
+
+
         public MainForm()
         {
             InitializeComponent();
@@ -21,19 +51,10 @@ namespace TeamManager.Views.Forms
             presenter.BindPlayersData();
         }
 
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             presenter.Search(tbxSearch, rbnTeams.Checked);
-        }
-
-        private void btnPDelete_Click(object sender, EventArgs e)
-        {
-            presenter.DeletePlayer();
-        }
-
-        private void btnTDelete_Click(object sender, EventArgs e)
-        {
-            presenter.DeleteTeam();
         }
 
         private void lbxTeams_SelectedIndexChanged(object sender, EventArgs e)
@@ -41,9 +62,20 @@ namespace TeamManager.Views.Forms
             presenter.BindPlayersData();
         }
 
+        private void btnTDelete_Click(object sender, EventArgs e)
+        {
+            presenter.DeleteTeam();
+        }
+
+        private void btnPDelete_Click(object sender, EventArgs e)
+        {
+            presenter.DeletePlayer();
+        }
 
 
-        #region ------------------- Show Dialogs -------------------
+
+        #region --- Show Dialogs ---
+
         private void btnUnsignedPlayers_Click(object sender, EventArgs e)
         {
             new UnsignedPlayersForm().ShowDialog();
@@ -54,9 +86,9 @@ namespace TeamManager.Views.Forms
             new AllPlayersForm().ShowDialog();
         }
 
-        private void btnPEdit_Click(object sender, EventArgs e)
+        private void btnTCreate_Click(object sender, EventArgs e)
         {
-            new EditForm(ViewType.PlayerEdit).ShowDialog();
+            new EditForm(ViewType.TeamCreate).ShowDialog();
         }
 
         private void btnPCreate_Click(object sender, EventArgs e)
@@ -69,29 +101,12 @@ namespace TeamManager.Views.Forms
             new EditForm(ViewType.TeamEdit).ShowDialog();
         }
 
-        private void btnTCreate_Click(object sender, EventArgs e)
+        private void btnPEdit_Click(object sender, EventArgs e)
         {
-            new EditForm(ViewType.TeamCreate).ShowDialog();
-        }
-        #endregion -------------- Show Dialogs -------------------
-
-        public string SearchText
-        {
-            get => tbxSearch.TextS;
-            set => tbxSearch.TextS = value;
+            new EditForm(ViewType.PlayerEdit).ShowDialog();
         }
 
-        public List<string> ListBoxTeams
-        {
-            get => lbxTeams.Items.Cast<string>().ToList();
-            set => lbxTeams.DataSource = value;
-        }
-
-        public List<string> ListBoxPlayers
-        {
-            get => lbxPlayers.Items.Cast<string>().ToList();
-            set => lbxPlayers.DataSource = value;
-        }
+        #endregion --- Show Dialogs ---
 
     }
 }

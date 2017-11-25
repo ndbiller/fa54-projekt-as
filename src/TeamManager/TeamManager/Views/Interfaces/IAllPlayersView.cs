@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System.Windows.Forms;
 
 namespace TeamManager.Views.Interfaces
 {
     public interface IAllPlayersView
     {
-        int SelectedPlayerIndex { get; set; }
-        string PlayerNameText { get; set; }
+        int PlayerSelectedIndex { get; set; }
         string TeamNameText { get; set; }
-        List<string> ListBoxPlayers { get; set; }
+        string PlayerNameText { get; set; }
+        ListBox.ObjectCollection PlayersListBox { get; }
     }
 }
