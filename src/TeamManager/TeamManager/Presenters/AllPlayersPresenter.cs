@@ -23,12 +23,9 @@ namespace TeamManager.Presenters
 
         }
 
-        public void UpdateView(string playerName)
+        public void UpdateView()
         {
-            allPlayersView.PlayerNameText = playerName;
-            // TODO: Get the team name of selected player from the database.
 
-            allPlayersView.TeamNameText = "0xFFFFFF"; // GetPlayerTeamNameByPlayerName
         }
     }
 }

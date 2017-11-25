@@ -12,7 +12,6 @@ namespace TeamManager.Views.Forms
 {
     public partial class MainForm : CustomForm, IMainView
     {
-        private MainPresenter presenter;
 
         #region --- View Interface Items ---
 
@@ -40,6 +39,8 @@ namespace TeamManager.Views.Forms
 
         #endregion --- View Interface Items ---
 
+
+        private MainPresenter presenter;
 
 
 
