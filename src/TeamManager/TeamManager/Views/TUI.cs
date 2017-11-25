@@ -27,7 +27,8 @@ namespace TeamManager.Views
         private static readonly List<ConsoleKey> AllowedKeys = new List<ConsoleKey>
         {
             ConsoleKey.A, ConsoleKey.B, ConsoleKey.C, ConsoleKey.D, ConsoleKey.E,
-            ConsoleKey.F, ConsoleKey.G, ConsoleKey.H, ConsoleKey.I, ConsoleKey.J
+            ConsoleKey.F, ConsoleKey.G, ConsoleKey.H, ConsoleKey.I, ConsoleKey.J,
+            ConsoleKey.X
         };
 
         private static void StartProgram()
@@ -101,6 +102,11 @@ namespace TeamManager.Views
                     break;
 
                 case ConsoleKey.J:
+                    Console.WriteLine("--- Show Team Players ---");
+                    presenter.ShowTeamPlayers();
+                    break;
+
+                case ConsoleKey.X:
                     Console.WriteLine("--- Close ---");
                     presenter.Close();
                     break;
@@ -109,6 +115,7 @@ namespace TeamManager.Views
                     Console.WriteLine("Invalid Input! Please try again...");
                     break;
             }
+
             Console.ReadKey();
         }
 

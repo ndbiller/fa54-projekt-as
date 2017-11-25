@@ -28,7 +28,9 @@ namespace TeamManager
             var dbType      = DatabaseType.MongoDB;
             var startGui    = false;
 
-            //args = new[] { "/t:1", "/db:mongo" };
+            // Uncomment me if you want debugging console. 
+            // NOTE: You'll also need to change output type to console in project properties in order to make it work.
+            //args = new[] { "/t:1", "/db:mongo" }; 
             if (args.Length != 0)
             {
                 if (!args[0].ToLower().StartsWith("/g")) // We don't want to allocate console when using gui.

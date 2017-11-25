@@ -15,7 +15,13 @@ namespace TeamManager.Presenters
         public List<Team> AllTeams()
         {
             List<Team> teams = concept.GetAllTeams();
-            for (var i = 0; i < teams.Count; i++)
+            if (teams.Count == 0)
+            {
+                Console.WriteLine("Currently there is no teams to display.\n" +
+                                  "If you would like to add new team, use the create team option.");
+                return null;
+            }
+            for (int i = 0; i < teams.Count; i++)
             {
                 Team team = teams[i];
                 Console.WriteLine($"[{i + 1,3}] - {team.Name}");
@@ -27,7 +33,7 @@ namespace TeamManager.Presenters
         public List<Player> AllPlayers()
         {
             List<Player> players = concept.GetAllPlayers();
-            for (var i = 0; i < players.Count; i++)
+            for (int i = 0; i < players.Count; i++)
             {
                 Player player = players[i];
                 Console.WriteLine($"[{i + 1,3}] - {player.Name}");
@@ -62,6 +68,8 @@ namespace TeamManager.Presenters
         {
             Console.WriteLine("\nSelect Team by using the index number:");
             List<Team> teams = AllTeams();
+            if (teams.Count == 0) return;
+
             int teamIndex = GetUserInput();
             if (teamIndex <= 0)
             {
@@ -116,6 +124,7 @@ namespace TeamManager.Presenters
             {
                 Console.WriteLine("Select the team by the index that you would like to assign the player to: ");
                 List<Team> teams = AllTeams();
+                if (teams.Count == 0) return;
 
                 string playerTeamName = teams.Find(t => t.Id == player.TeamId)?.Name;
                 if (string.IsNullOrEmpty(playerTeamName)) playerTeamName = "Unsigned Team";
@@ -141,6 +150,8 @@ namespace TeamManager.Presenters
         {
             Console.WriteLine("\nSelect a team by using the index number:");
             List<Team> teams = AllTeams();
+            if (teams.Count == 0) return;
+
             int teamIndex = GetUserInput();
             if (teamIndex <= 0)
             {
@@ -150,14 +161,12 @@ namespace TeamManager.Presenters
 
             Team team = teams[--teamIndex];
 
-            Console.WriteLine($"Are you sure you want to delete {team.Name} from teams? (Y/N)");
-            Console.Write("Input: ");
-            string answer = Console.ReadLine();
-            if (answer == null || !answer.ToLower().StartsWith("y")) return;
+            if (!ValidateUserInput($"Are you sure you want to delete {team.Name} from teams? (Y/N)"))
+                return;
 
             // Set all players team id to 0 that contains the team id before we removing team.
             List<Player> players = concept.GetAllPlayers();
-            foreach (var player in players)
+            foreach (Player player in players)
                 if (player.TeamId == team.Id)
                     concept.ChangePlayerTeam(player.Id, "0");
 
@@ -180,10 +189,8 @@ namespace TeamManager.Presenters
 
             Player player = players[--playerIndex];
 
-            Console.WriteLine($"Are you sure you want to delete {player.Name} from players? (Y/N)");
-            Console.Write("Input: ");
-            string answer = Console.ReadLine();
-            if (answer == null || !answer.ToLower().StartsWith("y")) return;
+            if (!ValidateUserInput($"Are you sure you want to delete {player.Name} from players? (Y/N)"))
+                return;
 
             if (concept.RemovePlayer(player.Id))
                 Console.WriteLine($"Successfully removed {player.Name} from players!");
@@ -194,19 +201,47 @@ namespace TeamManager.Presenters
         public void ShowUnsignedPlayers()
         {
             List<Player> unsignedPlayers = concept.GetAllPlayers().Where(p => p.TeamId == "0").ToList();
-            for (var i = 0; i < unsignedPlayers.Count; i++)
+            for (int i = 0; i < unsignedPlayers.Count; i++)
             {
                 Player player = unsignedPlayers[i];
                 Console.WriteLine($"[{i + 1,3}] - {player.Name}");
             }
         }
 
+        public void ShowTeamPlayers()
+        {
+            Console.WriteLine("\nSelect a team to show players by using the index number:");
+            List<Team> teams = AllTeams();
+            if (teams.Count == 0) return;
+
+            int teamIndex = GetUserInput();
+            if (teamIndex <= 0)
+            {
+                InvalidInput();
+                return;
+            }
+
+            Team team = teams[--teamIndex];
+
+            List<Player> players = concept.GetTeamPlayers(team.Id);
+            Console.WriteLine($"\n-- Team Players of \"{team.Name}\" --");
+            if (players.Count == 0)
+            {
+                Console.WriteLine("Unfortunately no team players for this team.\n" +
+                                  "You can always assign players to teams by the edit player option.");
+                return;
+            }
+
+            for (int i = 0; i < players.Count; i++)
+            {
+                Player player = players[i];
+                Console.WriteLine($"[{i + 1,3}] - {player.Name}");
+            }
+        }
+
         public void Close()
         {
-            Console.WriteLine("Are you sure you want to exit? (Y/N)");
-            Console.Write("Input: ");
-            string readLine = Console.ReadLine();
-            if (readLine != null && readLine.ToLower().StartsWith("y"))
+            if (ValidateUserInput("Are you sure you want to exit? (Y/N)"))
                 Environment.Exit(0);
         }
 
@@ -226,7 +261,8 @@ namespace TeamManager.Presenters
                               "    Delete Player         \t(h)         \n" +
                               "========================================\n" +
                               "    Show Unsigned Players \t(i)         \n" +
-                              "    Close                 \t(j)         \n");
+                              "    Show Team Players     \t(j)         \n" +
+                              "    Close                 \t(x)         \n");
         }
 
         private static int GetUserInput()
@@ -238,9 +274,24 @@ namespace TeamManager.Presenters
             return input;
         }
 
+        private static bool ValidateUserInput(string message)
+        {
+            string answer;
+            do
+            {
+                Console.WriteLine(message);
+                Console.Write("Input: ");
+                answer = Console.ReadLine()?.ToLower();
+                if (answer != null && answer.StartsWith("n")) return false;
+            } while (answer != null && !answer.StartsWith("y"));
+
+            return true;
+        }
+
         private static void InvalidInput()
         {
             Console.WriteLine("Invalid input. Please try again...");
         }
+
     }
 }
