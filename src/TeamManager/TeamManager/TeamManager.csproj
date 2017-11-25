@@ -50,6 +50,9 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CustomUI">
       <HintPath>..\packages\CustomUI-1.0.3\CustomUI.dll</HintPath>
@@ -137,6 +140,14 @@
     <Compile Include="Views\Interfaces\IEditView.cs" />
     <Compile Include="Views\Interfaces\IMainView.cs" />
     <Compile Include="Views\Interfaces\IUnsignedPlayersView.cs" />
+    <Compile Include="Views\Loader\LoaderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Loader\LoaderForm.Designer.cs">
+      <DependentUpon>LoaderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Loader\Loaders.cs" />
+    <Compile Include="Views\Loader\LoaderSelector.cs" />
     <Compile Include="Views\TUI.cs" />
     <Compile Include="Models\TechnicalConcept\TechnicalConceptType.cs" />
     <EmbeddedResource Include="Views\Forms\ChildForms\EditForm.resx">
@@ -161,6 +172,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Loader\LoaderForm.resx">
+      <DependentUpon>LoaderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Database\TeamManagerDb.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>TeamManagerDb.designer.cs</LastGenOutput>
@@ -187,6 +201,7 @@
     <Folder Include="Utilities\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app.ico" />
     <Content Include="Database\TeamManagerDb.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -194,6 +209,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>TeamManagerDb.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\nerd-glasses.gif" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

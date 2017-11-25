@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.Custom;
+using TeamManager.Models.ResourceData;
 using TeamManager.Presenters;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Forms.ChildForms;
 using TeamManager.Views.Interfaces;
+using TeamManager.Views.Loader;
 
 namespace TeamManager.Views.Forms
 {
@@ -46,14 +47,30 @@ namespace TeamManager.Views.Forms
 
         public MainForm()
         {
+            Loaders.StartLoader(LoaderSelector.Loader, 3500);
+
             InitializeComponent();
             presenter = new MainPresenter(this);
             presenter.BindTeamsData();
-            presenter.BindPlayersData();
+
+            // Small issue with tbxSearch in panels when losing focus size increases once. this resolves it.
+            tbxSearch.Focus();
+            lbxTeams.Focus();
+            tbxSearch.Size = new Size(95, 30);
+
+            tbxSearch.GotFocus += delegate { searchTimer.Start(); };
+            tbxSearch.Leave += delegate { searchTimer.Stop(); };
+            rbnTeams.CheckedChanged += delegate
+            {
+                tbxSearch.TextS = string.Empty;
+                tbxSearch.Focus();
+            };
+
+            Loaders.StopLoader(Handle);
         }
 
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void searchTimer_Tick(object sender, EventArgs e)
         {
             presenter.Search(tbxSearch, rbnTeams.Checked);
         }
@@ -89,22 +106,31 @@ namespace TeamManager.Views.Forms
 
         private void btnTCreate_Click(object sender, EventArgs e)
         {
-            new EditForm(EditMode.TeamCreate).ShowDialog();
+            new EditForm(EditMode.TeamCreate, null, null).ShowDialog();
         }
 
         private void btnPCreate_Click(object sender, EventArgs e)
         {
-            new EditForm(EditMode.PlayerCreate).ShowDialog();
+            Team team = presenter.GetSelectedTeam();
+            if (TeamsListBox.Count == 0) return;
+
+            new EditForm(EditMode.PlayerCreate, team, null).ShowDialog();
         }
 
         private void btnTEdit_Click(object sender, EventArgs e)
         {
-            new EditForm(EditMode.TeamEdit).ShowDialog();
+            Team team = presenter.GetSelectedTeam();
+            if (TeamsListBox.Count == 0 && team == null) return;
+
+            new EditForm(EditMode.TeamEdit, team, null).ShowDialog();
         }
 
         private void btnPEdit_Click(object sender, EventArgs e)
         {
-            new EditForm(EditMode.PlayerEdit).ShowDialog();
+            Tuple<Team, Player> teamAndPlayer = presenter.GetSelectedPlayerAndTeam();
+            if (PlayersListBox.Count == 0 && teamAndPlayer.Item2 == null) return;
+
+            new EditForm(EditMode.PlayerEdit, teamAndPlayer.Item1, teamAndPlayer.Item2).ShowDialog();
         }
 
         #endregion --- Show Dialogs ---
