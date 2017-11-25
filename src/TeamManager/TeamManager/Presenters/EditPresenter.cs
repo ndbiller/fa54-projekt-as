@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using TeamManager.Models.ResourceData;
+using TeamManager.Presenters.Events;
+using TeamManager.Views.Enums;
 using TeamManager.Views.Interfaces;
 
 namespace TeamManager.Presenters
@@ -47,5 +49,11 @@ namespace TeamManager.Presenters
         {
             throw new NotImplementedException();
         }
+
+        public override void FormClosed()
+        {
+            OnChildClosed(this, new PresenterArgs(FormType.Edit));
+        }
+
     }
 }

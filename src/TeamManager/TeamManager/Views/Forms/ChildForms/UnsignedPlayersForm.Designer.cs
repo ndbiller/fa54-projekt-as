@@ -224,6 +224,7 @@
             this.Padding = new System.Windows.Forms.Padding(8, 50, 9, 8);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Unsigned Players";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UnsignedPlayersForm_FormClosed);
             this.customTableLayoutPanel1.ResumeLayout(false);
             this.customTableLayoutPanel1.PerformLayout();
             this.customTableLayoutPanel2.ResumeLayout(false);

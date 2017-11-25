@@ -1,6 +1,6 @@
 ﻿namespace TeamManager.Views.Enums
 {
-    public enum ViewType
+    public enum EditMode
     {
         TeamCreate,
         TeamEdit,

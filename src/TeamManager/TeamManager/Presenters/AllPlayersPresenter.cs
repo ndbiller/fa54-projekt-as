@@ -1,4 +1,6 @@
 ﻿using System;
+using TeamManager.Presenters.Events;
+using TeamManager.Views.Enums;
 using TeamManager.Views.Interfaces;
 
 namespace TeamManager.Presenters
@@ -12,8 +14,11 @@ namespace TeamManager.Presenters
         public AllPlayersPresenter(IAllPlayersView view)
         {
             this.view = view;
+            this.view.PlayersListBox.Clear();
+
+            ChildClosed += Form_ChildClose;
         }
-        
+
 
 
         public void DeletePlayer()
@@ -29,6 +34,16 @@ namespace TeamManager.Presenters
         public void UpdateView()
         {
             throw new NotImplementedException();
+        }
+
+        void Form_ChildClose(object sender, PresenterArgs args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void FormClosed()
+        {
+            OnChildClosed(this, new PresenterArgs(FormType.AllPlayers));
         }
 
     }

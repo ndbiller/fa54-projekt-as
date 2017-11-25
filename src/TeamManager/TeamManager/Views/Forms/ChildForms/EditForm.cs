@@ -27,11 +27,11 @@ namespace TeamManager.Views.Forms.ChildForms
 
 
         private EditPresenter presenter;
-        private ViewType currentView;
+        private EditMode currentView;
 
 
 
-        public EditForm(ViewType viewType)
+        public EditForm(EditMode viewType)
         {
             InitializeComponent();
             InitializeComponentExtend(viewType);
@@ -41,40 +41,40 @@ namespace TeamManager.Views.Forms.ChildForms
 
 
 
-        private void InitializeComponentExtend(ViewType viewType)
+        private void InitializeComponentExtend(EditMode viewType)
         {
             switch (viewType)
             {
-                case ViewType.TeamCreate:
-                    currentView = ViewType.TeamCreate;
+                case EditMode.TeamCreate:
+                    currentView = EditMode.TeamCreate;
                     lbTeam.Hide();
                     cbxTeams.Hide();
                     Text = "Team Create";
                     break;
 
-                case ViewType.TeamEdit:
-                    currentView = ViewType.TeamEdit;
+                case EditMode.TeamEdit:
+                    currentView = EditMode.TeamEdit;
                     lbTeam.Hide();
                     cbxTeams.Hide();
                     Text = "Team Edit";
                     break;
 
-                case ViewType.PlayerEdit:
-                    currentView = ViewType.PlayerEdit;
+                case EditMode.PlayerEdit:
+                    currentView = EditMode.PlayerEdit;
                     Text = "Player Edit";
                     // TODO: Display player name in textbox and teams list.
 
                     break;
 
-                case ViewType.PlayerCreate:
-                    currentView = ViewType.PlayerCreate;
+                case EditMode.PlayerCreate:
+                    currentView = EditMode.PlayerCreate;
                     Text = "Player Create";
                     // TODO: Display teams list.
 
                     break;
 
-                case ViewType.PlayerAssignToTeam:
-                    currentView = ViewType.PlayerAssignToTeam;
+                case EditMode.PlayerAssignToTeam:
+                    currentView = EditMode.PlayerAssignToTeam;
                     tbxName.ReadOnly = true;
                     tbxName.Enabled = false;
                     Text = "Assign Player to Team";
@@ -90,24 +90,24 @@ namespace TeamManager.Views.Forms.ChildForms
 
             switch (currentView)
             {
-                case ViewType.TeamCreate:
+                case EditMode.TeamCreate:
                     presenter.CreateTeam();
                     new UnsignedPlayersForm().ShowDialog();
                     break;
 
-                case ViewType.TeamEdit:
+                case EditMode.TeamEdit:
                     presenter.EditTeam();
                     break;
 
-                case ViewType.PlayerEdit:
+                case EditMode.PlayerEdit:
                     presenter.EditPlayer();
                     break;
 
-                case ViewType.PlayerCreate:
+                case EditMode.PlayerCreate:
                     presenter.CreatePlayer();
                     break;
 
-                case ViewType.PlayerAssignToTeam:
+                case EditMode.PlayerAssignToTeam:
                     presenter.AssignToTeam();
                     break;
             }
@@ -118,6 +118,12 @@ namespace TeamManager.Views.Forms.ChildForms
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void EditForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            presenter.FormClosed();
+
         }
 
     }

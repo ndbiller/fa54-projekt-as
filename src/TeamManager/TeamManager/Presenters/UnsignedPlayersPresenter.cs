@@ -1,4 +1,6 @@
 ﻿using System;
+using TeamManager.Presenters.Events;
+using TeamManager.Views.Enums;
 using TeamManager.Views.Interfaces;
 
 namespace TeamManager.Presenters
@@ -12,6 +14,9 @@ namespace TeamManager.Presenters
         public UnsignedPlayersPresenter(IUnsignedPlayersView view)
         {
             this.view = view;
+            view.PlayersListBox.Clear();
+
+            ChildClosed += Form_ChildClose;
         }
 
 
@@ -26,5 +31,14 @@ namespace TeamManager.Presenters
             throw new NotImplementedException();
         }
 
+        void Form_ChildClose(object sender, PresenterArgs args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void FormClosed()
+        {
+            OnChildClosed(this, new PresenterArgs(FormType.UnsignedPlayers));
+        }
     }
 }

@@ -67,7 +67,7 @@
             this.tbxTeam.Margin = new System.Windows.Forms.Padding(10, 3, 30, 3);
             this.tbxTeam.Name = "tbxTeam";
             this.tbxTeam.ReadOnly = true;
-            this.tbxTeam.Size = new System.Drawing.Size(101, 20);
+            this.tbxTeam.Size = new System.Drawing.Size(100, 20);
             this.tbxTeam.TabIndex = 9;
             this.tbxTeam.TabStop = false;
             // 
@@ -79,7 +79,7 @@
             this.tbxName.Margin = new System.Windows.Forms.Padding(10, 3, 30, 3);
             this.tbxName.Name = "tbxName";
             this.tbxName.ReadOnly = true;
-            this.tbxName.Size = new System.Drawing.Size(101, 20);
+            this.tbxName.Size = new System.Drawing.Size(100, 20);
             this.tbxName.TabIndex = 9;
             this.tbxName.TabStop = false;
             // 
@@ -198,7 +198,7 @@
             this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
             this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
-            this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.customTableLayoutPanel1.Controls.Add(this.lbxPlayers, 1, 1);
             this.customTableLayoutPanel1.Controls.Add(this.btnPCreate, 1, 3);
             this.customTableLayoutPanel1.Controls.Add(this.lblAllPlayers, 1, 0);
@@ -241,7 +241,7 @@
             this.customTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.customTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.customTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 149F));
-            this.customTableLayoutPanel2.Size = new System.Drawing.Size(141, 386);
+            this.customTableLayoutPanel2.Size = new System.Drawing.Size(140, 386);
             this.customTableLayoutPanel2.TabIndex = 6;
             // 
             // customTableLayoutPanel3
@@ -312,6 +312,7 @@
             this.Padding = new System.Windows.Forms.Padding(8, 50, 9, 8);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "All Players";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AllPlayersForm_FormClosed);
             this.customTableLayoutPanel1.ResumeLayout(false);
             this.customTableLayoutPanel1.PerformLayout();
             this.customTableLayoutPanel2.ResumeLayout(false);
