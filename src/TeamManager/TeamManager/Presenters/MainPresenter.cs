@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms.Custom;
 using TeamManager.Models.ResourceData;
+using TeamManager.Presenters.Events;
 using TeamManager.Views.Interfaces;
 
 namespace TeamManager.Presenters
@@ -15,6 +16,10 @@ namespace TeamManager.Presenters
         public MainPresenter(IMainView view)
         {
             this.view = view;
+            this.view.TeamsListBox.Clear();
+            this.view.PlayersListBox.Clear();
+
+            ChildClosed += Form_ChildClose;
         }
 
 
@@ -42,6 +47,16 @@ namespace TeamManager.Presenters
         public List<Player> BindPlayersData()
         {
             throw new NotImplementedException();
+        }
+
+        private void Form_ChildClose(object sender, PresenterArgs args)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void FormClosed()
+        {
+            // MainPresenter should do nothing.
         }
 
     }

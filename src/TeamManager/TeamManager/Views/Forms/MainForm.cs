@@ -89,22 +89,22 @@ namespace TeamManager.Views.Forms
 
         private void btnTCreate_Click(object sender, EventArgs e)
         {
-            new EditForm(ViewType.TeamCreate).ShowDialog();
+            new EditForm(EditMode.TeamCreate).ShowDialog();
         }
 
         private void btnPCreate_Click(object sender, EventArgs e)
         {
-            new EditForm(ViewType.PlayerCreate).ShowDialog();
+            new EditForm(EditMode.PlayerCreate).ShowDialog();
         }
 
         private void btnTEdit_Click(object sender, EventArgs e)
         {
-            new EditForm(ViewType.TeamEdit).ShowDialog();
+            new EditForm(EditMode.TeamEdit).ShowDialog();
         }
 
         private void btnPEdit_Click(object sender, EventArgs e)
         {
-            new EditForm(ViewType.PlayerEdit).ShowDialog();
+            new EditForm(EditMode.PlayerEdit).ShowDialog();
         }
 
         #endregion --- Show Dialogs ---

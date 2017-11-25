@@ -41,22 +41,24 @@ namespace TeamManager.Views.Forms.ChildForms
             presenter.DeletePlayer();
         }
 
-
+        private void UnsignedPlayersForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            presenter.FormClosed();
+        }
 
 
         #region --- Show Dialogs ---
 
         private void btnPAddToTeam_Click(object sender, EventArgs e)
         {
-            new EditForm(ViewType.PlayerAssignToTeam).ShowDialog();
+            new EditForm(EditMode.PlayerAssignToTeam).ShowDialog();
         }
 
         private void btnPCreate_Click(object sender, EventArgs e)
         {
-            new EditForm(ViewType.PlayerCreate).ShowDialog();
+            new EditForm(EditMode.PlayerCreate).ShowDialog();
         }
 
         #endregion --- Show Dialogs ---
-
     }
 }

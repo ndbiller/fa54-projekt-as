@@ -1,5 +1,6 @@
 ﻿using TeamManager.Database;
 using TeamManager.Models.TechnicalConcept;
+using TeamManager.Presenters.Events;
 
 namespace TeamManager.Presenters
 {
@@ -11,6 +12,14 @@ namespace TeamManager.Presenters
     {
         protected static ITechnicalConcept concept;
 
+        protected static event PresenterHandler ChildClosed;
+
+        protected virtual void OnChildClosed(object sender, PresenterArgs e)
+        {
+            ChildClosed?.Invoke(sender, e);
+        }
+
+        public abstract void FormClosed();
 
         public static void SetConceptAndDatabaseType(TechnicalConceptType conceptType, DatabaseType dbType)
         {

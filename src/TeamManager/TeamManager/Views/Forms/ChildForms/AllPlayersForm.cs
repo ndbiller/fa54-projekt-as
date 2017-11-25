@@ -57,20 +57,24 @@ namespace TeamManager.Views.Forms.ChildForms
             presenter.UpdateView();
         }
 
+        private void AllPlayersForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            presenter.FormClosed();
+        }
+
 
         #region --- Show Dialogs ---
 
         private void btnPEdit_Click(object sender, EventArgs e)
         {
-            new EditForm(ViewType.PlayerEdit).ShowDialog();
+            new EditForm(EditMode.PlayerEdit).ShowDialog();
         }
 
         private void btnPCreate_Click(object sender, EventArgs e)
         {
-            new EditForm(ViewType.PlayerCreate).ShowDialog();
+            new EditForm(EditMode.PlayerCreate).ShowDialog();
         }
 
         #endregion --- Show Dialogs ---
-
     }
 }

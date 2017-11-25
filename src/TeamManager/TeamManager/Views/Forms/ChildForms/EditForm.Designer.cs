@@ -200,6 +200,7 @@
             this.Padding = new System.Windows.Forms.Padding(8, 50, 9, 8);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edit \\ Create";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EditForm_FormClosed);
             this.customTableLayoutPanel1.ResumeLayout(false);
             this.customTableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

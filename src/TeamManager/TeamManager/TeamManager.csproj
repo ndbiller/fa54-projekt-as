@@ -94,8 +94,11 @@
     <Compile Include="Presenters\BasePresenter.cs" />
     <Compile Include="Presenters\ConsolePresenter.cs" />
     <Compile Include="Presenters\EditPresenter.cs" />
+    <Compile Include="Presenters\Events\PresenterArgs.cs" />
+    <Compile Include="Presenters\Events\PresenterHandler.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Presenters\UnsignedPlayersPresenter.cs" />
+    <Compile Include="Views\Enums\FormType.cs" />
     <Compile Include="Views\Forms\ChildForms\EditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,7 +117,7 @@
     <Compile Include="Views\Forms\ChildForms\UnsignedPlayersForm.Designer.cs">
       <DependentUpon>UnsignedPlayersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Enums\ViewType.cs" />
+    <Compile Include="Views\Enums\EditMode.cs" />
     <Compile Include="Views\GUI.cs" />
     <Compile Include="Views\Forms\MainForm.cs">
       <SubType>Form</SubType>
