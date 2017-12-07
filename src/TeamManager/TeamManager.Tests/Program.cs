@@ -114,9 +114,20 @@ namespace TeamManager.Tests
             Console.ReadKey();
 
             Console.Clear();
-            Console.WriteLine("Querying for Team One.");
-            //List<Team> teams = DBLayerMongo.Team.Find(t => t.Name == "Team One").ToList();
-            //Console.WriteLine("Team found: {0}", teams.Count());
+            Console.WriteLine("Querying for Team Name.");
+            List<Team> teams = DBLayerMongo.TeamCollection.Find(t => t.Name == "Arsenal").ToList();
+            Console.WriteLine("Team found: {0}", teams.Count);
+            foreach (Team team in teams)
+            {
+                string teamID;
+                Console.WriteLine("Name: {0}", team.Name);
+                teamID = team.Id;
+                Console.WriteLine("Querying for Players of {0}.", team.Name);
+                List<Player> players = DBLayerMongo.PlayerCollection.Find(p => p.TeamId == teamID).ToList();
+                foreach (Player player in players)
+                    Console.WriteLine("Name: {0}", player.Name);
+            }
+            
             //string teamId = "";
             //foreach (Team team in teams)
             //{
@@ -124,7 +135,7 @@ namespace TeamManager.Tests
             //    teamId = team.Id;
 
             //    Console.WriteLine("Querying for Player of {0}.", team.Name);
-            //    List<Player> players = DBLayerMongo.Player.Find(p => p.Team == teamId).ToList();
+            //    List<Player> players = DBLayerMongo.PlayerCollection.Find(p => p.Team == teamId).ToList();
             //    Console.WriteLine("Player found: {0}", players.Count());
             //    foreach (Player player in players)
             //    {
