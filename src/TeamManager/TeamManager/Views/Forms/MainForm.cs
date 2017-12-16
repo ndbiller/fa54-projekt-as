@@ -30,8 +30,8 @@ namespace TeamManager.Views.Forms
 
         public string SearchText
         {
-            get => tbxSearch.TextS;
-            set => tbxSearch.TextS = value;
+            get => tbxSearch.Text;
+            set => tbxSearch.Text = value;
         }
 
         public ListBox.ObjectCollection TeamsListBox => lbxTeams.Items;
@@ -47,32 +47,25 @@ namespace TeamManager.Views.Forms
 
         public MainForm()
         {
-            Loaders.StartLoader(LoaderSelector.Loader, 3500);
+            Loaders.StartLoader(LoaderType.Loader, 0);
 
             InitializeComponent();
             presenter = new MainPresenter(this);
             presenter.BindTeamsData();
 
-            // Small issue with tbxSearch in panels when losing focus size increases once. this resolves it.
-            tbxSearch.Focus();
-            lbxTeams.Focus();
-            tbxSearch.Size = new Size(95, 30);
-
-            tbxSearch.GotFocus += delegate { searchTimer.Start(); };
-            tbxSearch.Leave += delegate { searchTimer.Stop(); };
-            rbnTeams.CheckedChanged += delegate
-            {
-                tbxSearch.TextS = string.Empty;
-                tbxSearch.Focus();
-            };
-
             Loaders.StopLoader(Handle);
         }
 
 
-        private void searchTimer_Tick(object sender, EventArgs e)
+        private void tbxSearch_TextChanged(object sender, EventArgs e)
         {
-            presenter.Search(tbxSearch, rbnTeams.Checked);
+            presenter.Search(tbxSearch.Text, tbxSearch.TextSearch, rbnTeams.Checked);
+        }
+
+        private void rbnTeams_CheckedChanged(object sender, EventArgs e)
+        {
+            tbxSearch.Text = string.Empty;
+            tbxSearch.Focus();
         }
 
         private void lbxTeams_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,7 +104,7 @@ namespace TeamManager.Views.Forms
 
         private void btnPCreate_Click(object sender, EventArgs e)
         {
-            Team team = presenter.GetSelectedTeam();
+            Team team = TeamsListBox[TeamSelectedIndex] as Team;
             if (TeamsListBox.Count == 0) return;
 
             new EditForm(EditMode.PlayerCreate, team, null).ShowDialog();

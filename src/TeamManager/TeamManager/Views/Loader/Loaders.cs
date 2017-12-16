@@ -1,45 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TeamManager.Views.Loader
 {
+    /// <summary>
+    /// Loaders class used for display loaders statically and thread safe while doing long proccessing.
+    /// </summary>
     public class Loaders
     {
         /// <summary>
-        /// Importing this windows dll in order to set the focus of the window when loader finishes.
+        /// Used for bringing form to front with the handle of the form.
         /// </summary>
         /// <param name="hWnd"></param>
         /// <returns></returns>
         [DllImport("User32.dll")]
         public static extern Int32 SetForegroundWindow(int hWnd);
 
-        private static LoaderSelector loaderSelector;
+        private static LoaderType _loaderType;
 
-        private static LoaderForm loaderForm;
+        private static LoaderForm _loaderForm;
 
 
 
         /// <summary>
-        /// With this method we start the loader we want by receiving an enum value which will
-        /// tell what kind of loader we want to load.
+        /// Starting loader with specified loader type and the amount of miliseconds to sleep the main ui thread to visualize work.
         /// </summary>
         /// <param name="loader"></param>
-        public static void StartLoader(LoaderSelector loader, int sleepMiliseconds)
+        public static void StartLoader(LoaderType loader, int sleepMiliseconds)
         {
-            loaderSelector = loader;
+            _loaderType = loader;
+
             switch (loader)
             {
-                case LoaderSelector.Loader:
-                    LoadFormOnThread(loaderForm = new LoaderForm());
+                case LoaderType.Loader:
+                    if (_loaderForm == null)
+                        LoadFormOnThread(_loaderForm = new LoaderForm());
                     break;
 
-                case LoaderSelector.MainAppLoader:
+                case LoaderType.SplashScreen:
                     break;
             }
 
@@ -47,43 +47,41 @@ namespace TeamManager.Views.Loader
         }
 
         /// <summary>
-        /// With this method we stopping the running thread loader and sending the Handlers pointer
-        /// so we can call the windows API method to set the window focus of the form from the
-        /// form that uses the loader when the loader finishes.
+        /// Stops specified loader thread with the form handle in order to get the parent form to front.
         /// </summary>
-        /// <param name="handle"></param>
-        public static void StopLoader(IntPtr handle)
+        /// <param name="formHandle"></param>
+        public static void StopLoader(IntPtr formHandle)
         {
-            WindowToFront(handle);
+            if (_loaderForm == null) return;
 
-            switch (loaderSelector)
+            switch (_loaderType)
             {
-                case LoaderSelector.Loader:
-                    loaderForm.Invoke((MethodInvoker)delegate
-                    {
-                        loaderForm?.Close();
-                    });
+                case LoaderType.Loader:
+                    if (_loaderForm.InvokeRequired)
+                        _loaderForm.Invoke(new MethodInvoker(()=> _loaderForm.Close()));
                     break;
 
-                case LoaderSelector.MainAppLoader:
+                case LoaderType.SplashScreen:
 
                     break;
             }
+
+            WindowToFront(formHandle);
         }
 
         /// <summary>
-        /// Loads the loader on a separate thread so the main thread UI will be free while we displaying 
-        /// another form.
+        /// Running loader form on a separate thread so the main ui thread will be free when displaying another form.
         /// </summary>
         /// <param name="form"></param>
         private static void LoadFormOnThread(Form form)
         {
-            new Thread(() => form.ShowDialog()).Start(); // same as delegate
+            form.LostFocus += (sender, e) => form.Focus();
+
+            new Thread(() => form.ShowDialog()).Start();
         }
 
         /// <summary>
-        /// Brings the window on front.
-        /// Useful when using loaders.
+        /// Brings the window to front.
         /// </summary>
         /// <param name="handle"></param>
         private static void WindowToFront(IntPtr handle)
