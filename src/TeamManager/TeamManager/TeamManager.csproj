@@ -99,6 +99,7 @@
     <Compile Include="Presenters\Events\PresenterHandler.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Presenters\UnsignedPlayersPresenter.cs" />
+    <Compile Include="Utilities\Logger.cs" />
     <Compile Include="Utilities\Utility.cs" />
     <Compile Include="Views\Enums\FormType.cs" />
     <Compile Include="Views\Forms\ChildForms\EditForm.cs">

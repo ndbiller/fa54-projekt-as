@@ -1,13 +1,22 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using log4net;
 using TeamManager.Database;
 using TeamManager.Models.TechnicalConcept;
+using TeamManager.Utilities;
 using TeamManager.Views;
+
+[assembly: log4net.Config.XmlConfigurator(Watch = true)]
 
 namespace TeamManager
 {
     static class Program
     {
+
+        private static readonly ILog Log = Logger.GetLogger();
+
+        private static readonly Guid SessionId = Guid.NewGuid();
+
         /// <summary>
         /// Allows Windows Forms application to start also in console mode.
         /// </summary>
@@ -23,6 +32,8 @@ namespace TeamManager
         /// <param name="args"></param>
         static void Main(string[] args)
         {
+            Log.Info($"##### Application started. Session ID => {SessionId} #####");
+
             // Default = First and MongoDB Connections.
             var conceptType = TechnicalConceptType.First;
             var dbType      = DatabaseType.MongoDB;
@@ -90,6 +101,8 @@ namespace TeamManager
             {
                 GUI.Start(conceptType, dbType);
             }
+
+            Log.Info($"##### Application Closed. Session ID => {SessionId} #####");
         }
 
 

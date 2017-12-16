@@ -33,10 +33,10 @@ namespace TeamManager.Database
 
         static DBLayerMongo()
         {
-#if MONGO_DB_LOCAL
+#if !MONGO_DB_LOCAL
             // connect to local mongodb server
-            databaseName     = "teamplayer";
-            connectionString = "mongodb://localhost:27017";
+            DatabaseName     = "teamplayer";
+            ConnectionString = "mongodb://localhost:27017";
 #else
             try
             {
