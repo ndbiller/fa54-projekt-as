@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using log4net;
+using MongoDB.Driver;
 using TeamManager.Models.ResourceData;
 
 namespace TeamManager.Utilities
@@ -54,13 +55,15 @@ namespace TeamManager.Utilities
         /// <param name="task"></param>
         /// <param name="millisecondsTimeout"></param>
         /// <returns></returns>
-        public static async Task TimeoutAfter(this Task task, int millisecondsTimeout)
+        public static async Task TimeoutAfter(this Task task, int millisecondsTimeout, 
+            [CallerFilePath] string callerClass = "",
+            [CallerMemberName] string callerMethod = "")
         {
             if (task == await Task.WhenAny(task, Task.Delay(millisecondsTimeout)))
                 await task;
             else
             {
-                Log.Error("Received time out for the requested task.");
+                Log.Error($"Received time out in [{callerClass}][{callerMethod}] for the requested task.");
                 throw new TimeoutException();
             }
         }

@@ -86,118 +86,78 @@ namespace TeamManager.Database
             }
         }
 
-        public bool CreatePlayer(string name, string teamId)
+        public List<Team> Teams()
         {
             try
             {
-                PlayerCollection.InsertOne(new Player(name, teamId));
-                return true;
+                List<Team> teams = TeamCollection.Find(_ => true).ToList();
+                return teams;
             }
             catch (TimeoutException e)
             {
-                Log.Error("Received time out for creating player => ", e);
-                return false;
-            }
-            catch (Exception e)
-            {
-                Log.Error("Failed to create player => ", e);
-                return false;
-            }
-        }
-
-        public bool CreateTeam(string name)
-        {
-            try
-            {
-                TeamCollection.InsertOne(new Team(name));
-                return true;
-            }
-            catch (TimeoutException e)
-            {
-                Log.Error("Received time out for creating team => ", e);
-                return false;
-            }
-            catch (Exception e)
-            {
-                Log.Error("Failed to create team => ", e);
-                return false;
-            }
-        }
-
-        public bool DeletePlayer(string id)
-        {
-            try
-            {
-                PlayerCollection.DeleteOne(a => a.Id == id);
-                return true;
-            }
-            catch (TimeoutException e)
-            {
-                Log.Error("Received time out for deleting player => ", e);
-                return false;
-            }
-            catch (Exception e)
-            {
-                Log.Error("Failed to delete player => ", e);
-                return false;
-            }
-        }
-
-        public bool DeleteTeam(string id)
-        {
-            try
-            {
-                TeamCollection.DeleteOne(a => a.Id == id);
-                return true;
-            }
-            catch (TimeoutException e)
-            {
-                Log.Error("Received time out for deleting team => ", e);
-                return false;
-            }
-            catch (Exception e)
-            {
-                Log.Error("Failed to delete team => ", e);
-                return false;
-            }
-        }
-
-        public Player ReadPlayer(string id)
-        {
-            try
-            {
-                var results = PlayerCollection.Find(p => p.Id == id);
-                Player player = results.First<Player>();
-                return player;
-            }
-            catch (TimeoutException e)
-            {
-                Log.Error("Received time out for reading player => ", e);
+                Log.Error("Received time out for retrieving teams => ", e);
                 return null;
             }
             catch (Exception e)
             {
-                Log.Error("Failed to read player => ", e);
+                Log.Error("Failed to retrieve teams => ", e);
                 return null;
             }
         }
 
-        public Team ReadTeam(string id)
+        public async Task<List<Team>> TeamsAsync()
         {
             try
             {
-                var results = TeamCollection.Find(t => t.Id == id);
-                Team team = results.First<Team>();
-                return team;
+                var teams = await TeamCollection.FindAsync(_ => true);
+                return teams.ToList();
             }
             catch (TimeoutException e)
             {
-                Log.Error("Received time out for reading team => ", e);
+                Log.Error("Received time out for retrieving teams async => ", e);
                 return null;
             }
             catch (Exception e)
             {
-                Log.Error("Failed to read team => ", e);
+                Log.Error("Failed to retrieve teams async => ", e);
+                return null;
+            }
+        }
+
+        public List<Player> Players()
+        {
+            try
+            {
+                List<Player> players = PlayerCollection.Find(_ => true).ToList();
+                return players;
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for retrieving players => ", e);
+                return null;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Failed to retrieve players => ", e);
+                return null;
+            }
+        }
+
+        public async Task<List<Player>> PlayersAsync()
+        {
+            try
+            {
+                var players = await PlayerCollection.FindAsync(_ => true);
+                return players.ToList();
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for retrieving players async => ", e);
+                return null;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Failed to retrieve players => async ", e);
                 return null;
             }
         }
@@ -221,6 +181,223 @@ namespace TeamManager.Database
             }
         }
 
+        public async Task<List<Player>> ShowPlayersAsync(string teamId)
+        {
+            try
+            {
+                var players = await PlayerCollection.FindAsync(p => p.TeamId == teamId);
+                return players.ToList();
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for showing players async => ", e);
+                return null;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Failed to retrieve players async => ", e);
+                return null;
+            }
+        }
+
+        public bool CreateTeam(string name)
+        {
+            try
+            {
+                TeamCollection.InsertOne(new Team(name));
+                return true;
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for creating team => ", e);
+                return false;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Failed to create team => ", e);
+                return false;
+            }
+        }
+
+        public async Task<bool> CreateTeamAsync(string name)
+        {
+            try
+            {
+                await TeamCollection.InsertOneAsync(new Team(name)).TimeoutAfter(TimeoutMilisec);
+                return true;
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for creating team => async ", e);
+                return false;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Failed to create team async => ", e);
+                return false;
+            }
+        }
+
+        public bool CreatePlayer(string name, string teamId)
+        {
+            try
+            {
+                PlayerCollection.InsertOne(new Player(name, teamId));
+                return true;
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for creating player => ", e);
+                return false;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Failed to create player => ", e);
+                return false;
+            }
+        }
+
+        public async Task<bool> CreatePlayerAsync(string name, string teamId)
+        {
+            try
+            {
+                await PlayerCollection.InsertOneAsync(new Player(name, teamId)).TimeoutAfter(TimeoutMilisec);
+                return true;
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for creating player async => ", e);
+                return false;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Failed to create player async => ", e);
+                return false;
+            }
+        }
+
+        public Team ReadTeam(string id)
+        {
+            try
+            {
+                var results = TeamCollection.Find(t => t.Id == id);
+                return results.First<Team>();
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for reading team => ", e);
+                return null;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Failed to read team => ", e);
+                return null;
+            }
+        }
+
+        public async Task<Team> ReadTeamAsync(string id)
+        {
+            try
+            {
+                var results = await TeamCollection.FindAsync(t => t.Id == id);
+                return results.First<Team>();
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for reading team async => ", e);
+                return null;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Failed to read team async => ", e);
+                return null;
+            }
+        }
+
+        public Player ReadPlayer(string id)
+        {
+            try
+            {
+                var results = PlayerCollection.Find(p => p.Id == id);
+                return results.First<Player>();
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for reading player => ", e);
+                return null;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Failed to read player => ", e);
+                return null;
+            }
+        }
+
+        public async Task<Player> ReadPlayerAsync(string id)
+        {
+            try
+            {
+                var results = await PlayerCollection.FindAsync(p => p.Id == id);
+                return results.First<Player>();
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for reading player async => ", e);
+                return null;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Failed to read player async => ", e);
+                return null;
+            }
+        }
+
+        public bool UpdateTeam(string id, string name)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var update = Builders<BsonDocument>.Update.Set("Name", name);
+
+            try
+            {
+                var collection = Database.GetCollection<BsonDocument>(TeamsCollectionName);
+                collection.UpdateOne(filter, update);
+                return true;
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for updating team => ", e);
+                return false;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Failed to update team => ", e);
+                return false;
+            }
+        }
+
+        public async Task<bool> UpdateTeamAsync(string id, string name)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var update = Builders<BsonDocument>.Update.Set("Name", name);
+
+            try
+            {
+                var collection = Database.GetCollection<BsonDocument>(TeamsCollectionName);
+                await collection.UpdateOneAsync(filter, update).TimeoutAfter(TimeoutMilisec);
+                return true;
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for updating team async => ", e);
+                return false;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Failed to update team async => ", e);
+                return false;
+            }
+        }
+
         public bool UpdatePlayer(string id, string name)
         {
             var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
@@ -229,7 +406,8 @@ namespace TeamManager.Database
             try
             {
                 var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
-                return collection.UpdateOneAsync(filter, update).Wait(TimeoutMilisec);
+                collection.UpdateOne(filter, update);
+                return true;
             }
             catch (TimeoutException e)
             {
@@ -245,9 +423,13 @@ namespace TeamManager.Database
 
         public async Task<bool> UpdatePlayerAsync(string id, string name)
         {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var update = Builders<BsonDocument>.Update.Set("Name", name);
+
             try
             {
-                await Task.Factory.StartNew(() => UpdatePlayer(id, name)).TimeoutAfter(TimeoutMilisec);
+                var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
+                await collection.UpdateOneAsync(filter, update).TimeoutAfter(TimeoutMilisec);
                 return true;
             }
             catch (TimeoutException e)
@@ -270,7 +452,8 @@ namespace TeamManager.Database
             try
             {
                 var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
-                return collection.UpdateOneAsync(filter, update).Wait(TimeoutMilisec);
+                collection.UpdateOne(filter, update);
+                return true;
             }
             catch (TimeoutException e)
             {
@@ -286,9 +469,13 @@ namespace TeamManager.Database
 
         public async Task<bool> UpdatePlayerAsync(string id, string teamId, string name)
         {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var update = Builders<BsonDocument>.Update.Set("Name", name);
+
             try
             {
-                await Task.Factory.StartNew(() => UpdatePlayer(id, name)).TimeoutAfter(TimeoutMilisec);
+                var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
+                await collection.UpdateOneAsync(filter, update).TimeoutAfter(TimeoutMilisec);
                 return true;
             }
             catch (TimeoutException e)
@@ -303,82 +490,79 @@ namespace TeamManager.Database
             }
         }
 
-        public bool UpdateTeam(string id, string name)
-        {
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
-            var update = Builders<BsonDocument>.Update.Set("Name", name);
-
-            try
-            {
-                var collection = Database.GetCollection<BsonDocument>(TeamsCollectionName);
-                return collection.UpdateOneAsync(filter, update).Wait(TimeoutMilisec);
-            }
-            catch (TimeoutException e)
-            {
-                Log.Error("Received time out for updating team => ", e);
-                return false;
-            }
-            catch (Exception e)
-            {
-                Log.Error("Failed to update team => ", e);
-                return false;
-            }
-        }
-
-        public async Task<bool> UpdateTeamAsync(string id, string name)
+        public bool DeleteTeam(string id)
         {
             try
             {
-                await Task.Factory.StartNew(() => UpdateTeam(id, name)).TimeoutAfter(TimeoutMilisec);
+                TeamCollection.DeleteOne(a => a.Id == id);
                 return true;
             }
             catch (TimeoutException e)
             {
-                Log.Error("Received time out for updating team async => ", e);
+                Log.Error("Received time out for deleting team => ", e);
                 return false;
             }
             catch (Exception e)
             {
-                Log.Error("Failed to update team async => ", e);
+                Log.Error("Failed to delete team => ", e);
                 return false;
             }
         }
 
-        public List<Player> Players()
+        public async Task<bool> DeleteTeamAsync(string id)
         {
             try
             {
-                List<Player> players = PlayerCollection.Find(_ => true).ToList();
-                return players;
+                await TeamCollection.DeleteOneAsync(a => a.Id == id).TimeoutAfter(TimeoutMilisec);
+                return true;
             }
             catch (TimeoutException e)
             {
-                Log.Error("Received time out for retrieving players => ", e);
-                return null;
+                Log.Error("Received time out for deleting team async => ", e);
+                return false;
             }
             catch (Exception e)
             {
-                Log.Error("Failed to retrieve players => ", e);
-                return null;
+                Log.Error("Failed to delete team async => ", e);
+                return false;
             }
         }
 
-        public List<Team> Teams()
+        public bool DeletePlayer(string id)
         {
             try
             {
-                List<Team> teams = TeamCollection.Find(_ => true).ToList();
-                return teams;
+                PlayerCollection.DeleteOne(a => a.Id == id);
+                return true;
             }
             catch (TimeoutException e)
             {
-                Log.Error("Received time out for retrieving teams => ", e);
-                return null;
+                Log.Error("Received time out for deleting player => ", e);
+                return false;
             }
             catch (Exception e)
             {
-                Log.Error("Failed to retrieve teams => ", e);
-                return null;
+                Log.Error("Failed to delete player => ", e);
+                return false;
+            }
+        }
+
+        public async Task<bool> DeletePlayerAsync(string id)
+        {
+            try
+            {
+                await PlayerCollection.DeleteOneAsync(a => a.Id == id).TimeoutAfter(TimeoutMilisec);
+                return true;
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for deleting player async => ", e);
+                return false;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Failed to delete player async => ", e);
+                return false;
             }
         }
 
@@ -405,6 +589,27 @@ namespace TeamManager.Database
             }
         }
 
+        public async Task<bool> ChangePlayerTeamAsync(string playerId, string teamId)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", playerId);
+            var update = Builders<BsonDocument>.Update.Set("TeamId", teamId);
 
+            try
+            {
+                var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
+                await collection.UpdateOneAsync(filter, update).TimeoutAfter(TimeoutMilisec);
+                return true;
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for changing player team async => ", e);
+                return false;
+            }
+            catch (Exception e)
+            {
+                Log.Error("Failed to change player team => async ", e);
+                return false;
+            }
+        }
     }
 }
