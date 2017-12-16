@@ -1,6 +1,6 @@
 ﻿namespace TeamManager.Views.Loader
 {
-    public enum LoaderSelector
+    public enum LoaderType
     {
         /// <summary>
         /// The normal process loader.
@@ -10,6 +10,6 @@
         /// <summary>
         /// The splash screen loader.
         /// </summary>
-        MainAppLoader = 1
+        SplashScreen = 1
     }
 }

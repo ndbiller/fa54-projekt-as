@@ -47,7 +47,7 @@ namespace TeamManager.Views.Forms
 
         public MainForm()
         {
-            Loaders.StartLoader(LoaderSelector.Loader, 3500);
+            Loaders.StartLoader(LoaderType.Loader, 3500);
 
             InitializeComponent();
             presenter = new MainPresenter(this);

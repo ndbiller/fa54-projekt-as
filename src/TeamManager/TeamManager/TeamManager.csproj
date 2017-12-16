@@ -142,7 +142,7 @@
       <DependentUpon>LoaderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Loader\Loaders.cs" />
-    <Compile Include="Views\Loader\LoaderSelector.cs" />
+    <Compile Include="Views\Loader\LoaderType.cs" />
     <Compile Include="Views\TUI.cs" />
     <Compile Include="Models\TechnicalConcept\TechnicalConceptType.cs" />
     <EmbeddedResource Include="Views\Forms\ChildForms\EditForm.resx">
