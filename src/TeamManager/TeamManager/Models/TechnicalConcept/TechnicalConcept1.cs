@@ -32,12 +32,12 @@ namespace TeamManager.Models.TechnicalConcept
 
         public bool ChangePlayerName(string playerId, string playerNewName)
         {
-            return dbLayer.UpdatePlayerAsync(playerId, playerNewName).Result;
+            return dbLayer.UpdatePlayer(playerId, playerNewName);
         }
 
         public bool ChangeTeamName(string teamId, string teamNewName)
         {
-            return dbLayer.UpdateTeamAsync(teamId, teamNewName).Result;
+            return dbLayer.UpdateTeam(teamId, teamNewName);
         }
 
         public List<Player> GetAllPlayers()
