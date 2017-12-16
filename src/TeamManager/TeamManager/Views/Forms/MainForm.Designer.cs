@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.customPanel1 = new System.Windows.Forms.Custom.CustomPanel();
             this.customTableLayoutPanel1 = new System.Windows.Forms.Custom.CustomTableLayoutPanel();
@@ -51,7 +50,6 @@
             this.rbnPlayers = new System.Windows.Forms.RadioButton();
             this.rbnTeams = new System.Windows.Forms.RadioButton();
             this.customControlBox1 = new System.Windows.Forms.Custom.CustomControlBox();
-            this.searchTimer = new System.Windows.Forms.Timer(this.components);
             this.customPanel1.SuspendLayout();
             this.customTableLayoutPanel1.SuspendLayout();
             this.customTableLayoutPanel2.SuspendLayout();
@@ -87,7 +85,7 @@
             this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 67F));
             this.customTableLayoutPanel1.Controls.Add(this.btnPCreate, 5, 3);
             this.customTableLayoutPanel1.Controls.Add(this.btnUnsignedPlayers, 3, 2);
             this.customTableLayoutPanel1.Controls.Add(this.btnTCreate, 1, 3);
@@ -127,7 +125,7 @@
             this.btnPCreate.Location = new System.Drawing.Point(615, 384);
             this.btnPCreate.Margin = new System.Windows.Forms.Padding(67, 0, 67, 15);
             this.btnPCreate.Name = "btnPCreate";
-            this.btnPCreate.Size = new System.Drawing.Size(81, 34);
+            this.btnPCreate.Size = new System.Drawing.Size(80, 34);
             this.btnPCreate.TabIndex = 5;
             this.btnPCreate.Text = "Create";
             this.btnPCreate.UseVisualStyleBackColor = false;
@@ -176,17 +174,17 @@
             this.lbxPlayers.FormattingEnabled = true;
             this.lbxPlayers.ItemHeight = 23;
             this.lbxPlayers.Items.AddRange(new object[] {
-                "Bob Donaldson",
-                "Fred Erentz",
-                "Joe Cassidy",
-                "James McNaught",
-                "Dick Smith",
-                "Walter Cartwright",
-                "Harry Stafford"});
+            "Bob Donaldson",
+            "Fred Erentz",
+            "Joe Cassidy",
+            "James McNaught",
+            "Dick Smith",
+            "Walter Cartwright",
+            "Harry Stafford"});
             this.lbxPlayers.Location = new System.Drawing.Point(552, 41);
             this.lbxPlayers.Margin = new System.Windows.Forms.Padding(4);
             this.lbxPlayers.Name = "lbxPlayers";
-            this.lbxPlayers.Size = new System.Drawing.Size(207, 290);
+            this.lbxPlayers.Size = new System.Drawing.Size(206, 290);
             this.lbxPlayers.TabIndex = 3;
             // 
             // btnShowAllPlayers
@@ -225,7 +223,7 @@
             this.lblPlayers.AutoSize = true;
             this.lblPlayers.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayers.ForeColor = System.Drawing.Color.GhostWhite;
-            this.lblPlayers.Location = new System.Drawing.Point(608, 3);
+            this.lblPlayers.Location = new System.Drawing.Point(607, 3);
             this.lblPlayers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayers.Name = "lblPlayers";
             this.lblPlayers.Size = new System.Drawing.Size(95, 31);
@@ -241,12 +239,12 @@
             this.lbxTeams.FormattingEnabled = true;
             this.lbxTeams.ItemHeight = 23;
             this.lbxTeams.Items.AddRange(new object[] {
-                "England",
-                "Arsenal",
-                "Chelsea",
-                "Manchester United",
-                "Scotland",
-                "Wales"});
+            "England",
+            "Arsenal",
+            "Chelsea",
+            "Manchester United",
+            "Scotland",
+            "Wales"});
             this.lbxTeams.Location = new System.Drawing.Point(44, 41);
             this.lbxTeams.Margin = new System.Windows.Forms.Padding(4);
             this.lbxTeams.Name = "lbxTeams";
@@ -273,7 +271,7 @@
             this.customTableLayoutPanel2.Name = "customTableLayoutPanel2";
             this.customTableLayoutPanel2.RowCount = 1;
             this.customTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.customTableLayoutPanel2.Size = new System.Drawing.Size(207, 41);
+            this.customTableLayoutPanel2.Size = new System.Drawing.Size(206, 41);
             this.customTableLayoutPanel2.TabIndex = 4;
             // 
             // btnPDelete
@@ -305,7 +303,7 @@
             this.btnPEdit.Location = new System.Drawing.Point(107, 4);
             this.btnPEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnPEdit.Name = "btnPEdit";
-            this.btnPEdit.Size = new System.Drawing.Size(96, 33);
+            this.btnPEdit.Size = new System.Drawing.Size(95, 33);
             this.btnPEdit.TabIndex = 1;
             this.btnPEdit.Text = "Edit";
             this.btnPEdit.UseVisualStyleBackColor = false;
@@ -397,8 +395,8 @@
             // 
             this.tbxSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.tbxSearch.Animated = true;
-            this.tbxSearch.AnimateLength = 40;
-            this.tbxSearch.AnimTimeInterval = 0;
+            this.tbxSearch.AnimateLength = 25;
+            this.tbxSearch.AnimTimeInterval = 10;
             this.tbxSearch.BackgroundColor = System.Drawing.Color.White;
             this.tbxSearch.Font = new System.Drawing.Font("Comic Sans MS", 9F);
             this.tbxSearch.ForeColor = System.Drawing.Color.DimGray;
@@ -410,8 +408,9 @@
             this.tbxSearch.Size = new System.Drawing.Size(110, 36);
             this.tbxSearch.TabIndex = 0;
             this.tbxSearch.TabStop = false;
-            this.tbxSearch.TextS = "🔍 search";
+            this.tbxSearch.Text = "🔍 search";
             this.tbxSearch.TextSearch = "🔍 search";
+            this.tbxSearch.TextChanged += new System.EventHandler(this.tbxSearch_TextChanged);
             // 
             // rbnPlayers
             // 
@@ -442,6 +441,7 @@
             this.rbnTeams.TabStop = true;
             this.rbnTeams.Text = "Teams  ";
             this.rbnTeams.UseVisualStyleBackColor = true;
+            this.rbnTeams.CheckedChanged += new System.EventHandler(this.rbnTeams_CheckedChanged);
             // 
             // customControlBox1
             // 
@@ -462,11 +462,6 @@
             this.customControlBox1.Size = new System.Drawing.Size(115, 31);
             this.customControlBox1.TabIndex = 0;
             this.customControlBox1.TabStop = false;
-            // 
-            // searchTimer
-            // 
-            this.searchTimer.Interval = 750;
-            this.searchTimer.Tick += new System.EventHandler(this.searchTimer_Tick);
             // 
             // MainForm
             // 
@@ -533,7 +528,6 @@
         private System.Windows.Forms.Button btnPDelete;
         private System.Windows.Forms.Button btnShowAllPlayers;
         private System.Windows.Forms.Button btnUnsignedPlayers;
-        private System.Windows.Forms.Timer searchTimer;
     }
 }
 

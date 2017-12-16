@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 using System.Windows.Forms.Custom;
 using TeamManager.Models.ResourceData;
 using TeamManager.Presenters.Events;
@@ -41,48 +42,68 @@ namespace TeamManager.Presenters
         }
 
 
-
-        public void Search(CustomTextBoxSearch tbxSearch, bool searchInTeams)
+        /// <summary>
+        /// Filtering functionality in relationship together with TeamsListBox and PlayersListBox.
+        /// PlayersListBox depends on TeamsListBox.
+        /// </summary>
+        /// <param name="tbxText">The text that the user type in the textbox.</param>
+        /// <param name="tbxSearchText">The text that defined in the designer to show(Search).</param>
+        /// <param name="searchInTeams">To search in teams or players flag.</param>
+        public void Search(string tbxText, string tbxSearchText, bool searchInTeams)
         {
-            if (tbxSearch.TextS == tbxSearch.TextSearch)
+            if (tbxText == tbxSearchText || string.IsNullOrEmpty(tbxText))
             {
-                filterTeams = false;
-                filterPlayers = false;
-                teamFilterText = string.Empty;
-                playerFilterText = string.Empty;
-                BindTeamsData();
+                if (searchInTeams)
+                {
+                    filterTeams = false;
+                    filterPlayers = false;
+                    teamFilterText = string.Empty;
+                    playerFilterText = string.Empty;
+                    BindTeamsData();
+                }
+                else
+                {
+                    filterPlayers = false;
+                    playerFilterText = string.Empty;
+                    BindPlayersData();
+                }
+
                 return;
             }
 
+            SearchApplyFilter(tbxText, searchInTeams);
+        }
+
+        private void SearchApplyFilter(string tbxText, bool searchInTeams)
+        {
             if (searchInTeams)
             {
                 filterTeams = true;
                 filterPlayers = false;
-                teamFilterText = tbxSearch.TextS;
+                teamFilterText = tbxText;
 
                 view.TeamsListBox.Clear();
                 List<Team> teams = Teams();
                 if (teams.Count == 0) return;
 
-                teams.ForEach(t => view.TeamsListBox.Add(t.Name));
+                teams.ForEach(team => view.TeamsListBox.Add(team));
                 view.TeamSelectedIndex = 0;
             }
             else // search in players.
             {
                 filterPlayers = true;
-                playerFilterText = tbxSearch.TextS;
+                playerFilterText = tbxText;
 
                 view.PlayersListBox.Clear();
-                List<Team> teams = Teams();
+                List<Team> teams = view.TeamsListBox.Cast<Team>().ToList();
                 if (teams.Count == 0) return;
 
                 List<Player> teamPlayers = TeamPlayers(teams[view.TeamSelectedIndex].Id);
                 if (teamPlayers.Count == 0) return;
 
-                teamPlayers.ForEach(p => view.PlayersListBox.Add(p.Name));
+                teamPlayers.ForEach(player => view.PlayersListBox.Add(player));
                 view.PlayerSelectedIndex = 0;
             }
-
         }
 
         public void DeleteTeam()
@@ -137,8 +158,8 @@ namespace TeamManager.Presenters
             List<Team> teams = Teams();
             if (teams.Count == 0) return null;
 
-            foreach (string teamName in teams.Select(t => t.Name))
-                view.TeamsListBox.Add(teamName);
+            foreach (Team team in teams)
+                view.TeamsListBox.Add(team);
 
             view.TeamSelectedIndex = 0;
 
@@ -150,15 +171,15 @@ namespace TeamManager.Presenters
             if (!allowPlayersDataBinding) return null;
 
             view.PlayersListBox.Clear();
-            List<Team> teams = Teams();
-            if (teams.Count == 0) return null; ;
+            List<Team> teams = view.TeamsListBox.Cast<Team>().ToList();
+            if (teams.Count == 0) return null;
 
             int teamSelIndex = view.TeamSelectedIndex;
             List<Player> teamPlayers = TeamPlayers(teams[teamSelIndex].Id);
             if (teamPlayers.Count == 0) return null;
 
-            foreach (string playerName in teamPlayers.Select(p => p.Name))
-                view.PlayersListBox.Add(playerName);
+            foreach (Player player in teamPlayers)
+                view.PlayersListBox.Add(player);
 
             view.PlayerSelectedIndex = 0;
 
@@ -204,11 +225,11 @@ namespace TeamManager.Presenters
         public Tuple<Team, Player> GetSelectedPlayerAndTeam()
         {
             List<Team> teams = Teams();
-            if (teams.Count == 0) return new Tuple<Team, Player>(null, null);
+            if (teams.Count == 0) return null;
 
             int teamSelIndex = view.TeamSelectedIndex;
             List<Player> teamPlayers = TeamPlayers(teams[teamSelIndex].Id);
-            if (teamPlayers.Count == 0) return new Tuple<Team, Player>(null, null);
+            if (teamPlayers.Count == 0) return null;
 
             int playerSelIndex = view.PlayerSelectedIndex;
             Player player = teamPlayers[playerSelIndex];
@@ -219,10 +240,7 @@ namespace TeamManager.Presenters
 
         public Team GetSelectedTeam()
         {
-            List<Team> teams = Teams();
-            if (teams.Count == 0) return null;
-
-            return teams[view.TeamSelectedIndex];
+            return view.TeamsListBox[view.TeamSelectedIndex] as Team;
         }
 
         private void Form_ChildClose(object sender, PresenterArgs args)
