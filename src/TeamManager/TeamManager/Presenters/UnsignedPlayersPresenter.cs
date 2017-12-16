@@ -31,10 +31,10 @@ namespace TeamManager.Presenters
         {
             Log.Info("Binding players data to listbox.");
             _view.PlayersListBox.Clear();
-            List<Player> players = Concept.GetAllPlayers().Where(p => p.TeamId == "0").ToList();
-            if (players.Count == 0) return;
+            List<Player> players = Concept.GetAllPlayers()?.Where(p => p.TeamId == "0").ToList();
+            if (players.IsNullOrEmpty()) return;
 
-            players.ForEach(player => _view.PlayersListBox.Add(player));
+            players?.ForEach(player => _view.PlayersListBox.Add(player));
             _view.PlayerSelectedIndex = 0;
         }
 

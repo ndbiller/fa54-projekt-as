@@ -97,5 +97,28 @@ namespace TeamManager.Utilities
             return null;
         }
 
+
+        /// <summary>
+        /// Returning the count result of the collection in a safer manner.
+        /// If collection is null, the result would be 0.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static int InternalCount(this IEnumerable<object> obj)
+        {
+            return obj?.Count() ?? 0;
+        }
+
+
+        /// <summary>
+        /// Determines whether the collection is null or contains any elements.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static bool IsNullOrEmpty(this IEnumerable<object> obj)
+        {
+            return obj == null || !obj.Any();
+        }
+
     }
 }

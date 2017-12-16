@@ -89,7 +89,7 @@ namespace TeamManager.Presenters
 
                 _view.TeamsListBox.Clear();
                 List<Team> teams = Teams();
-                if (teams.Count == 0) return;
+                if (teams.IsNullOrEmpty()) return;
 
                 teams.ForEach(team => _view.TeamsListBox.Add(team));
                 _view.TeamSelectedIndex = 0;
@@ -102,10 +102,10 @@ namespace TeamManager.Presenters
 
                 _view.PlayersListBox.Clear();
                 List<Team> teams = _view.TeamsListBox.Cast<Team>().ToList();
-                if (teams.Count == 0) return;
+                if (teams.IsNullOrEmpty()) return;
 
                 List<Player> teamPlayers = TeamPlayers(teams[_view.TeamSelectedIndex].Id);
-                if (teamPlayers.Count == 0) return;
+                if (teamPlayers.IsNullOrEmpty()) return;
 
                 teamPlayers.ForEach(player => _view.PlayersListBox.Add(player));
                 _view.PlayerSelectedIndex = 0;
@@ -168,7 +168,7 @@ namespace TeamManager.Presenters
         {
             _view.TeamsListBox.Clear();
             List<Team> teams = Teams();
-            if (teams.Count == 0)
+            if (teams.IsNullOrEmpty())
             {
                 Log.Warn("No teams available or failed to retrieve teams from the database.");
                 return null;
@@ -192,7 +192,7 @@ namespace TeamManager.Presenters
             if (team == null) return null;
 
             List<Player> teamPlayers = TeamPlayers(team.Id);
-            if (teamPlayers.Count == 0) return null;
+            if (teamPlayers.IsNullOrEmpty()) return null;
 
             teamPlayers.ForEach(player => _view.PlayersListBox.Add(player));
             _view.PlayerSelectedIndex = 0;
@@ -269,7 +269,7 @@ namespace TeamManager.Presenters
             int oldTeamsCount = _view.TeamsListBox.Count;
             List<Team> teams = BindTeamsData();
             // Saftey check if child form removed or created team.
-            if (teams.Count != oldTeamsCount) return;
+            if (teams.InternalCount() != oldTeamsCount) return;
 
             _view.TeamSelectedIndex = tSelIndex;
 

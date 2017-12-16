@@ -93,6 +93,11 @@ namespace TeamManager.Database
                 PlayerCollection.InsertOne(new Player(name, teamId));
                 return true;
             }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for creating player => ", e);
+                return false;
+            }
             catch (Exception e)
             {
                 Log.Error("Failed to create player => ", e);
@@ -106,6 +111,11 @@ namespace TeamManager.Database
             {
                 TeamCollection.InsertOne(new Team(name));
                 return true;
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for creating team => ", e);
+                return false;
             }
             catch (Exception e)
             {
@@ -121,6 +131,11 @@ namespace TeamManager.Database
                 PlayerCollection.DeleteOne(a => a.Id == id);
                 return true;
             }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for deleting player => ", e);
+                return false;
+            }
             catch (Exception e)
             {
                 Log.Error("Failed to delete player => ", e);
@@ -134,6 +149,11 @@ namespace TeamManager.Database
             {
                 TeamCollection.DeleteOne(a => a.Id == id);
                 return true;
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for deleting team => ", e);
+                return false;
             }
             catch (Exception e)
             {
@@ -150,6 +170,11 @@ namespace TeamManager.Database
                 Player player = results.First<Player>();
                 return player;
             }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for reading player => ", e);
+                return null;
+            }
             catch (Exception e)
             {
                 Log.Error("Failed to read player => ", e);
@@ -165,6 +190,11 @@ namespace TeamManager.Database
                 Team team = results.First<Team>();
                 return team;
             }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for reading team => ", e);
+                return null;
+            }
             catch (Exception e)
             {
                 Log.Error("Failed to read team => ", e);
@@ -178,6 +208,11 @@ namespace TeamManager.Database
             {
                 List<Player> players = PlayerCollection.Find(p => p.TeamId == teamId).ToList();
                 return players;
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for showing players => ", e);
+                return null;
             }
             catch (Exception e)
             {
@@ -196,6 +231,11 @@ namespace TeamManager.Database
                 var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
                 return collection.UpdateOneAsync(filter, update).Wait(TimeoutMilisec);
             }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for updating player => ", e);
+                return false;
+            }
             catch (Exception e)
             {
                 Log.Error("Failed to update player => ", e);
@@ -209,6 +249,11 @@ namespace TeamManager.Database
             {
                 await Task.Factory.StartNew(() => UpdatePlayer(id, name)).TimeoutAfter(TimeoutMilisec);
                 return true;
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for updating player async => ", e);
+                return false;
             }
             catch (Exception e)
             {
@@ -227,6 +272,11 @@ namespace TeamManager.Database
                 var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
                 return collection.UpdateOneAsync(filter, update).Wait(TimeoutMilisec);
             }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for updating player => ", e);
+                return false;
+            }
             catch (Exception e)
             {
                 Log.Error("Failed to update player => ", e);
@@ -240,6 +290,11 @@ namespace TeamManager.Database
             {
                 await Task.Factory.StartNew(() => UpdatePlayer(id, name)).TimeoutAfter(TimeoutMilisec);
                 return true;
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for updating player async => ", e);
+                return false;
             }
             catch (Exception e)
             {
@@ -258,6 +313,11 @@ namespace TeamManager.Database
                 var collection = Database.GetCollection<BsonDocument>(TeamsCollectionName);
                 return collection.UpdateOneAsync(filter, update).Wait(TimeoutMilisec);
             }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for updating team => ", e);
+                return false;
+            }
             catch (Exception e)
             {
                 Log.Error("Failed to update team => ", e);
@@ -271,6 +331,11 @@ namespace TeamManager.Database
             {
                 await Task.Factory.StartNew(() => UpdateTeam(id, name)).TimeoutAfter(TimeoutMilisec);
                 return true;
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for updating team async => ", e);
+                return false;
             }
             catch (Exception e)
             {
@@ -286,6 +351,11 @@ namespace TeamManager.Database
                 List<Player> players = PlayerCollection.Find(_ => true).ToList();
                 return players;
             }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for retrieving players => ", e);
+                return null;
+            }
             catch (Exception e)
             {
                 Log.Error("Failed to retrieve players => ", e);
@@ -299,6 +369,11 @@ namespace TeamManager.Database
             {
                 List<Team> teams = TeamCollection.Find(_ => true).ToList();
                 return teams;
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for retrieving teams => ", e);
+                return null;
             }
             catch (Exception e)
             {
@@ -317,6 +392,11 @@ namespace TeamManager.Database
                 var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
                 collection.UpdateOne(filter, update);
                 return true;
+            }
+            catch (TimeoutException e)
+            {
+                Log.Error("Received time out for changing player team => ", e);
+                return false;
             }
             catch (Exception e)
             {
