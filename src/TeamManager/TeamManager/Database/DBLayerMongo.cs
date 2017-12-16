@@ -18,8 +18,8 @@ namespace TeamManager.Database
         internal static readonly string MLAB_PORT;
         internal static readonly string MLAB_DATABASE_NAME;
 
-        private static string databaseName;
-        private static string connectionString;
+        private static readonly string DatabaseName;
+        private static readonly string ConnectionString;
 
         private static MongoClient Client { get; set; }
         public static IMongoDatabase Database { get; private set; }
@@ -52,8 +52,8 @@ namespace TeamManager.Database
             }
 
             // connect to mLab mongodb server
-            databaseName     = MLAB_DATABASE_NAME;
-            connectionString = "mongodb://" + MLAB_USERNAME + ":" + MLAB_PASSWORD + "@" + MLAB_URI + ":" + MLAB_PORT + "/" + MLAB_DATABASE_NAME;
+            DatabaseName     = MLAB_DATABASE_NAME;
+            ConnectionString = "mongodb://" + MLAB_USERNAME + ":" + MLAB_PASSWORD + "@" + MLAB_URI + ":" + MLAB_PORT + "/" + MLAB_DATABASE_NAME;
 #endif
         }
 
@@ -66,9 +66,9 @@ namespace TeamManager.Database
         {
             try
             {
-                Client = new MongoClient(connectionString);
+                Client = new MongoClient(ConnectionString);
 
-                Database = Client.GetDatabase(databaseName);
+                Database = Client.GetDatabase(DatabaseName);
                 TeamCollection = Database.GetCollection<Team>(TeamsCollectionName);
                 PlayerCollection = Database.GetCollection<Player>(PlayersCollectionName);
             }
