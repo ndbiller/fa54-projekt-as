@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.Custom;
 using TeamManager.Models.ResourceData;
 using TeamManager.Presenters;
+using TeamManager.Utilities;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Interfaces;
 
@@ -38,30 +39,30 @@ namespace TeamManager.Views.Forms.ChildForms
         #endregion --- View Interface Items ---
 
 
-        private AllPlayersPresenter presenter;
+        private readonly AllPlayersPresenter _presenter;
 
 
 
         public AllPlayersForm()
         {
             InitializeComponent();
-            presenter = new AllPlayersPresenter(this);
-            presenter.BindPlayersData();
+            _presenter = new AllPlayersPresenter(this);
+            _presenter.BindPlayersData();
         }
 
         private void btnPDelete_Click(object sender, EventArgs e)
         {
-            presenter.DeletePlayer();
+            _presenter.DeletePlayer();
         }
 
         private void lbxPlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            presenter.UpdateView();
+            _presenter.UpdateView();
         }
 
         private void AllPlayersForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            presenter.FormClosed();
+            _presenter.FormClosed();
         }
 
 
@@ -69,8 +70,8 @@ namespace TeamManager.Views.Forms.ChildForms
 
         private void btnPEdit_Click(object sender, EventArgs e)
         {
-            Tuple<Team, Player> teamAndPlayer = presenter.GetPlayerAndTeam();
-            if (teamAndPlayer.Item2 == null) return;
+            Tuple<Team, Player> teamAndPlayer = _presenter.GetTeamAndPlayer();
+            if (teamAndPlayer == null || teamAndPlayer.ContainsNull()) return;
 
             new EditForm(EditMode.PlayerEdit, teamAndPlayer.Item1, teamAndPlayer.Item2).ShowDialog();
         }

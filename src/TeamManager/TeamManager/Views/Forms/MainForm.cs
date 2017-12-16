@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.Custom;
 using TeamManager.Models.ResourceData;
 using TeamManager.Presenters;
+using TeamManager.Utilities;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Forms.ChildForms;
 using TeamManager.Views.Interfaces;
@@ -41,7 +42,7 @@ namespace TeamManager.Views.Forms
         #endregion --- View Interface Items ---
 
 
-        private MainPresenter presenter;
+        private readonly MainPresenter _presenter;
 
 
 
@@ -50,8 +51,8 @@ namespace TeamManager.Views.Forms
             Loaders.StartLoader(LoaderType.Loader, 0);
 
             InitializeComponent();
-            presenter = new MainPresenter(this);
-            presenter.BindTeamsData();
+            _presenter = new MainPresenter(this);
+            _presenter.BindTeamsData();
 
             Loaders.StopLoader(Handle);
         }
@@ -59,7 +60,7 @@ namespace TeamManager.Views.Forms
 
         private void tbxSearch_TextChanged(object sender, EventArgs e)
         {
-            presenter.Search(tbxSearch.Text, tbxSearch.TextSearch, rbnTeams.Checked);
+            _presenter.Search(tbxSearch.Text, tbxSearch.TextSearch, rbnTeams.Checked);
         }
 
         private void rbnTeams_CheckedChanged(object sender, EventArgs e)
@@ -70,17 +71,17 @@ namespace TeamManager.Views.Forms
 
         private void lbxTeams_SelectedIndexChanged(object sender, EventArgs e)
         {
-            presenter.BindPlayersData();
+            _presenter.BindPlayersData();
         }
 
         private void btnTDelete_Click(object sender, EventArgs e)
         {
-            presenter.DeleteTeam();
+            _presenter.DeleteTeam();
         }
 
         private void btnPDelete_Click(object sender, EventArgs e)
         {
-            presenter.DeletePlayer();
+            _presenter.DeletePlayer();
         }
 
 
@@ -104,24 +105,24 @@ namespace TeamManager.Views.Forms
 
         private void btnPCreate_Click(object sender, EventArgs e)
         {
-            Team team = TeamsListBox[TeamSelectedIndex] as Team;
-            if (TeamsListBox.Count == 0) return;
+            Team team = _presenter.GetSelectedTeam();
+            if (team == null) return;
 
             new EditForm(EditMode.PlayerCreate, team, null).ShowDialog();
         }
 
         private void btnTEdit_Click(object sender, EventArgs e)
         {
-            Team team = presenter.GetSelectedTeam();
-            if (TeamsListBox.Count == 0 && team == null) return;
+            Team team = _presenter.GetSelectedTeam();
+            if (team == null) return;
 
             new EditForm(EditMode.TeamEdit, team, null).ShowDialog();
         }
 
         private void btnPEdit_Click(object sender, EventArgs e)
         {
-            Tuple<Team, Player> teamAndPlayer = presenter.GetSelectedPlayerAndTeam();
-            if (PlayersListBox.Count == 0 && teamAndPlayer.Item2 == null) return;
+            Tuple<Team, Player> teamAndPlayer = _presenter.GetSelectedTeamAndPlayer();
+            if (teamAndPlayer == null || teamAndPlayer.ContainsNull()) return;
 
             new EditForm(EditMode.PlayerEdit, teamAndPlayer.Item1, teamAndPlayer.Item2).ShowDialog();
         }

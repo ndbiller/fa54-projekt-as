@@ -14,7 +14,7 @@ namespace TeamManager.Presenters
     {
         public List<Team> AllTeams()
         {
-            List<Team> teams = concept.GetAllTeams();
+            List<Team> teams = Concept.GetAllTeams();
             if (teams.Count == 0)
             {
                 Console.WriteLine("Currently there is no teams to display.\n" +
@@ -32,7 +32,7 @@ namespace TeamManager.Presenters
 
         public List<Player> AllPlayers()
         {
-            List<Player> players = concept.GetAllPlayers();
+            List<Player> players = Concept.GetAllPlayers();
             for (int i = 0; i < players.Count; i++)
             {
                 Player player = players[i];
@@ -47,7 +47,7 @@ namespace TeamManager.Presenters
             Console.WriteLine("\nEnter the name of the new Team:");
             Console.Write("Team Name: ");
             string teamName = Console.ReadLine();
-            if (!string.IsNullOrEmpty(teamName) && concept.AddNewTeam(teamName))
+            if (!string.IsNullOrEmpty(teamName) && Concept.AddNewTeam(teamName))
                 Console.WriteLine($"Successfully created \"{teamName}\" as a new team!");
             else
                 Console.WriteLine($"Failed to create \"{teamName}\" as a new team...");
@@ -58,7 +58,7 @@ namespace TeamManager.Presenters
             Console.WriteLine("\nEnter the name of the new player:");
             Console.Write("Player Name: ");
             string playerName = Console.ReadLine();
-            if (!string.IsNullOrEmpty(playerName) && concept.AddNewPlayer(playerName))
+            if (!string.IsNullOrEmpty(playerName) && Concept.AddNewPlayer(playerName))
                 Console.WriteLine($"Successfully created \"{playerName}\" as a new player!");
             else
                 Console.WriteLine($"Failed to create \"{playerName}\" as a new player...");
@@ -81,7 +81,7 @@ namespace TeamManager.Presenters
             Console.Write("Team New Name: ");
             string newName = Console.ReadLine();
 
-            if (!string.IsNullOrEmpty(newName) && concept.ChangeTeamName(team.Id, newName))
+            if (!string.IsNullOrEmpty(newName) && Concept.ChangeTeamName(team.Id, newName))
                 Console.WriteLine($"Successfully changed team name from \"{team.Name}\" to \"{newName}\"!");
             else
                 Console.WriteLine("Failed to change team name...");
@@ -115,7 +115,7 @@ namespace TeamManager.Presenters
                 Console.WriteLine("Write the new name for the selected player: ");
                 Console.Write("Player New Name: ");
                 string playerNewName = Console.ReadLine();
-                if (!string.IsNullOrEmpty(playerNewName) && concept.ChangePlayerName(player.Id, playerNewName))
+                if (!string.IsNullOrEmpty(playerNewName) && Concept.ChangePlayerName(player.Id, playerNewName))
                     Console.WriteLine($"Successfully changed player name from \"{player.Name}\" to \"{playerNewName}\"!");
                 else
                     Console.WriteLine("Failed to change player name...");
@@ -138,7 +138,7 @@ namespace TeamManager.Presenters
                 }
 
                 Team team = teams[--teamIndex];
-                if (concept.ChangePlayerTeam(player.Id, team.Id))
+                if (Concept.ChangePlayerTeam(player.Id, team.Id))
                     Console.WriteLine($"Successfully changed player team from \"{playerTeamName}\" to \"{team.Name}\"!");
                 else
                     Console.WriteLine("Failed to change player team...");
@@ -165,12 +165,12 @@ namespace TeamManager.Presenters
                 return;
 
             // Set all players team id to 0 that contains the team id before we removing team.
-            List<Player> players = concept.GetAllPlayers();
+            List<Player> players = Concept.GetAllPlayers();
             foreach (Player player in players)
                 if (player.TeamId == team.Id)
-                    concept.ChangePlayerTeam(player.Id, "0");
+                    Concept.ChangePlayerTeam(player.Id, "0");
 
-            if (concept.RemoveTeam(team.Id))
+            if (Concept.RemoveTeam(team.Id))
                 Console.WriteLine($"Successfully removed {team.Name} from teams!");
             else
                 Console.WriteLine($"Failed to remove {team.Name} from teams...");
@@ -192,7 +192,7 @@ namespace TeamManager.Presenters
             if (!ValidateUserInput($"Are you sure you want to delete {player.Name} from players? (Y/N)"))
                 return;
 
-            if (concept.RemovePlayer(player.Id))
+            if (Concept.RemovePlayer(player.Id))
                 Console.WriteLine($"Successfully removed {player.Name} from players!");
             else
                 Console.WriteLine($"Failed to remove {player.Name} from players...");
@@ -200,7 +200,7 @@ namespace TeamManager.Presenters
 
         public void ShowUnsignedPlayers()
         {
-            List<Player> unsignedPlayers = concept.GetAllPlayers().Where(p => p.TeamId == "0").ToList();
+            List<Player> unsignedPlayers = Concept.GetAllPlayers().Where(p => p.TeamId == "0").ToList();
             for (int i = 0; i < unsignedPlayers.Count; i++)
             {
                 Player player = unsignedPlayers[i];
@@ -223,7 +223,7 @@ namespace TeamManager.Presenters
 
             Team team = teams[--teamIndex];
 
-            List<Player> players = concept.GetTeamPlayers(team.Id);
+            List<Player> players = Concept.GetTeamPlayers(team.Id);
             Console.WriteLine($"\n-- Team Players of \"{team.Name}\" --");
             if (players.Count == 0)
             {
@@ -282,21 +282,15 @@ namespace TeamManager.Presenters
                 Console.WriteLine(message);
                 Console.Write("Input: ");
                 answer = Console.ReadLine()?.ToLower();
-                if (answer != null && answer.StartsWith("n")) return false;
-            } while (answer != null && !answer.StartsWith("y"));
+                if (answer?.StartsWith("n") == true) return false;
+            } while (!answer?.StartsWith("y") == true);
 
             return true;
         }
 
-        private static void InvalidInput()
-        {
-            Console.WriteLine("Invalid input. Please try again...");
-        }
+        private static void InvalidInput() => Console.WriteLine("Invalid input. Please try again...");
 
-        public override void FormClosed()
-        {
-            // Console should do nothing
-        }
+        public override void FormClosed() { }
 
     }
 }

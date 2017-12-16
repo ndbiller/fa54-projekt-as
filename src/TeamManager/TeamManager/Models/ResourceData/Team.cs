@@ -10,8 +10,13 @@ namespace TeamManager.Models.ResourceData
 
         public Team(string name)
         {
-            this.Id = Guid.NewGuid().ToString();
-            this.Name = name;
+            Id = Guid.NewGuid().ToString();
+            Name = name;
+        }
+
+        public static implicit operator string(Team team)
+        {
+            return team.Name;
         }
 
         public int CompareTo(Team other)

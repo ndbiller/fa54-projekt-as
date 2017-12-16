@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Windows.Forms;
-using System.Windows.Forms.Custom;
 using TeamManager.Models.ResourceData;
 using TeamManager.Presenters.Events;
+using TeamManager.Utilities;
 using TeamManager.Views.Interfaces;
 
 namespace TeamManager.Presenters
@@ -14,29 +14,29 @@ namespace TeamManager.Presenters
         /// <summary>
         /// Main view object that will be accessed to update the ui.
         /// </summary>
-        private readonly IMainView view;
+        private readonly IMainView _view;
 
         /// <summary>
         /// Since the PlayersListBox depend on the TeamsListBox, we want in certain situations to temporary 
         /// disable SelectedIndexChanged event from binding the players data to avoid indexing errors.
         /// </summary>
-        private bool allowPlayersDataBinding = true;
+        private bool _allowPlayersDataBinding = true;
 
         /// <summary>
         /// Filtering variables when using the search functionality.
         /// </summary>
-        private string teamFilterText;
-        private string playerFilterText;
-        private bool filterTeams;
-        private bool filterPlayers;
+        private string _teamFilterText;
+        private string _playerFilterText;
+        private bool _filterTeams;
+        private bool _filterPlayers;
 
 
 
         public MainPresenter(IMainView view)
         {
-            this.view = view;
-            this.view.TeamsListBox.Clear();
-            this.view.PlayersListBox.Clear();
+            _view = view;
+            _view.TeamsListBox.Clear();
+            _view.PlayersListBox.Clear();
 
             ChildClosed += Form_ChildClose;
         }
@@ -48,23 +48,23 @@ namespace TeamManager.Presenters
         /// </summary>
         /// <param name="tbxText">The text that the user type in the textbox.</param>
         /// <param name="tbxSearchText">The text that defined in the designer to show(Search).</param>
-        /// <param name="searchInTeams">To search in teams or players flag.</param>
+        /// <param name="searchInTeams">To search in teams? If false it will search in players.</param>
         public void Search(string tbxText, string tbxSearchText, bool searchInTeams)
         {
             if (tbxText == tbxSearchText || string.IsNullOrEmpty(tbxText))
             {
                 if (searchInTeams)
                 {
-                    filterTeams = false;
-                    filterPlayers = false;
-                    teamFilterText = string.Empty;
-                    playerFilterText = string.Empty;
+                    _filterTeams = false;
+                    _filterPlayers = false;
+                    _teamFilterText = string.Empty;
+                    _playerFilterText = string.Empty;
                     BindTeamsData();
                 }
                 else
                 {
-                    filterPlayers = false;
-                    playerFilterText = string.Empty;
+                    _filterPlayers = false;
+                    _playerFilterText = string.Empty;
                     BindPlayersData();
                 }
 
@@ -78,112 +78,135 @@ namespace TeamManager.Presenters
         {
             if (searchInTeams)
             {
-                filterTeams = true;
-                filterPlayers = false;
-                teamFilterText = tbxText;
+                _filterTeams = true;
+                _filterPlayers = false;
+                _teamFilterText = tbxText;
 
-                view.TeamsListBox.Clear();
+                _view.TeamsListBox.Clear();
                 List<Team> teams = Teams();
                 if (teams.Count == 0) return;
 
-                teams.ForEach(team => view.TeamsListBox.Add(team));
-                view.TeamSelectedIndex = 0;
+                teams.ForEach(team => _view.TeamsListBox.Add(team));
+                _view.TeamSelectedIndex = 0;
             }
             else // search in players.
             {
-                filterPlayers = true;
-                playerFilterText = tbxText;
+                _filterPlayers = true;
+                _playerFilterText = tbxText;
 
-                view.PlayersListBox.Clear();
-                List<Team> teams = view.TeamsListBox.Cast<Team>().ToList();
+                _view.PlayersListBox.Clear();
+                List<Team> teams = _view.TeamsListBox.Cast<Team>().ToList();
                 if (teams.Count == 0) return;
 
-                List<Player> teamPlayers = TeamPlayers(teams[view.TeamSelectedIndex].Id);
+                List<Player> teamPlayers = TeamPlayers(teams[_view.TeamSelectedIndex].Id);
                 if (teamPlayers.Count == 0) return;
 
-                teamPlayers.ForEach(player => view.PlayersListBox.Add(player));
-                view.PlayerSelectedIndex = 0;
+                teamPlayers.ForEach(player => _view.PlayersListBox.Add(player));
+                _view.PlayerSelectedIndex = 0;
             }
         }
 
         public void DeleteTeam()
         {
-            List<Team> teams = Teams();
-            if (teams.Count == 0) return;
+            if (_view.TeamsListBox.Count == 0) return;
 
-            int teamSelIndex = view.TeamSelectedIndex;
-            List<Player> teamPlayers = TeamPlayers(teams[teamSelIndex].Id);
+            Team team = _view.TeamsListBox[_view.TeamSelectedIndex].ToTeam();
+            if (team == null) return;
+
+            List<Player> teamPlayers = _view.PlayersListBox.Cast<Player>().ToList();
 
             // Change all players of the deleted team to Unsigned Team("0").
             if (teamPlayers.Count > 0)
                 for (int i = teamPlayers.Count - 1; i >= 0; i--)
-                    concept.ChangePlayerTeam(teamPlayers[i].Id, "0");
+                    Concept.ChangePlayerTeam(teamPlayers[i].Id, "0");
 
-            concept.RemoveTeam(teams[teamSelIndex].Id);
+            Concept.RemoveTeam(team.Id);
 
-            allowPlayersDataBinding = false;
-            view.TeamsListBox.RemoveAt(teamSelIndex);
+            _allowPlayersDataBinding = false;
+            int teamSelIndex = _view.TeamSelectedIndex;
+            _view.TeamsListBox.RemoveAt(teamSelIndex);
 
-            if (teams.Count == teamSelIndex + 1)
+            if (_view.TeamsListBox.Count == teamSelIndex)
                 teamSelIndex--;
 
-            allowPlayersDataBinding = true;
+            _allowPlayersDataBinding = true;
 
-            view.TeamSelectedIndex = teamSelIndex;
+            if (teamSelIndex == -1)
+                _view.PlayersListBox.Clear();
+            else
+                _view.TeamSelectedIndex = teamSelIndex;
         }
 
         public void DeletePlayer()
         {
-            List<Team> teams = Teams();
-            if (teams.Count == 0) return;
+            if (_view.PlayersListBox.Count == 0) return;
 
-            int teamSelIndex = view.TeamSelectedIndex;
-            List<Player> teamPlayers = TeamPlayers(teams[teamSelIndex].Id);
-            if (teamPlayers.Count == 0) return;
+            Player player = _view.PlayersListBox[_view.PlayerSelectedIndex].ToPlayer();
+            if (player == null) return;
 
-            int playerSelIndex = view.PlayerSelectedIndex;
-            concept.ChangePlayerTeam(teamPlayers[playerSelIndex].Id, "0");
-            view.PlayersListBox.RemoveAt(playerSelIndex);
+            Concept.ChangePlayerTeam(player.Id, "0");
+
+            int playerSelIndex = _view.PlayerSelectedIndex;
+            _view.PlayersListBox.RemoveAt(playerSelIndex);
 
             // Last index -> Go step back.
-            if (teamPlayers.Count == playerSelIndex + 1)
+            if (_view.PlayersListBox.Count == playerSelIndex)
                 playerSelIndex--;
 
-            view.PlayerSelectedIndex = playerSelIndex;
+            _view.PlayerSelectedIndex = playerSelIndex;
         }
 
         public List<Team> BindTeamsData()
         {
-            view.TeamsListBox.Clear();
+            _view.TeamsListBox.Clear();
             List<Team> teams = Teams();
-            if (teams.Count == 0) return null;
+            if (teams.Count == 0)
+            {
+                Debug.WriteLine("[BindTeamsData] - No teams available or failed to retrieve teams from the database.");
+                return null;
+            }
 
-            foreach (Team team in teams)
-                view.TeamsListBox.Add(team);
-
-            view.TeamSelectedIndex = 0;
+            teams.ForEach(team => _view.TeamsListBox.Add(team));
+            _view.TeamSelectedIndex = 0;
 
             return teams;
         }
 
         public List<Player> BindPlayersData()
         {
-            if (!allowPlayersDataBinding) return null;
+            if (!_allowPlayersDataBinding || _view.TeamsListBox.Count == 0) return null;
 
-            view.PlayersListBox.Clear();
-            List<Team> teams = view.TeamsListBox.Cast<Team>().ToList();
-            if (teams.Count == 0) return null;
+            _view.PlayersListBox.Clear();
 
-            int teamSelIndex = view.TeamSelectedIndex;
-            List<Player> teamPlayers = TeamPlayers(teams[teamSelIndex].Id);
+            Team team = _view.TeamsListBox[_view.TeamSelectedIndex].ToTeam();
+            if (team == null) return null;
+
+            List<Player> teamPlayers = TeamPlayers(team.Id);
             if (teamPlayers.Count == 0) return null;
 
-            foreach (Player player in teamPlayers)
-                view.PlayersListBox.Add(player);
-
-            view.PlayerSelectedIndex = 0;
+            teamPlayers.ForEach(player => _view.PlayersListBox.Add(player));
+            _view.PlayerSelectedIndex = 0;
 
             return teamPlayers;
+        }
+
+        public Tuple<Team, Player> GetSelectedTeamAndPlayer()
+        {
+            if (_view.PlayersListBox.Count == 0 || _view.PlayerSelectedIndex == -1) return null;
+
+            Team team = _view.TeamsListBox[_view.TeamSelectedIndex].ToTeam();
+            if (team == null) return null;
+
+            Player player = _view.PlayersListBox[_view.PlayerSelectedIndex].ToPlayer();
+            if (player == null) return null;
+
+            return new Tuple<Team, Player>(team, player);
+        }
+
+        public Team GetSelectedTeam()
+        {
+            if (_view.TeamsListBox.Count == 0) return null;
+            return _view.TeamsListBox[_view.TeamSelectedIndex].ToTeam();
         }
 
         /// <summary>
@@ -193,9 +216,9 @@ namespace TeamManager.Presenters
         /// <returns></returns>
         public List<Team> Teams()
         {
-            return filterTeams
-                ? concept.GetAllTeams(teamFilterText, true)
-                : concept.GetAllTeams();
+            return _filterTeams
+                ? Concept.GetAllTeams(_teamFilterText, true)
+                : Concept.GetAllTeams();
         }
 
         /// <summary>
@@ -205,9 +228,9 @@ namespace TeamManager.Presenters
         /// <returns></returns>
         public List<Player> Players()
         {
-            return filterPlayers
-                ? concept.GetAllPlayers(playerFilterText, true)
-                : concept.GetAllPlayers();
+            return _filterPlayers
+                ? Concept.GetAllPlayers(_playerFilterText, true)
+                : Concept.GetAllPlayers();
         }
 
         /// <summary>
@@ -217,53 +240,30 @@ namespace TeamManager.Presenters
         /// <returns></returns>
         public List<Player> TeamPlayers(string teamId)
         {
-            return filterPlayers
-                ? concept.GetTeamPlayers(teamId, playerFilterText, true)
-                : concept.GetTeamPlayers(teamId);
+            return _filterPlayers
+                ? Concept.GetTeamPlayers(teamId, _playerFilterText, true)
+                : Concept.GetTeamPlayers(teamId);
         }
 
-        public Tuple<Team, Player> GetSelectedPlayerAndTeam()
-        {
-            List<Team> teams = Teams();
-            if (teams.Count == 0) return null;
-
-            int teamSelIndex = view.TeamSelectedIndex;
-            List<Player> teamPlayers = TeamPlayers(teams[teamSelIndex].Id);
-            if (teamPlayers.Count == 0) return null;
-
-            int playerSelIndex = view.PlayerSelectedIndex;
-            Player player = teamPlayers[playerSelIndex];
-            Team team = teams[teamSelIndex];
-
-            return new Tuple<Team, Player>(team, player);
-        }
-
-        public Team GetSelectedTeam()
-        {
-            return view.TeamsListBox[view.TeamSelectedIndex] as Team;
-        }
 
         private void Form_ChildClose(object sender, PresenterArgs args)
         {
-            int tSelIndex = view.TeamSelectedIndex;
-            int pSelIndex = view.PlayerSelectedIndex;
-            int oldTeamsCount = view.TeamsListBox.Count;
+            int tSelIndex = _view.TeamSelectedIndex;
+            int pSelIndex = _view.PlayerSelectedIndex;
+            int oldTeamsCount = _view.TeamsListBox.Count;
             List<Team> teams = BindTeamsData();
             // Saftey check if child form removed or created team.
             if (teams.Count != oldTeamsCount) return;
 
-            view.TeamSelectedIndex = tSelIndex;
+            _view.TeamSelectedIndex = tSelIndex;
 
-            if (view.PlayersListBox.Count == pSelIndex)
+            if (_view.PlayersListBox.Count == pSelIndex)
                 pSelIndex--;
 
-            view.PlayerSelectedIndex = pSelIndex;
+            _view.PlayerSelectedIndex = pSelIndex;
         }
 
-        public override void FormClosed()
-        {
-            // MainPresenter should do nothing.
-        }
+        public override void FormClosed() { }
 
     }
 }
