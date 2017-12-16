@@ -229,7 +229,8 @@ namespace TeamManager.Database
             try
             {
                 var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
-                return collection.UpdateOneAsync(filter, update).Wait(TimeoutMilisec);
+                collection.UpdateOne(filter, update);
+                return true;
             }
             catch (TimeoutException e)
             {
@@ -245,9 +246,13 @@ namespace TeamManager.Database
 
         public async Task<bool> UpdatePlayerAsync(string id, string name)
         {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var update = Builders<BsonDocument>.Update.Set("Name", name);
+
             try
             {
-                await Task.Factory.StartNew(() => UpdatePlayer(id, name)).TimeoutAfter(TimeoutMilisec);
+                var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
+                await collection.UpdateOneAsync(filter, update).TimeoutAfter(TimeoutMilisec);
                 return true;
             }
             catch (TimeoutException e)
@@ -270,7 +275,8 @@ namespace TeamManager.Database
             try
             {
                 var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
-                return collection.UpdateOneAsync(filter, update).Wait(TimeoutMilisec);
+                collection.UpdateOne(filter, update);
+                return true;
             }
             catch (TimeoutException e)
             {
@@ -286,9 +292,13 @@ namespace TeamManager.Database
 
         public async Task<bool> UpdatePlayerAsync(string id, string teamId, string name)
         {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var update = Builders<BsonDocument>.Update.Set("Name", name);
+
             try
             {
-                await Task.Factory.StartNew(() => UpdatePlayer(id, name)).TimeoutAfter(TimeoutMilisec);
+                var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
+                await collection.UpdateOneAsync(filter, update).TimeoutAfter(TimeoutMilisec);
                 return true;
             }
             catch (TimeoutException e)
@@ -311,7 +321,8 @@ namespace TeamManager.Database
             try
             {
                 var collection = Database.GetCollection<BsonDocument>(TeamsCollectionName);
-                return collection.UpdateOneAsync(filter, update).Wait(TimeoutMilisec);
+                collection.UpdateOne(filter, update);
+                return true;
             }
             catch (TimeoutException e)
             {
@@ -327,9 +338,13 @@ namespace TeamManager.Database
 
         public async Task<bool> UpdateTeamAsync(string id, string name)
         {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var update = Builders<BsonDocument>.Update.Set("Name", name);
+
             try
             {
-                await Task.Factory.StartNew(() => UpdateTeam(id, name)).TimeoutAfter(TimeoutMilisec);
+                var collection = Database.GetCollection<BsonDocument>(TeamsCollectionName);
+                await collection.UpdateOneAsync(filter, update).TimeoutAfter(TimeoutMilisec);
                 return true;
             }
             catch (TimeoutException e)

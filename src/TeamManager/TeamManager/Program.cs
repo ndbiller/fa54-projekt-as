@@ -7,6 +7,7 @@ using TeamManager.Utilities;
 using TeamManager.Views;
 
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
+[assembly: Fody.ConfigureAwait(false)]
 
 namespace TeamManager
 {
