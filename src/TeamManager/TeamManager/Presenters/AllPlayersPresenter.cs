@@ -62,7 +62,7 @@ namespace TeamManager.Presenters
             _allowPlayersDataBinding = false;
             _view.PlayersListBox.Clear();
             List<Player> players = Concept.GetAllPlayers();
-            if (players.Count == 0) return;
+            if (players.IsNullOrEmpty()) return;
 
             players.ForEach(player => _view.PlayersListBox.Add(player));
             _allowPlayersDataBinding = true;

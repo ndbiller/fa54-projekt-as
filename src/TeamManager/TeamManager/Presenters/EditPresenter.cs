@@ -29,7 +29,7 @@ namespace TeamManager.Presenters
             Log.Info("Initializing teams into ComboBox.");
             _view.TeamsComboBox.Clear();
             List<Team> teams = Concept.GetAllTeams();
-            if (teams.Count == 0) return;
+            if (teams.IsNullOrEmpty()) return;
 
             teams.ForEach(team => _view.TeamsComboBox.Add(team));
 

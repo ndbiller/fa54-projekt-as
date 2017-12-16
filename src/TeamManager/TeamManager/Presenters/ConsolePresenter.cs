@@ -21,7 +21,7 @@ namespace TeamManager.Presenters
         {
             Log.Info("Displaying all teams to console.");
             List<Team> teams = Concept.GetAllTeams();
-            if (teams.Count == 0)
+            if (teams.IsNullOrEmpty())
             {
                 Console.WriteLine("Currently there is no teams to display.\n" +
                                   "If you would like to add new team, use the create team option.");
@@ -78,7 +78,7 @@ namespace TeamManager.Presenters
             Log.Info("Editing Team.");
             Console.WriteLine("\nSelect Team by using the index number:");
             List<Team> teams = AllTeams();
-            if (teams.Count == 0) return;
+            if (teams.IsNullOrEmpty()) return;
 
             int teamIndex = GetUserInput();
             if (teamIndex <= 0)
@@ -135,7 +135,7 @@ namespace TeamManager.Presenters
             {
                 Console.WriteLine("Select the team by the index that you would like to assign the player to: ");
                 List<Team> teams = AllTeams();
-                if (teams.Count == 0) return;
+                if (teams.IsNullOrEmpty()) return;
 
                 string playerTeamName = teams.Find(t => t.Id == player.TeamId)?.Name;
                 if (string.IsNullOrEmpty(playerTeamName)) playerTeamName = "Unsigned Team";
@@ -162,7 +162,7 @@ namespace TeamManager.Presenters
             Log.Info("Deleting team.");
             Console.WriteLine("\nSelect a team by using the index number:");
             List<Team> teams = AllTeams();
-            if (teams.Count == 0) return;
+            if (teams.IsNullOrEmpty()) return;
 
             int teamIndex = GetUserInput();
             if (teamIndex <= 0)
@@ -227,7 +227,7 @@ namespace TeamManager.Presenters
             Log.Info("Displaying all players of a team.");
             Console.WriteLine("\nSelect a team to show players by using the index number:");
             List<Team> teams = AllTeams();
-            if (teams.Count == 0) return;
+            if (teams.IsNullOrEmpty()) return;
 
             int teamIndex = GetUserInput();
             if (teamIndex <= 0)
@@ -240,7 +240,7 @@ namespace TeamManager.Presenters
 
             List<Player> players = Concept.GetTeamPlayers(team.Id);
             Console.WriteLine($"\n-- Team Players of \"{team.Name}\" --");
-            if (players.Count == 0)
+            if (players.IsNullOrEmpty())
             {
                 Console.WriteLine("Unfortunately no team players for this team.\n" +
                                   "You can always assign players to teams by the edit player option.");

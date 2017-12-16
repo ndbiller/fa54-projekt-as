@@ -42,12 +42,12 @@ namespace TeamManager.Models.TechnicalConcept
 
         public List<Player> GetAllPlayers()
         {
-            return dbLayer.Players().OrderByDescending(p => p.Name).ToList();
+            return dbLayer.Players()?.OrderByDescending(p => p.Name).ToList();
         }
 
         public List<Player> GetAllPlayers(string filterText, bool ignoreCase)
         {
-            return GetAllPlayers()
+            return GetAllPlayers()?
                 .Where(
                     p => p.Name.ToLower().Contains(ignoreCase ? filterText.ToLower() : filterText)
                 ).ToList();
@@ -55,7 +55,7 @@ namespace TeamManager.Models.TechnicalConcept
 
         public List<Team> GetAllTeams()
         {
-            return dbLayer.Teams()
+            return dbLayer.Teams()?
                 .Where(t => t.Id != "0")
                 .OrderByDescending(t => t.Name)
                 .ToList();
@@ -63,7 +63,7 @@ namespace TeamManager.Models.TechnicalConcept
 
         public List<Team> GetAllTeams(string filterText, bool ignoreCase)
         {
-            return GetAllTeams()
+            return GetAllTeams()?
                 .Where(
                     t => t.Id != "0"
                          && t.Name.ToLower().Contains(ignoreCase ? filterText.ToLower() : filterText)
@@ -72,12 +72,12 @@ namespace TeamManager.Models.TechnicalConcept
 
         public List<Player> GetTeamPlayers(string teamId)
         {
-            return dbLayer.ShowPlayers(teamId).OrderByDescending(p => p.Name).ToList();
+            return dbLayer.ShowPlayers(teamId)?.OrderByDescending(p => p.Name).ToList();
         }
 
         public List<Player> GetTeamPlayers(string teamId, string filterText, bool ignoreCase)
         {
-            return GetTeamPlayers(teamId)
+            return GetTeamPlayers(teamId)?
                 .Where(
                     t => t.Name.ToLower().Contains(ignoreCase ? filterText.ToLower() : filterText)
                 ).ToList();
