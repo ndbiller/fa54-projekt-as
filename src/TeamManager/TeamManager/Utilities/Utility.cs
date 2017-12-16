@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using TeamManager.Models.ResourceData;
 
@@ -37,6 +40,22 @@ namespace TeamManager.Utilities
         {
             return tuple.Item1 == null 
                 || tuple.Item2 == null;
+        }
+
+
+        /// <summary>
+        /// Accepts a task and set timeout in miliseconds. 
+        /// If timeout limit reaches, TimeoutException will be thrown.
+        /// </summary>
+        /// <param name="task"></param>
+        /// <param name="millisecondsTimeout"></param>
+        /// <returns></returns>
+        public static async Task TimeoutAfter(this Task task, int millisecondsTimeout)
+        {
+            if (task == await Task.WhenAny(task, Task.Delay(millisecondsTimeout)))
+                await task;
+            else
+                throw new TimeoutException();
         }
 
 

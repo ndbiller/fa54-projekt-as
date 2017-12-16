@@ -57,12 +57,27 @@ namespace TeamManager.Database
             throw new NotImplementedException();
         }
 
+        public bool UpdatePlayer(string id, string name)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<bool> UpdatePlayerAsync(string id, string name)
         {
             throw new NotImplementedException();
         }
 
+        public bool UpdatePlayer(string id, string teamId, string name)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<bool> UpdatePlayerAsync(string id, string teamId, string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateTeam(string id, string name)
         {
             throw new NotImplementedException();
         }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using TeamManager.Models.ResourceData;
+using TeamManager.Utilities;
 
 namespace TeamManager.Database
 {
@@ -25,6 +26,10 @@ namespace TeamManager.Database
         public static IMongoCollection<Team> TeamCollection { get; set; }
         public static IMongoCollection<Player> PlayerCollection { get; set; }
 
+        private const string TeamsCollectionName = "team";
+        private const string PlayersCollectionName = "player";
+
+        private const int TimeoutMilisec = 3000;
 
         static DBLayerMongo()
         {
@@ -59,100 +64,267 @@ namespace TeamManager.Database
 
         public void ConnectDB()
         {
-            Client = new MongoClient(connectionString);
-            Database = Client.GetDatabase(databaseName);
-            TeamCollection = Database.GetCollection<Team>("team");
-            PlayerCollection = Database.GetCollection<Player>("player");
+            try
+            {
+                Client = new MongoClient(connectionString);
+
+                Database = Client.GetDatabase(databaseName);
+                TeamCollection = Database.GetCollection<Team>(TeamsCollectionName);
+                PlayerCollection = Database.GetCollection<Player>(PlayersCollectionName);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[ConnectDB] - Failed to initialize or create connection to mongodb => " + e.StackTrace);
+                throw;
+            }
         }
 
         public bool CreatePlayer(string name, string teamId)
         {
-            DBLayerMongo.PlayerCollection.InsertOne(new Player(name, teamId));
-            return true;
+            try
+            {
+                PlayerCollection.InsertOne(new Player(name, teamId));
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[CreatePlayer] - Failed to create player => " + e.Source);
+                return false;
+            }
         }
 
         public bool CreateTeam(string name)
         {
-            DBLayerMongo.TeamCollection.InsertOne(new Team(name));
-            return true;
+            try
+            {
+                TeamCollection.InsertOne(new Team(name));
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[CreateTeam] - Failed to create team => " + e.Source);
+                return false;
+            }
         }
 
         public bool DeletePlayer(string id)
         {
-            DBLayerMongo.PlayerCollection.DeleteOne(a => a.Id == id);
-            return true;
+            try
+            {
+                PlayerCollection.DeleteOne(a => a.Id == id);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[DeletePlayer] - Failed to delete player => " + e.Source);
+                return false;
+            }
         }
 
         public bool DeleteTeam(string id)
         {
-            DBLayerMongo.TeamCollection.DeleteOne(a => a.Id == id);
-            return true;
+            try
+            {
+                TeamCollection.DeleteOne(a => a.Id == id);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[DeleteTeam] - Failed to delete team => " + e.Source);
+                return false;
+            }
         }
 
         public Player ReadPlayer(string id)
         {
-            Player player = DBLayerMongo.PlayerCollection.Find(p => p.Id == id).First<Player>();
-            return player;
+            try
+            {
+                var results = PlayerCollection.Find(p => p.Id == id);
+                Player player = results.First<Player>();
+                return player;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[ReadPlayer] - Failed to read player => " + e.Source);
+                return null;
+            }
         }
 
         public Team ReadTeam(string id)
         {
-            Team teams = DBLayerMongo.TeamCollection.Find(t => t.Id == id).First<Team>();
-            return teams;
+            try
+            {
+                var results = TeamCollection.Find(t => t.Id == id);
+                Team team = results.First<Team>();
+                return team;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[ReadTeam] - Failed to read team => " + e.Source);
+                return null;
+            }
         }
 
         public List<Player> ShowPlayers(string teamId)
         {
-            List<Player> players = DBLayerMongo.PlayerCollection.Find(p => p.TeamId == teamId).ToList();
-            return players;
+            try
+            {
+                List<Player> players = PlayerCollection.Find(p => p.TeamId == teamId).ToList();
+                return players;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[ShowPlayers] - Failed to retrieve players => " + e.Source);
+                return null;
+            }
+        }
+
+        public bool UpdatePlayer(string id, string name)
+        {
+            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
+            var update = Builders<BsonDocument>.Update.Set("Name", name);
+
+            try
+            {
+                var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
+                return collection.UpdateOneAsync(filter, update).Wait(TimeoutMilisec);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[UpdatePlayer] - Failed to update player => " + e.Source);
+            }
+
+            return false;
         }
 
         public async Task<bool> UpdatePlayerAsync(string id, string name)
         {
-            var collection = Database.GetCollection<BsonDocument>("player");
+            try
+            {
+                await Task.Factory.StartNew(() => UpdatePlayer(id, name)).TimeoutAfter(TimeoutMilisec);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[UpdatePlayerAsync] - Failed to update player async => " + e.Source);
+            }
+
+            return false;
+        }
+
+        public bool UpdatePlayer(string id, string teamId, string name)
+        {
             var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
             var update = Builders<BsonDocument>.Update.Set("Name", name);
-            var result = await collection.UpdateOneAsync(filter, update);
-            return true;
+
+            try
+            {
+                var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
+                return collection.UpdateOneAsync(filter, update).Wait(TimeoutMilisec);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[UpdatePlayer] - Failed to update player => " + e.Source);
+            }
+
+            return false;
         }
 
         public async Task<bool> UpdatePlayerAsync(string id, string teamId, string name)
         {
-            var collection = Database.GetCollection<BsonDocument>("player");
+            try
+            {
+                await Task.Factory.StartNew(() => UpdatePlayer(id, name)).TimeoutAfter(TimeoutMilisec);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[UpdatePlayerAsync] - Failed to update player async => " + e.Source);
+            }
+
+            return false;
+        }
+
+        public bool UpdateTeam(string id, string name)
+        {
             var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
             var update = Builders<BsonDocument>.Update.Set("Name", name);
-            var result = await collection.UpdateOneAsync(filter, update);
-            return true;
+
+            try
+            {
+                var collection = Database.GetCollection<BsonDocument>(TeamsCollectionName);
+                return collection.UpdateOneAsync(filter, update).Wait(TimeoutMilisec);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[UpdateTeam] - Failed to update team => " + e.Source);
+            }
+
+            return false;
         }
 
         public async Task<bool> UpdateTeamAsync(string id, string name)
         {
-            var collection = Database.GetCollection<BsonDocument>("team");
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
-            var update = Builders<BsonDocument>.Update.Set("Name", name);
-            var result = await collection.UpdateOneAsync(filter, update);
-            return true;
+            try
+            {
+                await Task.Factory.StartNew(() => UpdateTeam(id, name)).TimeoutAfter(TimeoutMilisec);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[UpdateTeamAsync] - Failed to update team async => " + e.Source);
+            }
+
+            return false;
         }
 
         public List<Player> Players()
         {
-            List<Player> players = DBLayerMongo.PlayerCollection.Find(_ => true).ToList();
-            return players;
+            try
+            {
+                List<Player> players = PlayerCollection.Find(_ => true).ToList();
+                return players;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[Players] - Failed to retrieve players => " + e.Source);
+                return null;
+            }
         }
 
         public List<Team> Teams()
         {
-            List<Team> teams = DBLayerMongo.TeamCollection.Find(_ => true).ToList();
-            return teams;
+            try
+            {
+                List<Team> teams = TeamCollection.Find(_ => true).ToList();
+                return teams;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[Teams] - Failed to retrieve teams => " + e.Source);
+                return null;
+            }
+
         }
 
         public bool ChangePlayerTeam(string playerId, string teamId)
         {
-            var collection = Database.GetCollection<BsonDocument>("player");
             var filter = Builders<BsonDocument>.Filter.Eq("_id", playerId);
             var update = Builders<BsonDocument>.Update.Set("TeamId", teamId);
-            collection.UpdateOne(filter, update);
-            return true;
+
+            try
+            {
+                var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
+                collection.UpdateOne(filter, update);
+                return true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[ChangePlayerTeam] - Failed to change player team => " + e.Source);
+                return false;
+            }
         }
+
+
     }
 }
