@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using TeamManager.Models.ResourceData;
 
@@ -10,30 +11,50 @@ namespace TeamManager.Database
     public class DBLayerMongo : IDataLayer
     {
         // get the mlab db servers credentials from environment variables (set them with .env.bat)
-        internal static readonly string MLAB_USERNAME = Environment.GetEnvironmentVariable("MLAB_USERNAME");
-        internal static readonly string MLAB_PASSWORD = Environment.GetEnvironmentVariable("MLAB_PASSWORD");
-        internal static readonly string MLAB_URI = Environment.GetEnvironmentVariable("MLAB_URI");
-        internal static readonly string MLAB_PORT = Environment.GetEnvironmentVariable("MLAB_PORT");
-        internal static readonly string MLAB_DATABASE_NAME = Environment.GetEnvironmentVariable("MLAB_DATABASE_NAME");
+        internal static readonly string MLAB_USERNAME;
+        internal static readonly string MLAB_PASSWORD;
+        internal static readonly string MLAB_URI;
+        internal static readonly string MLAB_PORT;
+        internal static readonly string MLAB_DATABASE_NAME;
 
+        private static string databaseName;
+        private static string connectionString;
 
-#if MONGO_DB_LOCAL
-// connect to local mongodb server
-        private static string databaseName = "teamplayer";
-        private static string connectionString = "mongodb://localhost:27017";
-#else
-        // connect to mLab mongodb server
-        private static string databaseName = MLAB_DATABASE_NAME;
-        private static string connectionString = "mongodb://" + MLAB_USERNAME + ":" + MLAB_PASSWORD + "@" + MLAB_URI + ":" + MLAB_PORT + "/" + MLAB_DATABASE_NAME;
-#endif
         private static MongoClient Client { get; set; }
         public static IMongoDatabase Database { get; private set; }
         public static IMongoCollection<Team> TeamCollection { get; set; }
         public static IMongoCollection<Player> PlayerCollection { get; set; }
 
-        public DBLayerMongo() : base()
+
+        static DBLayerMongo()
         {
-            this.ConnectDB();
+#if MONGO_DB_LOCAL
+            // connect to local mongodb server
+            databaseName     = "teamplayer";
+            connectionString = "mongodb://localhost:27017";
+#else
+            try
+            {
+                MLAB_USERNAME      = Environment.GetEnvironmentVariable("MLAB_USERNAME");
+                MLAB_PASSWORD      = Environment.GetEnvironmentVariable("MLAB_PASSWORD");
+                MLAB_URI           = Environment.GetEnvironmentVariable("MLAB_URI");
+                MLAB_PORT          = Environment.GetEnvironmentVariable("MLAB_PORT");
+                MLAB_DATABASE_NAME = Environment.GetEnvironmentVariable("MLAB_DATABASE_NAME");
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("[cctor_DBLayerMongo] - Failed to retrieve environment variables => " + e.StackTrace);
+            }
+
+            // connect to mLab mongodb server
+            databaseName     = MLAB_DATABASE_NAME;
+            connectionString = "mongodb://" + MLAB_USERNAME + ":" + MLAB_PASSWORD + "@" + MLAB_URI + ":" + MLAB_PORT + "/" + MLAB_DATABASE_NAME;
+#endif
+        }
+
+        public DBLayerMongo()
+        {
+            ConnectDB();
         }
 
         public void ConnectDB()
