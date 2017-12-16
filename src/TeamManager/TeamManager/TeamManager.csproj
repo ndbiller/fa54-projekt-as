@@ -87,11 +87,6 @@
     <Compile Include="Database\DBLayerMongo.cs" />
     <Compile Include="Database\DBLayerSql.cs" />
     <Compile Include="Database\IDataLayer.cs" />
-    <Compile Include="Database\TeamManagerDb.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TeamManagerDb.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Models\TechnicalConcept\TechnicalConceptBase.cs" />
     <Compile Include="Presenters\AllPlayersPresenter.cs" />
     <Compile Include="Presenters\BasePresenter.cs" />
@@ -175,14 +170,6 @@
     <EmbeddedResource Include="Views\Loader\LoaderForm.resx">
       <DependentUpon>LoaderForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Database\TeamManagerDb.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>TeamManagerDb.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Database\TeamManagerDb.dbml.layout">
-      <DependentUpon>TeamManagerDb.dbml</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -202,13 +189,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.ico" />
-    <Content Include="Database\TeamManagerDb.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Database\TeamManagerDb_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>TeamManagerDb.mdf</DependentUpon>
-    </Content>
     <None Include="Resources\nerd-glasses.gif" />
   </ItemGroup>
   <ItemGroup>
