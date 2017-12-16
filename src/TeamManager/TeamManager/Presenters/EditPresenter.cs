@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using log4net;
 using TeamManager.Models.ResourceData;
 using TeamManager.Presenters.Events;
 using TeamManager.Utilities;
@@ -9,6 +10,9 @@ namespace TeamManager.Presenters
 {
     public class EditPresenter : BasePresenter
     {
+        private static readonly ILog Log = Logger.GetLogger();
+
+
         private readonly IEditView _view;
 
 
@@ -22,6 +26,7 @@ namespace TeamManager.Presenters
 
         public void InitializeTeams()
         {
+            Log.Info("Initializing teams into ComboBox.");
             _view.TeamsComboBox.Clear();
             List<Team> teams = Concept.GetAllTeams();
             if (teams.Count == 0) return;
@@ -38,16 +43,19 @@ namespace TeamManager.Presenters
 
         public void CreateTeam()
         {
+            Log.Info("Creating new team.");
             Concept.AddNewTeam(_view.NameText);
         }
 
         public void EditTeam()
         {
+            Log.Info("Changing team name.");
             Concept.ChangeTeamName(_view.Team.Id, _view.NameText);
         }
 
         public void EditPlayer()
         {
+            Log.Info("Editing player.");
             if (_view.Player.Name != _view.NameText)
                 Concept.ChangePlayerName(_view.Player.Id, _view.NameText);
 
@@ -63,6 +71,7 @@ namespace TeamManager.Presenters
 
         public void CreatePlayer()
         {
+            Log.Info("Creating new player.");
             int tSelIndex = _view.TeamSelectedIndex;
 
             if (tSelIndex == -1) // -1 means nothing selected.
@@ -83,6 +92,7 @@ namespace TeamManager.Presenters
             if (tSelIndex == -1) return;
 
             Team team = _view.TeamsComboBox[tSelIndex].ToTeam();
+            Log.Info($"Assigning player to {team.Name} team.");
             Concept.ChangePlayerTeam(_view.Player.Id, team.Id);
         }
 

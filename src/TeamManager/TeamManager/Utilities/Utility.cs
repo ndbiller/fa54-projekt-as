@@ -6,12 +6,16 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using log4net;
 using TeamManager.Models.ResourceData;
 
 namespace TeamManager.Utilities
 {
     public static class Utility
     {
+        private static readonly ILog Log = Logger.GetLogger();
+
+
         /// <summary>
         /// Check if contains one of the numbers.
         /// Works the same as in SQL: "WHERE column_name IN (1, 2, 3, 4)".
@@ -55,7 +59,10 @@ namespace TeamManager.Utilities
             if (task == await Task.WhenAny(task, Task.Delay(millisecondsTimeout)))
                 await task;
             else
+            {
+                Log.Error("Received time out for the requested task.");
                 throw new TimeoutException();
+            }
         }
 
 
@@ -70,7 +77,7 @@ namespace TeamManager.Utilities
         {
             Team team = obj as Team;
             if (team != null) return team;
-            Debug.WriteLine($"[{callerName}] - Team cast resulted as null.");
+            Log.Warn($"[{callerName}] - Team cast resulted as null.");
             return null;
         }
 
@@ -86,7 +93,7 @@ namespace TeamManager.Utilities
         {
             Player player = obj as Player;
             if (player != null) return player;
-            Debug.WriteLine($"[{callerName}] - Player cast resulted as null.");
+            Log.Warn($"[{callerName}] - Player cast resulted as null.");
             return null;
         }
 
