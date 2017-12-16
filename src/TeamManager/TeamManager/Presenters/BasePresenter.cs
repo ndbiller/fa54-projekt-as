@@ -10,7 +10,7 @@ namespace TeamManager.Presenters
     /// </summary>
     public abstract class BasePresenter
     {
-        protected static ITechnicalConcept concept;
+        protected static ITechnicalConcept Concept;
 
         protected static event PresenterHandler ChildClosed;
 
@@ -26,15 +26,15 @@ namespace TeamManager.Presenters
             switch (conceptType)
             {
                 case TechnicalConceptType.First:
-                    concept = new TechnicalConcept1(dbType);
+                    Concept = new TechnicalConcept1(dbType);
                     break;
 
                 case TechnicalConceptType.Second:
-                    concept = new TechnicalConcept2(dbType);
+                    Concept = new TechnicalConcept2(dbType);
                     break;
 
                 default:
-                    concept = new TechnicalConcept1(dbType);
+                    Concept = new TechnicalConcept1(dbType);
                     break;
             }
         }

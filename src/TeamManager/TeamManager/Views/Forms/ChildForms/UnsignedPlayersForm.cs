@@ -23,25 +23,25 @@ namespace TeamManager.Views.Forms.ChildForms
 
         #endregion --- View Interface Items ---
 
-        private UnsignedPlayersPresenter presenter;
+        private readonly UnsignedPlayersPresenter _presenter;
 
 
 
         public UnsignedPlayersForm()
         {
             InitializeComponent();
-            presenter = new UnsignedPlayersPresenter(this);
-            presenter.BindPlayersData();
+            _presenter = new UnsignedPlayersPresenter(this);
+            _presenter.BindPlayersData();
         }
 
         private void btnPDelete_Click(object sender, EventArgs e)
         {
-            presenter.DeletePlayer();
+            _presenter.DeletePlayer();
         }
 
         private void UnsignedPlayersForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            presenter.FormClosed();
+            _presenter.FormClosed();
         }
 
 
@@ -49,7 +49,7 @@ namespace TeamManager.Views.Forms.ChildForms
 
         private void btnPAddToTeam_Click(object sender, EventArgs e)
         {
-            Player player = presenter.GetPlayer();
+            Player player = _presenter.GetPlayer();
             if (player == null) return;
 
             new EditForm(EditMode.PlayerAssignToTeam, null, player).ShowDialog();

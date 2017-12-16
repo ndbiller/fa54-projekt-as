@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using TeamManager.Models.ResourceData;
 using TeamManager.Presenters.Events;
+using TeamManager.Utilities;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Interfaces;
 
@@ -10,15 +10,15 @@ namespace TeamManager.Presenters
 {
     public class AllPlayersPresenter : BasePresenter
     {
-        private readonly IAllPlayersView view;
-        private bool allowPlayersDataBinding = true;
+        private readonly IAllPlayersView _view;
+        private bool _allowPlayersDataBinding = true;
 
 
 
         public AllPlayersPresenter(IAllPlayersView view)
         {
-            this.view = view;
-            this.view.PlayersListBox.Clear();
+            _view = view;
+            _view.PlayersListBox.Clear();
 
             ChildClosed += Form_ChildClose;
         }
@@ -27,72 +27,67 @@ namespace TeamManager.Presenters
 
         public void DeletePlayer()
         {
-            allowPlayersDataBinding = false;
-            List<Player> players = concept.GetAllPlayers();
+            _allowPlayersDataBinding = false;
+            List<Player> players = Concept.GetAllPlayers();
             if (players.Count == 0)
             {
-                view.PlayerNameText = string.Empty;
-                view.TeamNameText = string.Empty;
+                _view.PlayerNameText = string.Empty;
+                _view.TeamNameText = string.Empty;
                 return;
             }
 
-            int playerSelIndex = view.PlayerSelectedIndex;
-            concept.RemovePlayer(players[playerSelIndex].Id);
-            view.PlayersListBox.RemoveAt(playerSelIndex);
+            int playerSelIndex = _view.PlayerSelectedIndex;
+            Concept.RemovePlayer(players[playerSelIndex].Id);
+            _view.PlayersListBox.RemoveAt(playerSelIndex);
             if (players.Count == playerSelIndex + 1)
                 playerSelIndex--;
 
-            allowPlayersDataBinding = true;
-            view.PlayerSelectedIndex = playerSelIndex;
+            _allowPlayersDataBinding = true;
+            _view.PlayerSelectedIndex = playerSelIndex;
         }
 
         public void BindPlayersData()
         {
-            allowPlayersDataBinding = false;
-            view.PlayersListBox.Clear();
-            List<Player> players = concept.GetAllPlayers();
+            _allowPlayersDataBinding = false;
+            _view.PlayersListBox.Clear();
+            List<Player> players = Concept.GetAllPlayers();
             if (players.Count == 0) return;
 
-            foreach (string player in players.Select(p => p.Name))
-                view.PlayersListBox.Add(player);
-
-            allowPlayersDataBinding = true;
-            view.PlayerSelectedIndex = 0;
+            players.ForEach(player => _view.PlayersListBox.Add(player));
+            _allowPlayersDataBinding = true;
+            _view.PlayerSelectedIndex = 0;
         }
 
         public void UpdateView()
         {
-            if (!allowPlayersDataBinding) return;
+            if (!_allowPlayersDataBinding) return;
 
-            List<Player> players = concept.GetAllPlayers();
-            int playerSelIndex = view.PlayerSelectedIndex;
-            if (players.Count == 0) return;
+            Player player = _view.PlayersListBox[_view.PlayerSelectedIndex].ToPlayer();
+            Team team = Concept.GetPlayerTeam(player.TeamId);
 
-            Player player = players[playerSelIndex];
-            Team team = concept.GetPlayerTeam(player.TeamId);
-
-            view.PlayerNameText = player.Name;
-            view.TeamNameText = team.Name;
+            _view.PlayerNameText = player.Name;
+            _view.TeamNameText = team.Name;
         }
 
-        public Tuple<Team, Player> GetPlayerAndTeam()
+        public Tuple<Team, Player> GetTeamAndPlayer()
         {
-            List<Player> players = concept.GetAllPlayers();
-            if (players.Count == 0) return new Tuple<Team, Player>(null, null);
+            if (_view.PlayersListBox.Count == 0 || _view.PlayerSelectedIndex == -1) return null;
 
-            int playerSelIndex = view.PlayerSelectedIndex;
-            Player player = players[playerSelIndex];
-            Team team = concept.GetPlayerTeam(player.TeamId);
+            Player player = _view.PlayersListBox[_view.PlayerSelectedIndex].ToPlayer();
+            if (player == null) return null;
+
+            Team team = Concept.GetPlayerTeam(player.TeamId);
+            if (team == null) return new Tuple<Team, Player>(null, player);
 
             return new Tuple<Team, Player>(team, player);
         }
 
         void Form_ChildClose(object sender, PresenterArgs args)
         {
-            int pSelIndex = view.PlayerSelectedIndex;
+            int pSelIndex = _view.PlayerSelectedIndex;
             BindPlayersData();
 
-            view.PlayerSelectedIndex = pSelIndex;
+            _view.PlayerSelectedIndex = pSelIndex;
         }
 
         public override void FormClosed()

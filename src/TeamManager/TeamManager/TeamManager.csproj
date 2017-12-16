@@ -34,7 +34,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;MONGO_DB</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -96,6 +96,7 @@
     <Compile Include="Presenters\Events\PresenterHandler.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Presenters\UnsignedPlayersPresenter.cs" />
+    <Compile Include="Utilities\Utility.cs" />
     <Compile Include="Views\Enums\FormType.cs" />
     <Compile Include="Views\Forms\ChildForms\EditForm.cs">
       <SubType>Form</SubType>
@@ -184,9 +185,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utilities\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="app.ico" />
     <None Include="Resources\nerd-glasses.gif" />

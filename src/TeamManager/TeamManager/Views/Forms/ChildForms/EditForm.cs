@@ -18,6 +18,7 @@ namespace TeamManager.Views.Forms.ChildForms
             get => cbxTeams.SelectedIndex;
             set => cbxTeams.SelectedIndex = value;
         }
+
         public string NameText => tbxName.Text;
         public Team Team { get; }
         public Player Player { get; }
@@ -26,8 +27,8 @@ namespace TeamManager.Views.Forms.ChildForms
         #endregion --- View Interface Items ---
 
 
-        private EditPresenter presenter;
-        private EditMode currentView;
+        private readonly EditPresenter _presenter;
+        private EditMode _currentView;
 
 
 
@@ -36,7 +37,7 @@ namespace TeamManager.Views.Forms.ChildForms
             Team = team;
             Player = player;
             InitializeComponent();
-            presenter = new EditPresenter(this);
+            _presenter = new EditPresenter(this);
 
             InitializeComponentExtend(editMode);
         }
@@ -47,14 +48,14 @@ namespace TeamManager.Views.Forms.ChildForms
             switch (editMode)
             {
                 case EditMode.TeamCreate:
-                    currentView = EditMode.TeamCreate;
+                    _currentView = EditMode.TeamCreate;
                     lbTeam.Hide();
                     cbxTeams.Hide();
                     Text = "Team Create";
                     break;
 
                 case EditMode.TeamEdit:
-                    currentView = EditMode.TeamEdit;
+                    _currentView = EditMode.TeamEdit;
                     lbTeam.Hide();
                     cbxTeams.Hide();
                     Text = "Team Edit";
@@ -62,25 +63,25 @@ namespace TeamManager.Views.Forms.ChildForms
                     break;
 
                 case EditMode.PlayerEdit:
-                    currentView = EditMode.PlayerEdit;
+                    _currentView = EditMode.PlayerEdit;
                     Text = "Player Edit";
                     tbxName.Text = Player.Name;
-                    presenter.InitializeTeams();
+                    _presenter.InitializeTeams();
                     break;
 
                 case EditMode.PlayerCreate:
-                    currentView = EditMode.PlayerCreate;
+                    _currentView = EditMode.PlayerCreate;
                     Text = "Player Create";
-                    presenter.InitializeTeams();
+                    _presenter.InitializeTeams();
                     break;
 
                 case EditMode.PlayerAssignToTeam:
-                    currentView = EditMode.PlayerAssignToTeam;
+                    _currentView = EditMode.PlayerAssignToTeam;
                     tbxName.ReadOnly = true;
                     tbxName.Enabled = false;
                     Text = "Assign Player to Team";
                     tbxName.Text = Player.Name;
-                    presenter.InitializeTeams();
+                    _presenter.InitializeTeams();
                     break;
             }
         }
@@ -89,27 +90,32 @@ namespace TeamManager.Views.Forms.ChildForms
         {
             if (tbxName.Text == string.Empty) return;
 
-            switch (currentView)
+            switch (_currentView)
             {
                 case EditMode.TeamCreate:
-                    presenter.CreateTeam();
-                    new UnsignedPlayersForm().ShowDialog();
+                    _presenter.CreateTeam();
+                    DialogResult answer = MessageBox.Show("Would you like to assign unsigned players to your new created team?", 
+                        "Suggestion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (answer == DialogResult.Yes)
+                        new UnsignedPlayersForm().ShowDialog();
                     break;
 
                 case EditMode.TeamEdit:
-                    presenter.EditTeam();
+                    _presenter.EditTeam();
                     break;
 
                 case EditMode.PlayerEdit:
-                    presenter.EditPlayer();
+                    _presenter.EditPlayer();
                     break;
 
                 case EditMode.PlayerCreate:
-                    presenter.CreatePlayer();
+                    _presenter.CreatePlayer();
                     break;
 
                 case EditMode.PlayerAssignToTeam:
-                    presenter.AssignToTeam();
+                    if (TeamSelectedIndex != -1)
+                        _presenter.AssignToTeam();
                     break;
             }
 
@@ -123,7 +129,7 @@ namespace TeamManager.Views.Forms.ChildForms
 
         private void EditForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            presenter.FormClosed();
+            _presenter.FormClosed();
         }
 
     }
