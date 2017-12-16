@@ -54,11 +54,13 @@ namespace TeamManager
                 {
                     case "/t:1":
                     case "/g:1":
+                        Log.Info("Using TechnicalConcept1.");
                         conceptType = TechnicalConceptType.First;
                         break;
 
                     case "/t:2":
                     case "/g:2":
+                        Log.Info("Using TechnicalConcept2.");
                         conceptType = TechnicalConceptType.Second;
                         break;
 
@@ -80,10 +82,12 @@ namespace TeamManager
                 switch (args[1].ToLower())
                 {
                     case "/db:mongo":
+                        Log.Info("Using mongo-db as database.");
                         dbType = DatabaseType.MongoDB;
                         break;
 
                     case "/db:sql":
+                        Log.Info("Using sql as database.");
                         dbType = DatabaseType.SQL;
                         break;
 
@@ -93,12 +97,19 @@ namespace TeamManager
                 }
 
                 if (startGui)
+                {
+                    Log.Info("Starting GUI...");
                     GUI.Start(conceptType, dbType);
+                }
                 else
+                {
+                    Log.Info("Starting TUI...");
                     TUI.Start(conceptType, dbType);
+                }
             }
             else // -> when you start the app through the windows explorer or from the console without parameters.
             {
+                Log.Info("Starting GUI with default configuration.");
                 GUI.Start(conceptType, dbType);
             }
 
@@ -136,6 +147,7 @@ namespace TeamManager
 
         private static void InvalidSyntax()
         {
+            Log.Info("Received invalid syntax from console.");
             Console.WriteLine("Invalid syntax. Use /? parameter to display help.");
             Console.ReadKey();
         }

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using log4net;
 using TeamManager.Models.ResourceData;
+using TeamManager.Utilities;
 
 namespace TeamManager.Presenters
 {
@@ -12,8 +14,12 @@ namespace TeamManager.Presenters
     /// </summary>
     public class ConsolePresenter : BasePresenter
     {
+        private static readonly ILog Log = Logger.GetLogger();
+
+
         public List<Team> AllTeams()
         {
+            Log.Info("Displaying all teams to console.");
             List<Team> teams = Concept.GetAllTeams();
             if (teams.Count == 0)
             {
@@ -32,6 +38,7 @@ namespace TeamManager.Presenters
 
         public List<Player> AllPlayers()
         {
+            Log.Info("Displaying all players to console.");
             List<Player> players = Concept.GetAllPlayers();
             for (int i = 0; i < players.Count; i++)
             {
@@ -44,6 +51,7 @@ namespace TeamManager.Presenters
 
         public void CreateNewTeam()
         {
+            Log.Info("Creating new team.");
             Console.WriteLine("\nEnter the name of the new Team:");
             Console.Write("Team Name: ");
             string teamName = Console.ReadLine();
@@ -55,6 +63,7 @@ namespace TeamManager.Presenters
 
         public void CreateNewPlayer()
         {
+            Log.Info("Creating new player.");
             Console.WriteLine("\nEnter the name of the new player:");
             Console.Write("Player Name: ");
             string playerName = Console.ReadLine();
@@ -66,6 +75,7 @@ namespace TeamManager.Presenters
 
         public void EditTeam()
         {
+            Log.Info("Editing Team.");
             Console.WriteLine("\nSelect Team by using the index number:");
             List<Team> teams = AllTeams();
             if (teams.Count == 0) return;
@@ -89,6 +99,7 @@ namespace TeamManager.Presenters
 
         public void EditPlayer()
         {
+            Log.Info("Editing player.");
             Console.WriteLine("\nSelect a player by using the index number:");
             List<Player> players = AllPlayers();
             int playerIndex = GetUserInput();
@@ -148,6 +159,7 @@ namespace TeamManager.Presenters
 
         public void DeleteTeam()
         {
+            Log.Info("Deleting team.");
             Console.WriteLine("\nSelect a team by using the index number:");
             List<Team> teams = AllTeams();
             if (teams.Count == 0) return;
@@ -178,6 +190,7 @@ namespace TeamManager.Presenters
 
         public void DeletePlayer()
         {
+            Log.Info("Deleting player.");
             Console.WriteLine("\nSelect a player by using the index number:");
             List<Player> players = AllPlayers();
             int playerIndex = GetUserInput();
@@ -200,6 +213,7 @@ namespace TeamManager.Presenters
 
         public void ShowUnsignedPlayers()
         {
+            Log.Info("Displaying all unsigned players.");
             List<Player> unsignedPlayers = Concept.GetAllPlayers().Where(p => p.TeamId == "0").ToList();
             for (int i = 0; i < unsignedPlayers.Count; i++)
             {
@@ -210,6 +224,7 @@ namespace TeamManager.Presenters
 
         public void ShowTeamPlayers()
         {
+            Log.Info("Displaying all players of a team.");
             Console.WriteLine("\nSelect a team to show players by using the index number:");
             List<Team> teams = AllTeams();
             if (teams.Count == 0) return;

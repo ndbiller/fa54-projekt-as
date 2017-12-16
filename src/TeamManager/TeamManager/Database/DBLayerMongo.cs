@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using log4net;
 using TeamManager.Models.ResourceData;
 using TeamManager.Utilities;
 
@@ -11,6 +12,9 @@ namespace TeamManager.Database
 {
     public class DBLayerMongo : IDataLayer
     {
+        private static readonly ILog Log = Logger.GetLogger();
+
+
         // get the mlab db servers credentials from environment variables (set them with .env.bat)
         internal static readonly string MLAB_USERNAME;
         internal static readonly string MLAB_PASSWORD;
@@ -33,11 +37,14 @@ namespace TeamManager.Database
 
         static DBLayerMongo()
         {
-#if !MONGO_DB_LOCAL
+#if MONGO_DB_LOCAL
+            Log.Info("Using Mongo-Db local server connection.");
             // connect to local mongodb server
             DatabaseName     = "teamplayer";
             ConnectionString = "mongodb://localhost:27017";
 #else
+            Log.Info("Using Mongo-Db online server connection.");
+
             try
             {
                 MLAB_USERNAME      = Environment.GetEnvironmentVariable("MLAB_USERNAME");
@@ -48,7 +55,7 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[cctor_DBLayerMongo] - Failed to retrieve environment variables => " + e.StackTrace);
+                Log.Error("cctor - Failed to retrieve environment variables => ", e);
             }
 
             // connect to mLab mongodb server
@@ -74,7 +81,7 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[ConnectDB] - Failed to initialize or create connection to mongodb => " + e.StackTrace);
+                Log.Fatal("Failed to initialize or create connection to mongodb => ", e);
                 throw;
             }
         }
@@ -88,7 +95,7 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[CreatePlayer] - Failed to create player => " + e.Source);
+                Log.Error("Failed to create player => ", e);
                 return false;
             }
         }
@@ -102,7 +109,7 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[CreateTeam] - Failed to create team => " + e.Source);
+                Log.Error("Failed to create team => ", e);
                 return false;
             }
         }
@@ -116,7 +123,7 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[DeletePlayer] - Failed to delete player => " + e.Source);
+                Log.Error("Failed to delete player => ", e);
                 return false;
             }
         }
@@ -130,7 +137,7 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[DeleteTeam] - Failed to delete team => " + e.Source);
+                Log.Error("Failed to delete team => ", e);
                 return false;
             }
         }
@@ -145,7 +152,7 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[ReadPlayer] - Failed to read player => " + e.Source);
+                Log.Error("Failed to read player => ", e);
                 return null;
             }
         }
@@ -160,7 +167,7 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[ReadTeam] - Failed to read team => " + e.Source);
+                Log.Error("Failed to read team => ", e);
                 return null;
             }
         }
@@ -174,7 +181,7 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[ShowPlayers] - Failed to retrieve players => " + e.Source);
+                Log.Error("Failed to retrieve players => ", e);
                 return null;
             }
         }
@@ -191,10 +198,9 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[UpdatePlayer] - Failed to update player => " + e.Source);
+                Log.Error("Failed to update player => ", e);
+                return false;
             }
-
-            return false;
         }
 
         public async Task<bool> UpdatePlayerAsync(string id, string name)
@@ -206,10 +212,9 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[UpdatePlayerAsync] - Failed to update player async => " + e.Source);
+                Log.Error("Failed to update player async => ", e);
+                return false;
             }
-
-            return false;
         }
 
         public bool UpdatePlayer(string id, string teamId, string name)
@@ -224,10 +229,9 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[UpdatePlayer] - Failed to update player => " + e.Source);
+                Log.Error("Failed to update player => ", e);
+                return false;
             }
-
-            return false;
         }
 
         public async Task<bool> UpdatePlayerAsync(string id, string teamId, string name)
@@ -239,10 +243,9 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[UpdatePlayerAsync] - Failed to update player async => " + e.Source);
+                Log.Error("Failed to update player async => ", e);
+                return false;
             }
-
-            return false;
         }
 
         public bool UpdateTeam(string id, string name)
@@ -257,10 +260,9 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[UpdateTeam] - Failed to update team => " + e.Source);
+                Log.Error("Failed to update team => ", e);
+                return false;
             }
-
-            return false;
         }
 
         public async Task<bool> UpdateTeamAsync(string id, string name)
@@ -272,10 +274,9 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[UpdateTeamAsync] - Failed to update team async => " + e.Source);
+                Log.Error("Failed to update team async => ", e);
+                return false;
             }
-
-            return false;
         }
 
         public List<Player> Players()
@@ -287,7 +288,7 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[Players] - Failed to retrieve players => " + e.Source);
+                Log.Error("Failed to retrieve players => ", e);
                 return null;
             }
         }
@@ -301,10 +302,9 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[Teams] - Failed to retrieve teams => " + e.Source);
+                Log.Error("Failed to retrieve teams => ", e);
                 return null;
             }
-
         }
 
         public bool ChangePlayerTeam(string playerId, string teamId)
@@ -320,7 +320,7 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Debug.WriteLine("[ChangePlayerTeam] - Failed to change player team => " + e.Source);
+                Log.Error("Failed to change player team => ", e);
                 return false;
             }
         }

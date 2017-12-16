@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using log4net;
 using TeamManager.Models.ResourceData;
 using TeamManager.Presenters.Events;
 using TeamManager.Utilities;
@@ -11,6 +12,8 @@ namespace TeamManager.Presenters
 {
     public class MainPresenter : BasePresenter
     {
+        private static readonly ILog Log = Logger.GetLogger();
+
         /// <summary>
         /// Main view object that will be accessed to update the ui.
         /// </summary>
@@ -53,6 +56,7 @@ namespace TeamManager.Presenters
         {
             if (tbxText == tbxSearchText || string.IsNullOrEmpty(tbxText))
             {
+                Log.Info("Resetting search results.");
                 if (searchInTeams)
                 {
                     _filterTeams = false;
@@ -78,6 +82,7 @@ namespace TeamManager.Presenters
         {
             if (searchInTeams)
             {
+                Log.Info("Searching in teams...");
                 _filterTeams = true;
                 _filterPlayers = false;
                 _teamFilterText = tbxText;
@@ -91,6 +96,7 @@ namespace TeamManager.Presenters
             }
             else // search in players.
             {
+                Log.Info("Searching in players...");
                 _filterPlayers = true;
                 _playerFilterText = tbxText;
 
@@ -113,6 +119,7 @@ namespace TeamManager.Presenters
             Team team = _view.TeamsListBox[_view.TeamSelectedIndex].ToTeam();
             if (team == null) return;
 
+            Log.Debug($"Deleting {team.Name} Team with Id: {team.Id}");
             List<Player> teamPlayers = _view.PlayersListBox.Cast<Player>().ToList();
 
             // Change all players of the deleted team to Unsigned Team("0").
@@ -144,6 +151,7 @@ namespace TeamManager.Presenters
             Player player = _view.PlayersListBox[_view.PlayerSelectedIndex].ToPlayer();
             if (player == null) return;
 
+            Log.Debug($"Removing {player.Name} player with Id: {player.Id} and moving to unsigned team.");
             Concept.ChangePlayerTeam(player.Id, "0");
 
             int playerSelIndex = _view.PlayerSelectedIndex;
@@ -162,10 +170,11 @@ namespace TeamManager.Presenters
             List<Team> teams = Teams();
             if (teams.Count == 0)
             {
-                Debug.WriteLine("[BindTeamsData] - No teams available or failed to retrieve teams from the database.");
+                Log.Warn("No teams available or failed to retrieve teams from the database.");
                 return null;
             }
 
+            Log.Info("Binding teams data to listbox.");
             teams.ForEach(team => _view.TeamsListBox.Add(team));
             _view.TeamSelectedIndex = 0;
 
@@ -176,6 +185,7 @@ namespace TeamManager.Presenters
         {
             if (!_allowPlayersDataBinding || _view.TeamsListBox.Count == 0) return null;
 
+            Log.Info("Binding players data to listbox.");
             _view.PlayersListBox.Clear();
 
             Team team = _view.TeamsListBox[_view.TeamSelectedIndex].ToTeam();
@@ -216,6 +226,8 @@ namespace TeamManager.Presenters
         /// <returns></returns>
         public List<Team> Teams()
         {
+            Log.Info("Requesting TechnicalConcept for Teams.");
+
             return _filterTeams
                 ? Concept.GetAllTeams(_teamFilterText, true)
                 : Concept.GetAllTeams();
@@ -228,6 +240,8 @@ namespace TeamManager.Presenters
         /// <returns></returns>
         public List<Player> Players()
         {
+            Log.Info("Requesting TechnicalConcept for Players.");
+
             return _filterPlayers
                 ? Concept.GetAllPlayers(_playerFilterText, true)
                 : Concept.GetAllPlayers();
@@ -240,6 +254,8 @@ namespace TeamManager.Presenters
         /// <returns></returns>
         public List<Player> TeamPlayers(string teamId)
         {
+            Log.Info("Requesting TechnicalConcept for Team Players.");
+
             return _filterPlayers
                 ? Concept.GetTeamPlayers(teamId, _playerFilterText, true)
                 : Concept.GetTeamPlayers(teamId);

@@ -2,6 +2,8 @@
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
+using log4net;
+using TeamManager.Utilities;
 
 namespace TeamManager.Views.Loader
 {
@@ -10,6 +12,8 @@ namespace TeamManager.Views.Loader
     /// </summary>
     public class Loaders
     {
+        private static readonly ILog Log = Logger.GetLogger();
+
         /// <summary>
         /// Used for bringing form to front with the handle of the form.
         /// </summary>
@@ -35,11 +39,14 @@ namespace TeamManager.Views.Loader
             switch (loader)
             {
                 case LoaderType.Loader:
+                    Log.Info("Starting loader of type LoaderType.Loader.");
                     if (_loaderForm == null)
                         LoadFormOnThread(_loaderForm = new LoaderForm());
                     break;
 
                 case LoaderType.SplashScreen:
+                    Log.Info("Starting loader of type LoaderType.SplashScreen.");
+
                     break;
             }
 
@@ -57,11 +64,13 @@ namespace TeamManager.Views.Loader
             switch (_loaderType)
             {
                 case LoaderType.Loader:
+                    Log.Info("Stopping loader of type LoaderType.Loader.");
                     if (_loaderForm.InvokeRequired)
                         _loaderForm.Invoke(new MethodInvoker(()=> _loaderForm.Close()));
                     break;
 
                 case LoaderType.SplashScreen:
+                    Log.Info("Stopping loader of type LoaderType.SplashScreen.");
 
                     break;
             }
@@ -75,6 +84,8 @@ namespace TeamManager.Views.Loader
         /// <param name="form"></param>
         private static void LoadFormOnThread(Form form)
         {
+            Log.Info("Running loader on different thread.");
+
             form.LostFocus += (sender, e) => form.Focus();
 
             new Thread(() => form.ShowDialog()).Start();

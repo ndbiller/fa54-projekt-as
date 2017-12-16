@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using log4net;
 using TeamManager.Models.ResourceData;
 using TeamManager.Presenters.Events;
 using TeamManager.Utilities;
@@ -10,6 +11,8 @@ namespace TeamManager.Presenters
 {
     public class UnsignedPlayersPresenter : BasePresenter
     {
+        private static readonly ILog Log = Logger.GetLogger();
+
         private readonly IUnsignedPlayersView _view;
 
 
@@ -26,6 +29,7 @@ namespace TeamManager.Presenters
 
         public void BindPlayersData()
         {
+            Log.Info("Binding players data to listbox.");
             _view.PlayersListBox.Clear();
             List<Player> players = Concept.GetAllPlayers().Where(p => p.TeamId == "0").ToList();
             if (players.Count == 0) return;
@@ -38,6 +42,7 @@ namespace TeamManager.Presenters
         {
             if (_view.PlayerSelectedIndex == -1) return;
 
+            Log.Info("Deleting player.");
             int pSelIndex = _view.PlayerSelectedIndex;
             Player player = _view.PlayersListBox[pSelIndex].ToPlayer();
             if (player == null) return; 

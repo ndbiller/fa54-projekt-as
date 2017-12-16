@@ -1,6 +1,8 @@
-﻿using TeamManager.Database;
+﻿using log4net;
+using TeamManager.Database;
 using TeamManager.Models.TechnicalConcept;
 using TeamManager.Presenters.Events;
+using TeamManager.Utilities;
 
 namespace TeamManager.Presenters
 {
@@ -10,12 +12,16 @@ namespace TeamManager.Presenters
     /// </summary>
     public abstract class BasePresenter
     {
+        private static readonly ILog Log = Logger.GetLogger();
+
         protected static ITechnicalConcept Concept;
 
         protected static event PresenterHandler ChildClosed;
 
+
         protected virtual void OnChildClosed(object sender, PresenterArgs e)
         {
+            Log.Info($"ChildForm closed invoked => {e.Child}");
             ChildClosed?.Invoke(sender, e);
         }
 
