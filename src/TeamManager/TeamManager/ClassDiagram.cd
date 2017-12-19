@@ -31,7 +31,7 @@
     <Position X="28.75" Y="7.25" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AAAIGAGACEE4AFBACAAAKgAEBAggIIIABCgEUUVBAAQ=</HashCode>
-      <FileName>Database\DBLayerMongo.cs</FileName>
+      <FileName>Database\DbLayerMongo.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -39,7 +39,7 @@
     <Position X="33.5" Y="7.25" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AAAICAGAAAEwABBACAAAIAAEAAggIIIAAAgEUUVAAAA=</HashCode>
-      <FileName>Database\DBLayerSql.cs</FileName>
+      <FileName>Database\DbLayerSql.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -150,7 +150,7 @@
   <Class Name="TeamManager.Program">
     <Position X="40.75" Y="19.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAgIAAAAIAAgAAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAgIAAAAIAAgAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -180,14 +180,14 @@
     <Position X="40" Y="22" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Views\GUI.cs</FileName>
+      <FileName>Views\Gui.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TeamManager.Views.Tui" BaseTypeListCollapsed="true">
     <Position X="42" Y="22" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Views\TUI.cs</FileName>
+      <FileName>Views\Tui.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TeamManager.Views.Loader.LoaderWindow">
@@ -200,7 +200,7 @@
   <Class Name="TeamManager.Views.Loader.Loaders">
     <Position X="39.25" Y="28" Width="4" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAAIAAEAAAAAAAAAAgBAAAQAEAAAAAgAAA=</HashCode>
+      <HashCode>IAAAAAAAAAAAIAAEAAAAAAAAAAgBAAAQAEAAAAAAAAA=</HashCode>
       <FileName>Views\Loader\Loaders.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -242,6 +242,13 @@
       <FileName>Views\Windows\MainTui.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TeamManager.Utilities.NativeMethods">
+    <Position X="29.25" Y="32.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Utilities\NativeMethods.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Interface Name="TeamManager.Database.IDataLayer">
     <Position X="24" Y="7.25" Width="4.5" />
@@ -295,7 +302,7 @@
   <Enum Name="TeamManager.Database.DatabaseType">
     <Position X="33.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAABAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Database\DatabaseType.cs</FileName>
     </TypeIdentifier>
   </Enum>

@@ -140,7 +140,7 @@ namespace TeamManager.Tests
 
         private static void FillMongoDb()
         {
-            new DbLayerMongo();
+            DbLayerMongo dbLayerMongo = new DbLayerMongo();
             DbLayerMongo.Database.DropCollection("team");
             DbLayerMongo.Database.DropCollection("player");
 
