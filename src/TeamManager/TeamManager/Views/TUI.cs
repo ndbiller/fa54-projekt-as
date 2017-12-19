@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using TeamManager.Database;
 using TeamManager.Models.TechnicalConcept;
 using TeamManager.Presenters;
-using TeamManager.Views.Forms;
+using TeamManager.Views.Windows;
 using TeamManager.Views.Interfaces;
 
 namespace TeamManager.Views

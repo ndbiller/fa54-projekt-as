@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TeamManager.Presenters;
 using TeamManager.Views.Interfaces;
 
-namespace TeamManager.Views.Forms
+namespace TeamManager.Views.Windows
 {
     /// <summary>
     /// Opening the Team Manager app in console mode.

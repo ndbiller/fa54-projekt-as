@@ -15,7 +15,7 @@ namespace TeamManager.Views.Loader
         private static readonly ILog Log = Logger.GetLogger();
 
         /// <summary>
-        /// Used for bringing form to front with the handle of the form.
+        /// Used for bringing window to front with the handle of the window.
         /// </summary>
         /// <param name="hWnd"></param>
         /// <returns></returns>
@@ -24,7 +24,7 @@ namespace TeamManager.Views.Loader
 
         private static LoaderType _loaderType;
 
-        private static LoaderForm _loaderForm;
+        private static LoaderWindow _loaderWindow;
 
 
 
@@ -40,8 +40,8 @@ namespace TeamManager.Views.Loader
             {
                 case LoaderType.Loader:
                     Log.Info("Starting loader of type LoaderType.Loader.");
-                    if (_loaderForm == null)
-                        LoadFormOnThread(_loaderForm = new LoaderForm());
+                    if (_loaderWindow == null)
+                        LoadWindowOnThread(_loaderWindow = new LoaderWindow());
                     break;
 
                 case LoaderType.SplashScreen:
@@ -54,19 +54,19 @@ namespace TeamManager.Views.Loader
         }
 
         /// <summary>
-        /// Stops specified loader thread with the form handle in order to get the parent form to front.
+        /// Stops specified loader thread with the window handle in order to get the parent window to front.
         /// </summary>
-        /// <param name="formHandle"></param>
-        public static void StopLoader(IntPtr formHandle)
+        /// <param name="windowHandle"></param>
+        public static void StopLoader(IntPtr windowHandle)
         {
-            if (_loaderForm == null) return;
+            if (_loaderWindow == null) return;
 
             switch (_loaderType)
             {
                 case LoaderType.Loader:
                     Log.Info("Stopping loader of type LoaderType.Loader.");
-                    if (_loaderForm.InvokeRequired)
-                        _loaderForm.Invoke(new MethodInvoker(()=> _loaderForm.Close()));
+                    if (_loaderWindow.InvokeRequired)
+                        _loaderWindow.Invoke(new MethodInvoker(()=> _loaderWindow.Close()));
                     break;
 
                 case LoaderType.SplashScreen:
@@ -75,20 +75,20 @@ namespace TeamManager.Views.Loader
                     break;
             }
 
-            WindowToFront(formHandle);
+            WindowToFront(windowHandle);
         }
 
         /// <summary>
-        /// Running loader form on a separate thread so the main ui thread will be free when displaying another form.
+        /// Running loader window on a separate thread so the main ui thread will be free when displaying another window.
         /// </summary>
-        /// <param name="form"></param>
-        private static void LoadFormOnThread(Form form)
+        /// <param name="window"></param>
+        private static void LoadWindowOnThread(Form window)
         {
             Log.Info("Running loader on different thread.");
 
-            form.LostFocus += (sender, e) => form.Focus();
+            window.LostFocus += (sender, e) => window.Focus();
 
-            new Thread(() => form.ShowDialog()).Start();
+            new Thread(() => window.ShowDialog()).Start();
         }
 
         /// <summary>

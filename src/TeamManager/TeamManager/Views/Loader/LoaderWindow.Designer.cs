@@ -1,6 +1,6 @@
 ﻿namespace TeamManager.Views.Loader
 {
-    partial class LoaderForm
+    partial class LoaderWindow
     {
         /// <summary>
         /// Required designer variable.

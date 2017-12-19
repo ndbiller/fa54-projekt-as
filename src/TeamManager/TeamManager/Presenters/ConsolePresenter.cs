@@ -315,7 +315,7 @@ namespace TeamManager.Presenters
 
         private void InvalidInput() => Console.WriteLine("Invalid input. Please try again...");
 
-        public override void FormClosed() { }
+        public override void WindowClosed() { }
 
     }
 }

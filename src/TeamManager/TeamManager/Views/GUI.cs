@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using TeamManager.Database;
 using TeamManager.Models.TechnicalConcept;
 using TeamManager.Presenters;
-using TeamManager.Views.Forms;
+using TeamManager.Views.Windows;
 
 namespace TeamManager.Views
 {
@@ -20,7 +20,7 @@ namespace TeamManager.Views
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new MainWindow());
         }
     }
 

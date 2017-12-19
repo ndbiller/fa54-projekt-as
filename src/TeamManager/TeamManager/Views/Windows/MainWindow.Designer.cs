@@ -1,6 +1,6 @@
-﻿namespace TeamManager.Views.Forms
+﻿namespace TeamManager.Views.Windows
 {
-    partial class MainForm
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.customPanel1 = new System.Windows.Forms.Custom.CustomPanel();
             this.customTableLayoutPanel1 = new System.Windows.Forms.Custom.CustomTableLayoutPanel();
             this.btnPCreate = new System.Windows.Forms.Button();
@@ -463,7 +463,7 @@
             this.customControlBox1.TabIndex = 0;
             this.customControlBox1.TabStop = false;
             // 
-            // MainForm
+            // MainWindow
             // 
             this.AppTitle.Icon = ((System.Drawing.Icon)(resources.GetObject("resource.Icon")));
             this.AppTitle.IconLocation = new System.Drawing.Point(10, 10);
@@ -489,7 +489,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(853, 542);
-            this.Name = "MainForm";
+            this.Name = "MainWindow";
             this.Padding = new System.Windows.Forms.Padding(11, 62, 12, 10);
             this.ResizeGripColor = System.Drawing.Color.White;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

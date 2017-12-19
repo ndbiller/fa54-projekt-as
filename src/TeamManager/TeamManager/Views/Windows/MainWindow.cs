@@ -5,13 +5,13 @@ using TeamManager.Models.ResourceData;
 using TeamManager.Presenters;
 using TeamManager.Utilities;
 using TeamManager.Views.Enums;
-using TeamManager.Views.Forms.Dialogs;
 using TeamManager.Views.Interfaces;
 using TeamManager.Views.Loader;
+using TeamManager.Views.Windows.Dialogs;
 
-namespace TeamManager.Views.Forms
+namespace TeamManager.Views.Windows
 {
-    public partial class MainForm : CustomForm, IMainView
+    public partial class MainWindow : CustomForm, IMainView
     {
 
         #region --- View Interface Items ---
@@ -45,7 +45,7 @@ namespace TeamManager.Views.Forms
 
 
 
-        public MainForm()
+        public MainWindow()
         {
             Loaders.StartLoader(LoaderType.Loader, 0);
 
@@ -89,17 +89,17 @@ namespace TeamManager.Views.Forms
 
         private void btnUnsignedPlayers_Click(object sender, EventArgs e)
         {
-            new UnsignedPlayersForm().ShowDialog();
+            new UnsignedPlayersWindow().ShowDialog();
         }
 
         private void btnShowAllPlayers_Click(object sender, EventArgs e)
         {
-            new AllPlayersForm().ShowDialog();
+            new AllPlayersWindow().ShowDialog();
         }
 
         private void btnTCreate_Click(object sender, EventArgs e)
         {
-            new EditForm(EditMode.TeamCreate, null, null).ShowDialog();
+            new EditWindow(EditMode.TeamCreate, null, null).ShowDialog();
         }
 
         private void btnPCreate_Click(object sender, EventArgs e)
@@ -107,7 +107,7 @@ namespace TeamManager.Views.Forms
             Team team = _presenter.GetSelectedTeam();
             if (team == null) return;
 
-            new EditForm(EditMode.PlayerCreate, team, null).ShowDialog();
+            new EditWindow(EditMode.PlayerCreate, team, null).ShowDialog();
         }
 
         private void btnTEdit_Click(object sender, EventArgs e)
@@ -115,7 +115,7 @@ namespace TeamManager.Views.Forms
             Team team = _presenter.GetSelectedTeam();
             if (team == null) return;
 
-            new EditForm(EditMode.TeamEdit, team, null).ShowDialog();
+            new EditWindow(EditMode.TeamEdit, team, null).ShowDialog();
         }
 
         private void btnPEdit_Click(object sender, EventArgs e)
@@ -123,7 +123,7 @@ namespace TeamManager.Views.Forms
             Tuple<Team, Player> teamAndPlayer = _presenter.GetSelectedTeamAndPlayer();
             if (teamAndPlayer == null || teamAndPlayer.ContainsNull()) return;
 
-            new EditForm(EditMode.PlayerEdit, teamAndPlayer.Item1, teamAndPlayer.Item2).ShowDialog();
+            new EditWindow(EditMode.PlayerEdit, teamAndPlayer.Item1, teamAndPlayer.Item2).ShowDialog();
         }
 
         #endregion --- Show Dialogs ---

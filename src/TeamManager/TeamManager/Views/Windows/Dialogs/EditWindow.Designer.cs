@@ -1,6 +1,6 @@
-﻿namespace TeamManager.Views.Forms.Dialogs
+﻿namespace TeamManager.Views.Windows.Dialogs
 {
-    partial class EditForm
+    partial class EditWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -176,7 +176,7 @@
             this.customControlBoxDialog1.TabIndex = 5;
             this.customControlBoxDialog1.TabStop = false;
             // 
-            // EditForm
+            // EditWindow
             // 
             this.AppTitle.Icon = null;
             this.AppTitle.IconLocation = new System.Drawing.Point(0, 0);
@@ -202,7 +202,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximumSize = new System.Drawing.Size(667, 246);
             this.MinimumSize = new System.Drawing.Size(427, 246);
-            this.Name = "EditForm";
+            this.Name = "EditWindow";
             this.Padding = new System.Windows.Forms.Padding(11, 62, 12, 10);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edit \\ Create";

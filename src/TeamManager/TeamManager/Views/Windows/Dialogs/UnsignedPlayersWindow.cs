@@ -6,9 +6,9 @@ using TeamManager.Presenters;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Interfaces;
 
-namespace TeamManager.Views.Forms.Dialogs
+namespace TeamManager.Views.Windows.Dialogs
 {
-    public partial class UnsignedPlayersForm : CustomForm, IUnsignedPlayersView
+    public partial class UnsignedPlayersWindow : CustomForm, IUnsignedPlayersView
     {
 
         #region --- View Interface Items ---
@@ -27,7 +27,7 @@ namespace TeamManager.Views.Forms.Dialogs
 
 
 
-        public UnsignedPlayersForm()
+        public UnsignedPlayersWindow()
         {
             InitializeComponent();
             _presenter = new UnsignedPlayersPresenter(this);
@@ -41,7 +41,7 @@ namespace TeamManager.Views.Forms.Dialogs
 
         private void UnsignedPlayersForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            _presenter.FormClosed();
+            _presenter.WindowClosed();
         }
 
 
@@ -52,12 +52,12 @@ namespace TeamManager.Views.Forms.Dialogs
             Player player = _presenter.GetPlayer();
             if (player == null) return;
 
-            new EditForm(EditMode.PlayerAssignToTeam, null, player).ShowDialog();
+            new EditWindow(EditMode.PlayerAssignToTeam, null, player).ShowDialog();
         }
 
         private void btnPCreate_Click(object sender, EventArgs e)
         {
-            new EditForm(EditMode.PlayerCreate, null, null).ShowDialog();
+            new EditWindow(EditMode.PlayerCreate, null, null).ShowDialog();
         }
 
         #endregion --- Show Dialogs ---

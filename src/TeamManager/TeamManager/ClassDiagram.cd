@@ -101,42 +101,42 @@
   <Class Name="TeamManager.Presenters.AllPlayersPresenter">
     <Position X="11.5" Y="19.75" Width="4" />
     <TypeIdentifier>
-      <HashCode>gAIAAQAAAAAAAABAAAAAAAAAAAgAIAAAICAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAQAAAAAAAABAAAAAAAAAgAkAIAAAICAAAAAAAAA=</HashCode>
       <FileName>Presenters\AllPlayersPresenter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TeamManager.Presenters.BasePresenter">
     <Position X="10.5" Y="16.25" Width="6" />
     <TypeIdentifier>
-      <HashCode>gAAAAAAAAAAABAAAAAAAAAAAAAgAAAAAAAAAEgAgAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAkAAAAAAAAAEgAgAAA=</HashCode>
       <FileName>Presenters\BasePresenter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TeamManager.Presenters.ConsolePresenter">
     <Position X="20.5" Y="19.75" Width="3" />
     <TypeIdentifier>
-      <HashCode>gQAAIAAAgAAAAAJAAgAIAQEAAIgACAAAADAEAACAAAA=</HashCode>
+      <HashCode>AQAAIAAAgAAAAAJAAgAIAQEAAIkACAAAADAEAACAAAA=</HashCode>
       <FileName>Presenters\ConsolePresenter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TeamManager.Presenters.EditPresenter">
     <Position X="4.75" Y="19.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>gAIAAAEAAAAAAAIAAAQIAAAAAAgAAAAAACAAEAAAAAA=</HashCode>
+      <HashCode>AAIAAAEAAAAAAAIAAAQIAAAAAAkAAAAAACAAEAAAAAA=</HashCode>
       <FileName>Presenters\EditPresenter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TeamManager.Presenters.MainPresenter">
     <Position X="15.75" Y="19.75" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>gAIACAAAAAAAAABAAAIDAAAIAAgoAAAAICAkACAwAAE=</HashCode>
+      <HashCode>AAAACAAAAAAAAABAAAIDAAAIgAkoAAAAICAkACAwAAE=</HashCode>
       <FileName>Presenters\MainPresenter.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TeamManager.Presenters.UnsignedPlayersPresenter">
     <Position X="7.25" Y="19.75" Width="4" />
     <TypeIdentifier>
-      <HashCode>gAIAAAAAAAAAAABAAAEAAAAAAAgAAAAAICAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAABAAAEAAAAAgAkAAAAAICAAAAAAAAA=</HashCode>
       <FileName>Presenters\UnsignedPlayersPresenter.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -168,11 +168,11 @@
       <FileName>Utilities\Utility.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TeamManager.Views.Forms.MainForm" BaseTypeListCollapsed="true">
+  <Class Name="TeamManager.Views.Windows.MainWindow" BaseTypeListCollapsed="true">
     <Position X="18.75" Y="29.25" Width="4.5" />
     <TypeIdentifier>
       <HashCode>BQAAAAAoAChCIgCCpFSAQECCAAAkACAgCAQCgAAAgIg=</HashCode>
-      <FileName>Views\Forms\MainForm.cs</FileName>
+      <FileName>Views\Windows\MainWindow.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -190,41 +190,41 @@
       <FileName>Views\TUI.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TeamManager.Views.Loader.LoaderForm">
+  <Class Name="TeamManager.Views.Loader.LoaderWindow">
     <Position X="43.5" Y="28" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAACAAAgCAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Views\Loader\LoaderForm.cs</FileName>
+      <FileName>Views\Loader\LoaderWindow.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TeamManager.Views.Loader.Loaders">
     <Position X="39.25" Y="28" Width="4" />
     <TypeIdentifier>
-      <HashCode>IAAAAgAAAAAAIAAAAAAAAAACAAgAAAAQAEAAAAAgAAA=</HashCode>
+      <HashCode>IAAAAAAAAAAAIAAEAAAAAAAAAAgBAAAQAEAAAAAgAAA=</HashCode>
       <FileName>Views\Loader\Loaders.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TeamManager.Views.Forms.Dialogs.EditForm" BaseTypeListCollapsed="true">
+  <Class Name="TeamManager.Views.Windows.Dialogs.EditWindow" BaseTypeListCollapsed="true">
     <Position X="3.5" Y="29.25" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAAAACAAAEMAAAGQAMACAAAAABEAGAAAAQIRQIA=</HashCode>
-      <FileName>Views\Forms\Dialogs\EditForm.cs</FileName>
+      <FileName>Views\Windows\Dialogs\EditWindow.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TeamManager.Views.Forms.Dialogs.UnsignedPlayersForm" BaseTypeListCollapsed="true">
+  <Class Name="TeamManager.Views.Windows.Dialogs.UnsignedPlayersWindow" BaseTypeListCollapsed="true">
     <Position X="8.25" Y="29.25" Width="5.25" />
     <TypeIdentifier>
       <HashCode>AQAAAAEAACAAAwAAoESQAAACAgAggAAACAAAgAAAgAA=</HashCode>
-      <FileName>Views\Forms\Dialogs\UnsignedPlayersForm.cs</FileName>
+      <FileName>Views\Windows\Dialogs\UnsignedPlayersWindow.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TeamManager.Views.Forms.Dialogs.AllPlayersForm" BaseTypeListCollapsed="true">
+  <Class Name="TeamManager.Views.Windows.Dialogs.AllPlayersWindow" BaseTypeListCollapsed="true">
     <Position X="13.75" Y="29.25" Width="4.75" />
     <TypeIdentifier>
       <HashCode>BQAAAAAAACADIkAAoESQAAACAAAgAAQACAQAkAABgQA=</HashCode>
-      <FileName>Views\Forms\Dialogs\AllPlayersForm.cs</FileName>
+      <FileName>Views\Windows\Dialogs\AllPlayersWindow.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -235,11 +235,11 @@
       <FileName>Utilities\Defaults.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TeamManager.Views.Forms.MainTui">
+  <Class Name="TeamManager.Views.Windows.MainTui">
     <Position X="23.5" Y="29.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAEAAAACAAQAAAAAAA=</HashCode>
-      <FileName>Views\Forms\MainTui.cs</FileName>
+      <FileName>Views\Windows\MainTui.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
@@ -313,11 +313,11 @@
       <FileName>Views\Enums\EditMode.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="TeamManager.Views.Enums.FormType">
+  <Enum Name="TeamManager.Views.Enums.WindowType">
     <Position X="16.75" Y="17.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAABAAAAAEAAAAAAAAAACAAAABAAAAAA=</HashCode>
-      <FileName>Views\Enums\FormType.cs</FileName>
+      <FileName>Views\Enums\WindowType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="TeamManager.Views.Loader.LoaderType">

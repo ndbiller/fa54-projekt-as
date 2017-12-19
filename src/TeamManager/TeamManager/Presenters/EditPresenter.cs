@@ -96,9 +96,9 @@ namespace TeamManager.Presenters
             Concept.ChangePlayerTeam(_view.Player.Id, team.Id);
         }
 
-        public override void FormClosed()
+        public override void WindowClosed()
         {
-            OnChildClosed(this, new PresenterArgs(FormType.Edit));
+            OnChildClosed(this, new PresenterArgs(WindowType.Edit));
         }
 
     }

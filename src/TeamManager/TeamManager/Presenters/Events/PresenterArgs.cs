@@ -5,10 +5,10 @@ namespace TeamManager.Presenters.Events
 {
     public class PresenterArgs : EventArgs
     {
-        public FormType Child { get; }
+        public WindowType Child { get; }
 
 
-        public PresenterArgs(FormType child)
+        public PresenterArgs(WindowType child)
         {
             Child = child;
         }
