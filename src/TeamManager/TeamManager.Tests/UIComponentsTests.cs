@@ -1,9 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TeamManager.Models.ResourceData;
 using TeamManager.Utilities;
@@ -11,12 +6,12 @@ using TeamManager.Utilities;
 namespace TeamManager.Tests
 {
     [TestFixture]
-    public class UIComponentsTests
+    public class UiComponentsTests
     {
         /// <summary>
         /// Object collection child object of ListBox which is the component we work the most when using the GUI.
         /// </summary>
-        private ListBox.ObjectCollection collection;
+        private ListBox.ObjectCollection _collection;
 
 
         /// <summary>
@@ -25,18 +20,18 @@ namespace TeamManager.Tests
         [Test]
         public void ListBox_ObjectCollection()
         {
-            collection = new ListBox.ObjectCollection(new ListBox());
+            _collection = new ListBox.ObjectCollection(new ListBox());
             Team team = new Team("Brazil");
             Player player = new Player("Ronaldo");
 
-            collection.Add(team);
-            collection.Add(player);
+            _collection.Add(team);
+            _collection.Add(player);
 
-            Assert.IsInstanceOf<Team>(collection[0]);
-            Assert.IsInstanceOf<Player>(collection[1]);
-            Assert.AreNotSame(collection[0], collection[1]);
-            Assert.AreEqual(collection[0].ToTeam().Id, team.Id);
-            Assert.AreEqual(collection[1].ToPlayer().Id, player.Id);
+            Assert.IsInstanceOf<Team>(_collection[0]);
+            Assert.IsInstanceOf<Player>(_collection[1]);
+            Assert.AreNotSame(_collection[0], _collection[1]);
+            Assert.AreEqual(_collection[0].ToTeam().Id, team.Id);
+            Assert.AreEqual(_collection[1].ToPlayer().Id, player.Id);
         }
 
         /// <summary>
@@ -45,16 +40,16 @@ namespace TeamManager.Tests
         [Test]
         public void ListBox_ObjectCollection_ClearingAll()
         {
-            collection = new ListBox.ObjectCollection(new ListBox());
+            _collection = new ListBox.ObjectCollection(new ListBox());
             Team team = new Team("Brazil");
             Player player = new Player("Ronaldo");
 
-            collection.Add(team);
-            collection.Add(player);
+            _collection.Add(team);
+            _collection.Add(player);
 
-            Assert.IsNotEmpty(collection);
-            collection.Clear();
-            Assert.IsEmpty(collection);
+            Assert.IsNotEmpty(_collection);
+            _collection.Clear();
+            Assert.IsEmpty(_collection);
         }
 
         /// <summary>
@@ -64,12 +59,12 @@ namespace TeamManager.Tests
         [Test]
         public void ListBox_ObjectCollection_CastingObjectToTeam()
         {
-            collection = new ListBox.ObjectCollection(new ListBox());
+            _collection = new ListBox.ObjectCollection(new ListBox());
             Team team = new Team("Brazil");
 
-            collection.Add(team);
+            _collection.Add(team);
 
-            Team teamCasted = collection[0].ToTeam();
+            Team teamCasted = _collection[0].ToTeam();
 
             Assert.NotNull(teamCasted);
             Assert.AreSame(teamCasted, team);
@@ -82,12 +77,12 @@ namespace TeamManager.Tests
         [Test]
         public void ListBox_ObjectCollection_CastingObjectToPlayer()
         {
-            collection = new ListBox.ObjectCollection(new ListBox());
+            _collection = new ListBox.ObjectCollection(new ListBox());
             Player player = new Player("Ronaldo");
 
-            collection.Add(player);
+            _collection.Add(player);
 
-            Player playerCasted = collection[0].ToPlayer();
+            Player playerCasted = _collection[0].ToPlayer();
 
             Assert.NotNull(playerCasted);
             Assert.AreSame(playerCasted, player);
@@ -99,12 +94,12 @@ namespace TeamManager.Tests
         [Test]
         public void ListBox_ObjectCollection_CompareTeamId()
         {
-            collection = new ListBox.ObjectCollection(new ListBox());
+            _collection = new ListBox.ObjectCollection(new ListBox());
             Team team = new Team("Brazil");
 
-            collection.Add(team);
+            _collection.Add(team);
 
-            Team teamCasted = collection[0].ToTeam();
+            Team teamCasted = _collection[0].ToTeam();
 
             Assert.AreEqual(teamCasted.Id, team.Id);
             Assert.AreSame(teamCasted, team);
@@ -116,12 +111,12 @@ namespace TeamManager.Tests
         [Test]
         public void ListBox_ObjectCollection_ComparePlayerId()
         {
-            collection = new ListBox.ObjectCollection(new ListBox());
+            _collection = new ListBox.ObjectCollection(new ListBox());
             Player player = new Player("Ronaldo");
 
-            collection.Add(player);
+            _collection.Add(player);
 
-            Player playerCasted = collection[0].ToPlayer();
+            Player playerCasted = _collection[0].ToPlayer();
 
             Assert.AreEqual(playerCasted.Id, player.Id);
             Assert.AreSame(playerCasted, player);

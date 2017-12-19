@@ -2,7 +2,6 @@
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using log4net;
 using TeamManager.Models.ResourceData;
@@ -10,7 +9,7 @@ using TeamManager.Utilities;
 
 namespace TeamManager.Database
 {
-    public class DBLayerMongo : IDataLayer
+    public sealed class DbLayerMongo : IDataLayer
     {
         private static readonly ILog Log = Logger.GetLogger();
 
@@ -35,7 +34,7 @@ namespace TeamManager.Database
 
         private const int TimeoutMilisec = 3000;
 
-        static DBLayerMongo()
+        static DbLayerMongo()
         {
 #if MONGO_DB_LOCAL
             Log.Info("Using Mongo-Db local server connection.");
@@ -64,12 +63,12 @@ namespace TeamManager.Database
 #endif
         }
 
-        public DBLayerMongo()
+        public DbLayerMongo()
         {
-            ConnectDB();
+            ConnectDb();
         }
 
-        public void ConnectDB()
+        public void ConnectDb()
         {
             try
             {
@@ -300,7 +299,7 @@ namespace TeamManager.Database
             try
             {
                 var results = await TeamCollection.FindAsync(t => t.Id == id);
-                return results.First<Team>();
+                return results.First();
             }
             catch (TimeoutException e)
             {
@@ -338,7 +337,7 @@ namespace TeamManager.Database
             try
             {
                 var results = await PlayerCollection.FindAsync(p => p.Id == id);
-                return results.First<Player>();
+                return results.First();
             }
             catch (TimeoutException e)
             {

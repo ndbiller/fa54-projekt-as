@@ -25,9 +25,9 @@
     <Position X="40.338" Y="18.15" Height="1.166" Width="2.587" />
   </Comment>
   <Comment CommentText="We use 2 different types of database to hold the neccessary data. &#xD;&#xA;1. Relational Database which in this case is SQL.&#xD;&#xA;2. Non-Relational Database which in this case is Mongo-Db.&#xD;&#xA;&#xD;&#xA;When the program starts, the user can define the kind of databse that she/he wants to use and the TechnicalConcept will automatically initialize the type of database depending on the decision that the user provided by using the IDataLayer interface.&#xD;&#xA;Since each database have different implementation and both inheriting the IDataLayer interface, we get the exact same behavior by calling the database with the interface.">
-    <Position X="28.297" Y="4.899" Height="1.781" Width="5.181" />
+    <Position X="28.297" Y="4.899" Height="2.011" Width="5.181" />
   </Comment>
-  <Class Name="TeamManager.Database.DBLayerMongo" BaseTypeListCollapsed="true">
+  <Class Name="TeamManager.Database.DbLayerMongo" BaseTypeListCollapsed="true">
     <Position X="28.75" Y="7.25" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AAAIGAGACEE4AFBACAAAKgAEBAggIIIABCgEUUVBAAQ=</HashCode>
@@ -35,7 +35,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TeamManager.Database.DBLayerSql" BaseTypeListCollapsed="true">
+  <Class Name="TeamManager.Database.DbLayerSql" BaseTypeListCollapsed="true">
     <Position X="33.5" Y="7.25" Width="4.5" />
     <TypeIdentifier>
       <HashCode>AAAICAGAAAEwABBACAAAIAAEAAggIIIAAAgEUUVAAAA=</HashCode>
@@ -176,14 +176,14 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TeamManager.Views.GUI">
+  <Class Name="TeamManager.Views.Gui">
     <Position X="40" Y="22" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\GUI.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TeamManager.Views.TUI" BaseTypeListCollapsed="true">
+  <Class Name="TeamManager.Views.Tui" BaseTypeListCollapsed="true">
     <Position X="42" Y="22" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
@@ -238,7 +238,7 @@
   <Class Name="TeamManager.Views.Windows.MainTui">
     <Position X="23.5" Y="29.25" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAEAAAACAAQAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAEAAAACAAQAAAAAAA=</HashCode>
       <FileName>Views\Windows\MainTui.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -295,7 +295,7 @@
   <Enum Name="TeamManager.Database.DatabaseType">
     <Position X="33.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAQ=</HashCode>
+      <HashCode>AAAABAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Database\DatabaseType.cs</FileName>
     </TypeIdentifier>
   </Enum>

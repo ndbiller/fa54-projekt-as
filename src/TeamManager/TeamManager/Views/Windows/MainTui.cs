@@ -13,11 +13,10 @@ namespace TeamManager.Views.Windows
 
         private readonly ConsolePresenter _presenter;
 
-        private readonly List<ConsoleKey> AllowedKeys = new List<ConsoleKey>
+        private readonly List<ConsoleKey> _allowedKeys = new List<ConsoleKey>
         {
-            ConsoleKey.A, ConsoleKey.B, ConsoleKey.C, ConsoleKey.D, ConsoleKey.E,
-            ConsoleKey.F, ConsoleKey.G, ConsoleKey.H, ConsoleKey.I, ConsoleKey.J,
-            ConsoleKey.X
+            ConsoleKey.A, ConsoleKey.B, ConsoleKey.C, ConsoleKey.D, ConsoleKey.E, ConsoleKey.F,
+            ConsoleKey.G, ConsoleKey.H, ConsoleKey.I, ConsoleKey.J, ConsoleKey.X
         };
 
 
@@ -40,7 +39,7 @@ namespace TeamManager.Views.Windows
                 _presenter.PrintMenu();
                 Console.Write($"\nInput: {input.KeyChar}");
 
-                if (AllowedKeys.Contains(input.Key)
+                if (_allowedKeys.Contains(input.Key)
                     && Console.ReadKey().Key == ConsoleKey.Enter)
                     ParseKeyCommand(input);
             }

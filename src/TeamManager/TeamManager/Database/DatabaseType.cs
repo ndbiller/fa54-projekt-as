@@ -2,7 +2,7 @@
 {
     public enum DatabaseType
     {
-        MongoDB,
-        SQL
+        Mongo,
+        Sql
     }
 }

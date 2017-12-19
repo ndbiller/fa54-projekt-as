@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using TeamManager.Database;
-using TeamManager.Models.TechnicalConcept;
-using TeamManager.Presenters;
 using TeamManager.Views.Windows;
 
 namespace TeamManager.Views
@@ -10,7 +7,7 @@ namespace TeamManager.Views
     /// <summary>
     /// Opening the Team Manager app in user interface mode(GUI).
     /// </summary>
-    public class GUI
+    public class Gui
     {
         /// <summary>
         /// Main entry point for the GUI application.

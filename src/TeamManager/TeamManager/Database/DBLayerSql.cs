@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using log4net;
-using MongoDB.Bson;
-using MongoDB.Driver;
 using TeamManager.Models.ResourceData;
 using TeamManager.Utilities;
 
 namespace TeamManager.Database
 {
-    class DBLayerSql : IDataLayer
+    public sealed class DbLayerSql : IDataLayer
     {
         private static readonly ILog Log = Logger.GetLogger();
 
 
-        public void ConnectDB()
+        public void ConnectDb()
         {
             throw new NotImplementedException();
         }
@@ -292,8 +290,6 @@ namespace TeamManager.Database
 
         public bool UpdateTeam(string id, string name)
         {
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
-            var update = Builders<BsonDocument>.Update.Set("Name", name);
 
             try
             {
@@ -334,8 +330,6 @@ namespace TeamManager.Database
 
         public bool UpdatePlayer(string id, string name)
         {
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
-            var update = Builders<BsonDocument>.Update.Set("Name", name);
 
             try
             {
@@ -376,8 +370,6 @@ namespace TeamManager.Database
 
         public bool UpdatePlayer(string id, string teamId, string name)
         {
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", id);
-            var update = Builders<BsonDocument>.Update.Set("Name", name);
 
             try
             {
@@ -496,8 +488,6 @@ namespace TeamManager.Database
 
         public bool ChangePlayerTeam(string playerId, string teamId)
         {
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", playerId);
-            var update = Builders<BsonDocument>.Update.Set("TeamId", teamId);
 
             try
             {

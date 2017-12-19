@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using log4net;
-using MongoDB.Driver;
 using TeamManager.Models.ResourceData;
 
 namespace TeamManager.Utilities
@@ -35,13 +31,13 @@ namespace TeamManager.Utilities
         /// <summary>
         /// Checks to see if the tuple contains an item that is null genericly.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <typeparam name="U"></typeparam>
+        /// <typeparam name="TA"></typeparam>
+        /// <typeparam name="TB"></typeparam>
         /// <param name="tuple"></param>
         /// <returns>bool</returns>
-        public static bool ContainsNull<T, U>(this Tuple<T, U> tuple) 
-            where T : class
-            where U : class
+        public static bool ContainsNull<TA, TB>(this Tuple<TA, TB> tuple) 
+            where TA : class
+            where TB : class
         {
             return tuple.Item1 == null 
                 || tuple.Item2 == null;
@@ -54,6 +50,8 @@ namespace TeamManager.Utilities
         /// </summary>
         /// <param name="task"></param>
         /// <param name="millisecondsTimeout"></param>
+        /// <param name="callerClass"></param>
+        /// <param name="callerMethod"></param>
         /// <returns></returns>
         public static async Task TimeoutAfter(this Task task, int millisecondsTimeout, 
             [CallerFilePath] string callerClass = "",

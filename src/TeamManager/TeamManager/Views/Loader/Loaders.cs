@@ -27,11 +27,11 @@ namespace TeamManager.Views.Loader
         private static LoaderWindow _loaderWindow;
 
 
-
         /// <summary>
         /// Starting loader with specified loader type and the amount of miliseconds to sleep the main ui thread to visualize work.
         /// </summary>
         /// <param name="loader"></param>
+        /// <param name="sleepMiliseconds"></param>
         public static void StartLoader(LoaderType loader, int sleepMiliseconds)
         {
             _loaderType = loader;

@@ -98,8 +98,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\DatabaseType.cs" />
-    <Compile Include="Database\DBLayerMongo.cs" />
-    <Compile Include="Database\DBLayerSql.cs" />
+    <Compile Include="Database\DbLayerMongo.cs" />
+    <Compile Include="Database\DbLayerSql.cs" />
     <Compile Include="Database\IDataLayer.cs" />
     <Compile Include="Models\TechnicalConcept\TechnicalConcept1Mt.cs" />
     <Compile Include="Models\TechnicalConcept\TechnicalConcept2Mt.cs" />
@@ -135,7 +135,7 @@
       <DependentUpon>UnsignedPlayersWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Enums\EditMode.cs" />
-    <Compile Include="Views\GUI.cs" />
+    <Compile Include="Views\Gui.cs" />
     <Compile Include="Views\Windows\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,7 +163,7 @@
     <Compile Include="Views\Loader\Loaders.cs" />
     <Compile Include="Views\Loader\LoaderType.cs" />
     <Compile Include="Views\Windows\MainTui.cs" />
-    <Compile Include="Views\TUI.cs" />
+    <Compile Include="Views\Tui.cs" />
     <Compile Include="Models\TechnicalConcept\TechnicalConceptType.cs" />
     <EmbeddedResource Include="Views\Windows\Dialogs\EditWindow.resx">
       <DependentUpon>EditWindow.cs</DependentUpon>

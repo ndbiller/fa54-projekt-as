@@ -97,12 +97,12 @@ namespace TeamManager
                 {
                     case "/db:mongo":
                         Log.Info("Using mongo-db as database.");
-                        dbType = DatabaseType.MongoDB;
+                        dbType = DatabaseType.Mongo;
                         break;
 
                     case "/db:sql":
                         Log.Info("Using sql as database.");
-                        dbType = DatabaseType.SQL;
+                        dbType = DatabaseType.Sql;
                         break;
 
                     default:
@@ -116,19 +116,19 @@ namespace TeamManager
                 if (startGui)
                 {
                     Log.Info("Starting GUI...");
-                    GUI.Show();
+                    Gui.Show();
                 }
                 else
                 {
                     Log.Info("Starting TUI...");
-                    TUI.Show();
+                    Tui.Show();
                 }
             }
             else // -> when you start the app through the windows explorer or from the console without parameters.
             {
                 Log.Info("Starting GUI with default configuration.");
                 BasePresenter.SetConceptAndDatabaseType(conceptType, dbType);
-                GUI.Show();
+                Gui.Show();
             }
 
             Log.Info($"##### Application Closed. Session ID => {SessionId} #####");
