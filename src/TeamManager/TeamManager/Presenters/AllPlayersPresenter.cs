@@ -24,7 +24,7 @@ namespace TeamManager.Presenters
             _view = view;
             _view.PlayersListBox.Clear();
 
-            ChildClosed += Form_ChildClose;
+            ChildClosed += Window_ChildClose;
         }
 
 
@@ -95,7 +95,7 @@ namespace TeamManager.Presenters
             return new Tuple<Team, Player>(team, player);
         }
 
-        void Form_ChildClose(object sender, PresenterArgs args)
+        private void Window_ChildClose(object sender, PresenterArgs args)
         {
             int pSelIndex = _view.PlayerSelectedIndex;
             BindPlayersData();
@@ -104,9 +104,9 @@ namespace TeamManager.Presenters
                 _view.PlayerSelectedIndex = pSelIndex;
         }
 
-        public override void FormClosed()
+        public override void WindowClosed()
         {
-            OnChildClosed(this, new PresenterArgs(FormType.AllPlayers));
+            OnChildClosed(this, new PresenterArgs(WindowType.AllPlayers));
         }
 
     }

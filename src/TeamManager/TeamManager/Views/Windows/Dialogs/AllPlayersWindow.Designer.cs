@@ -1,6 +1,6 @@
-﻿namespace TeamManager.Views.Forms.ChildForms
+﻿namespace TeamManager.Views.Windows.Dialogs
 {
-    partial class AllPlayersForm
+    partial class AllPlayersWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -283,7 +283,7 @@
             this.customControlBoxDialog1.TabIndex = 8;
             this.customControlBoxDialog1.TabStop = false;
             // 
-            // AllPlayersForm
+            // AllPlayersWindow
             // 
             this.AppTitle.Icon = null;
             this.AppTitle.IconLocation = new System.Drawing.Point(0, 0);
@@ -308,7 +308,7 @@
             this.FormBorders.Width = 8;
             this.MaximumSize = new System.Drawing.Size(800, 840);
             this.MinimumSize = new System.Drawing.Size(423, 580);
-            this.Name = "AllPlayersForm";
+            this.Name = "AllPlayersWindow";
             this.Padding = new System.Windows.Forms.Padding(8, 50, 9, 8);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "All Players";

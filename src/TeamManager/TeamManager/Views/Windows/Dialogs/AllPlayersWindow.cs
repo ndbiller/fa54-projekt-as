@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.Custom;
 using TeamManager.Models.ResourceData;
@@ -9,9 +7,9 @@ using TeamManager.Utilities;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Interfaces;
 
-namespace TeamManager.Views.Forms.ChildForms
+namespace TeamManager.Views.Windows.Dialogs
 {
-    public partial class AllPlayersForm : CustomForm, IAllPlayersView
+    public partial class AllPlayersWindow : CustomForm, IAllPlayersView
     {
 
         #region --- View Interface Items ---
@@ -43,7 +41,7 @@ namespace TeamManager.Views.Forms.ChildForms
 
 
 
-        public AllPlayersForm()
+        public AllPlayersWindow()
         {
             InitializeComponent();
             _presenter = new AllPlayersPresenter(this);
@@ -62,7 +60,7 @@ namespace TeamManager.Views.Forms.ChildForms
 
         private void AllPlayersForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            _presenter.FormClosed();
+            _presenter.WindowClosed();
         }
 
 
@@ -73,12 +71,12 @@ namespace TeamManager.Views.Forms.ChildForms
             Tuple<Team, Player> teamAndPlayer = _presenter.GetTeamAndPlayer();
             if (teamAndPlayer == null || teamAndPlayer.ContainsNull()) return;
 
-            new EditForm(EditMode.PlayerEdit, teamAndPlayer.Item1, teamAndPlayer.Item2).ShowDialog();
+            new EditWindow(EditMode.PlayerEdit, teamAndPlayer.Item1, teamAndPlayer.Item2).ShowDialog();
         }
 
         private void btnPCreate_Click(object sender, EventArgs e)
         {
-            new EditForm(EditMode.PlayerCreate, null, null).ShowDialog();
+            new EditWindow(EditMode.PlayerCreate, null, null).ShowDialog();
         }
 
         #endregion --- Show Dialogs ---

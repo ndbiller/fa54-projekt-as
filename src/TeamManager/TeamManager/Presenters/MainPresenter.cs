@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using log4net;
 using TeamManager.Models.ResourceData;
@@ -41,7 +40,7 @@ namespace TeamManager.Presenters
             _view.TeamsListBox.Clear();
             _view.PlayersListBox.Clear();
 
-            ChildClosed += Form_ChildClose;
+            ChildClosed += Window_ChildClose;
         }
 
 
@@ -262,13 +261,13 @@ namespace TeamManager.Presenters
         }
 
 
-        private void Form_ChildClose(object sender, PresenterArgs args)
+        private void Window_ChildClose(object sender, PresenterArgs args)
         {
             int tSelIndex = _view.TeamSelectedIndex;
             int pSelIndex = _view.PlayerSelectedIndex;
             int oldTeamsCount = _view.TeamsListBox.Count;
             List<Team> teams = BindTeamsData();
-            // Saftey check if child form removed or created team.
+            // Saftey check if child window removed or created team.
             if (teams.InternalCount() != oldTeamsCount) return;
 
             _view.TeamSelectedIndex = tSelIndex;
@@ -279,7 +278,7 @@ namespace TeamManager.Presenters
             _view.PlayerSelectedIndex = pSelIndex;
         }
 
-        public override void FormClosed() { }
+        public override void WindowClosed() { }
 
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace TeamManager.Views.Enums
 {
-    public enum FormType
+    public enum WindowType
     {
         Main,
         Edit,

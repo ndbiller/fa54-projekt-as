@@ -4,6 +4,7 @@ using System.Linq;
 using log4net;
 using TeamManager.Models.ResourceData;
 using TeamManager.Utilities;
+using TeamManager.Views.Interfaces;
 
 namespace TeamManager.Presenters
 {
@@ -15,6 +16,15 @@ namespace TeamManager.Presenters
     public class ConsolePresenter : BasePresenter
     {
         private static readonly ILog Log = Logger.GetLogger();
+
+        private readonly IConsoleView _view;
+
+
+
+        public ConsolePresenter(IConsoleView view)
+        {
+            _view = view;
+        }
 
 
         public List<Team> AllTeams()
@@ -149,10 +159,9 @@ namespace TeamManager.Presenters
                 }
 
                 Team team = teams[--teamIndex];
-                if (Concept.ChangePlayerTeam(player.Id, team.Id))
-                    Console.WriteLine($"Successfully changed player team from \"{playerTeamName}\" to \"{team.Name}\"!");
-                else
-                    Console.WriteLine("Failed to change player team...");
+                Console.WriteLine(Concept.ChangePlayerTeam(player.Id, team.Id)
+                    ? $"Successfully changed player team from \"{playerTeamName}\" to \"{team.Name}\"!"
+                    : "Failed to change player team...");
             }
 
         }
@@ -182,10 +191,9 @@ namespace TeamManager.Presenters
                 if (player.TeamId == team.Id)
                     Concept.ChangePlayerTeam(player.Id, "0");
 
-            if (Concept.RemoveTeam(team.Id))
-                Console.WriteLine($"Successfully removed {team.Name} from teams!");
-            else
-                Console.WriteLine($"Failed to remove {team.Name} from teams...");
+            Console.WriteLine(Concept.RemoveTeam(team.Id)
+                ? $"Successfully removed {team.Name} from teams!"
+                : $"Failed to remove {team.Name} from teams...");
         }
 
         public void DeletePlayer()
@@ -205,10 +213,9 @@ namespace TeamManager.Presenters
             if (!ValidateUserInput($"Are you sure you want to delete {player.Name} from players? (Y/N)"))
                 return;
 
-            if (Concept.RemovePlayer(player.Id))
-                Console.WriteLine($"Successfully removed {player.Name} from players!");
-            else
-                Console.WriteLine($"Failed to remove {player.Name} from players...");
+            Console.WriteLine(Concept.RemovePlayer(player.Id)
+                ? $"Successfully removed {player.Name} from players!"
+                : $"Failed to remove {player.Name} from players...");
         }
 
         public void ShowUnsignedPlayers()
@@ -280,7 +287,7 @@ namespace TeamManager.Presenters
                               "    Close                 \t(x)         \n");
         }
 
-        private static int GetUserInput()
+        private int GetUserInput()
         {
             Console.Write("\nInput: ");
             int input;
@@ -289,7 +296,7 @@ namespace TeamManager.Presenters
             return input;
         }
 
-        private static bool ValidateUserInput(string message)
+        private bool ValidateUserInput(string message)
         {
             string answer;
             do
@@ -303,9 +310,9 @@ namespace TeamManager.Presenters
             return true;
         }
 
-        private static void InvalidInput() => Console.WriteLine("Invalid input. Please try again...");
+        private void InvalidInput() => Console.WriteLine("Invalid input. Please try again...");
 
-        public override void FormClosed() { }
+        public override void WindowClosed() { }
 
     }
 }

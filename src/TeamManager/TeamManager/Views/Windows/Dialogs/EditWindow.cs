@@ -6,9 +6,9 @@ using TeamManager.Presenters;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Interfaces;
 
-namespace TeamManager.Views.Forms.ChildForms
+namespace TeamManager.Views.Windows.Dialogs
 {
-    public partial class EditForm : CustomForm, IEditView
+    public partial class EditWindow : CustomForm, IEditView
     {
 
         #region --- View Interface Items ---
@@ -32,7 +32,7 @@ namespace TeamManager.Views.Forms.ChildForms
 
 
 
-        public EditForm(EditMode editMode, Team team, Player player)
+        public EditWindow(EditMode editMode, Team team, Player player)
         {
             Team = team;
             Player = player;
@@ -98,7 +98,7 @@ namespace TeamManager.Views.Forms.ChildForms
                         "Suggestion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (answer == DialogResult.Yes)
-                        new UnsignedPlayersForm().ShowDialog();
+                        new UnsignedPlayersWindow().ShowDialog();
                     break;
 
                 case EditMode.TeamEdit:
@@ -129,7 +129,7 @@ namespace TeamManager.Views.Forms.ChildForms
 
         private void EditForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            _presenter.FormClosed();
+            _presenter.WindowClosed();
         }
 
     }

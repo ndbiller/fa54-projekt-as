@@ -21,11 +21,11 @@ namespace TeamManager.Presenters
 
         protected virtual void OnChildClosed(object sender, PresenterArgs e)
         {
-            Log.Info($"ChildForm closed invoked => {e.Child}");
+            Log.Info($"Child window closed. Invoking ChildClosed => {e.Child}");
             ChildClosed?.Invoke(sender, e);
         }
 
-        public abstract void FormClosed();
+        public abstract void WindowClosed();
 
         public static void SetConceptAndDatabaseType(TechnicalConceptType conceptType, DatabaseType dbType)
         {
@@ -48,7 +48,7 @@ namespace TeamManager.Presenters
                     break;
 
                 default:
-                    Concept = new TechnicalConcept1Mt(dbType);
+                    Concept = Defaults.TechnicalConcept;
                     break;
             }
         }

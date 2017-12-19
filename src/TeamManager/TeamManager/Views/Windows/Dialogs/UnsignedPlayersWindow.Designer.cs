@@ -1,6 +1,6 @@
-﻿namespace TeamManager.Views.Forms.ChildForms
+﻿namespace TeamManager.Views.Windows.Dialogs
 {
-    partial class UnsignedPlayersForm
+    partial class UnsignedPlayersWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -197,7 +197,7 @@
             this.customTableLayoutPanel2.Size = new System.Drawing.Size(294, 41);
             this.customTableLayoutPanel2.TabIndex = 1;
             // 
-            // UnsignedPlayersForm
+            // UnsignedPlayersWindow
             // 
             this.AppTitle.Icon = null;
             this.AppTitle.IconLocation = new System.Drawing.Point(0, 0);
@@ -223,7 +223,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximumSize = new System.Drawing.Size(892, 921);
             this.MinimumSize = new System.Drawing.Size(379, 567);
-            this.Name = "UnsignedPlayersForm";
+            this.Name = "UnsignedPlayersWindow";
             this.Padding = new System.Windows.Forms.Padding(11, 62, 12, 10);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Unsigned Players";

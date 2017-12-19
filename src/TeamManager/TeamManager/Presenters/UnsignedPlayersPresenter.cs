@@ -22,7 +22,7 @@ namespace TeamManager.Presenters
             _view = view;
             view.PlayersListBox.Clear();
 
-            ChildClosed += Form_ChildClose;
+            ChildClosed += Window_ChildClose;
         }
 
 
@@ -63,7 +63,7 @@ namespace TeamManager.Presenters
             return _view.PlayersListBox[pSelIndex].ToPlayer();
         }
 
-        void Form_ChildClose(object sender, PresenterArgs args)
+        void Window_ChildClose(object sender, PresenterArgs args)
         {
             int pSelIndex = _view.PlayerSelectedIndex;
             BindPlayersData();
@@ -74,9 +74,9 @@ namespace TeamManager.Presenters
             _view.PlayerSelectedIndex = pSelIndex;
         }
 
-        public override void FormClosed()
+        public override void WindowClosed()
         {
-            OnChildClosed(this, new PresenterArgs(FormType.UnsignedPlayers));
+            OnChildClosed(this, new PresenterArgs(WindowType.UnsignedPlayers));
         }
 
     }

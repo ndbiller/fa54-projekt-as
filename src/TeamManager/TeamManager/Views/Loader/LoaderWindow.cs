@@ -2,9 +2,9 @@
 
 namespace TeamManager.Views.Loader
 {
-    public partial class LoaderForm : Form
+    public partial class LoaderWindow : Form
     {
-        public LoaderForm()
+        public LoaderWindow()
         {
             InitializeComponent();
         }

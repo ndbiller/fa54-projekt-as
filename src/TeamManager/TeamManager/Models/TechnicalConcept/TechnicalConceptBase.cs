@@ -1,4 +1,5 @@
 ﻿using TeamManager.Database;
+using TeamManager.Utilities;
 
 namespace TeamManager.Models.TechnicalConcept
 {
@@ -11,14 +12,14 @@ namespace TeamManager.Models.TechnicalConcept
         {
             switch (dbType)
             {
-                case DatabaseType.MongoDB:
-                    DbLayer = new DBLayerMongo();
+                case DatabaseType.Mongo:
+                    DbLayer = new DbLayerMongo();
                     break;
-                case DatabaseType.SQL:
-                    DbLayer = new DBLayerSql();
+                case DatabaseType.Sql:
+                    DbLayer = new DbLayerSql();
                     break;
                 default:
-                    DbLayer = new DBLayerMongo();
+                    DbLayer = Defaults.Database;
                     break;
             }
         }

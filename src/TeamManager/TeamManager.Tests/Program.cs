@@ -8,7 +8,7 @@ namespace TeamManager.Tests
 {
     static class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("mLab MongoDB Connection via MongoDB.Driver 2.4.4 for ConceptType.Second:\n");
             Console.WriteLine(
@@ -16,16 +16,16 @@ namespace TeamManager.Tests
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
 
-            TestMongoDB();
+            TestMongoDb();
 
             //FillMongoDb();
         }
 
-        private static void TestMongoDB()
+        private static void TestMongoDb()
         {
             Console.Clear();
             Console.WriteLine("Connecting to MongoDB.");
-            DBLayerMongo mongo = new DBLayerMongo();
+            DbLayerMongo mongo = new DbLayerMongo();
             Console.WriteLine("DB connected.");
 
             Console.WriteLine("Showing all Teams.");
@@ -140,9 +140,9 @@ namespace TeamManager.Tests
 
         private static void FillMongoDb()
         {
-            new DBLayerMongo();
-            DBLayerMongo.Database.DropCollection("team");
-            DBLayerMongo.Database.DropCollection("player");
+            new DbLayerMongo();
+            DbLayerMongo.Database.DropCollection("team");
+            DbLayerMongo.Database.DropCollection("player");
 
             var teams = new List<Team>
             {
@@ -165,10 +165,10 @@ namespace TeamManager.Tests
                 new Player("Steve Stone")
             };
 
-            DBLayerMongo.TeamCollection.InsertMany(teams);
-            DBLayerMongo.PlayerCollection.InsertMany(players);
+            DbLayerMongo.TeamCollection.InsertMany(teams);
+            DbLayerMongo.PlayerCollection.InsertMany(players);
 
-            var manchesterUnitedId = DBLayerMongo.TeamCollection.Find(t => t.Name == "Manchester United").First().Id;
+            var manchesterUnitedId = DbLayerMongo.TeamCollection.Find(t => t.Name == "Manchester United").First().Id;
             var playersManchester = new List<Player>
             {
                 new Player("Bob Donaldson"    , manchesterUnitedId),
@@ -180,7 +180,7 @@ namespace TeamManager.Tests
                 new Player("Harry Stafford"   , manchesterUnitedId)
             };
 
-            DBLayerMongo.PlayerCollection.InsertMany(playersManchester);
+            DbLayerMongo.PlayerCollection.InsertMany(playersManchester);
         }
 
 
