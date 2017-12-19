@@ -19,14 +19,6 @@ namespace TeamManager
 
         private static readonly Guid SessionId = Guid.NewGuid();
 
-        /// <summary>
-        /// Allows Windows Forms application to start also in console mode.
-        /// </summary>
-        /// <returns></returns>
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        private static extern bool AllocConsole();
-
 
         /// <summary>
         /// Main interance of the program.
@@ -47,7 +39,7 @@ namespace TeamManager
             if (args.Length != 0)
             {
                 if (!args[0].ToLower().StartsWith("/g")) // We don't want to allocate console when using gui.
-                    AllocConsole();
+                    NativeMethods.AllocConsole();
                 else
                     startGui = true;
                  
