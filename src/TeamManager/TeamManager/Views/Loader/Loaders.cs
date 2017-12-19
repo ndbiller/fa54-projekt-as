@@ -14,14 +14,6 @@ namespace TeamManager.Views.Loader
     {
         private static readonly ILog Log = Logger.GetLogger();
 
-        /// <summary>
-        /// Used for bringing window to front with the handle of the window.
-        /// </summary>
-        /// <param name="hWnd"></param>
-        /// <returns></returns>
-        [DllImport("User32.dll")]
-        public static extern Int32 SetForegroundWindow(int hWnd);
-
         private static LoaderType _loaderType;
 
         private static LoaderWindow _loaderWindow;
@@ -97,7 +89,7 @@ namespace TeamManager.Views.Loader
         /// <param name="handle"></param>
         private static void WindowToFront(IntPtr handle)
         {
-            SetForegroundWindow(handle.ToInt32());
+            NativeMethods.SetForegroundWindow(handle.ToInt32());
         }
 
     }

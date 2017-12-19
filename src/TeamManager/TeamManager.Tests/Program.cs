@@ -4,7 +4,7 @@ using MongoDB.Driver;
 using TeamManager.Database;
 using TeamManager.Models.ResourceData;
 
-namespace TeamManager.Tests
+namespace TeamManager.Tests.Modules
 {
     static class Program
     {
@@ -140,7 +140,7 @@ namespace TeamManager.Tests
 
         private static void FillMongoDb()
         {
-            new DbLayerMongo();
+            DbLayerMongo dbLayerMongo = new DbLayerMongo();
             DbLayerMongo.Database.DropCollection("team");
             DbLayerMongo.Database.DropCollection("player");
 

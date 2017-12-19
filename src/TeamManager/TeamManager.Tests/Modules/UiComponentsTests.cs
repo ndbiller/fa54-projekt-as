@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using TeamManager.Models.ResourceData;
 using TeamManager.Utilities;
 
-namespace TeamManager.Tests
+namespace TeamManager.Tests.Modules
 {
     [TestFixture]
     public class UiComponentsTests
