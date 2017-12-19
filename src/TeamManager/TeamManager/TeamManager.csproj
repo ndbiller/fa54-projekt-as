@@ -54,7 +54,7 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>app.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\app.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ConfigureAwait, Version=1.1.0.0, Culture=neutral, PublicKeyToken=233850a516558a98, processorArchitecture=MSIL">
@@ -191,7 +191,7 @@
     <EmbeddedResource Include="Views\Loader\LoaderWindow.resx">
       <DependentUpon>LoaderWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClassDiagram.cd" />
+    <None Include="Resources\ClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -208,7 +208,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="app.ico" />
+    <Content Include="Resources\app.ico" />
     <None Include="FodyWeavers.xml" />
     <None Include="Resources\nerd-glasses.gif" />
   </ItemGroup>
