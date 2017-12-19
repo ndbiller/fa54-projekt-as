@@ -1,13 +1,10 @@
 ﻿using TeamManager.Database;
-using TeamManager.Models.ResourceData;
 
 namespace TeamManager.Models.TechnicalConcept
 {
     public abstract class TechnicalConceptBase
     {
-        protected IDataLayer dbLayer;
-        public Team Team { get; set; }
-        public Player Player { get; set; }
+        protected IDataLayer DbLayer;
 
 
         protected TechnicalConceptBase(DatabaseType dbType)
@@ -15,15 +12,16 @@ namespace TeamManager.Models.TechnicalConcept
             switch (dbType)
             {
                 case DatabaseType.MongoDB:
-                    this.dbLayer = new DBLayerMongo();
+                    DbLayer = new DBLayerMongo();
                     break;
                 case DatabaseType.SQL:
-                    this.dbLayer = new DBLayerSql();
+                    DbLayer = new DBLayerSql();
                     break;
                 default:
-                    this.dbLayer = new DBLayerSql();
+                    DbLayer = new DBLayerMongo();
                     break;
             }
         }
+
     }
 }

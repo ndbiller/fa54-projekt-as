@@ -13,37 +13,37 @@ namespace TeamManager.Models.TechnicalConcept
 
         public bool AddNewPlayer(string playerName)
         {
-            return dbLayer.CreatePlayer(playerName, "0");
+            return DbLayer.CreatePlayer(playerName, "0");
         }
 
         public bool AddNewPlayer(string playerName, string teamId)
         {
-            return dbLayer.CreatePlayer(playerName, teamId);
+            return DbLayer.CreatePlayer(playerName, teamId);
         }
 
         public Team GetPlayerTeam(string teamId)
         {
-            return dbLayer.ReadTeam(teamId);
+            return DbLayer.ReadTeam(teamId);
         }
 
         public bool AddNewTeam(string teamName)
         {
-            return dbLayer.CreateTeam(teamName);
+            return DbLayer.CreateTeam(teamName);
         }
 
         public bool ChangePlayerName(string playerId, string playerNewName)
         {
-            return dbLayer.UpdatePlayer(playerId, playerNewName);
+            return DbLayer.UpdatePlayer(playerId, playerNewName);
         }
 
         public bool ChangeTeamName(string teamId, string teamNewName)
         {
-            return dbLayer.UpdateTeam(teamId, teamNewName);
+            return DbLayer.UpdateTeam(teamId, teamNewName);
         }
 
         public List<Player> GetAllPlayers()
         {
-            return dbLayer.Players()?.OrderByDescending(p => p.Name).ToList();
+            return DbLayer.Players()?.OrderByDescending(p => p.Name).ToList();
         }
 
         public List<Player> GetAllPlayers(string filterText, bool ignoreCase)
@@ -56,7 +56,7 @@ namespace TeamManager.Models.TechnicalConcept
 
         public List<Team> GetAllTeams()
         {
-            return dbLayer.Teams()?
+            return DbLayer.Teams()?
                 .Where(t => t.Id != "0")
                 .OrderByDescending(t => t.Name)
                 .ToList();
@@ -73,7 +73,7 @@ namespace TeamManager.Models.TechnicalConcept
 
         public List<Player> GetTeamPlayers(string teamId)
         {
-            return dbLayer.ShowPlayers(teamId)?.OrderByDescending(p => p.Name).ToList();
+            return DbLayer.ShowPlayers(teamId)?.OrderByDescending(p => p.Name).ToList();
         }
 
         public List<Player> GetTeamPlayers(string teamId, string filterText, bool ignoreCase)
@@ -86,17 +86,17 @@ namespace TeamManager.Models.TechnicalConcept
 
         public bool RemovePlayer(string playerId)
         {
-            return dbLayer.DeletePlayer(playerId);
+            return DbLayer.DeletePlayer(playerId);
         }
 
         public bool RemoveTeam(string teamId)
         {
-            return dbLayer.DeleteTeam(teamId);
+            return DbLayer.DeleteTeam(teamId);
         }
 
         public bool ChangePlayerTeam(string playerId, string teamId)
         {
-            return dbLayer.ChangePlayerTeam(playerId, teamId);
+            return DbLayer.ChangePlayerTeam(playerId, teamId);
         }
 
     }
