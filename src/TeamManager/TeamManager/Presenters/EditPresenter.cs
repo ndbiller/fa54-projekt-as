@@ -10,6 +10,7 @@ namespace TeamManager.Presenters
 {
     public class EditPresenter : BasePresenter
     {
+        /// <summary> Logger instance of the class <see cref="EditPresenter"/> </summary>
         private static readonly ILog Log = Logger.GetLogger();
 
 

@@ -12,6 +12,7 @@ namespace TeamManager.Presenters
     /// </summary>
     public abstract class BasePresenter
     {
+        /// <summary> Logger instance of the class <see cref="BasePresenter"/> </summary>
         private static readonly ILog Log = Logger.GetLogger();
 
         protected static ITechnicalConcept Concept;

@@ -4,14 +4,10 @@ using TeamManager.Views.Windows;
 
 namespace TeamManager.Views
 {
-    /// <summary>
-    /// Opening the Team Manager app in user interface mode(GUI).
-    /// </summary>
+    /// <summary> Graphic User Interface Class. </summary>
     public class Gui
     {
-        /// <summary>
-        /// Main entry point for the GUI application.
-        /// </summary>
+        /// <summary> Starts the Team Manager application in user interface(gui) mode. </summary>
         [STAThread]
         public static void Show()
         {

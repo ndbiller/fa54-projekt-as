@@ -11,6 +11,7 @@ namespace TeamManager.Database
 {
     public sealed class DbLayerMongo : IDataLayer
     {
+        /// <summary> Logger instance of the class <see cref="DbLayerMongo"/> </summary>
         private static readonly ILog Log = Logger.GetLogger();
 
 

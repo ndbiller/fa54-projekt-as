@@ -11,6 +11,7 @@ namespace TeamManager.Presenters
 {
     public class MainPresenter : BasePresenter
     {
+        /// <summary> Logger instance of the class <see cref="MainPresenter"/> </summary>
         private static readonly ILog Log = Logger.GetLogger();
 
         /// <summary>

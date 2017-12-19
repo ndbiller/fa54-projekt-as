@@ -14,16 +14,19 @@ namespace TeamManager
 {
     static class Program
     {
-
+        /// <summary> Logger instance of the class <see cref="Program"/> </summary>
         private static readonly ILog Log = Logger.GetLogger();
 
+        /// <summary> Unique session id of the application. </summary>
         private static readonly Guid SessionId = Guid.NewGuid();
 
 
         /// <summary>
-        /// Main interance of the program.
+        /// The main father entrance for the application.
+        /// We can define in the beginning of the application the TechnicalConcept(1,2,1mt,2mt), Database type and GUI or TUI. 
+        /// Checks whether the user passed arguments to the console and initialize the application with the wanted data.
         /// </summary>
-        /// <param name="args"></param>
+        /// <param name="args">The arguements that being passed to the executeable through the console.</param>
         static void Main(string[] args)
         {
             Log.Info($"##### Application started. Session ID => {SessionId} #####");
@@ -127,9 +130,7 @@ namespace TeamManager
         }
 
 
-        /// <summary>
-        /// Prints help to the user when using the application through the console.
-        /// </summary>
+        /// <summary> Prints help to the user when using the application through the console. </summary>
         private static void PrintHelp()
         {
             Console.WriteLine("\nStarts the team manager app from the console or gui and allows you to choose " +
@@ -163,6 +164,7 @@ namespace TeamManager
         }
 
 
+        /// <summary> Prints out invalid syntax when invalid syntax received. </summary>
         private static void InvalidSyntax()
         {
             Log.Info("Received invalid syntax from console.");
