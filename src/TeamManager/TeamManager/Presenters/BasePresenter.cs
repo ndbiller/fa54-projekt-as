@@ -35,12 +35,20 @@ namespace TeamManager.Presenters
                     Concept = new TechnicalConcept1(dbType);
                     break;
 
+                case TechnicalConceptType.FirstMt:
+                    Concept = new TechnicalConcept1Mt(dbType);
+                    break;
+
                 case TechnicalConceptType.Second:
                     Concept = new TechnicalConcept2(dbType);
                     break;
 
+                case TechnicalConceptType.SecondMt:
+                    Concept = new TechnicalConcept2Mt(dbType);
+                    break;
+
                 default:
-                    Concept = new TechnicalConcept1(dbType);
+                    Concept = new TechnicalConcept1Mt(dbType);
                     break;
             }
         }
