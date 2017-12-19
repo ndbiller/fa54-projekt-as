@@ -10,40 +10,40 @@ namespace TeamManager.Models.TechnicalConcept
     {
         public TechnicalConcept2(DatabaseType dbType) : base(dbType) { }
 
-#if MULTI_THREADED
+
         public bool AddNewPlayer(string playerName)
         {
-            return dbLayer.CreatePlayerAsync(playerName, "0").Result;
+            return DbLayer.CreatePlayer(playerName, "0");
         }
 
         public bool AddNewPlayer(string playerName, string teamId)
         {
-            return dbLayer.CreatePlayerAsync(playerName, teamId).Result;
+            return DbLayer.CreatePlayer(playerName, teamId);
         }
 
         public Team GetPlayerTeam(string teamId)
         {
-            return dbLayer.ReadTeamAsync(teamId).Result;
+            return DbLayer.ReadTeam(teamId);
         }
 
         public bool AddNewTeam(string teamName)
         {
-            return dbLayer.CreateTeamAsync(teamName).Result;
+            return DbLayer.CreateTeam(teamName);
         }
 
         public bool ChangePlayerName(string playerId, string playerNewName)
         {
-            return dbLayer.UpdatePlayerAsync(playerId, playerNewName).Result;
+            return DbLayer.UpdatePlayer(playerId, playerNewName);
         }
 
         public bool ChangeTeamName(string teamId, string teamNewName)
         {
-            return dbLayer.UpdateTeamAsync(teamId, teamNewName).Result;
+            return DbLayer.UpdateTeam(teamId, teamNewName);
         }
 
         public List<Player> GetAllPlayers()
         {
-            return dbLayer.PlayersAsync().Result?.OrderByDescending(p => p.Name).ToList();
+            return DbLayer.Players()?.OrderByDescending(p => p.Name).ToList();
         }
 
         public List<Player> GetAllPlayers(string filterText, bool ignoreCase)
@@ -56,7 +56,7 @@ namespace TeamManager.Models.TechnicalConcept
 
         public List<Team> GetAllTeams()
         {
-            return dbLayer.TeamsAsync().Result?
+            return DbLayer.Teams()?
                 .Where(t => t.Id != "0")
                 .OrderByDescending(t => t.Name)
                 .ToList();
@@ -73,7 +73,7 @@ namespace TeamManager.Models.TechnicalConcept
 
         public List<Player> GetTeamPlayers(string teamId)
         {
-            return dbLayer.ShowPlayersAsync(teamId).Result?.OrderByDescending(p => p.Name).ToList();
+            return DbLayer.ShowPlayers(teamId)?.OrderByDescending(p => p.Name).ToList();
         }
 
         public List<Player> GetTeamPlayers(string teamId, string filterText, bool ignoreCase)
@@ -86,114 +86,18 @@ namespace TeamManager.Models.TechnicalConcept
 
         public bool RemovePlayer(string playerId)
         {
-            return dbLayer.DeletePlayerAsync(playerId).Result;
+            return DbLayer.DeletePlayer(playerId);
         }
 
         public bool RemoveTeam(string teamId)
         {
-            return dbLayer.DeleteTeamAsync(teamId).Result;
+            return DbLayer.DeleteTeam(teamId);
         }
 
         public bool ChangePlayerTeam(string playerId, string teamId)
         {
-            return dbLayer.ChangePlayerTeamAsync(playerId, teamId).Result;
+            return DbLayer.ChangePlayerTeam(playerId, teamId);
         }
-
-
-
-#else
-        #region --- Not Multi-Threaded calls --
-
-        public bool AddNewPlayer(string playerName)
-        {
-            return dbLayer.CreatePlayer(playerName, "0");
-        }
-
-        public bool AddNewPlayer(string playerName, string teamId)
-        {
-            return dbLayer.CreatePlayer(playerName, teamId);
-        }
-
-        public Team GetPlayerTeam(string teamId)
-        {
-            return dbLayer.ReadTeam(teamId);
-        }
-
-        public bool AddNewTeam(string teamName)
-        {
-            return dbLayer.CreateTeam(teamName);
-        }
-
-        public bool ChangePlayerName(string playerId, string playerNewName)
-        {
-            return dbLayer.UpdatePlayer(playerId, playerNewName);
-        }
-
-        public bool ChangeTeamName(string teamId, string teamNewName)
-        {
-            return dbLayer.UpdateTeam(teamId, teamNewName);
-        }
-
-        public List<Player> GetAllPlayers()
-        {
-            return dbLayer.Players()?.OrderByDescending(p => p.Name).ToList();
-        }
-
-        public List<Player> GetAllPlayers(string filterText, bool ignoreCase)
-        {
-            return GetAllPlayers()?
-                .Where(
-                    p => p.Name.ToLower().Contains(ignoreCase ? filterText.ToLower() : filterText)
-                ).ToList();
-        }
-
-        public List<Team> GetAllTeams()
-        {
-            return dbLayer.Teams()?
-                .Where(t => t.Id != "0")
-                .OrderByDescending(t => t.Name)
-                .ToList();
-        }
-
-        public List<Team> GetAllTeams(string filterText, bool ignoreCase)
-        {
-            return GetAllTeams()?
-                .Where(
-                    t => t.Id != "0"
-                         && t.Name.ToLower().Contains(ignoreCase ? filterText.ToLower() : filterText)
-                ).ToList();
-        }
-
-        public List<Player> GetTeamPlayers(string teamId)
-        {
-            return dbLayer.ShowPlayers(teamId)?.OrderByDescending(p => p.Name).ToList();
-        }
-
-        public List<Player> GetTeamPlayers(string teamId, string filterText, bool ignoreCase)
-        {
-            return GetTeamPlayers(teamId)?
-                .Where(
-                    t => t.Name.ToLower().Contains(ignoreCase ? filterText.ToLower() : filterText)
-                ).ToList();
-        }
-
-        public bool RemovePlayer(string playerId)
-        {
-            return dbLayer.DeletePlayer(playerId);
-        }
-
-        public bool RemoveTeam(string teamId)
-        {
-            return dbLayer.DeleteTeam(teamId);
-        }
-
-        public bool ChangePlayerTeam(string playerId, string teamId)
-        {
-            return dbLayer.ChangePlayerTeam(playerId, teamId);
-        }
-
-        #endregion --- Not Multi-Threaded calls --
-#endif
 
     }
 }

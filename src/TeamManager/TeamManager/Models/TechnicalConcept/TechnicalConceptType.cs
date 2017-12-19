@@ -11,8 +11,18 @@
         First,
 
         /// <summary>
+        /// Retrieves the data in ascending order using async calls.
+        /// </summary>
+        FirstMt,
+
+        /// <summary>
         /// Retrieves the data in descending order.
         /// </summary>
-        Second
+        Second,
+
+        /// <summary>
+        /// Retrieves the data in descending order using async calls.
+        /// </summary>
+        SecondMt
     }
 }

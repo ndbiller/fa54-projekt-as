@@ -6,44 +6,44 @@ using TeamManager.Models.ResourceData;
 
 namespace TeamManager.Models.TechnicalConcept
 {
-    public class TechnicalConcept1 : TechnicalConceptBase, ITechnicalConcept
+    public class TechnicalConcept1Mt : TechnicalConceptBase, ITechnicalConcept
     {
-        public TechnicalConcept1(DatabaseType dbType) : base(dbType) { }
+        public TechnicalConcept1Mt(DatabaseType dbType) : base(dbType) { }
 
 
         public bool AddNewPlayer(string playerName)
         {
-            return DbLayer.CreatePlayer(playerName, "0");
+            return DbLayer.CreatePlayerAsync(playerName, "0").Result;
         }
 
         public bool AddNewPlayer(string playerName, string teamId)
         {
-            return DbLayer.CreatePlayer(playerName, teamId);
+            return DbLayer.CreatePlayerAsync(playerName, teamId).Result;
         }
 
         public Team GetPlayerTeam(string teamId)
         {
-            return DbLayer.ReadTeam(teamId);
+            return DbLayer.ReadTeamAsync(teamId).Result;
         }
 
         public bool AddNewTeam(string teamName)
         {
-            return DbLayer.CreateTeam(teamName);
+            return DbLayer.CreateTeamAsync(teamName).Result;
         }
 
         public bool ChangePlayerName(string playerId, string playerNewName)
         {
-            return DbLayer.UpdatePlayer(playerId, playerNewName);
+            return DbLayer.UpdatePlayerAsync(playerId, playerNewName).Result;
         }
 
         public bool ChangeTeamName(string teamId, string teamNewName)
         {
-            return DbLayer.UpdateTeam(teamId, teamNewName);
+            return DbLayer.UpdateTeamAsync(teamId, teamNewName).Result;
         }
 
         public List<Player> GetAllPlayers()
         {
-            return DbLayer.Players()?.OrderBy(p => p.Name).ToList();
+            return DbLayer.PlayersAsync().Result?.OrderBy(p => p.Name).ToList();
         }
 
         public List<Player> GetAllPlayers(string filterText, bool ignoreCase)
@@ -56,7 +56,7 @@ namespace TeamManager.Models.TechnicalConcept
 
         public List<Team> GetAllTeams()
         {
-            return DbLayer.Teams()?
+            return DbLayer.TeamsAsync().Result?
                 .Where(t => t.Id != "0")
                 .OrderBy(t => t.Name)
                 .ToList();
@@ -73,7 +73,7 @@ namespace TeamManager.Models.TechnicalConcept
 
         public List<Player> GetTeamPlayers(string teamId)
         {
-            return DbLayer.ShowPlayers(teamId)?.OrderBy(p => p.Name).ToList();
+            return DbLayer.ShowPlayersAsync(teamId).Result?.OrderBy(p => p.Name).ToList();
         }
 
         public List<Player> GetTeamPlayers(string teamId, string filterText, bool ignoreCase)
@@ -86,18 +86,17 @@ namespace TeamManager.Models.TechnicalConcept
 
         public bool RemovePlayer(string playerId)
         {
-            return DbLayer.DeletePlayer(playerId);
+            return DbLayer.DeletePlayerAsync(playerId).Result;
         }
 
         public bool RemoveTeam(string teamId)
         {
-            return DbLayer.DeleteTeam(teamId);
+            return DbLayer.DeleteTeamAsync(teamId).Result;
         }
 
         public bool ChangePlayerTeam(string playerId, string teamId)
         {
-            return DbLayer.ChangePlayerTeam(playerId, teamId);
+            return DbLayer.ChangePlayerTeamAsync(playerId, teamId).Result;
         }
-
     }
 }

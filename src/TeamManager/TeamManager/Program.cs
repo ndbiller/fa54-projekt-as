@@ -24,7 +24,7 @@ namespace TeamManager
         /// <returns></returns>
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool AllocConsole();
+        private static extern bool AllocConsole();
 
 
         /// <summary>
@@ -35,8 +35,8 @@ namespace TeamManager
         {
             Log.Info($"##### Application started. Session ID => {SessionId} #####");
 
-            // Default = First and MongoDB Connections.
-            var conceptType = TechnicalConceptType.First;
+            // Default = FirstMt and MongoDB Connections.
+            var conceptType = TechnicalConceptType.FirstMt;
             var dbType      = DatabaseType.MongoDB;
             var startGui    = false;
 
@@ -63,6 +63,18 @@ namespace TeamManager
                     case "/g:2":
                         Log.Info("Using TechnicalConcept2.");
                         conceptType = TechnicalConceptType.Second;
+                        break;
+
+                    case "/t-mt:1":
+                    case "/g-mt:1":
+                        Log.Info("Using multi-threaded TechnicalConcept1.");
+                        conceptType = TechnicalConceptType.FirstMt;
+                        break;
+
+                    case "/t-mt:2":
+                    case "/g-mt:2":
+                        Log.Info("Using multi-threaded TechnicalConcept2.");
+                        conceptType = TechnicalConceptType.SecondMt;
                         break;
 
                     case "/?":
@@ -135,12 +147,20 @@ namespace TeamManager
             Console.WriteLine("\t/G:1 \t Starts the app in windows user interface (GUI) mode with concept 1.");
             Console.WriteLine("\t/G:2 \t Starts the app in windows user interface (GUI) mode with concept 2.\n");
 
+            Console.WriteLine("\t/T-MT:1  Starts the app in console/terminal (TUI) mode using multi-threaded calls with concept 1.");
+            Console.WriteLine("\t/T-MT:2  Starts the app in console/terminal (TUI) mode using multi-threaded calls with concept 2.");
+            Console.WriteLine("\t/G-MT:1  Starts the app in windows user interface (GUI) mode using multi-threaded calls with concept 1.");
+            Console.WriteLine("\t/G-MT:2  Starts the app in windows user interface (GUI) mode using multi-threaded calls with concept 2.\n");
+
             Console.WriteLine("\tSecond Parameter:");
             Console.WriteLine("\t/DB:SQL \t Using relational SQL database.");
             Console.WriteLine("\t/DB:MONGO \t Using no-relational Mongo-DB Database.");
 
-            Console.WriteLine("\n### Example: TeamManager /t:1 /db:mongo ###");
-            Console.WriteLine("### Example: TeamManager /g:2 /db:sql ###");
+            Console.WriteLine("\n### Examples: ###\n" +
+                              "TeamManager /t:1 /db:mongo\n" +
+                              "TeamManager /t-mt:1 /db:mongo\n" +
+                              "TeamManager /g:2 /db:sql\n" +
+                              "TeamManager /g-mt:2 /db:sql\n");
 
             Console.ReadKey();
         }

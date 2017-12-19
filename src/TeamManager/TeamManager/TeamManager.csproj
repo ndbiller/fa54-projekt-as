@@ -101,6 +101,8 @@
     <Compile Include="Database\DBLayerMongo.cs" />
     <Compile Include="Database\DBLayerSql.cs" />
     <Compile Include="Database\IDataLayer.cs" />
+    <Compile Include="Models\TechnicalConcept\TechnicalConcept1Mt.cs" />
+    <Compile Include="Models\TechnicalConcept\TechnicalConcept2Mt.cs" />
     <Compile Include="Models\TechnicalConcept\TechnicalConceptBase.cs" />
     <Compile Include="Presenters\AllPlayersPresenter.cs" />
     <Compile Include="Presenters\BasePresenter.cs" />
