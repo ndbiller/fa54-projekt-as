@@ -12,17 +12,8 @@ namespace TeamManager.Views
     /// </summary>
     public class TUI : IConsoleView
     {
-        
-        /// <summary>
-        /// Main entry point for the console application.
-        /// </summary>
-        public static void Start(TechnicalConceptType conceptType, DatabaseType dbType)
-        {
-            BasePresenter.SetConceptAndDatabaseType(conceptType, dbType);
-            StartProgram();
-        }
 
-        private static ConsolePresenter presenter;
+        private static readonly ConsolePresenter _presenter;
 
         private static readonly List<ConsoleKey> AllowedKeys = new List<ConsoleKey>
         {
@@ -31,17 +22,24 @@ namespace TeamManager.Views
             ConsoleKey.X
         };
 
-        private static void StartProgram()
-        {
-            presenter = new ConsolePresenter();
 
+        static TUI()
+        {
+            _presenter = new ConsolePresenter();
+        }
+
+        /// <summary>
+        /// Main entry point for the console application.
+        /// </summary>
+        public static void Show()
+        {
             while (true)
             {
-                presenter.PrintMenu();
+                _presenter.PrintMenu();
                 Console.Write("\nInput: ");
                 ConsoleKeyInfo input = Console.ReadKey();
 
-                presenter.PrintMenu();
+                _presenter.PrintMenu();
                 Console.Write($"\nInput: {input.KeyChar}");
 
                 if (AllowedKeys.Contains(input.Key)
@@ -58,57 +56,57 @@ namespace TeamManager.Views
             {
                 case ConsoleKey.A:
                     Console.WriteLine("--- Show Teams ---");
-                    presenter.AllTeams();
+                    _presenter.AllTeams();
                     break;
 
                 case ConsoleKey.B:
                     Console.WriteLine("--- New Team ---");
-                    presenter.CreateNewTeam();
+                    _presenter.CreateNewTeam();
                     break;
 
                 case ConsoleKey.C:
                     Console.WriteLine("--- Edit Team ---");
-                    presenter.EditTeam();
+                    _presenter.EditTeam();
                     break;
 
                 case ConsoleKey.D:
                     Console.WriteLine("--- Delete Team ---");
-                    presenter.DeleteTeam();
+                    _presenter.DeleteTeam();
                     break;
 
                 case ConsoleKey.E:
                     Console.WriteLine("--- Show Players ---");
-                    presenter.AllPlayers();
+                    _presenter.AllPlayers();
                     break;
 
                 case ConsoleKey.F:
                     Console.WriteLine("--- New Player ---");
-                    presenter.CreateNewPlayer();
+                    _presenter.CreateNewPlayer();
                     break;
 
                 case ConsoleKey.G:
                     Console.WriteLine("--- Edit Player ---");
-                    presenter.EditPlayer();
+                    _presenter.EditPlayer();
                     break;
 
                 case ConsoleKey.H:
                     Console.WriteLine("--- Delete Player ---");
-                    presenter.DeletePlayer();
+                    _presenter.DeletePlayer();
                     break;
 
                 case ConsoleKey.I:
                     Console.WriteLine("--- Show Unsigned Players ---");
-                    presenter.ShowUnsignedPlayers();
+                    _presenter.ShowUnsignedPlayers();
                     break;
 
                 case ConsoleKey.J:
                     Console.WriteLine("--- Show Team Players ---");
-                    presenter.ShowTeamPlayers();
+                    _presenter.ShowTeamPlayers();
                     break;
 
                 case ConsoleKey.X:
                     Console.WriteLine("--- Close ---");
-                    presenter.Close();
+                    _presenter.Close();
                     break;
 
                 default:

@@ -37,7 +37,7 @@ namespace TeamManager.Database
 
         static DBLayerMongo()
         {
-#if !MONGO_DB_LOCAL
+#if MONGO_DB_LOCAL
             Log.Info("Using Mongo-Db local server connection.");
             // connect to local mongodb server
             DatabaseName     = "teamplayer";

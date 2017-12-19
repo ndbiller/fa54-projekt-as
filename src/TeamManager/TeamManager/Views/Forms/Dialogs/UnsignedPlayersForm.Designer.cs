@@ -1,4 +1,4 @@
-﻿namespace TeamManager.Views.Forms.ChildForms
+﻿namespace TeamManager.Views.Forms.Dialogs
 {
     partial class UnsignedPlayersForm
     {

@@ -5,14 +5,12 @@ namespace TeamManager.Presenters.Events
 {
     public class PresenterArgs : EventArgs
     {
-        private readonly FormType child;
-
-        public FormType Child => child;
+        public FormType Child { get; }
 
 
         public PresenterArgs(FormType child)
         {
-            this.child = child;
+            Child = child;
         }
     }
 }

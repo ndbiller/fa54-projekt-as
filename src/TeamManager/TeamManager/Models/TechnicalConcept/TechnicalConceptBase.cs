@@ -1,4 +1,5 @@
 ﻿using TeamManager.Database;
+using TeamManager.Utilities;
 
 namespace TeamManager.Models.TechnicalConcept
 {
@@ -18,7 +19,7 @@ namespace TeamManager.Models.TechnicalConcept
                     DbLayer = new DBLayerSql();
                     break;
                 default:
-                    DbLayer = new DBLayerMongo();
+                    DbLayer = Defaults.Database;
                     break;
             }
         }

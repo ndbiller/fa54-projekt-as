@@ -16,10 +16,8 @@ namespace TeamManager.Views
         /// Main entry point for the GUI application.
         /// </summary>
         [STAThread]
-        public static void Start(TechnicalConceptType conceptType, DatabaseType dbType)
+        public static void Show()
         {
-            BasePresenter.SetConceptAndDatabaseType(conceptType, dbType);
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

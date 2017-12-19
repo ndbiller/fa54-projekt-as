@@ -9,7 +9,7 @@ using TeamManager.Utilities;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Interfaces;
 
-namespace TeamManager.Views.Forms.ChildForms
+namespace TeamManager.Views.Forms.Dialogs
 {
     public partial class AllPlayersForm : CustomForm, IAllPlayersView
     {

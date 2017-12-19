@@ -5,7 +5,7 @@ using TeamManager.Models.ResourceData;
 using TeamManager.Presenters;
 using TeamManager.Utilities;
 using TeamManager.Views.Enums;
-using TeamManager.Views.Forms.ChildForms;
+using TeamManager.Views.Forms.Dialogs;
 using TeamManager.Views.Interfaces;
 using TeamManager.Views.Loader;
 

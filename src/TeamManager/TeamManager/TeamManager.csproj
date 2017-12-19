@@ -112,25 +112,26 @@
     <Compile Include="Presenters\Events\PresenterHandler.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Presenters\UnsignedPlayersPresenter.cs" />
+    <Compile Include="Utilities\Defaults.cs" />
     <Compile Include="Utilities\Logger.cs" />
     <Compile Include="Utilities\Utility.cs" />
     <Compile Include="Views\Enums\FormType.cs" />
-    <Compile Include="Views\Forms\ChildForms\EditForm.cs">
+    <Compile Include="Views\Forms\Dialogs\EditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Forms\ChildForms\EditForm.Designer.cs">
+    <Compile Include="Views\Forms\Dialogs\EditForm.Designer.cs">
       <DependentUpon>EditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Forms\ChildForms\AllPlayersForm.cs">
+    <Compile Include="Views\Forms\Dialogs\AllPlayersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Forms\ChildForms\AllPlayersForm.Designer.cs">
+    <Compile Include="Views\Forms\Dialogs\AllPlayersForm.Designer.cs">
       <DependentUpon>AllPlayersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Forms\ChildForms\UnsignedPlayersForm.cs">
+    <Compile Include="Views\Forms\Dialogs\UnsignedPlayersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Forms\ChildForms\UnsignedPlayersForm.Designer.cs">
+    <Compile Include="Views\Forms\Dialogs\UnsignedPlayersForm.Designer.cs">
       <DependentUpon>UnsignedPlayersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Enums\EditMode.cs" />
@@ -163,13 +164,13 @@
     <Compile Include="Views\Loader\LoaderType.cs" />
     <Compile Include="Views\TUI.cs" />
     <Compile Include="Models\TechnicalConcept\TechnicalConceptType.cs" />
-    <EmbeddedResource Include="Views\Forms\ChildForms\EditForm.resx">
+    <EmbeddedResource Include="Views\Forms\Dialogs\EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Forms\ChildForms\AllPlayersForm.resx">
+    <EmbeddedResource Include="Views\Forms\Dialogs\AllPlayersForm.resx">
       <DependentUpon>AllPlayersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Forms\ChildForms\UnsignedPlayersForm.resx">
+    <EmbeddedResource Include="Views\Forms\Dialogs\UnsignedPlayersForm.resx">
       <DependentUpon>UnsignedPlayersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\MainForm.resx">

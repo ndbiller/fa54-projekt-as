@@ -48,7 +48,7 @@ namespace TeamManager.Presenters
                     break;
 
                 default:
-                    Concept = new TechnicalConcept1Mt(dbType);
+                    Concept = Defaults.TechnicalConcept;
                     break;
             }
         }

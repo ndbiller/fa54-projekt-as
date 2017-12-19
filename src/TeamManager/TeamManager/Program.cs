@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using log4net;
 using TeamManager.Database;
 using TeamManager.Models.TechnicalConcept;
+using TeamManager.Presenters;
 using TeamManager.Utilities;
 using TeamManager.Views;
 
@@ -36,8 +37,8 @@ namespace TeamManager
             Log.Info($"##### Application started. Session ID => {SessionId} #####");
 
             // Default = FirstMt and MongoDB Connections.
-            var conceptType = TechnicalConceptType.FirstMt;
-            var dbType      = DatabaseType.MongoDB;
+            var conceptType = Defaults.TechnicalConceptType;
+            var dbType      = Defaults.DatabaseType;
             var startGui    = false;
 
             // Uncomment me if you want debugging console. 
@@ -109,21 +110,25 @@ namespace TeamManager
                         return;
                 }
 
+
+                BasePresenter.SetConceptAndDatabaseType(conceptType, dbType);
+
                 if (startGui)
                 {
                     Log.Info("Starting GUI...");
-                    GUI.Start(conceptType, dbType);
+                    GUI.Show();
                 }
                 else
                 {
                     Log.Info("Starting TUI...");
-                    TUI.Start(conceptType, dbType);
+                    TUI.Show();
                 }
             }
             else // -> when you start the app through the windows explorer or from the console without parameters.
             {
                 Log.Info("Starting GUI with default configuration.");
-                GUI.Start(conceptType, dbType);
+                BasePresenter.SetConceptAndDatabaseType(conceptType, dbType);
+                GUI.Show();
             }
 
             Log.Info($"##### Application Closed. Session ID => {SessionId} #####");

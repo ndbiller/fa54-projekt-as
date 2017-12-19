@@ -6,7 +6,7 @@ using TeamManager.Presenters;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Interfaces;
 
-namespace TeamManager.Views.Forms.ChildForms
+namespace TeamManager.Views.Forms.Dialogs
 {
     public partial class UnsignedPlayersForm : CustomForm, IUnsignedPlayersView
     {
