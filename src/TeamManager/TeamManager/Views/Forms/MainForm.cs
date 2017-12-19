@@ -1,49 +1,92 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Windows.Forms;
 using System.Windows.Forms.Custom;
+using TeamManager.Models.ResourceData;
 using TeamManager.Presenters;
+using TeamManager.Utilities;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Forms.ChildForms;
 using TeamManager.Views.Interfaces;
+using TeamManager.Views.Loader;
 
 namespace TeamManager.Views.Forms
 {
     public partial class MainForm : CustomForm, IMainView
     {
-        private MainPresenter presenter;
+
+        #region --- View Interface Items ---
+
+        public int TeamSelectedIndex
+        {
+            get => lbxTeams.SelectedIndex;
+            set => lbxTeams.SelectedIndex = value;
+        }
+
+        public int PlayerSelectedIndex
+        {
+            get => lbxPlayers.SelectedIndex;
+            set => lbxPlayers.SelectedIndex = value;
+        }
+
+        public string SearchText
+        {
+            get => tbxSearch.Text;
+            set => tbxSearch.Text = value;
+        }
+
+        public ListBox.ObjectCollection TeamsListBox => lbxTeams.Items;
+
+        public ListBox.ObjectCollection PlayersListBox => lbxPlayers.Items;
+
+        #endregion --- View Interface Items ---
+
+
+        private readonly MainPresenter _presenter;
+
+
 
         public MainForm()
         {
+            Loaders.StartLoader(LoaderType.Loader, 0);
+
             InitializeComponent();
-            presenter = new MainPresenter(this);
-            presenter.BindTeamsData();
-            presenter.BindPlayersData();
+            _presenter = new MainPresenter(this);
+            _presenter.BindTeamsData();
+
+            Loaders.StopLoader(Handle);
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+
+        private void tbxSearch_TextChanged(object sender, EventArgs e)
         {
-            presenter.Search(tbxSearch, rbnTeams.Checked);
+            _presenter.Search(tbxSearch.Text, tbxSearch.TextSearch, rbnTeams.Checked);
         }
 
-        private void btnPDelete_Click(object sender, EventArgs e)
+        private void rbnTeams_CheckedChanged(object sender, EventArgs e)
         {
-            presenter.DeletePlayer();
-        }
-
-        private void btnTDelete_Click(object sender, EventArgs e)
-        {
-            presenter.DeleteTeam();
+            tbxSearch.Text = string.Empty;
+            tbxSearch.Focus();
         }
 
         private void lbxTeams_SelectedIndexChanged(object sender, EventArgs e)
         {
-            presenter.BindPlayersData();
+            _presenter.BindPlayersData();
+        }
+
+        private void btnTDelete_Click(object sender, EventArgs e)
+        {
+            _presenter.DeleteTeam();
+        }
+
+        private void btnPDelete_Click(object sender, EventArgs e)
+        {
+            _presenter.DeletePlayer();
         }
 
 
 
-        #region ------------------- Show Dialogs -------------------
+        #region --- Show Dialogs ---
+
         private void btnUnsignedPlayers_Click(object sender, EventArgs e)
         {
             new UnsignedPlayersForm().ShowDialog();
@@ -54,44 +97,36 @@ namespace TeamManager.Views.Forms
             new AllPlayersForm().ShowDialog();
         }
 
-        private void btnPEdit_Click(object sender, EventArgs e)
+        private void btnTCreate_Click(object sender, EventArgs e)
         {
-            new EditForm(ViewType.PlayerEdit).ShowDialog();
+            new EditForm(EditMode.TeamCreate, null, null).ShowDialog();
         }
 
         private void btnPCreate_Click(object sender, EventArgs e)
         {
-            new EditForm(ViewType.PlayerCreate).ShowDialog();
+            Team team = _presenter.GetSelectedTeam();
+            if (team == null) return;
+
+            new EditForm(EditMode.PlayerCreate, team, null).ShowDialog();
         }
 
         private void btnTEdit_Click(object sender, EventArgs e)
         {
-            new EditForm(ViewType.TeamEdit).ShowDialog();
+            Team team = _presenter.GetSelectedTeam();
+            if (team == null) return;
+
+            new EditForm(EditMode.TeamEdit, team, null).ShowDialog();
         }
 
-        private void btnTCreate_Click(object sender, EventArgs e)
+        private void btnPEdit_Click(object sender, EventArgs e)
         {
-            new EditForm(ViewType.TeamCreate).ShowDialog();
-        }
-        #endregion -------------- Show Dialogs -------------------
+            Tuple<Team, Player> teamAndPlayer = _presenter.GetSelectedTeamAndPlayer();
+            if (teamAndPlayer == null || teamAndPlayer.ContainsNull()) return;
 
-        public string SearchText
-        {
-            get => tbxSearch.TextS;
-            set => tbxSearch.TextS = value;
+            new EditForm(EditMode.PlayerEdit, teamAndPlayer.Item1, teamAndPlayer.Item2).ShowDialog();
         }
 
-        public List<string> ListBoxTeams
-        {
-            get => lbxTeams.Items.Cast<string>().ToList();
-            set => lbxTeams.DataSource = value;
-        }
-
-        public List<string> ListBoxPlayers
-        {
-            get => lbxPlayers.Items.Cast<string>().ToList();
-            set => lbxPlayers.DataSource = value;
-        }
+        #endregion --- Show Dialogs ---
 
     }
 }

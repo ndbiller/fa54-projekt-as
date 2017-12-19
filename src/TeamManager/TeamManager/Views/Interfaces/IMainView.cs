@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System.Windows.Forms;
 
 namespace TeamManager.Views.Interfaces
 {
     public interface IMainView
     {
+        int TeamSelectedIndex { get; set; }
+        int PlayerSelectedIndex { get; set; }
         string SearchText { get; set; }
-        List<string> ListBoxTeams { get; set; }
-        List<string> ListBoxPlayers { get; set; }
+        ListBox.ObjectCollection TeamsListBox { get; }
+        ListBox.ObjectCollection PlayersListBox { get; }
     }
 }

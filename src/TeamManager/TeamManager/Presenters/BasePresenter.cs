@@ -1,5 +1,8 @@
-﻿using TeamManager.Database;
+﻿using log4net;
+using TeamManager.Database;
 using TeamManager.Models.TechnicalConcept;
+using TeamManager.Presenters.Events;
+using TeamManager.Utilities;
 
 namespace TeamManager.Presenters
 {
@@ -9,23 +12,35 @@ namespace TeamManager.Presenters
     /// </summary>
     public abstract class BasePresenter
     {
-        protected static ITechnicalConcept concept;
+        private static readonly ILog Log = Logger.GetLogger();
 
+        protected static ITechnicalConcept Concept;
+
+        protected static event PresenterHandler ChildClosed;
+
+
+        protected virtual void OnChildClosed(object sender, PresenterArgs e)
+        {
+            Log.Info($"ChildForm closed invoked => {e.Child}");
+            ChildClosed?.Invoke(sender, e);
+        }
+
+        public abstract void FormClosed();
 
         public static void SetConceptAndDatabaseType(TechnicalConceptType conceptType, DatabaseType dbType)
         {
             switch (conceptType)
             {
                 case TechnicalConceptType.First:
-                    concept = new TechnicalConcept1(dbType);
+                    Concept = new TechnicalConcept1(dbType);
                     break;
 
                 case TechnicalConceptType.Second:
-                    concept = new TechnicalConcept2(dbType);
+                    Concept = new TechnicalConcept2(dbType);
                     break;
 
                 default:
-                    concept = new TechnicalConcept1(dbType);
+                    Concept = new TechnicalConcept1(dbType);
                     break;
             }
         }

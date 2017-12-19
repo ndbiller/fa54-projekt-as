@@ -1,0 +1,19 @@
+NOTE: When something come in mind that is like a task that we need to achieve, make sure to add here.
+After you done, remove the task.
+
+######## TODOes List ########
+
+- Look in the internet for more football teams and players so we can fill our database with 
+more data and fill MongoDB and SQL database with the information.
+
+- Write Tests for Database implementation.
+- Write Tests for TechnicalConcepts 1 and 2(NOTE: Tests with both Database -> MongoDb and SQL).
+
+- Improve Presenters performance when calling to database using with multithreading.
+
+- Improve Database calls using Async Await Tasks since the server takes time to respond until we get the data
+ and throws exceptions or bring weird results because of that.
+
+ 
+ 
+ 

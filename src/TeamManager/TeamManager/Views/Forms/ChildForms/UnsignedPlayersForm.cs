@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Windows.Forms;
 using System.Windows.Forms.Custom;
+using TeamManager.Models.ResourceData;
 using TeamManager.Presenters;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Interfaces;
@@ -10,36 +10,57 @@ namespace TeamManager.Views.Forms.ChildForms
 {
     public partial class UnsignedPlayersForm : CustomForm, IUnsignedPlayersView
     {
-        private UnsignedPlayersPresenter presenter;
+
+        #region --- View Interface Items ---
+
+        public int PlayerSelectedIndex
+        {
+            get => lbxPlayers.SelectedIndex;
+            set => lbxPlayers.SelectedIndex = value;
+        }
+
+        public ListBox.ObjectCollection PlayersListBox => lbxPlayers.Items;
+
+        #endregion --- View Interface Items ---
+
+        private readonly UnsignedPlayersPresenter _presenter;
+
+
 
         public UnsignedPlayersForm()
         {
             InitializeComponent();
-            presenter = new UnsignedPlayersPresenter(this);
-            presenter.BindPlayersData();
+            _presenter = new UnsignedPlayersPresenter(this);
+            _presenter.BindPlayersData();
         }
 
         private void btnPDelete_Click(object sender, EventArgs e)
         {
-            presenter.DeletePlayer();
+            _presenter.DeletePlayer();
         }
 
-        #region ------------------- Show Dialogs -------------------
+        private void UnsignedPlayersForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _presenter.FormClosed();
+        }
+
+
+        #region --- Show Dialogs ---
+
         private void btnPAddToTeam_Click(object sender, EventArgs e)
         {
-            new EditForm(ViewType.PlayerAssignToTeam).ShowDialog();
+            Player player = _presenter.GetPlayer();
+            if (player == null) return;
+
+            new EditForm(EditMode.PlayerAssignToTeam, null, player).ShowDialog();
         }
 
         private void btnPCreate_Click(object sender, EventArgs e)
         {
-            new EditForm(ViewType.PlayerCreate).ShowDialog();
+            new EditForm(EditMode.PlayerCreate, null, null).ShowDialog();
         }
-        #endregion -------------- Show Dialogs -------------------
 
-        public List<string> ListBoxPlayers
-        {
-            get => lbxPlayers.Items.Cast<string>().ToList();
-            set => lbxPlayers.DataSource = value;
-        }
+        #endregion --- Show Dialogs ---
+
     }
 }

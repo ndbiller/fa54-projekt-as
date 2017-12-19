@@ -64,10 +64,10 @@
             this.tbxTeam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbxTeam.Enabled = false;
             this.tbxTeam.Location = new System.Drawing.Point(10, 132);
-            this.tbxTeam.Margin = new System.Windows.Forms.Padding(10, 3, 30, 3);
+            this.tbxTeam.Margin = new System.Windows.Forms.Padding(10, 3, 22, 3);
             this.tbxTeam.Name = "tbxTeam";
             this.tbxTeam.ReadOnly = true;
-            this.tbxTeam.Size = new System.Drawing.Size(101, 20);
+            this.tbxTeam.Size = new System.Drawing.Size(107, 20);
             this.tbxTeam.TabIndex = 9;
             this.tbxTeam.TabStop = false;
             // 
@@ -76,10 +76,10 @@
             this.tbxName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbxName.Enabled = false;
             this.tbxName.Location = new System.Drawing.Point(10, 75);
-            this.tbxName.Margin = new System.Windows.Forms.Padding(10, 3, 30, 3);
+            this.tbxName.Margin = new System.Windows.Forms.Padding(10, 3, 22, 3);
             this.tbxName.Name = "tbxName";
             this.tbxName.ReadOnly = true;
-            this.tbxName.Size = new System.Drawing.Size(101, 20);
+            this.tbxName.Size = new System.Drawing.Size(107, 20);
             this.tbxName.TabIndex = 9;
             this.tbxName.TabStop = false;
             // 
@@ -107,7 +107,7 @@
             this.btnPCreate.Location = new System.Drawing.Point(31, 462);
             this.btnPCreate.Margin = new System.Windows.Forms.Padding(6, 0, 6, 12);
             this.btnPCreate.Name = "btnPCreate";
-            this.btnPCreate.Size = new System.Drawing.Size(193, 28);
+            this.btnPCreate.Size = new System.Drawing.Size(191, 28);
             this.btnPCreate.TabIndex = 2;
             this.btnPCreate.Text = "Create";
             this.btnPCreate.UseVisualStyleBackColor = false;
@@ -139,7 +139,7 @@
             this.lbxPlayers.Location = new System.Drawing.Point(31, 33);
             this.lbxPlayers.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
             this.lbxPlayers.Name = "lbxPlayers";
-            this.lbxPlayers.Size = new System.Drawing.Size(193, 386);
+            this.lbxPlayers.Size = new System.Drawing.Size(191, 386);
             this.lbxPlayers.TabIndex = 0;
             this.lbxPlayers.SelectedIndexChanged += new System.EventHandler(this.lbxPlayers_SelectedIndexChanged);
             // 
@@ -151,9 +151,9 @@
             this.btnPEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPEdit.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F);
             this.btnPEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnPEdit.Location = new System.Drawing.Point(102, 3);
+            this.btnPEdit.Location = new System.Drawing.Point(101, 3);
             this.btnPEdit.Name = "btnPEdit";
-            this.btnPEdit.Size = new System.Drawing.Size(94, 28);
+            this.btnPEdit.Size = new System.Drawing.Size(93, 28);
             this.btnPEdit.TabIndex = 1;
             this.btnPEdit.Text = "Edit";
             this.btnPEdit.UseVisualStyleBackColor = false;
@@ -165,8 +165,8 @@
             this.lblAllPlayers.AutoSize = true;
             this.lblAllPlayers.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F);
             this.lblAllPlayers.ForeColor = System.Drawing.Color.GhostWhite;
-            this.lblAllPlayers.Location = new System.Drawing.Point(56, 3);
-            this.lblAllPlayers.Margin = new System.Windows.Forms.Padding(3);
+            this.lblAllPlayers.Location = new System.Drawing.Point(55, 3);
+            this.lblAllPlayers.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.lblAllPlayers.Name = "lblAllPlayers";
             this.lblAllPlayers.Size = new System.Drawing.Size(143, 24);
             this.lblAllPlayers.TabIndex = 5;
@@ -183,7 +183,7 @@
             this.btnPDelete.ForeColor = System.Drawing.Color.Black;
             this.btnPDelete.Location = new System.Drawing.Point(3, 3);
             this.btnPDelete.Name = "btnPDelete";
-            this.btnPDelete.Size = new System.Drawing.Size(93, 28);
+            this.btnPDelete.Size = new System.Drawing.Size(92, 28);
             this.btnPDelete.TabIndex = 0;
             this.btnPDelete.Text = "Delete";
             this.btnPDelete.UseVisualStyleBackColor = false;
@@ -198,7 +198,7 @@
             this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
             this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
-            this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.customTableLayoutPanel1.Controls.Add(this.lbxPlayers, 1, 1);
             this.customTableLayoutPanel1.Controls.Add(this.btnPCreate, 1, 3);
             this.customTableLayoutPanel1.Controls.Add(this.lblAllPlayers, 1, 0);
@@ -234,14 +234,14 @@
             this.customTableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.customTableLayoutPanel2.DraggableForm = false;
             this.customTableLayoutPanel2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.customTableLayoutPanel2.Location = new System.Drawing.Point(233, 33);
+            this.customTableLayoutPanel2.Location = new System.Drawing.Point(231, 33);
             this.customTableLayoutPanel2.Name = "customTableLayoutPanel2";
             this.customTableLayoutPanel2.RowCount = 4;
             this.customTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 72F));
             this.customTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.customTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.customTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 149F));
-            this.customTableLayoutPanel2.Size = new System.Drawing.Size(141, 386);
+            this.customTableLayoutPanel2.Size = new System.Drawing.Size(139, 386);
             this.customTableLayoutPanel2.TabIndex = 6;
             // 
             // customTableLayoutPanel3
@@ -262,7 +262,7 @@
             this.customTableLayoutPanel3.Name = "customTableLayoutPanel3";
             this.customTableLayoutPanel3.RowCount = 1;
             this.customTableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.customTableLayoutPanel3.Size = new System.Drawing.Size(199, 34);
+            this.customTableLayoutPanel3.Size = new System.Drawing.Size(197, 34);
             this.customTableLayoutPanel3.TabIndex = 1;
             // 
             // customControlBoxDialog1
@@ -312,6 +312,7 @@
             this.Padding = new System.Windows.Forms.Padding(8, 50, 9, 8);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "All Players";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AllPlayersForm_FormClosed);
             this.customTableLayoutPanel1.ResumeLayout(false);
             this.customTableLayoutPanel1.PerformLayout();
             this.customTableLayoutPanel2.ResumeLayout(false);

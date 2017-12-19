@@ -1,13 +1,23 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using log4net;
 using TeamManager.Database;
 using TeamManager.Models.TechnicalConcept;
+using TeamManager.Utilities;
 using TeamManager.Views;
+
+[assembly: log4net.Config.XmlConfigurator(Watch = true)]
+[assembly: Fody.ConfigureAwait(false)]
 
 namespace TeamManager
 {
     static class Program
     {
+
+        private static readonly ILog Log = Logger.GetLogger();
+
+        private static readonly Guid SessionId = Guid.NewGuid();
+
         /// <summary>
         /// Allows Windows Forms application to start also in console mode.
         /// </summary>
@@ -23,6 +33,8 @@ namespace TeamManager
         /// <param name="args"></param>
         static void Main(string[] args)
         {
+            Log.Info($"##### Application started. Session ID => {SessionId} #####");
+
             // Default = First and MongoDB Connections.
             var conceptType = TechnicalConceptType.First;
             var dbType      = DatabaseType.MongoDB;
@@ -43,11 +55,13 @@ namespace TeamManager
                 {
                     case "/t:1":
                     case "/g:1":
+                        Log.Info("Using TechnicalConcept1.");
                         conceptType = TechnicalConceptType.First;
                         break;
 
                     case "/t:2":
                     case "/g:2":
+                        Log.Info("Using TechnicalConcept2.");
                         conceptType = TechnicalConceptType.Second;
                         break;
 
@@ -69,10 +83,12 @@ namespace TeamManager
                 switch (args[1].ToLower())
                 {
                     case "/db:mongo":
+                        Log.Info("Using mongo-db as database.");
                         dbType = DatabaseType.MongoDB;
                         break;
 
                     case "/db:sql":
+                        Log.Info("Using sql as database.");
                         dbType = DatabaseType.SQL;
                         break;
 
@@ -82,14 +98,23 @@ namespace TeamManager
                 }
 
                 if (startGui)
+                {
+                    Log.Info("Starting GUI...");
                     GUI.Start(conceptType, dbType);
+                }
                 else
+                {
+                    Log.Info("Starting TUI...");
                     TUI.Start(conceptType, dbType);
+                }
             }
             else // -> when you start the app through the windows explorer or from the console without parameters.
             {
+                Log.Info("Starting GUI with default configuration.");
                 GUI.Start(conceptType, dbType);
             }
+
+            Log.Info($"##### Application Closed. Session ID => {SessionId} #####");
         }
 
 
@@ -123,6 +148,7 @@ namespace TeamManager
 
         private static void InvalidSyntax()
         {
+            Log.Info("Received invalid syntax from console.");
             Console.WriteLine("Invalid syntax. Use /? parameter to display help.");
             Console.ReadKey();
         }

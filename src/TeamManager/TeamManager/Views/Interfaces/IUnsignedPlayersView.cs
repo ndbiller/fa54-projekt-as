@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Windows.Forms;
 
 namespace TeamManager.Views.Interfaces
 {
     public interface IUnsignedPlayersView
     {
-        List<string> ListBoxPlayers { get; set; }
+        int PlayerSelectedIndex { get; set; }
+        ListBox.ObjectCollection PlayersListBox { get; }
     }
 }
