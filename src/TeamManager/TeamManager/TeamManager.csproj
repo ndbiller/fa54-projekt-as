@@ -162,6 +162,7 @@
     </Compile>
     <Compile Include="Views\Loader\Loaders.cs" />
     <Compile Include="Views\Loader\LoaderType.cs" />
+    <Compile Include="Views\Forms\MainTui.cs" />
     <Compile Include="Views\TUI.cs" />
     <Compile Include="Models\TechnicalConcept\TechnicalConceptType.cs" />
     <EmbeddedResource Include="Views\Forms\Dialogs\EditForm.resx">

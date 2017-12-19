@@ -4,6 +4,7 @@ using System.Linq;
 using log4net;
 using TeamManager.Models.ResourceData;
 using TeamManager.Utilities;
+using TeamManager.Views.Interfaces;
 
 namespace TeamManager.Presenters
 {
@@ -15,6 +16,15 @@ namespace TeamManager.Presenters
     public class ConsolePresenter : BasePresenter
     {
         private static readonly ILog Log = Logger.GetLogger();
+
+        private readonly IConsoleView _view;
+
+
+
+        public ConsolePresenter(IConsoleView view)
+        {
+            _view = view;
+        }
 
 
         public List<Team> AllTeams()
@@ -280,7 +290,7 @@ namespace TeamManager.Presenters
                               "    Close                 \t(x)         \n");
         }
 
-        private static int GetUserInput()
+        private int GetUserInput()
         {
             Console.Write("\nInput: ");
             int input;
@@ -289,7 +299,7 @@ namespace TeamManager.Presenters
             return input;
         }
 
-        private static bool ValidateUserInput(string message)
+        private bool ValidateUserInput(string message)
         {
             string answer;
             do
@@ -303,7 +313,7 @@ namespace TeamManager.Presenters
             return true;
         }
 
-        private static void InvalidInput() => Console.WriteLine("Invalid input. Please try again...");
+        private void InvalidInput() => Console.WriteLine("Invalid input. Please try again...");
 
         public override void FormClosed() { }
 
