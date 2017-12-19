@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace TeamManager.Tests
+namespace TeamManager.Tests.Modules
 {
     [TestFixture]
     public class DatabaseTests

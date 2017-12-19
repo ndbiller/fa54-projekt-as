@@ -4,7 +4,7 @@ using MongoDB.Driver;
 using TeamManager.Database;
 using TeamManager.Models.ResourceData;
 
-namespace TeamManager.Tests
+namespace TeamManager.Tests.Modules
 {
     static class Program
     {

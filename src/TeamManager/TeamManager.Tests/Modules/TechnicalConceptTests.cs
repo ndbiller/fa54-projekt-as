@@ -5,7 +5,7 @@ using TeamManager.Database;
 using TeamManager.Models.ResourceData;
 using TeamManager.Models.TechnicalConcept;
 
-namespace TeamManager.Tests
+namespace TeamManager.Tests.Modules
 {
     [TestFixture]
     public class TechnicalConceptTests

@@ -53,11 +53,11 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseTests.cs" />
+    <Compile Include="Modules\DatabaseTests.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="TechnicalConceptTests.cs" />
+    <Compile Include="Modules\TechnicalConceptTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UiComponentsTests.cs" />
+    <Compile Include="Modules\UiComponentsTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
