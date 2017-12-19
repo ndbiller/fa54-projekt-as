@@ -2,11 +2,11 @@
 
 namespace TeamManager.Views
 {
-    /// <summary>
-    /// Opening the Team Manager app in console mode.
-    /// </summary>
+    /// <summary> Terminal User Interface Class. </summary>
     public class Tui
     {
+
+        /// <summary> Starts the Team Manager application in console mode. </summary>
         public static void Show()
         {
             new MainTui().Show();

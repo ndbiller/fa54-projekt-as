@@ -12,6 +12,7 @@ namespace TeamManager.Views.Loader
     /// </summary>
     public class Loaders
     {
+        /// <summary> Logger instance of the class <see cref="Loaders"/> </summary>
         private static readonly ILog Log = Logger.GetLogger();
 
         private static LoaderType _loaderType;

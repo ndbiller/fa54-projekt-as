@@ -15,6 +15,7 @@ namespace TeamManager.Presenters
     /// </summary>
     public class ConsolePresenter : BasePresenter
     {
+        /// <summary> Logger instance of the class <see cref="ConsolePresenter"/> </summary>
         private static readonly ILog Log = Logger.GetLogger();
 
         private readonly IConsoleView _view;

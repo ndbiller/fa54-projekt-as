@@ -9,6 +9,7 @@ namespace TeamManager.Database
 {
     public sealed class DbLayerSql : IDataLayer
     {
+        /// <summary> Logger instance of the class <see cref="DbLayerSql"/> </summary>
         private static readonly ILog Log = Logger.GetLogger();
 
 

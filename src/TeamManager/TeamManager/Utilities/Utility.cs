@@ -10,6 +10,7 @@ namespace TeamManager.Utilities
 {
     public static class Utility
     {
+        /// <summary> Logger instance of the class <see cref="Utility"/> </summary>
         private static readonly ILog Log = Logger.GetLogger();
 
 

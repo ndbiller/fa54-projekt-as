@@ -11,6 +11,7 @@ namespace TeamManager.Presenters
 {
     public class AllPlayersPresenter : BasePresenter
     {
+        /// <summary> Logger instance of the class <see cref="AllPlayersPresenter"/> </summary>
         private static readonly ILog Log = Logger.GetLogger();
 
         private readonly IAllPlayersView _view;
