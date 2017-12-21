@@ -1,0 +1,5 @@
+<map id="TeamManager.Presenters.AllPlayersPresenter" name="TeamManager.Presenters.AllPlayersPresenter">
+<area shape="rect" id="node2" href="$class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the ITechnicalConcept interface that will be used for retrieving data ..." alt="" coords="42,380,258,487"/>
+<area shape="rect" id="node3" href="$interface_team_manager_1_1_models_1_1_technical_concept_1_1_i_technical_concept.html" title="This interface will get implemented by all the other TechnicalConceptTypes so it allows us to retriev..." alt="" coords="5,5,215,303"/>
+<area shape="rect" id="node5" href="$interface_team_manager_1_1_views_1_1_interfaces_1_1_i_all_players_view.html" title="The IAllPlayersView interface which the Windows.Dialogs.AllPlayersWindow implements in order to expos..." alt="" coords="360,365,567,501"/>
+</map>

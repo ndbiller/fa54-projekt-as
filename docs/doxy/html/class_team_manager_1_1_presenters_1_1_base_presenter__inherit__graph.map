@@ -1,0 +1,7 @@
+<map id="TeamManager.Presenters.BasePresenter" name="TeamManager.Presenters.BasePresenter">
+<area shape="rect" id="node2" href="$class_team_manager_1_1_presenters_1_1_all_players_presenter.html" title="The AllPlayersPresenter which will couple together with the Views.Windows.Dialogs.AllPlayersWindow and update its view. " alt="" coords="5,270,196,479"/>
+<area shape="rect" id="node3" href="$class_team_manager_1_1_presenters_1_1_console_presenter.html" title="The ConsolePresenter will be used differently in comparsion to other presenters. In here it&#39;s not nec..." alt="" coords="220,204,443,545"/>
+<area shape="rect" id="node4" href="$class_team_manager_1_1_presenters_1_1_edit_presenter.html" title="The EditPresenter which will couple together with the Views.Windows.Dialogs.EditWindow and update its..." alt="" coords="467,270,665,479"/>
+<area shape="rect" id="node5" href="$class_team_manager_1_1_presenters_1_1_main_presenter.html" title="The MainPresenter which will couple together with the Views.Windows.MainWindow and update its view..." alt="" coords="689,189,896,560"/>
+<area shape="rect" id="node6" href="$class_team_manager_1_1_presenters_1_1_unsigned_players_presenter.html" title="The UnsignedPlayersPresenter which will couple together with the Views.Windows.Dialogs.UnsignedPlayersWindow and update its view. " alt="" coords="921,285,1150,465"/>
+</map>

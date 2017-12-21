@@ -1,0 +1,4 @@
+<map id="TeamManager.Views.Windows.MainWindow" name="TeamManager.Views.Windows.MainWindow">
+<area shape="rect" id="node2" href="$class_custom_form.html" title="{CustomForm\n||}" alt="" coords="18,5,115,83"/>
+<area shape="rect" id="node3" href="$class_i_main_view.html" title="{IMainView\n||}" alt="" coords="139,5,221,83"/>
+</map>
