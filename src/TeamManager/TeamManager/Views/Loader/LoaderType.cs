@@ -1,5 +1,8 @@
 ﻿namespace TeamManager.Views.Loader
 {
+    /// <summary>
+    /// Defines the loader type to use as a selector when we call the <see cref="Loaders"/> class with the <see cref="Loaders.StartLoader"/> method.
+    /// </summary>
     public enum LoaderType
     {
         /// <summary>

@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 namespace TeamManager.Utilities
 {
     /// <summary>
-    /// Windows api native methods wrapped into a class with suppress warnings to make compiler happy.
+    /// Windows api native methods wrapped into a class with suppress unmanaged code security in order to make the compiler happy.
     /// </summary>
     [ComVisible(false), SuppressUnmanagedCodeSecurity]
     internal class NativeMethods
@@ -19,7 +19,7 @@ namespace TeamManager.Utilities
 
 
         /// <summary>
-        /// Free console after allocated.
+        /// Frees console allocation.
         /// </summary>
         /// <returns></returns>
         [DllImport("kernel32.dll", SetLastError = true)]
@@ -27,7 +27,7 @@ namespace TeamManager.Utilities
 
 
         /// <summary>
-        /// Used for bringing window to front with the handle of the window.
+        /// Brings window focus to the front with the handle of the window.
         /// </summary>
         /// <param name="hWnd"></param>
         /// <returns></returns>

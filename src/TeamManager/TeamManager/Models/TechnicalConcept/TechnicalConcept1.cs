@@ -5,6 +5,13 @@ using TeamManager.Models.ResourceData;
 
 namespace TeamManager.Models.TechnicalConcept
 {
+    /// <summary>
+    /// The <see cref="TechnicalConcept1"/> implementation will retrieve the data from the 
+    /// <see cref="TechnicalConceptBase.DbLayer"/> in ascending order.
+    /// The constructor that gets the <see cref="DatabaseType"/> will pass forward to the base constructor
+    /// in order to initialize the <see cref="IDataLayer"/> which is used as the <see cref="TechnicalConceptBase.DbLayer"/>.
+    /// For more details, please see <see cref="ITechnicalConcept"/> documentation.
+    /// </summary>
     public class TechnicalConcept1 : TechnicalConceptBase, ITechnicalConcept
     {
         public TechnicalConcept1(DatabaseType dbType) : base(dbType) { }

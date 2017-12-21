@@ -9,15 +9,27 @@ using TeamManager.Views.Interfaces;
 
 namespace TeamManager.Presenters
 {
+    /// <summary>
+    /// The <see cref="UnsignedPlayersPresenter"/> which will couple together with the 
+    /// <see cref="Views.Windows.Dialogs.UnsignedPlayersWindow"/> and update its view.
+    /// </summary>
     public class UnsignedPlayersPresenter : BasePresenter
     {
-        /// <summary> Logger instance of the class <see cref="UnsignedPlayersPresenter"/> </summary>
-        private static readonly ILog Log = Logger.GetLogger();
-
+        /// <summary> The view interface of the <see cref="Views.Windows.Dialogs.UnsignedPlayersWindow"/> which used to update the ui. </summary>
         private readonly IUnsignedPlayersView _view;
 
+        /// <summary> Logger instance of the class <see cref="UnsignedPlayersPresenter"/>. </summary>
+        private static readonly ILog Log = Logger.GetLogger();
 
 
+
+
+        /// <summary> 
+        /// The <see cref="UnsignedPlayersPresenter"/> constructor will receive the <see cref="IUnsignedPlayersView"/> interface from the 
+        /// <see cref="Views.Windows.Dialogs.UnsignedPlayersWindow"/> and couple together with the view.
+        /// It'll also register a listener to the <see cref="BasePresenter.ChildClosed"/> event in order to update the view data whenever a child window closes.
+        /// </summary>
+        /// <param name="view"></param>
         public UnsignedPlayersPresenter(IUnsignedPlayersView view)
         {
             _view = view;
@@ -28,6 +40,10 @@ namespace TeamManager.Presenters
 
 
 
+        /// <summary>
+        /// Gets all players from the <see cref="BasePresenter.Concept"/> that are not assign to a team and
+        /// Initializes the ListBox to the view.
+        /// </summary>
         public void BindPlayersData()
         {
             Log.Info("Binding players data to listbox.");
@@ -39,6 +55,9 @@ namespace TeamManager.Presenters
             _view.PlayerSelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Gets the selected <see cref="Player"/> from the view and deletes him with the player id.
+        /// </summary>
         public void DeletePlayer()
         {
             if (_view.PlayerSelectedIndex == -1) return;
@@ -56,6 +75,10 @@ namespace TeamManager.Presenters
             _view.PlayerSelectedIndex = pSelIndex;
         }
 
+        /// <summary>
+        /// Gets the selected <see cref="Player"/> from the view.
+        /// </summary>
+        /// <returns>Selected <see cref="Player"/></returns>
         public Player GetPlayer()
         {
             int pSelIndex = _view.PlayerSelectedIndex;
@@ -64,7 +87,12 @@ namespace TeamManager.Presenters
             return _view.PlayersListBox[pSelIndex].ToPlayer();
         }
 
-        void Window_ChildClose(object sender, PresenterArgs args)
+        /// <summary>
+        /// Re-bindes players data to the view from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> when a child window closes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void Window_ChildClose(object sender, PresenterArgs args)
         {
             int pSelIndex = _view.PlayerSelectedIndex;
             BindPlayersData();
@@ -75,6 +103,9 @@ namespace TeamManager.Presenters
             _view.PlayerSelectedIndex = pSelIndex;
         }
 
+        /// <summary>
+        /// Invokes the <see cref="BasePresenter.ChildClosed"/> event to let all the other presenters know.
+        /// </summary>
         public override void WindowClosed()
         {
             OnChildClosed(this, new PresenterArgs(WindowType.UnsignedPlayers));

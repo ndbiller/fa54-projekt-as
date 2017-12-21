@@ -15,7 +15,9 @@ namespace TeamManager.Views.Windows
     /// The <see cref="MainWindow"/> where the GUI starts which will display the teams and players and various of other options.
     /// </summary>
     public partial class MainWindow : CustomForm, IMainView
-    {
+    {        
+        /// <summary> The presenter of the <see cref="MainWindow"/> where all the logic happens. </summary>
+        private readonly MainPresenter _presenter;
 
         #region --- View Interface Items ---
 
@@ -49,9 +51,6 @@ namespace TeamManager.Views.Windows
         #endregion --- View Interface Items ---
 
 
-        /// <summary> The presenter of the <see cref="MainWindow"/> which where all the logic happens. </summary>
-        private readonly MainPresenter _presenter;
-
 
 
         /// <summary> 
@@ -60,7 +59,7 @@ namespace TeamManager.Views.Windows
         /// </summary>
         public MainWindow()
         {
-            Loaders.StartLoader(LoaderType.Loader, 0);
+            Loaders.StartLoader(LoaderType.Loader);
 
             InitializeComponent();
             _presenter = new MainPresenter(this);

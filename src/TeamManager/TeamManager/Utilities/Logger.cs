@@ -12,6 +12,11 @@ namespace TeamManager.Utilities
     /// </summary>
     public static class Logger
     {
+        /// <summary>
+        /// Gets a <see cref="ILog"/> instance with the caller class name to define the logger name.
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns></returns>
         public static ILog GetLogger([CallerFilePath] string filename = "")
         {
             return LogManager.GetLogger(filename.Split('\\').Last());

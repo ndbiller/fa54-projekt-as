@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 using log4net;
@@ -8,24 +7,28 @@ using TeamManager.Utilities;
 namespace TeamManager.Views.Loader
 {
     /// <summary>
-    /// Loaders class used for display loaders statically and thread safe while doing long proccessing.
+    /// <see cref="Loaders"/> class used for displaying a loader window without freezing the main thread in a thread safe manner.
     /// </summary>
     public class Loaders
     {
         /// <summary> Logger instance of the class <see cref="Loaders"/> </summary>
         private static readonly ILog Log = Logger.GetLogger();
 
+        /// <summary> Tells us which loader is currently running when we want to terminate the thread that runs it. </summary>
         private static LoaderType _loaderType;
 
+        /// <summary> The window to display as loader. </summary>
         private static LoaderWindow _loaderWindow;
 
 
+
+
         /// <summary>
-        /// Starting loader with specified loader type and the amount of miliseconds to sleep the main ui thread to visualize work.
+        /// Starts a loader with the specified loader type and the amount of miliseconds to sleep the main ui thread to visualize work.
         /// </summary>
-        /// <param name="loader"></param>
-        /// <param name="sleepMiliseconds"></param>
-        public static void StartLoader(LoaderType loader, int sleepMiliseconds)
+        /// <param name="loader">The loader type defined by the <see cref="LoaderType"/> enum. </param>
+        /// <param name="sleepMiliseconds">When not specified, default will be 500. </param>
+        public static void StartLoader(LoaderType loader, int sleepMiliseconds = 500)
         {
             _loaderType = loader;
 
@@ -47,9 +50,9 @@ namespace TeamManager.Views.Loader
         }
 
         /// <summary>
-        /// Stops specified loader thread with the window handle in order to get the parent window to front.
+        /// Stops the specified loader thread with the window handle in order to get the parent window to front.
         /// </summary>
-        /// <param name="windowHandle"></param>
+        /// <param name="windowHandle">If you're calling from a Form/Window, pass the <see cref="Form.Handle"/> property. </param>
         public static void StopLoader(IntPtr windowHandle)
         {
             if (_loaderWindow == null) return;
@@ -85,9 +88,9 @@ namespace TeamManager.Views.Loader
         }
 
         /// <summary>
-        /// Brings the window to front.
+        /// Brings the window focus using the windows api extern methods.
         /// </summary>
-        /// <param name="handle"></param>
+        /// <param name="handle">The handle of the window. </param>
         private static void WindowToFront(IntPtr handle)
         {
             NativeMethods.SetForegroundWindow(handle.ToInt32());
