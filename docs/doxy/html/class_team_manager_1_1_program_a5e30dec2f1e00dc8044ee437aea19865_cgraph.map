@@ -1,0 +1,9 @@
+<map id="TeamManager.Program.Main" name="TeamManager.Program.Main">
+<area shape="rect" id="node2" href="$class_team_manager_1_1_utilities_1_1_native_methods.html#af7c43608d1ad8d276ccefb0ded7b415e" title="Allows to allocate console view even if the project configurations set to windows forms as output..." alt="" coords="275,5,466,47"/>
+<area shape="rect" id="node3" href="$class_team_manager_1_1_program.html#aa968135dfadf32a580e7bed7a5f3d95a" title="Prints out invalid syntax when invalid syntax received. " alt="" coords="273,71,469,112"/>
+<area shape="rect" id="node4" href="$class_team_manager_1_1_program.html#a8edb006dd3c63b0d03cd0469f15ba04c" title="Prints help to the user when using the application through the console. " alt="" coords="263,137,478,163"/>
+<area shape="rect" id="node5" href="$class_team_manager_1_1_presenters_1_1_base_presenter.html#a605d80a1b961b46bcacb62e8512587ff" title="Initializes the Concept with the wanted TechnicalConceptType and DatabaseType. Note that this method ..." alt="" coords="243,188,499,229"/>
+<area shape="rect" id="node6" href="$class_team_manager_1_1_views_1_1_tui.html#a4ee6f11d765e00c3912e50776f34c559" title="Starts the Team Manager application in console mode. " alt="" coords="271,254,471,281"/>
+<area shape="rect" id="node8" href="$class_team_manager_1_1_views_1_1_gui.html#a2a07a4c6289ebb610c999f501410a649" title="Starts the Team Manager application in user interface(gui) mode. " alt="" coords="269,305,472,331"/>
+<area shape="rect" id="node7" href="$class_team_manager_1_1_views_1_1_windows_1_1_main_tui.html#ae883752bb2dac3555c1a6c7630631222" title="Displays the menu to select one of the options within the _allowedKeys range. Note that this has to r..." alt="" coords="547,247,751,288"/>
+</map>
