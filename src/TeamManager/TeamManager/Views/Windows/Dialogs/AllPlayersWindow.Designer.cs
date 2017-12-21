@@ -312,7 +312,7 @@
             this.Padding = new System.Windows.Forms.Padding(8, 50, 9, 8);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "All Players";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AllPlayersForm_FormClosed);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AllPlayersWindow_FormClosed);
             this.customTableLayoutPanel1.ResumeLayout(false);
             this.customTableLayoutPanel1.PerformLayout();
             this.customTableLayoutPanel2.ResumeLayout(false);

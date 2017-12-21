@@ -9,32 +9,42 @@ using TeamManager.Views.Interfaces;
 
 namespace TeamManager.Presenters
 {
+    /// <summary>
+    /// The <see cref="MainPresenter"/> which will couple together with the <see cref="Views.Windows.MainWindow"/> and update its view.
+    /// </summary>
     public class MainPresenter : BasePresenter
     {
-        /// <summary> Logger instance of the class <see cref="MainPresenter"/> </summary>
-        private static readonly ILog Log = Logger.GetLogger();
-
-        /// <summary>
-        /// Main view object that will be accessed to update the ui.
-        /// </summary>
+        /// <summary> The view interface of the <see cref="Views.Windows.MainWindow"/> which used to update the ui. </summary>
         private readonly IMainView _view;
 
-        /// <summary>
-        /// Since the PlayersListBox depend on the TeamsListBox, we want in certain situations to temporary 
-        /// disable SelectedIndexChanged event from binding the players data to avoid indexing errors.
-        /// </summary>
+        /// <summary> Logger instance of the class <see cref="MainPresenter"/>. </summary>
+        private static readonly ILog Log = Logger.GetLogger();
+
+        /// <summary> Flag to temporarily disable SelectedIndexChanged event from updating the view to avoid indexing errors. </summary>
         private bool _allowPlayersDataBinding = true;
 
-        /// <summary>
-        /// Filtering variables when using the search functionality.
-        /// </summary>
+
+        /// <summary> <see cref="Search"/> filter text to search for <see cref="Team"/>s. </summary>
         private string _teamFilterText;
+
+        /// <summary> <see cref="Search"/> filter text to search for <see cref="Player"/>s. </summary>
         private string _playerFilterText;
+
+        /// <summary> <see cref="Search"/> filter flag to search for <see cref="Team"/>s. </summary>
         private bool _filterTeams;
+
+        /// <summary> <see cref="Search"/> filter flag to search for <see cref="Player"/>s. </summary>
         private bool _filterPlayers;
 
 
 
+
+        /// <summary> 
+        /// The <see cref="MainPresenter"/> constructor will receive the <see cref="IMainView"/> interface from the 
+        /// <see cref="Views.Windows.MainWindow"/> and couple together with the view.
+        /// It'll also register a listener to the <see cref="BasePresenter.ChildClosed"/> event in order to update the view data whenever a child window closes.
+        /// </summary>
+        /// <param name="view"></param>
         public MainPresenter(IMainView view)
         {
             _view = view;
@@ -46,8 +56,8 @@ namespace TeamManager.Presenters
 
 
         /// <summary>
-        /// Filtering functionality in relationship together with TeamsListBox and PlayersListBox.
-        /// PlayersListBox depends on TeamsListBox.
+        /// Filtering functionality in relationship together with <see cref="IMainView.TeamsListBox"/> and <see cref="IMainView.PlayersListBox"/>.
+        /// <see cref="IMainView.PlayersListBox"/> depends on <see cref="IMainView.TeamsListBox"/>.
         /// </summary>
         /// <param name="tbxText">The text that the user type in the textbox.</param>
         /// <param name="tbxSearchText">The text that defined in the designer to show(Search).</param>
@@ -78,6 +88,11 @@ namespace TeamManager.Presenters
             SearchApplyFilter(tbxText, searchInTeams);
         }
 
+        /// <summary>
+        /// Gets the filtered data from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> and updates the view.
+        /// </summary>
+        /// <param name="tbxText"></param>
+        /// <param name="searchInTeams"></param>
         private void SearchApplyFilter(string tbxText, bool searchInTeams)
         {
             if (searchInTeams)
@@ -112,6 +127,10 @@ namespace TeamManager.Presenters
             }
         }
 
+        /// <summary>
+        /// Gets the selected <see cref="Team"/> from the view ListBox and move all their players into unsigned team(id = 0)
+        /// and deletes the selected <see cref="Team"/>.
+        /// </summary>
         public void DeleteTeam()
         {
             if (_view.TeamsListBox.Count == 0) return;
@@ -144,6 +163,10 @@ namespace TeamManager.Presenters
                 _view.TeamSelectedIndex = teamSelIndex;
         }
 
+        /// <summary>
+        /// Gets the selected <see cref="Player"/> from the view ListBox and removes it from the current <see cref="Team"/>
+        /// to unsigned players team(id = 0).
+        /// </summary>
         public void DeletePlayer()
         {
             if (_view.PlayersListBox.Count == 0) return;
@@ -160,10 +183,16 @@ namespace TeamManager.Presenters
             // Last index -> Go step back.
             if (_view.PlayersListBox.Count == playerSelIndex)
                 playerSelIndex--;
-
+            
             _view.PlayerSelectedIndex = playerSelIndex;
         }
 
+        /// <summary>
+        /// Gets <see cref="Team"/>s collection from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> and initialize them to the view.
+        /// It also changes the TeamSelectedIndex in order to invoke the SelectedIndexChanged in the view 
+        /// which will call also to <see cref="BindPlayersData"/> to initialize team players into the view.
+        /// </summary>
+        /// <returns><see cref="List&lt;Team&gt;"/></returns>
         public List<Team> BindTeamsData()
         {
             _view.TeamsListBox.Clear();
@@ -181,6 +210,12 @@ namespace TeamManager.Presenters
             return teams;
         }
 
+        /// <summary>
+        /// Gets the selected team <see cref="Player"/>s collection from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> 
+        /// and initialize them to the view. 
+        /// This method gets invoked every time the SelectedIndexChanged of the teams ListBox in the view gets invoked.
+        /// </summary>
+        /// <returns><see cref="List&lt;Player&gt;"/></returns>
         public List<Player> BindPlayersData()
         {
             if (!_allowPlayersDataBinding || _view.TeamsListBox.Count == 0) return null;
@@ -200,6 +235,11 @@ namespace TeamManager.Presenters
             return teamPlayers;
         }
 
+        /// <summary>
+        /// Gets the selected <see cref="Team"/> and <see cref="Player"/> so the view can pass to the <see cref="Views.Windows.Dialogs.EditWindow"/>
+        /// in order to edit the selected <see cref="Player"/>.
+        /// </summary>
+        /// <returns><see cref="Tuple&lt;Team, Player&gt;"/></returns>
         public Tuple<Team, Player> GetSelectedTeamAndPlayer()
         {
             if (_view.PlayersListBox.Count == 0 || _view.PlayerSelectedIndex == -1) return null;
@@ -213,6 +253,11 @@ namespace TeamManager.Presenters
             return new Tuple<Team, Player>(team, player);
         }
 
+        /// <summary>
+        /// Gets the selected <see cref="Team"/> so the view can pass to the <see cref="Views.Windows.Dialogs.EditWindow"/>
+        /// in order to create or edit the selected <see cref="Player"/> or <see cref="Team"/>.
+        /// </summary>
+        /// <returns><see cref="Team"/></returns>
         public Team GetSelectedTeam()
         {
             if (_view.TeamsListBox.Count == 0) return null;
@@ -220,10 +265,10 @@ namespace TeamManager.Presenters
         }
 
         /// <summary>
-        /// Use that instead of the concept type to get all teams as it will differentiate between the 
-        /// filtered method or the clean to avoid duplicated code.
+        /// Gets a collection of <see cref="Team"/>s from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> 
+        /// and checks whether to apply filter or not.
         /// </summary>
-        /// <returns></returns>
+        /// <returns><see cref="List&lt;Team&gt;"/></returns>
         public List<Team> Teams()
         {
             Log.Info("Requesting TechnicalConcept for Teams.");
@@ -234,10 +279,10 @@ namespace TeamManager.Presenters
         }
 
         /// <summary>
-        /// Use that instead of the concept type to get all players as it will differentiate between the 
-        /// filtered method or the clean to avoid duplicated code.
+        /// Gets a collection of <see cref="Player"/>s from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> 
+        /// and checks whether to apply filter or not.
         /// </summary>
-        /// <returns></returns>
+        /// <returns><see cref="List&lt;Player&gt;"/></returns>
         public List<Player> Players()
         {
             Log.Info("Requesting TechnicalConcept for Players.");
@@ -248,10 +293,10 @@ namespace TeamManager.Presenters
         }
 
         /// <summary>
-        /// Use that instead of the concept type to get all team players as it will differentiate between the 
-        /// filtered method or the clean to avoid duplicated code.
+        /// Gets a collection of <see cref="Team"/> <see cref="Player"/>s from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> 
+        /// and checks whether to apply filter or not.
         /// </summary>
-        /// <returns></returns>
+        /// <returns><see cref="List&lt;Player&gt;"/></returns>
         public List<Player> TeamPlayers(string teamId)
         {
             Log.Info("Requesting TechnicalConcept for Team Players.");
@@ -261,7 +306,12 @@ namespace TeamManager.Presenters
                 : Concept.GetTeamPlayers(teamId);
         }
 
-
+        /// <summary>
+        /// Re-bindes teams and players data to the view from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> 
+        /// when a child window closes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void Window_ChildClose(object sender, PresenterArgs args)
         {
             int tSelIndex = _view.TeamSelectedIndex;
@@ -279,6 +329,7 @@ namespace TeamManager.Presenters
             _view.PlayerSelectedIndex = pSelIndex;
         }
 
+        /// <summary> The <see cref="MainPresenter"/> not necessarly needs to invoke. </summary>
         public override void WindowClosed() { }
 
     }

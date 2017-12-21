@@ -9,25 +9,38 @@ using TeamManager.Views.Interfaces;
 namespace TeamManager.Presenters
 {
     /// <summary>
-    /// The console presenter will be used differently in comparsion to UI presenters.
-    /// In here we will implement methods without a view coupling, that the console 
-    /// will be using directly in order to try sticking to the MVP pattern.
+    /// The <see cref="ConsolePresenter"/> will be used differently in comparsion to other presenters.
+    /// In here it's not neccessary to expose properties by the interface as it shares the same window. 
+    /// the console will be using to output info directly as it's not depends on the gui.
     /// </summary>
     public class ConsolePresenter : BasePresenter
     {
-        /// <summary> Logger instance of the class <see cref="ConsolePresenter"/> </summary>
-        private static readonly ILog Log = Logger.GetLogger();
-
+        /// <summary> The view interface of the <see cref="Views.Windows.MainTui"/> which used to update the ui. </summary>
         private readonly IConsoleView _view;
 
+        /// <summary> Logger instance of the class <see cref="ConsolePresenter"/>. </summary>
+        private static readonly ILog Log = Logger.GetLogger();
 
 
+
+
+        /// <summary> 
+        /// The <see cref="ConsolePresenter"/> constructor will receive the <see cref="IConsoleView"/> interface from the 
+        /// <see cref="Views.Windows.MainTui"/> and couple together with the view.
+        /// </summary>
+        /// <param name="view"></param>
         public ConsolePresenter(IConsoleView view)
         {
             _view = view;
         }
 
 
+
+        /// <summary>
+        /// Gets a collection of <see cref="Team"/>s from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> 
+        /// and displays them to the view when the teams collection not empty.
+        /// </summary>
+        /// <returns><see cref="List&lt;Team&gt;"/></returns>
         public List<Team> AllTeams()
         {
             Log.Info("Displaying all teams to console.");
@@ -47,6 +60,11 @@ namespace TeamManager.Presenters
             return teams;
         }
 
+        /// <summary>
+        /// Gets a collection of <see cref="Player"/>s from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> 
+        /// and displays them to the view when the players collection not empty.
+        /// </summary>
+        /// <returns><see cref="List&lt;Player&gt;"/></returns>
         public List<Player> AllPlayers()
         {
             Log.Info("Displaying all players to console.");
@@ -60,6 +78,9 @@ namespace TeamManager.Presenters
             return players;
         }
 
+        /// <summary>
+        /// Creates a new <see cref="Team"/> with the giving team name.
+        /// </summary>
         public void CreateNewTeam()
         {
             Log.Info("Creating new team.");
@@ -72,6 +93,7 @@ namespace TeamManager.Presenters
                 Console.WriteLine($"Failed to create \"{teamName}\" as a new team...");
         }
 
+        /// Creates a new <see cref="Player"/> with the giving player name.
         public void CreateNewPlayer()
         {
             Log.Info("Creating new player.");
@@ -84,6 +106,9 @@ namespace TeamManager.Presenters
                 Console.WriteLine($"Failed to create \"{playerName}\" as a new player...");
         }
 
+        /// <summary>
+        /// Edits the <see cref="Team.Name"/> of the selected <see cref="Team"/> index.
+        /// </summary>
         public void EditTeam()
         {
             Log.Info("Editing Team.");
@@ -108,6 +133,9 @@ namespace TeamManager.Presenters
                 Console.WriteLine("Failed to change team name...");
         }
 
+        /// <summary>
+        /// Edits the <see cref="Player.Name"/> or <see cref="Player.TeamId"/> of the selected <see cref="Player"/> index.
+        /// </summary>
         public void EditPlayer()
         {
             Log.Info("Editing player.");
@@ -167,6 +195,9 @@ namespace TeamManager.Presenters
 
         }
 
+        /// <summary>
+        /// Deletes the selected <see cref="Team"/> and move all their <see cref="Player"/>s to unsigned team(id = 0).
+        /// </summary>
         public void DeleteTeam()
         {
             Log.Info("Deleting team.");
@@ -197,6 +228,7 @@ namespace TeamManager.Presenters
                 : $"Failed to remove {team.Name} from teams...");
         }
 
+        /// Deletes the selected <see cref="Player"/>.
         public void DeletePlayer()
         {
             Log.Info("Deleting player.");
@@ -219,6 +251,9 @@ namespace TeamManager.Presenters
                 : $"Failed to remove {player.Name} from players...");
         }
 
+        /// <summary>
+        /// Displays all the <see cref="Player"/>s that are not assign to a <see cref="Team"/>.
+        /// </summary>
         public void ShowUnsignedPlayers()
         {
             Log.Info("Displaying all unsigned players.");
@@ -230,6 +265,9 @@ namespace TeamManager.Presenters
             }
         }
 
+        /// <summary>
+        /// Displays all the <see cref="Player"/>s of the selected <see cref="Team"/>.
+        /// </summary>
         public void ShowTeamPlayers()
         {
             Log.Info("Displaying all players of a team.");
@@ -262,12 +300,18 @@ namespace TeamManager.Presenters
             }
         }
 
+        /// <summary>
+        /// Validate user input before closing the tui.
+        /// </summary>
         public void Close()
         {
             if (ValidateUserInput("Are you sure you want to exit? (Y/N)"))
                 Environment.Exit(0);
         }
 
+        /// <summary>
+        /// Displays the menu to the view.
+        /// </summary>
         public void PrintMenu()
         {
             Console.Clear();
@@ -288,6 +332,11 @@ namespace TeamManager.Presenters
                               "    Close                 \t(x)         \n");
         }
 
+        /// <summary>
+        /// Gets user input.
+        /// Mainly used when we want to get the selected index of the displayed options.
+        /// </summary>
+        /// <returns></returns>
         private int GetUserInput()
         {
             Console.Write("\nInput: ");
@@ -297,6 +346,11 @@ namespace TeamManager.Presenters
             return input;
         }
 
+        /// <summary>
+        /// Validates user input before proccessing an action whether to continue or not.
+        /// </summary>
+        /// <param name="message">The question that will display to the user.</param>
+        /// <returns><see cref="bool"/></returns>
         private bool ValidateUserInput(string message)
         {
             string answer;
@@ -311,8 +365,12 @@ namespace TeamManager.Presenters
             return true;
         }
 
+        /// <summary>
+        /// Displays invalid input to the view.
+        /// </summary>
         private void InvalidInput() => Console.WriteLine("Invalid input. Please try again...");
 
+        /// <summary> The <see cref="ConsolePresenter"/> not necessarly needs to invoke. </summary>
         public override void WindowClosed() { }
 
     }

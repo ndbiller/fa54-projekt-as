@@ -8,6 +8,9 @@ using TeamManager.Models.ResourceData;
 
 namespace TeamManager.Utilities
 {
+    /// <summary>
+    /// <see cref="Utility"/> class used mostly for extensions methods in order to simplify code.
+    /// </summary>
     public static class Utility
     {
         /// <summary> Logger instance of the class <see cref="Utility"/> </summary>
@@ -15,7 +18,7 @@ namespace TeamManager.Utilities
 
 
         /// <summary>
-        /// Check if contains one of the numbers.
+        /// Checks if contains one of the numbers.
         /// Works the same as in SQL: "WHERE column_name IN (1, 2, 3, 4)".
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -30,7 +33,7 @@ namespace TeamManager.Utilities
 
 
         /// <summary>
-        /// Checks to see if the tuple contains an item that is null genericly.
+        /// Checks to see if the <see cref="Tuple"/> contains an item that is null genericly.
         /// </summary>
         /// <typeparam name="TA"></typeparam>
         /// <typeparam name="TB"></typeparam>
@@ -46,14 +49,15 @@ namespace TeamManager.Utilities
 
 
         /// <summary>
-        /// Accepts a task and set timeout in miliseconds. 
-        /// If timeout limit reaches, TimeoutException will be thrown.
+        /// Accepts a <see cref="Task"/> and set timeout in miliseconds. 
+        /// If timeout limit reaches, <see cref="TimeoutException"/> will be thrown.
         /// </summary>
         /// <param name="task"></param>
         /// <param name="millisecondsTimeout"></param>
         /// <param name="callerClass"></param>
         /// <param name="callerMethod"></param>
-        /// <returns></returns>
+        /// <exception cref="TimeoutException"></exception>
+        /// <returns><see cref="Task"/></returns>
         public static async Task TimeoutAfter(this Task task, int millisecondsTimeout, 
             [CallerFilePath] string callerClass = "",
             [CallerMemberName] string callerMethod = "")
@@ -69,7 +73,7 @@ namespace TeamManager.Utilities
 
 
         /// <summary>
-        /// Casts object to Team. Useful when working with ObjectCollection.
+        /// Casts object to <see cref="Team"/>. Useful when working with ObjectCollection.
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="callerName">The method name that is calling for debugging purposes. 
@@ -85,7 +89,7 @@ namespace TeamManager.Utilities
 
 
         /// <summary>
-        /// Casts object to Player. Useful when working with ObjectCollection.
+        /// Casts object to <see cref="Player"/>. Useful when working with ObjectCollection.
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="callerName">The method name that is calling for debugging purposes. 
@@ -102,7 +106,7 @@ namespace TeamManager.Utilities
 
         /// <summary>
         /// Returning the count result of the collection in a safer manner.
-        /// If collection is null, the result would be 0.
+        /// If collection is null, the result will be 0.
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
