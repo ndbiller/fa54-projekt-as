@@ -112,6 +112,7 @@
     <Compile Include="Presenters\Events\PresenterHandler.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
     <Compile Include="Presenters\UnsignedPlayersPresenter.cs" />
+    <Compile Include="Utilities\CtrlType.cs" />
     <Compile Include="Utilities\Defaults.cs" />
     <Compile Include="Utilities\Logger.cs" />
     <Compile Include="Utilities\NativeMethods.cs" />

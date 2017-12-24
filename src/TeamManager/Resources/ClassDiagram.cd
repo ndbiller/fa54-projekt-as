@@ -122,7 +122,7 @@
   <Class Name="TeamManager.Presenters.EditPresenter">
     <Position X="4.75" Y="19.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAIAAAEAAAAAAAIAAAQIAAAAAAkAAAAAACAAEAAAAAA=</HashCode>
+      <HashCode>AAIAAAEAAAAAAAIAAAAIAAAIAAkAAAAAACAAEAAAAAA=</HashCode>
       <FileName>Presenters\EditPresenter.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -150,7 +150,7 @@
   <Class Name="TeamManager.Program">
     <Position X="40.75" Y="19.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAgIAAAAIAAgAAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAABAEgABACgISAAIIAAgAAAAgAAAEBAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -177,14 +177,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TeamManager.Views.Gui">
-    <Position X="40" Y="22" Width="1.5" />
+    <Position X="43" Y="19.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\Gui.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TeamManager.Views.Tui" BaseTypeListCollapsed="true">
-    <Position X="42" Y="22" Width="1.5" />
+    <Position X="43" Y="20.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\Tui.cs</FileName>
@@ -207,7 +207,7 @@
   <Class Name="TeamManager.Views.Windows.Dialogs.EditWindow" BaseTypeListCollapsed="true">
     <Position X="3.5" Y="29.25" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAACAAAEMAAAGQAMACAAAAABEAGAAAAQIRQIA=</HashCode>
+      <HashCode>AQAAAAAAACAAAEEAAAGQAMACAAAAABEAGQAAAQIRQIA=</HashCode>
       <FileName>Views\Windows\Dialogs\EditWindow.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -223,7 +223,7 @@
   <Class Name="TeamManager.Views.Windows.Dialogs.AllPlayersWindow" BaseTypeListCollapsed="true">
     <Position X="13.75" Y="29.25" Width="4.75" />
     <TypeIdentifier>
-      <HashCode>BQAAAAAAACADIkAAoESQAAACAAAgAAQACAQAkAABgQA=</HashCode>
+      <HashCode>BQAAAAAAACADIkAAoESQAAACIAAgAAQACAQAkAABgAA=</HashCode>
       <FileName>Views\Windows\Dialogs\AllPlayersWindow.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -246,10 +246,17 @@
   <Class Name="TeamManager.Utilities.NativeMethods">
     <Position X="29.25" Y="32.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <HashCode>AAAAAABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAgAAA=</HashCode>
       <FileName>Utilities\NativeMethods.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Struct Name="TeamManager.Utilities.CtrlType">
+    <Position X="29.25" Y="34.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AIAEQAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Utilities\CtrlType.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
   <Interface Name="TeamManager.Database.IDataLayer">
     <Position X="24" Y="7.25" Width="4.5" />
     <TypeIdentifier>
