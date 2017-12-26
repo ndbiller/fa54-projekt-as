@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Forms.Custom;
 using TeamManager.Models.ResourceData;
@@ -59,7 +60,8 @@ namespace TeamManager.Views.Windows
         /// </summary>
         public MainWindow()
         {
-            Loaders.StartLoader(LoaderType.Loader);
+            Loaders.ParentWindow = this;
+            Loaders.StartLoader(LoaderType.SplashScreen, 3000);
 
             InitializeComponent();
             _presenter = new MainPresenter(this);
@@ -67,7 +69,7 @@ namespace TeamManager.Views.Windows
 
             Loaders.StopLoader(Handle);
         }
-
+        
 
         /// <summary>
         /// The event to execute every time <see cref="tbxSearch"/> TextBox text will change and run search query to the database
@@ -134,7 +136,7 @@ namespace TeamManager.Views.Windows
         /// <param name="e"></param>
         private void btnUnsignedPlayers_Click(object sender, EventArgs e)
         {
-            new UnsignedPlayersWindow().ShowDialog();
+            new UnsignedPlayersWindow().ShowDialog(this);
         }
 
         /// <summary>
@@ -144,7 +146,7 @@ namespace TeamManager.Views.Windows
         /// <param name="e"></param>
         private void btnShowAllPlayers_Click(object sender, EventArgs e)
         {
-            new AllPlayersWindow().ShowDialog();
+            new AllPlayersWindow().ShowDialog(this);
         }
 
 
@@ -155,7 +157,7 @@ namespace TeamManager.Views.Windows
         /// <param name="e"></param>
         private void btnTCreate_Click(object sender, EventArgs e)
         {
-            new EditWindow(EditMode.TeamCreate, null, null).ShowDialog();
+            new EditWindow(EditMode.TeamCreate, null, null).ShowDialog(this);
         }
 
         /// <summary>
@@ -168,7 +170,7 @@ namespace TeamManager.Views.Windows
             Team team = _presenter.GetSelectedTeam();
             if (team == null) return;
 
-            new EditWindow(EditMode.PlayerCreate, team, null).ShowDialog();
+            new EditWindow(EditMode.PlayerCreate, team, null).ShowDialog(this);
         }
 
         /// <summary>
@@ -181,7 +183,7 @@ namespace TeamManager.Views.Windows
             Team team = _presenter.GetSelectedTeam();
             if (team == null) return;
 
-            new EditWindow(EditMode.TeamEdit, team, null).ShowDialog();
+            new EditWindow(EditMode.TeamEdit, team, null).ShowDialog(this);
         }
 
         /// <summary>
@@ -194,7 +196,7 @@ namespace TeamManager.Views.Windows
             Tuple<Team, Player> teamAndPlayer = _presenter.GetSelectedTeamAndPlayer();
             if (teamAndPlayer == null || teamAndPlayer.ContainsNull()) return;
 
-            new EditWindow(EditMode.PlayerEdit, teamAndPlayer.Item1, teamAndPlayer.Item2).ShowDialog();
+            new EditWindow(EditMode.PlayerEdit, teamAndPlayer.Item1, teamAndPlayer.Item2).ShowDialog(this);
         }
 
         #endregion --- Show Dialogs ---

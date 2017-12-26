@@ -5,6 +5,7 @@ using TeamManager.Models.ResourceData;
 using TeamManager.Presenters;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Interfaces;
+using TeamManager.Views.Loader;
 
 namespace TeamManager.Views.Windows.Dialogs
 {
@@ -43,7 +44,7 @@ namespace TeamManager.Views.Windows.Dialogs
 
         #endregion --- View Interface Items ---
 
-
+        
 
 
         /// <summary> 
@@ -121,19 +122,28 @@ namespace TeamManager.Views.Windows.Dialogs
         {
             if (tbxName.Text == string.Empty) return;
 
+            Loaders.StartLoader(LoaderType.Loader, 1500);
+
             switch (_currentView)
             {
                 case EditMode.TeamCreate:
                     _presenter.CreateTeam();
+
+                    Loaders.StopLoader(Handle);
                     DialogResult answer = MessageBox.Show("Would you like to assign unsigned players to your new created team?", 
                         "Suggestion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (answer == DialogResult.Yes)
-                        new UnsignedPlayersWindow().ShowDialog();
+                    {
+                        OnFormClosed(new FormClosedEventArgs(CloseReason.FormOwnerClosing));
+                        Visible = false;
+                        new UnsignedPlayersWindow().ShowDialog(this);
+                    }
                     break;
 
                 case EditMode.TeamEdit:
                     _presenter.EditTeam();
+
                     break;
 
                 case EditMode.PlayerEdit:
@@ -150,6 +160,7 @@ namespace TeamManager.Views.Windows.Dialogs
                     break;
             }
 
+            Loaders.StopLoader(Handle);
             Close();
         }
 
@@ -172,6 +183,7 @@ namespace TeamManager.Views.Windows.Dialogs
         private void EditWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
             _presenter.WindowClosed();
+            Owner?.Activate();
         }
 
     }

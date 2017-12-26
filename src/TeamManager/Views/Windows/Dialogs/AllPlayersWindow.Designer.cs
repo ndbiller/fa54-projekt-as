@@ -52,10 +52,10 @@
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.GhostWhite;
-            this.lblName.Location = new System.Drawing.Point(10, 51);
-            this.lblName.Margin = new System.Windows.Forms.Padding(10, 3, 30, 3);
+            this.lblName.Location = new System.Drawing.Point(13, 61);
+            this.lblName.Margin = new System.Windows.Forms.Padding(13, 4, 40, 4);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(52, 18);
+            this.lblName.Size = new System.Drawing.Size(66, 24);
             this.lblName.TabIndex = 10;
             this.lblName.Text = "Name:";
             // 
@@ -63,11 +63,11 @@
             // 
             this.tbxTeam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbxTeam.Enabled = false;
-            this.tbxTeam.Location = new System.Drawing.Point(10, 132);
-            this.tbxTeam.Margin = new System.Windows.Forms.Padding(10, 3, 22, 3);
+            this.tbxTeam.Location = new System.Drawing.Point(13, 163);
+            this.tbxTeam.Margin = new System.Windows.Forms.Padding(13, 4, 29, 4);
             this.tbxTeam.Name = "tbxTeam";
             this.tbxTeam.ReadOnly = true;
-            this.tbxTeam.Size = new System.Drawing.Size(107, 20);
+            this.tbxTeam.Size = new System.Drawing.Size(140, 22);
             this.tbxTeam.TabIndex = 9;
             this.tbxTeam.TabStop = false;
             // 
@@ -75,11 +75,11 @@
             // 
             this.tbxName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbxName.Enabled = false;
-            this.tbxName.Location = new System.Drawing.Point(10, 75);
-            this.tbxName.Margin = new System.Windows.Forms.Padding(10, 3, 22, 3);
+            this.tbxName.Location = new System.Drawing.Point(13, 93);
+            this.tbxName.Margin = new System.Windows.Forms.Padding(13, 4, 29, 4);
             this.tbxName.Name = "tbxName";
             this.tbxName.ReadOnly = true;
-            this.tbxName.Size = new System.Drawing.Size(107, 20);
+            this.tbxName.Size = new System.Drawing.Size(140, 22);
             this.tbxName.TabIndex = 9;
             this.tbxName.TabStop = false;
             // 
@@ -89,10 +89,10 @@
             this.lbTeam.AutoSize = true;
             this.lbTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTeam.ForeColor = System.Drawing.Color.GhostWhite;
-            this.lbTeam.Location = new System.Drawing.Point(10, 108);
-            this.lbTeam.Margin = new System.Windows.Forms.Padding(10, 3, 30, 3);
+            this.lbTeam.Location = new System.Drawing.Point(13, 131);
+            this.lbTeam.Margin = new System.Windows.Forms.Padding(13, 4, 40, 4);
             this.lbTeam.Name = "lbTeam";
-            this.lbTeam.Size = new System.Drawing.Size(50, 18);
+            this.lbTeam.Size = new System.Drawing.Size(64, 24);
             this.lbTeam.TabIndex = 11;
             this.lbTeam.Text = "Team:";
             // 
@@ -104,10 +104,10 @@
             this.btnPCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPCreate.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F);
             this.btnPCreate.ForeColor = System.Drawing.Color.Black;
-            this.btnPCreate.Location = new System.Drawing.Point(31, 462);
-            this.btnPCreate.Margin = new System.Windows.Forms.Padding(6, 0, 6, 12);
+            this.btnPCreate.Location = new System.Drawing.Point(41, 568);
+            this.btnPCreate.Margin = new System.Windows.Forms.Padding(8, 0, 8, 15);
             this.btnPCreate.Name = "btnPCreate";
-            this.btnPCreate.Size = new System.Drawing.Size(191, 28);
+            this.btnPCreate.Size = new System.Drawing.Size(250, 34);
             this.btnPCreate.TabIndex = 2;
             this.btnPCreate.Text = "Create";
             this.btnPCreate.UseVisualStyleBackColor = false;
@@ -120,7 +120,7 @@
             this.lbxPlayers.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F);
             this.lbxPlayers.ForeColor = System.Drawing.Color.GhostWhite;
             this.lbxPlayers.FormattingEnabled = true;
-            this.lbxPlayers.ItemHeight = 19;
+            this.lbxPlayers.ItemHeight = 23;
             this.lbxPlayers.Items.AddRange(new object[] {
             "Bob Donaldson",
             "Fred Erentz",
@@ -136,10 +136,10 @@
             "Jermaine Darlington",
             "Stuart Ripley",
             "Steve Stone"});
-            this.lbxPlayers.Location = new System.Drawing.Point(31, 33);
-            this.lbxPlayers.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
+            this.lbxPlayers.Location = new System.Drawing.Point(41, 41);
+            this.lbxPlayers.Margin = new System.Windows.Forms.Padding(8, 4, 8, 4);
             this.lbxPlayers.Name = "lbxPlayers";
-            this.lbxPlayers.Size = new System.Drawing.Size(191, 386);
+            this.lbxPlayers.Size = new System.Drawing.Size(250, 474);
             this.lbxPlayers.TabIndex = 0;
             this.lbxPlayers.SelectedIndexChanged += new System.EventHandler(this.lbxPlayers_SelectedIndexChanged);
             // 
@@ -151,9 +151,10 @@
             this.btnPEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPEdit.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F);
             this.btnPEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnPEdit.Location = new System.Drawing.Point(101, 3);
+            this.btnPEdit.Location = new System.Drawing.Point(133, 4);
+            this.btnPEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnPEdit.Name = "btnPEdit";
-            this.btnPEdit.Size = new System.Drawing.Size(93, 28);
+            this.btnPEdit.Size = new System.Drawing.Size(121, 33);
             this.btnPEdit.TabIndex = 1;
             this.btnPEdit.Text = "Edit";
             this.btnPEdit.UseVisualStyleBackColor = false;
@@ -165,10 +166,10 @@
             this.lblAllPlayers.AutoSize = true;
             this.lblAllPlayers.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F);
             this.lblAllPlayers.ForeColor = System.Drawing.Color.GhostWhite;
-            this.lblAllPlayers.Location = new System.Drawing.Point(55, 3);
-            this.lblAllPlayers.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.lblAllPlayers.Location = new System.Drawing.Point(78, 4);
+            this.lblAllPlayers.Margin = new System.Windows.Forms.Padding(4);
             this.lblAllPlayers.Name = "lblAllPlayers";
-            this.lblAllPlayers.Size = new System.Drawing.Size(143, 24);
+            this.lblAllPlayers.Size = new System.Drawing.Size(176, 29);
             this.lblAllPlayers.TabIndex = 5;
             this.lblAllPlayers.Text = "All Players List";
             // 
@@ -181,9 +182,10 @@
             this.btnPDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPDelete.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F);
             this.btnPDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnPDelete.Location = new System.Drawing.Point(3, 3);
+            this.btnPDelete.Location = new System.Drawing.Point(4, 4);
+            this.btnPDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnPDelete.Name = "btnPDelete";
-            this.btnPDelete.Size = new System.Drawing.Size(92, 28);
+            this.btnPDelete.Size = new System.Drawing.Size(121, 33);
             this.btnPDelete.TabIndex = 0;
             this.btnPDelete.Text = "Delete";
             this.btnPDelete.UseVisualStyleBackColor = false;
@@ -195,10 +197,10 @@
             this.customTableLayoutPanel1.Color1 = System.Drawing.Color.Transparent;
             this.customTableLayoutPanel1.Color2 = System.Drawing.Color.Black;
             this.customTableLayoutPanel1.ColumnCount = 4;
-            this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.33333F));
             this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.66667F));
-            this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.customTableLayoutPanel1.Controls.Add(this.lbxPlayers, 1, 1);
             this.customTableLayoutPanel1.Controls.Add(this.btnPCreate, 1, 3);
             this.customTableLayoutPanel1.Controls.Add(this.lblAllPlayers, 1, 0);
@@ -208,15 +210,16 @@
             this.customTableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.customTableLayoutPanel1.DraggableForm = false;
             this.customTableLayoutPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.customTableLayoutPanel1.Location = new System.Drawing.Point(8, 50);
+            this.customTableLayoutPanel1.Location = new System.Drawing.Point(11, 62);
+            this.customTableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.customTableLayoutPanel1.Name = "customTableLayoutPanel1";
             this.customTableLayoutPanel1.RowCount = 5;
-            this.customTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.customTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.customTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.customTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.customTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.customTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.customTableLayoutPanel1.Size = new System.Drawing.Size(406, 522);
+            this.customTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.customTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.customTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.customTableLayoutPanel1.Size = new System.Drawing.Size(541, 642);
             this.customTableLayoutPanel1.TabIndex = 12;
             // 
             // customTableLayoutPanel2
@@ -234,14 +237,15 @@
             this.customTableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.customTableLayoutPanel2.DraggableForm = false;
             this.customTableLayoutPanel2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.customTableLayoutPanel2.Location = new System.Drawing.Point(231, 33);
+            this.customTableLayoutPanel2.Location = new System.Drawing.Point(303, 41);
+            this.customTableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.customTableLayoutPanel2.Name = "customTableLayoutPanel2";
             this.customTableLayoutPanel2.RowCount = 4;
-            this.customTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 72F));
-            this.customTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.customTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.customTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 149F));
-            this.customTableLayoutPanel2.Size = new System.Drawing.Size(139, 386);
+            this.customTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 89F));
+            this.customTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.customTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.customTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 183F));
+            this.customTableLayoutPanel2.Size = new System.Drawing.Size(182, 474);
             this.customTableLayoutPanel2.TabIndex = 6;
             // 
             // customTableLayoutPanel3
@@ -258,11 +262,12 @@
             this.customTableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.customTableLayoutPanel3.DraggableForm = false;
             this.customTableLayoutPanel3.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.customTableLayoutPanel3.Location = new System.Drawing.Point(28, 425);
+            this.customTableLayoutPanel3.Location = new System.Drawing.Point(37, 523);
+            this.customTableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.customTableLayoutPanel3.Name = "customTableLayoutPanel3";
             this.customTableLayoutPanel3.RowCount = 1;
             this.customTableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.customTableLayoutPanel3.Size = new System.Drawing.Size(197, 34);
+            this.customTableLayoutPanel3.Size = new System.Drawing.Size(258, 41);
             this.customTableLayoutPanel3.TabIndex = 1;
             // 
             // customControlBoxDialog1
@@ -275,11 +280,11 @@
             this.customControlBoxDialog1.ColorMouseHoverExit = System.Drawing.Color.Red;
             this.customControlBoxDialog1.ColorMouseHoverMinimize = System.Drawing.Color.DimGray;
             this.customControlBoxDialog1.ForeColorBtns = System.Drawing.Color.FloralWhite;
-            this.customControlBoxDialog1.Location = new System.Drawing.Point(364, 8);
+            this.customControlBoxDialog1.Location = new System.Drawing.Point(485, 10);
             this.customControlBoxDialog1.Margin = new System.Windows.Forms.Padding(0);
-            this.customControlBoxDialog1.MinimumSize = new System.Drawing.Size(50, 25);
+            this.customControlBoxDialog1.MinimumSize = new System.Drawing.Size(67, 31);
             this.customControlBoxDialog1.Name = "customControlBoxDialog1";
-            this.customControlBoxDialog1.Size = new System.Drawing.Size(50, 29);
+            this.customControlBoxDialog1.Size = new System.Drawing.Size(67, 36);
             this.customControlBoxDialog1.TabIndex = 8;
             this.customControlBoxDialog1.TabStop = false;
             // 
@@ -293,10 +298,10 @@
             this.AppTitle.TextColor = System.Drawing.Color.GhostWhite;
             this.AppTitle.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AppTitle.TextLocation = new System.Drawing.Point(10, 15);
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.ClientSize = new System.Drawing.Size(423, 580);
+            this.ClientSize = new System.Drawing.Size(564, 714);
             this.Controls.Add(this.customControlBoxDialog1);
             this.Controls.Add(this.customTableLayoutPanel1);
             this.CustomCursor = true;
@@ -306,10 +311,12 @@
             this.FormBorders.Color = System.Drawing.Color.MediumPurple;
             this.FormBorders.DrawBorders = true;
             this.FormBorders.Width = 8;
-            this.MaximumSize = new System.Drawing.Size(800, 840);
-            this.MinimumSize = new System.Drawing.Size(423, 580);
+            this.Icon = global::TeamManager.Properties.Resources.app;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(1067, 1034);
+            this.MinimumSize = new System.Drawing.Size(564, 714);
             this.Name = "AllPlayersWindow";
-            this.Padding = new System.Windows.Forms.Padding(8, 50, 9, 8);
+            this.Padding = new System.Windows.Forms.Padding(11, 62, 12, 10);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "All Players";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AllPlayersWindow_FormClosed);

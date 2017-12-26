@@ -1,6 +1,6 @@
 ﻿namespace TeamManager.Views.Loader
 {
-    partial class LoaderWindow
+    partial class SplashWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -35,33 +35,32 @@
             // pbLoader
             // 
             this.pbLoader.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbLoader.Image = global::TeamManager.Properties.Resources.loader;
-            this.pbLoader.Location = new System.Drawing.Point(10, 8);
+            this.pbLoader.Image = global::TeamManager.Properties.Resources.nerd_glasses;
+            this.pbLoader.Location = new System.Drawing.Point(8, 8);
             this.pbLoader.Margin = new System.Windows.Forms.Padding(4);
             this.pbLoader.Name = "pbLoader";
-            this.pbLoader.Size = new System.Drawing.Size(120, 124);
+            this.pbLoader.Size = new System.Drawing.Size(485, 414);
             this.pbLoader.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLoader.TabIndex = 0;
             this.pbLoader.TabStop = false;
             // 
-            // LoaderWindow
+            // SplashWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(140, 140);
+            this.ClientSize = new System.Drawing.Size(501, 430);
             this.ControlBox = false;
             this.Controls.Add(this.pbLoader);
-            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "LoaderWindow";
-            this.Padding = new System.Windows.Forms.Padding(10, 8, 10, 8);
+            this.Name = "SplashWindow";
+            this.Padding = new System.Windows.Forms.Padding(8);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.Black;
             ((System.ComponentModel.ISupportInitialize)(this.pbLoader)).EndInit();

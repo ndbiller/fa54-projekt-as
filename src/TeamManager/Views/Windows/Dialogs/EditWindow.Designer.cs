@@ -58,14 +58,14 @@
             this.cbxTeams.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTeams.FormattingEnabled = true;
             this.cbxTeams.Items.AddRange(new object[] {
-                "England",
-                "Arsenal",
-                "Chelsea",
-                "Manchester United",
-                "Scotland",
-                "Wales"});
+            "England",
+            "Arsenal",
+            "Chelsea",
+            "Manchester United",
+            "Scotland",
+            "Wales"});
             this.cbxTeams.Location = new System.Drawing.Point(124, 80);
-            this.cbxTeams.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxTeams.Margin = new System.Windows.Forms.Padding(4);
             this.cbxTeams.Name = "cbxTeams";
             this.cbxTeams.Size = new System.Drawing.Size(156, 24);
             this.cbxTeams.TabIndex = 2;
@@ -74,7 +74,7 @@
             // 
             this.tbxName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxName.Location = new System.Drawing.Point(124, 44);
-            this.tbxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxName.Margin = new System.Windows.Forms.Padding(4);
             this.tbxName.Name = "tbxName";
             this.tbxName.Size = new System.Drawing.Size(156, 22);
             this.tbxName.TabIndex = 1;
@@ -148,7 +148,7 @@
             this.customTableLayoutPanel1.DraggableForm = false;
             this.customTableLayoutPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.customTableLayoutPanel1.Location = new System.Drawing.Point(11, 62);
-            this.customTableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.customTableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.customTableLayoutPanel1.Name = "customTableLayoutPanel1";
             this.customTableLayoutPanel1.RowCount = 4;
             this.customTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
@@ -199,7 +199,8 @@
             this.FormBorders.Color = System.Drawing.Color.PeachPuff;
             this.FormBorders.DrawBorders = true;
             this.FormBorders.Width = 8;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = global::TeamManager.Properties.Resources.app;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(667, 246);
             this.MinimumSize = new System.Drawing.Size(427, 246);
             this.Name = "EditWindow";

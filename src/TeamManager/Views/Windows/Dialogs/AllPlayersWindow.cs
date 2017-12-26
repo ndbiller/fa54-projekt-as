@@ -6,6 +6,7 @@ using TeamManager.Presenters;
 using TeamManager.Utilities;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Interfaces;
+using TeamManager.Views.Loader;
 
 namespace TeamManager.Views.Windows.Dialogs
 {
@@ -43,7 +44,7 @@ namespace TeamManager.Views.Windows.Dialogs
         #endregion --- View Interface Items ---
 
 
-
+        
 
         /// <summary> 
         /// <see cref="AllPlayersWindow"/> constructor will pass it's own instance to the presenter and initialize the 
@@ -51,9 +52,13 @@ namespace TeamManager.Views.Windows.Dialogs
         /// </summary>
         public AllPlayersWindow()
         {
+            Loaders.StartLoader(LoaderType.Loader, 750);
+
             InitializeComponent();
             _presenter = new AllPlayersPresenter(this);
             _presenter.BindPlayersData();
+
+            Loaders.StopLoader(Handle);
         }
 
 
@@ -88,6 +93,7 @@ namespace TeamManager.Views.Windows.Dialogs
         private void AllPlayersWindow_FormClosed(object sender, FormClosedEventArgs e)
         {
             _presenter.WindowClosed();
+            Owner?.Activate();
         }
 
 
@@ -103,7 +109,7 @@ namespace TeamManager.Views.Windows.Dialogs
             Tuple<Team, Player> teamAndPlayer = _presenter.GetTeamAndPlayer();
             if (teamAndPlayer == null || teamAndPlayer.ContainsNull()) return;
 
-            new EditWindow(EditMode.PlayerEdit, teamAndPlayer.Item1, teamAndPlayer.Item2).ShowDialog();
+            new EditWindow(EditMode.PlayerEdit, teamAndPlayer.Item1, teamAndPlayer.Item2).ShowDialog(this);
         }
 
         /// <summary>
@@ -113,7 +119,7 @@ namespace TeamManager.Views.Windows.Dialogs
         /// <param name="e"></param>
         private void btnPCreate_Click(object sender, EventArgs e)
         {
-            new EditWindow(EditMode.PlayerCreate, null, null).ShowDialog();
+            new EditWindow(EditMode.PlayerCreate, null, null).ShowDialog(this);
         }
 
         #endregion --- Show Dialogs ---

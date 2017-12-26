@@ -118,6 +118,12 @@
     <Compile Include="Utilities\NativeMethods.cs" />
     <Compile Include="Utilities\Utility.cs" />
     <Compile Include="Views\Enums\WindowType.cs" />
+    <Compile Include="Views\Loader\LoaderWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Loader\LoaderWindow.Designer.cs">
+      <DependentUpon>LoaderWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\Dialogs\EditWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,29 +162,17 @@
     <Compile Include="Views\Interfaces\IEditView.cs" />
     <Compile Include="Views\Interfaces\IMainView.cs" />
     <Compile Include="Views\Interfaces\IUnsignedPlayersView.cs" />
-    <Compile Include="Views\Loader\LoaderWindow.cs">
+    <Compile Include="Views\Loader\SplashWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Loader\LoaderWindow.Designer.cs">
-      <DependentUpon>LoaderWindow.cs</DependentUpon>
+    <Compile Include="Views\Loader\SplashWindow.Designer.cs">
+      <DependentUpon>SplashWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Loader\Loaders.cs" />
     <Compile Include="Views\Loader\LoaderType.cs" />
     <Compile Include="Views\Windows\MainTui.cs" />
     <Compile Include="Views\Tui.cs" />
     <Compile Include="Models\TechnicalConcept\TechnicalConceptType.cs" />
-    <EmbeddedResource Include="Views\Windows\Dialogs\EditWindow.resx">
-      <DependentUpon>EditWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Windows\Dialogs\AllPlayersWindow.resx">
-      <DependentUpon>AllPlayersWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Windows\Dialogs\UnsignedPlayersWindow.resx">
-      <DependentUpon>UnsignedPlayersWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Windows\MainWindow.resx">
-      <DependentUpon>MainWindow.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -191,6 +185,21 @@
     </Compile>
     <EmbeddedResource Include="Views\Loader\LoaderWindow.resx">
       <DependentUpon>LoaderWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Loader\SplashWindow.resx">
+      <DependentUpon>SplashWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Windows\Dialogs\AllPlayersWindow.resx">
+      <DependentUpon>AllPlayersWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Windows\Dialogs\EditWindow.resx">
+      <DependentUpon>EditWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Windows\Dialogs\UnsignedPlayersWindow.resx">
+      <DependentUpon>UnsignedPlayersWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Windows\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Resources\ClassDiagram.cd" />
     <None Include="packages.config" />
@@ -210,8 +219,9 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Resources\app.ico" />
-    <None Include="FodyWeavers.xml" />
     <None Include="Resources\nerd-glasses.gif" />
+    <None Include="Resources\loader.gif" />
+    <None Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

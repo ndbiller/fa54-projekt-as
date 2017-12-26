@@ -66,13 +66,13 @@
             this.lbxPlayers.FormattingEnabled = true;
             this.lbxPlayers.ItemHeight = 23;
             this.lbxPlayers.Items.AddRange(new object[] {
-                "Neville Southall",
-                "James Chester",
-                "Gareth Southgate",
-                "Clarke Carlisle",
-                "Jermaine Darlington",
-                "Stuart Ripley",
-                "Steve Stone"});
+            "Neville Southall",
+            "James Chester",
+            "Gareth Southgate",
+            "Clarke Carlisle",
+            "Jermaine Darlington",
+            "Stuart Ripley",
+            "Steve Stone"});
             this.lbxPlayers.Location = new System.Drawing.Point(35, 62);
             this.lbxPlayers.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lbxPlayers.Name = "lbxPlayers";
@@ -103,7 +103,7 @@
             this.lblHeader.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F);
             this.lblHeader.ForeColor = System.Drawing.Color.GhostWhite;
             this.lblHeader.Location = new System.Drawing.Point(44, 29);
-            this.lblHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lblHeader.Margin = new System.Windows.Forms.Padding(4);
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(268, 29);
             this.lblHeader.TabIndex = 5;
@@ -163,7 +163,7 @@
             this.customTableLayoutPanel1.DraggableForm = false;
             this.customTableLayoutPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.customTableLayoutPanel1.Location = new System.Drawing.Point(11, 62);
-            this.customTableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.customTableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.customTableLayoutPanel1.Name = "customTableLayoutPanel1";
             this.customTableLayoutPanel1.RowCount = 6;
             this.customTableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
@@ -190,7 +190,7 @@
             this.customTableLayoutPanel2.DraggableForm = false;
             this.customTableLayoutPanel2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.customTableLayoutPanel2.Location = new System.Drawing.Point(31, 374);
-            this.customTableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.customTableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.customTableLayoutPanel2.Name = "customTableLayoutPanel2";
             this.customTableLayoutPanel2.RowCount = 1;
             this.customTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -220,7 +220,8 @@
             this.FormBorders.Color = System.Drawing.Color.MediumSlateBlue;
             this.FormBorders.DrawBorders = true;
             this.FormBorders.Width = 8;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = global::TeamManager.Properties.Resources.app;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(892, 921);
             this.MinimumSize = new System.Drawing.Size(379, 567);
             this.Name = "UnsignedPlayersWindow";
