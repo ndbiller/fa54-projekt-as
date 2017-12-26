@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Comment CommentText="The resource data object that we use when initializing data to the view or the database.">
+    <Position X="29.295" Y="20.834" Height="0.291" Width="5.192" />
+  </Comment>
+  <Comment CommentText="All presenters inherit BasePresenter and having an interface that the forms implements to control the view. &#xD;&#xA;They also share the same concept type together that will retrieve data from the database.">
+    <Position X="10.521" Y="15.555" Height="0.588" Width="6.169" />
+  </Comment>
+  <Comment CommentText="All technical concepts implements the ITechnicalConcept and inheriting the TechnicalConceptBase to initialize the database type by passing the DB Enum Type to the base constructor.">
+    <Position X="9.729" Y="4.244" Height="0.912" Width="3.395" />
+  </Comment>
+  <Comment CommentText="We use this enum when calling the EditForm so it knows how to treat the giving data by the defined EditMode.">
+    <Position X="1.497" Y="29.51" Height="1.119" Width="1.738" />
+  </Comment>
+  <Comment CommentText="Each form implements the interface that it owns in order to couple the presenters with the view. The presenters will modify the view in order to make the forms(view) code maintainable and clean as possible by using the MVP(Model-View-Presenter) pattern. &#xD;&#xA;When each form gets initialized, the constructor of the form will pass his own instance by using the this keyword to the presenter so that the presenter holds a reference to the interface that the form implements.">
+    <Position X="9.381" Y="25.884" Height="0.871" Width="7.95" />
+  </Comment>
+  <Comment CommentText="Utilities classes that have a general purpose. The Utility class have mostly extension methods to simplify code.">
+    <Position X="29.25" Y="27.25" Height="0.872" Width="2.946" />
+  </Comment>
+  <Comment CommentText="Loaders class will simply load a form on a different thread to keep the user busy while things gets loaded.">
+    <Position X="39.565" Y="27.445" Height="0.499" Width="3.288" />
+  </Comment>
+  <Comment CommentText="Application entry point that can receive optional parameters by the user to start the TUI or GUI on runtime so we don't need to re-compile every time in order to switch between the two.">
+    <Position X="40.338" Y="18.15" Height="1.166" Width="2.587" />
+  </Comment>
+  <Comment CommentText="We use 2 different types of database to hold the neccessary data. &#xD;&#xA;1. Relational Database which in this case is SQL.&#xD;&#xA;2. Non-Relational Database which in this case is Mongo-Db.&#xD;&#xA;&#xD;&#xA;When the program starts, the user can define the kind of databse that she/he wants to use and the TechnicalConcept will automatically initialize the type of database depending on the decision that the user provided by using the IDataLayer interface.&#xD;&#xA;Since each database have different implementation and both inheriting the IDataLayer interface, we get the exact same behavior by calling the database with the interface.">
+    <Position X="28.297" Y="4.899" Height="2.011" Width="5.181" />
+  </Comment>
+  <Class Name="TeamManager.Database.DbLayerMongo" BaseTypeListCollapsed="true">
+    <Position X="28.75" Y="7.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIGAGACEE4AFBACAAAKgAEBAggIIIABCgEUUVBAAQ=</HashCode>
+      <FileName>Database\DbLayerMongo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TeamManager.Database.DbLayerSql" BaseTypeListCollapsed="true">
+    <Position X="33.5" Y="7.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAICAGAAAEwABBACAAAIAAEAAggIIIAAAgEUUVAAAA=</HashCode>
+      <FileName>Database\DbLayerSql.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TeamManager.Models.ResourceData.Player" BaseTypeListCollapsed="true">
+    <Position X="32.25" Y="21.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAAAAAAAAQEgAAAAAQCAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ResourceData\Player.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TeamManager.Models.ResourceData.Team" BaseTypeListCollapsed="true">
+    <Position X="29" Y="21.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAAAAAAAAQEgAAAAAQAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ResourceData\Team.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TeamManager.Models.TechnicalConcept.TechnicalConcept1">
+    <Position X="1" Y="9" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
+      <FileName>Models\TechnicalConcept\TechnicalConcept1.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TeamManager.Models.TechnicalConcept.TechnicalConcept1Mt">
+    <Position X="6.25" Y="9" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
+      <FileName>Models\TechnicalConcept\TechnicalConcept1Mt.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TeamManager.Models.TechnicalConcept.TechnicalConcept2">
+    <Position X="11.5" Y="9" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
+      <FileName>Models\TechnicalConcept\TechnicalConcept2.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TeamManager.Models.TechnicalConcept.TechnicalConcept2Mt">
+    <Position X="16.75" Y="9" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
+      <FileName>Models\TechnicalConcept\TechnicalConcept2Mt.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TeamManager.Models.TechnicalConcept.TechnicalConceptBase">
+    <Position X="9.75" Y="5.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TechnicalConcept\TechnicalConceptBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Presenters.AllPlayersPresenter">
+    <Position X="11.5" Y="19.75" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAABAAAAAAAAAgAkAIAAAICAAAAAAAAA=</HashCode>
+      <FileName>Presenters\AllPlayersPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Presenters.BasePresenter">
+    <Position X="10.5" Y="16.25" Width="6" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAkAAAAAAAAAEgAgAAA=</HashCode>
+      <FileName>Presenters\BasePresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Presenters.ConsolePresenter">
+    <Position X="20.5" Y="19.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AQAAIAAAgAAAAAJAAgAIAQEAAIkACAAAADAEAACAAAA=</HashCode>
+      <FileName>Presenters\ConsolePresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Presenters.EditPresenter">
+    <Position X="4.75" Y="19.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAEAAAAAAAIAAAAIAAAIAAkAAAAAACAAEAAAAAA=</HashCode>
+      <FileName>Presenters\EditPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Presenters.MainPresenter">
+    <Position X="15.75" Y="19.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAABAAAIDAAAIgAkoAAAAICAkACAwAAE=</HashCode>
+      <FileName>Presenters\MainPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Presenters.UnsignedPlayersPresenter">
+    <Position X="7.25" Y="19.75" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAEAAAAAgAkAAAAAICAAAAAAAAA=</HashCode>
+      <FileName>Presenters\UnsignedPlayersPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Presenters.Events.PresenterArgs">
+    <Position X="18.75" Y="16.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presenters\Events\PresenterArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Program">
+    <Position X="40.75" Y="19.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAEgABACgISAAIIAAgAAAAgAAAEBAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Utilities.Logger">
+    <Position X="29.25" Y="31.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utilities\Logger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Utilities.Utility">
+    <Position X="29.25" Y="28.25" Width="6.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAACAAAAAgAAAAgAgAAAAAAAAIBAAAACA=</HashCode>
+      <FileName>Utilities\Utility.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Views.Windows.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="29.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>BQAAAAAoAChCIgCCpFSAQECCAAAkACAgCAQCgAAAgIg=</HashCode>
+      <FileName>Views\Windows\MainWindow.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TeamManager.Views.Gui">
+    <Position X="43" Y="19.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Gui.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Views.Tui" BaseTypeListCollapsed="true">
+    <Position X="43" Y="20.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Tui.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Views.Loader.LoaderWindow">
+    <Position X="43.5" Y="28" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAgCAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Loader\LoaderWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Views.Loader.Loaders">
+    <Position X="39.25" Y="28" Width="4" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAIAAEAAAAAAAAAAgBAAAQAEAAAAAAAAA=</HashCode>
+      <FileName>Views\Loader\Loaders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Views.Windows.Dialogs.EditWindow" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="29.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAACAAAEEAAAGQAMACAAAAABEAGQAAAQIRQIA=</HashCode>
+      <FileName>Views\Windows\Dialogs\EditWindow.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TeamManager.Views.Windows.Dialogs.UnsignedPlayersWindow" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="29.25" Width="5.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAEAACAAAwAAoESQAAACAgAggAAACAAAgAAAgAA=</HashCode>
+      <FileName>Views\Windows\Dialogs\UnsignedPlayersWindow.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TeamManager.Views.Windows.Dialogs.AllPlayersWindow" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="29.25" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>BQAAAAAAACADIkAAoESQAAACIAAgAAQACAQAkAABgAA=</HashCode>
+      <FileName>Views\Windows\Dialogs\AllPlayersWindow.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TeamManager.Utilities.Defaults">
+    <Position X="32.25" Y="31.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAEAAAAACAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Utilities\Defaults.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Views.Windows.MainTui">
+    <Position X="23.5" Y="29.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAEAAAACAAQAAAAAAA=</HashCode>
+      <FileName>Views\Windows\MainTui.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TeamManager.Utilities.NativeMethods">
+    <Position X="29.25" Y="32.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAgAAA=</HashCode>
+      <FileName>Utilities\NativeMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="TeamManager.Utilities.CtrlType">
+    <Position X="29.25" Y="34.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AIAEQAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Utilities\CtrlType.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="TeamManager.Database.IDataLayer">
+    <Position X="24" Y="7.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAICAGAAAEwABBACAAAIAAEAAAgIIIAAAgEUUVAAAA=</HashCode>
+      <FileName>Database\IDataLayer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TeamManager.Models.TechnicalConcept.ITechnicalConcept">
+    <Position X="4.5" Y="4.25" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
+      <FileName>Models\TechnicalConcept\ITechnicalConcept.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TeamManager.Views.Interfaces.IAllPlayersView">
+    <Position X="13.75" Y="27" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABIAAAAAAAAAAAAAAgAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Views\Interfaces\IAllPlayersView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TeamManager.Views.Interfaces.IEditView">
+    <Position X="3.5" Y="27" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAEAAAAQAAQIA=</HashCode>
+      <FileName>Views\Interfaces\IEditView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TeamManager.Views.Interfaces.IMainView">
+    <Position X="18.75" Y="27" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAkAAAAAAAAgAAAAIA=</HashCode>
+      <FileName>Views\Interfaces\IMainView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TeamManager.Views.Interfaces.IUnsignedPlayersView">
+    <Position X="8.25" Y="27" Width="5.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Views\Interfaces\IUnsignedPlayersView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TeamManager.Views.Interfaces.IConsoleView">
+    <Position X="23.5" Y="27" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Interfaces\IConsoleView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="TeamManager.Database.DatabaseType">
+    <Position X="33.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Database\DatabaseType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TeamManager.Models.TechnicalConcept.TechnicalConceptType">
+    <Position X="13.25" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAQAAAAAAIAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Models\TechnicalConcept\TechnicalConceptType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TeamManager.Views.Enums.EditMode">
+    <Position X="1.5" Y="30.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAgAAAAAQBAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Views\Enums\EditMode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TeamManager.Views.Enums.WindowType">
+    <Position X="16.75" Y="17.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAEAAAAAAAAAACAAAABAAAAAA=</HashCode>
+      <FileName>Views\Enums\WindowType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TeamManager.Views.Loader.LoaderType">
+    <Position X="43.5" Y="30.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Loader\LoaderType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="TeamManager.Presenters.Events.PresenterHandler">
+    <Position X="16.75" Y="16.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presenters\Events\PresenterHandler.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,5 @@
+<map id="TeamManager.Presenters.ConsolePresenter" name="TeamManager.Presenters.ConsolePresenter">
+<area shape="rect" id="node2" href="$class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the ITechnicalConcept interface that will be used for retrieving data ..." alt="" coords="42,365,258,472"/>
+<area shape="rect" id="node3" href="$interface_team_manager_1_1_models_1_1_technical_concept_1_1_i_technical_concept.html" title="This interface will get implemented by all the other TechnicalConceptTypes so it allows us to retriev..." alt="" coords="5,5,215,303"/>
+<area shape="rect" id="node5" href="$interface_team_manager_1_1_views_1_1_interfaces_1_1_i_console_view.html" title="The IConsoleView interface which the Windows.MainTui implements in order to expose properties to the ..." alt="" coords="360,373,567,465"/>
+</map>
