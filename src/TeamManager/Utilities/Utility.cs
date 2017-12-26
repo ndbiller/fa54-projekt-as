@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using log4net;
 using TeamManager.Models.ResourceData;
 
@@ -15,6 +17,37 @@ namespace TeamManager.Utilities
     {
         /// <summary> Logger instance of the class <see cref="Utility"/> </summary>
         private static readonly ILog Log = Logger.GetLogger();
+
+
+
+        /// <summary>
+        /// Invokes an action with the specified callback in a thread safe manner in order to avoid cross-thread exception.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="control">The <see cref="Control"/> or all members that inherits Control that the action will be used on. </param>
+        /// <param name="action">Callback operation on the <see cref="Control"/> that gets invoked. </param>
+        public static void InvokeSafe<T>(this T control, Action action)
+            where T : Control, ISynchronizeInvoke
+        {
+            if (control.InvokeRequired)
+                control.Invoke(action);
+        }
+
+
+        /// <summary>
+        /// Begin invoke an action with the specified callback in a thread safe manner in order to avoid cross-thread exception.
+        /// For better performance, this would be a better option, but note that the calling thread, won't wait for completion 
+        /// comparing to <see cref="InvokeSafe{T}"/>.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="control">The <see cref="Control"/> or all members that inherits Control that the action will be used on. </param>
+        /// <param name="action">Callback operation on the <see cref="Control"/> that gets invoked. </param>
+        public static void BeginInvokeSafe<T>(this T control, Action action)
+            where T : Control, ISynchronizeInvoke
+        {
+            if (control.InvokeRequired)
+                control.BeginInvoke(action);
+        }
 
 
         /// <summary>
@@ -125,6 +158,5 @@ namespace TeamManager.Utilities
         {
             return obj == null || !obj.Any();
         }
-
     }
 }

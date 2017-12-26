@@ -22,7 +22,7 @@ namespace TeamManager.Presenters
 
 
 
-
+        
         /// <summary> 
         /// The <see cref="EditPresenter"/> constructor will receive the <see cref="IEditView"/> interface from the 
         /// <see cref="Views.Windows.Dialogs.EditWindow"/> and couple together with the view.
@@ -72,6 +72,8 @@ namespace TeamManager.Presenters
         /// </summary>
         public void EditTeam()
         {
+            if (_view.Team.Name == _view.NameText) return;
+
             Log.Info("Changing team name.");
             Concept.ChangeTeamName(_view.Team.Id, _view.NameText);
         }

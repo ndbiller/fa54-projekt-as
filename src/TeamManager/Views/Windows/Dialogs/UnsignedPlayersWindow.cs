@@ -5,6 +5,7 @@ using TeamManager.Models.ResourceData;
 using TeamManager.Presenters;
 using TeamManager.Views.Enums;
 using TeamManager.Views.Interfaces;
+using TeamManager.Views.Loader;
 
 namespace TeamManager.Views.Windows.Dialogs
 {
@@ -27,7 +28,7 @@ namespace TeamManager.Views.Windows.Dialogs
 
         #endregion --- View Interface Items ---
 
-
+        
 
 
         /// <summary> 
@@ -36,9 +37,13 @@ namespace TeamManager.Views.Windows.Dialogs
         /// </summary>
         public UnsignedPlayersWindow()
         {
+            Loaders.StartLoader(LoaderType.Loader, 750);
+
             InitializeComponent();
             _presenter = new UnsignedPlayersPresenter(this);
             _presenter.BindPlayersData();
+
+            Loaders.StopLoader(Handle);
         }
 
 
@@ -62,6 +67,7 @@ namespace TeamManager.Views.Windows.Dialogs
         private void UnsignedPlayersForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             _presenter.WindowClosed();
+            Owner?.Activate();
         }
 
 
@@ -77,7 +83,7 @@ namespace TeamManager.Views.Windows.Dialogs
             Player player = _presenter.GetPlayer();
             if (player == null) return;
 
-            new EditWindow(EditMode.PlayerAssignToTeam, null, player).ShowDialog();
+            new EditWindow(EditMode.PlayerAssignToTeam, null, player).ShowDialog(this);
         }
 
         /// <summary>
@@ -87,7 +93,7 @@ namespace TeamManager.Views.Windows.Dialogs
         /// <param name="e"></param>
         private void btnPCreate_Click(object sender, EventArgs e)
         {
-            new EditWindow(EditMode.PlayerCreate, null, null).ShowDialog();
+            new EditWindow(EditMode.PlayerCreate, null, null).ShowDialog(this);
         }
 
         #endregion --- Show Dialogs ---

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 using log4net;
@@ -15,35 +16,42 @@ namespace TeamManager.Views.Loader
         private static readonly ILog Log = Logger.GetLogger();
 
         /// <summary> Tells us which loader is currently running when we want to terminate the thread that runs it. </summary>
-        private static LoaderType _loaderType;
+        private static LoaderType _currentLoaderRunning;
 
-        /// <summary> The window to display as loader. </summary>
+        /// <summary> Sets a reference to the <see cref="ParentWindow"/> in order to display the loader in the center location of the window.</summary>
+        public static Form ParentWindow { get; set; }
+
+        /// <summary> The window to display as <see cref="LoaderType.Loader"/>. </summary>
         private static LoaderWindow _loaderWindow;
+
+        /// <summary> The window to display as <see cref="LoaderType.SplashScreen"/>. </summary>
+        private static SplashWindow _splashWindow;
 
 
 
 
         /// <summary>
-        /// Starts a loader with the specified loader type and the amount of miliseconds to sleep the main ui thread to visualize work.
+        /// Starts a loader with the specified loader type and the amount in miliseconds to sleep the main thread 
+        /// in order to visualize work.
         /// </summary>
         /// <param name="loader">The loader type defined by the <see cref="LoaderType"/> enum. </param>
         /// <param name="sleepMiliseconds">When not specified, default will be 500. </param>
         public static void StartLoader(LoaderType loader, int sleepMiliseconds = 500)
         {
-            _loaderType = loader;
+            _currentLoaderRunning = loader;
 
             switch (loader)
             {
-                case LoaderType.Loader:
-                    Log.Info("Starting loader of type LoaderType.Loader.");
-                    if (_loaderWindow == null)
-                        LoadWindowOnThread(_loaderWindow = new LoaderWindow());
+                case LoaderType.Loader: @default:
+                    InvokeLoader(_loaderWindow ?? (_loaderWindow = new LoaderWindow()));
                     break;
 
                 case LoaderType.SplashScreen:
-                    Log.Info("Starting loader of type LoaderType.SplashScreen.");
-
+                    InvokeLoader(_splashWindow ?? (_splashWindow = new SplashWindow()));
                     break;
+
+                default:
+                    goto @default;
             }
 
             Thread.Sleep(sleepMiliseconds);
@@ -55,36 +63,50 @@ namespace TeamManager.Views.Loader
         /// <param name="windowHandle">If you're calling from a Form/Window, pass the <see cref="Form.Handle"/> property. </param>
         public static void StopLoader(IntPtr windowHandle)
         {
-            if (_loaderWindow == null) return;
-
-            switch (_loaderType)
+            switch (_currentLoaderRunning)
             {
-                case LoaderType.Loader:
+                case LoaderType.Loader: @default:
                     Log.Info("Stopping loader of type LoaderType.Loader.");
-                    if (_loaderWindow.InvokeRequired)
-                        _loaderWindow.Invoke(new MethodInvoker(()=> _loaderWindow.Close()));
+                    _loaderWindow?.InvokeSafe(() => _loaderWindow.Close());
                     break;
 
                 case LoaderType.SplashScreen:
                     Log.Info("Stopping loader of type LoaderType.SplashScreen.");
-
+                    _splashWindow?.InvokeSafe(() => _splashWindow.Close());
                     break;
-            }
 
+                default:
+                    goto @default;
+            }
+            
             WindowToFront(windowHandle);
         }
+
+
 
         /// <summary>
         /// Running loader window on a separate thread so the main ui thread will be free when displaying another window.
         /// </summary>
         /// <param name="window"></param>
-        private static void LoadWindowOnThread(Form window)
+        private static void InvokeLoader(Form window)
         {
-            Log.Info("Running loader on different thread.");
+            if (window.Visible) return;
 
+            window.LostFocus -= null;
             window.LostFocus += (sender, e) => window.Focus();
 
-            new Thread(() => window.ShowDialog()).Start();
+            if (ParentWindow != null && _currentLoaderRunning != LoaderType.SplashScreen)
+            {
+                window.StartPosition = FormStartPosition.Manual;
+
+                int posX = ParentWindow.Location.X + ParentWindow.Width / 2 - window.Width / 2;
+                int posY = ParentWindow.Location.Y + ParentWindow.Height / 2 - window.Height / 2;
+                window.Location = new Point(posX, posY);
+            }
+
+            Thread thread = new Thread(() => window.ShowDialog());
+            thread.Start();
+            Log.Info($"Running loader of type {_currentLoaderRunning} on thread id => {thread.ManagedThreadId}.");
         }
 
         /// <summary>
