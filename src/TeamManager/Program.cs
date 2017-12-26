@@ -59,7 +59,7 @@ namespace TeamManager
             // NOTE: You'll also need to change output type in project configuration to console so debugging will work.
             //args = new[] { "/t", "/c-mt:1", "/db:mongo" };
             if (args.Length > 0)
-                if (!ParseArgs(args)) { CloseCallback(2); return; }
+                if (!ParseArgs(args)) { CloseCallback(CtrlType.CLOSE); return; }
 
             BasePresenter.SetConceptAndDatabaseType(_conceptType, _dbType);
 
@@ -67,7 +67,7 @@ namespace TeamManager
             {
                 Log.Info("Starting GUI...");
                 Gui.Show();
-                CloseCallback(2);
+                CloseCallback(CtrlType.CLOSE);
             }
             else
             {
@@ -198,7 +198,7 @@ namespace TeamManager
             _closedHandler += CloseCallback;
             NativeMethods.AllocConsole();
             NativeMethods.SetConsoleCtrlHandler(_closedHandler, true);
-            AppDomain.CurrentDomain.ProcessExit += delegate { _closedHandler(2); };
+            AppDomain.CurrentDomain.ProcessExit += delegate { _closedHandler?.Invoke(CtrlType.CLOSE); };
         }
 
         /// <summary>
