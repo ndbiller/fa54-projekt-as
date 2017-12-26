@@ -23,7 +23,7 @@ namespace TeamManager
         private static readonly Guid SessionId = Guid.NewGuid();
 
         /// <summary> Event handler for the console closed event to call the <see cref="CloseCallback"/> method so it doesn't get garbage collected. </summary>
-        private static event ConsoleClosedHandler _closedHandler;
+        private static event ConsoleClosedHandler ClosedHandler;
 
         /// <summary> The default flag for specifying whether to use <see cref="Gui"/> or <see cref="Tui"/>. </summary>
         private static bool _startGui = true;
@@ -207,10 +207,10 @@ namespace TeamManager
         private static void HookConsole()
         {
             _startGui = false;
-            _closedHandler += CloseCallback;
+            ClosedHandler += CloseCallback;
             NativeMethods.AllocConsole();
-            NativeMethods.SetConsoleCtrlHandler(_closedHandler, true);
-            AppDomain.CurrentDomain.ProcessExit += delegate { _closedHandler?.Invoke(CtrlType.CLOSE); };
+            NativeMethods.SetConsoleCtrlHandler(ClosedHandler, true);
+            AppDomain.CurrentDomain.ProcessExit += delegate { ClosedHandler?.Invoke(CtrlType.CLOSE); };
         }
 
         /// <summary>
