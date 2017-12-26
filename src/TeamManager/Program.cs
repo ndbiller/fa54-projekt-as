@@ -7,6 +7,7 @@ using TeamManager.Models.TechnicalConcept;
 using TeamManager.Presenters;
 using TeamManager.Utilities;
 using TeamManager.Views;
+using System.IO;
 
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
 [assembly: Fody.ConfigureAwait(false)]
@@ -53,6 +54,7 @@ namespace TeamManager
         /// <param name="args">The arguements that are being passed to the executeable through the console. </param>
         static void Main(string[] args)
         {
+            ValidateConfigurationFile();
             Log.Info($"##### Application started with Session ID => {SessionId} #####");
 
             // Uncomment me if you want debugging console arguments. 
@@ -75,8 +77,18 @@ namespace TeamManager
                 Tui.Show();
             }
         }
+        
 
 
+        /// <summary>
+        /// Checks to see whether the configuration file exists, otherwise, create it from stream.
+        /// </summary>
+        private static void ValidateConfigurationFile()
+        {
+            string confFile = AppDomain.CurrentDomain.SetupInformation.ConfigurationFile;
+            if (!File.Exists(confFile))
+                File.WriteAllText(confFile, Properties.Resources.AppConfig);
+        }
 
         /// <summary>
         /// Parses the arguments that are passed to the executeable and determines whether the parsing operation were successful.
