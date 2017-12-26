@@ -31,6 +31,8 @@ namespace TeamManager.Utilities
         {
             if (control.InvokeRequired)
                 control.Invoke(action);
+            else
+                action.Invoke();
         }
 
 
@@ -47,6 +49,8 @@ namespace TeamManager.Utilities
         {
             if (control.InvokeRequired)
                 control.BeginInvoke(action);
+            else
+                action.Invoke();
         }
 
 
