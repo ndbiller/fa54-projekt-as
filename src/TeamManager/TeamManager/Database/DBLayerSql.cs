@@ -17,7 +17,7 @@ namespace TeamManager.Database
 
         // connect to heroku postgresql server
         // PostgeSQL-style connection string
-        private static string connectionString = String.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};", POSTGRESQL_URI, POSTGRESQL_PORT, POSTGRESQL_USERNAME, POSTGRESQL_PASSWORD, POSTGRESQL_DATABASE_NAME);
+        string connectionString = "Server="+POSTGRESQL_URI+";Port="+POSTGRESQL_PORT+";User Id="+POSTGRESQL_USERNAME+";Password="+POSTGRESQL_PASSWORD+";Database="+POSTGRESQL_DATABASE_NAME+ ";SSL Mode=Require;Trust Server Certificate=true;";
 
         //private static MongoClient Client { get; set; }
         //public static IMongoDatabase Database { get; private set; }
@@ -31,11 +31,15 @@ namespace TeamManager.Database
 
         public void ConnectDB()
         {
-            //throw new NotImplementedException();
             NpgsqlConnection connection = new NpgsqlConnection(connectionString);
+            Console.WriteLine("NpgsqlConnection created. Opening...");
             connection.Open();
+            Console.WriteLine("Connection opened. Querying for table teams...");
             string sql = "SELECT * FROM team";
+            Console.WriteLine("Query done. Printing...");
             NpgsqlDataAdapter dataAdaptor = new NpgsqlDataAdapter(sql, connection);
+
+            Console.Read();
             connection.Close();
         }
 

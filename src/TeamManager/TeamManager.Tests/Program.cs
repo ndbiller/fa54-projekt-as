@@ -11,16 +11,17 @@ namespace TeamManager.Tests
         static void Main(string[] args)
         {
             Console.WriteLine("mLab MongoDB Connection via MongoDB.Driver 2.4.4 for ConceptType.Second:\n");
-            Console.WriteLine(
-                "- TeamManager temporarily set to Output type: Console Application. \n- Code in Program.cs Main temporarily commented out.\n");
+            Console.WriteLine("- TeamManager temporarily set to Output type: Console Application. \n- Code in Program.cs Main temporarily commented out.\n");
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
 
+            //TestMongoDB();
             //FillMongoDb();
-            TestMongoDB();
-            //FillPostgresqlDb();
+
             TestPostgresqlDb();
-            
+            //FillPostgresqlDb();
+
+
         }
 
         private static void TestPostgresqlDb()
@@ -29,6 +30,9 @@ namespace TeamManager.Tests
             Console.WriteLine("Connecting to Postgresql DB.");
             DBLayerSql postgres = new DBLayerSql();
             Console.WriteLine("DB Connected.");
+
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
         }
 
         private static void TestMongoDB()
