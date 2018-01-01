@@ -16,9 +16,19 @@ namespace TeamManager.Tests
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
 
-            TestMongoDB();
-
             //FillMongoDb();
+            TestMongoDB();
+            //FillPostgresqlDb();
+            TestPostgresqlDb();
+            
+        }
+
+        private static void TestPostgresqlDb()
+        {
+            Console.Clear();
+            Console.WriteLine("Connecting to Postgresql DB.");
+            DBLayerSql postgres = new DBLayerSql();
+            Console.WriteLine("DB Connected.");
         }
 
         private static void TestMongoDB()
