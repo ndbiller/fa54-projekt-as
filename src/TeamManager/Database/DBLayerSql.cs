@@ -417,9 +417,28 @@ namespace TeamManager.Database
         {
             try
             {
-                throw new NotImplementedException();
-
-                return null;
+                Team team = new Team("", "");
+                Connection = new NpgsqlConnection(connectionString);
+                using (Connection)
+                {
+                    ConnectDb();
+                    // Retrieve all rows with matching id
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM " + TeamsCollectionName + " WHERE id = " + id, Connection))
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var teamId = reader.GetString(0);
+                            var teamName = reader.GetString(1);
+                            Console.WriteLine(teamId + ";" + teamName);
+                            team.Id = teamId;
+                            team.Name = teamName;
+                            Console.WriteLine(team.ToString());
+                        }
+                    }
+                    DisconnectDb();
+                }
+                return team;
             }
             catch (TimeoutException e)
             {
@@ -455,9 +474,30 @@ namespace TeamManager.Database
         {
             try
             {
-                throw new NotImplementedException();
-
-                return null;
+                Player player = new Player("","");
+                Connection = new NpgsqlConnection(connectionString);
+                using (Connection)
+                {
+                    ConnectDb();
+                    // Retrieve all rows with matching id
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM " + PlayersCollectionName + " WHERE id = " + id, Connection))
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var playerId = reader.GetString(0);
+                            var playerName = reader.GetString(1);
+                            var playerTeamId = reader.GetString(2);
+                            Console.WriteLine(playerId + ";" + playerName + ";" + playerTeamId);
+                            player.Id = playerId;
+                            player.Name = playerName;
+                            player.TeamId = playerTeamId;
+                            Console.WriteLine(player.ToString());
+                        }
+                    }
+                    DisconnectDb();
+                }
+                return player;
             }
             catch (TimeoutException e)
             {

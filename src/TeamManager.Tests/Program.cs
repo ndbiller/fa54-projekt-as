@@ -141,6 +141,14 @@ namespace TeamManager.Tests.Modules
             Postgres.CreatePlayer("New Dude 2", "0");
             Postgres.CreatePlayer("New Dude 3", "1");
             Console.WriteLine("CreatePlayer(name, team_id) tested.");
+            // Test ReadTeam(id)
+            Postgres.ReadTeam("0");
+            Postgres.ReadTeam("1");
+            Console.WriteLine("ReadTeam(id) tested.");
+            // Test ReadPlayer(id)
+            Postgres.ReadPlayer("0");
+            Postgres.ReadPlayer("1");
+            Console.WriteLine("ReadPlayer(id) tested.");
 
             Console.WriteLine("\nPress any key to continue.");
             Console.ReadKey();
