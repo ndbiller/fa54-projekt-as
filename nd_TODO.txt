@@ -8,10 +8,10 @@
 [x] 04. alter tables 1 - add constraints, p_key, f_key to script
 [x]     alter tables 2 - add cascades, id sequence, default team id to script
 [x] 05. fill tables - use guids in script
-[ ] !!! fix errors due to merge-rename-move   
-[x] 06. write interface methods (done by gilad?)
+[x] !!! fix errors due to merge-rename-move   
+[ ] 06. write interface methods
 [ ] 07. test data (query all tables, delete a team, query again) - is the data there?, is default team id set on player if team is deleted?
-[ ] 08. read task description again and do any missing work, push branch
+[ ] 08. read task description again and do any missing work, push branch to master
 [ ] 09. write tests
 [ ] 10. write documentation - read up, create missing diagramms, what is the required final form?
 [ ] 11. meet up - is everybody happy with the final result?, distribution of points, hold internal project feedback round

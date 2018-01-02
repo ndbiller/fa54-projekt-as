@@ -27,8 +27,8 @@ namespace TeamManager.Database
         internal static readonly String connectionString;
 
         private static NpgsqlConnection Connection { get; set; }
-        public static ICollection<Team> TeamCollection { get; set; }
-        public static ICollection<Player> PlayerCollection { get; set; }
+        //public static ICollection<Team> TeamCollection { get; set; }
+        //public static ICollection<Player> PlayerCollection { get; set; }
 
         private const string TeamsCollectionName = "team";
         private const string PlayersCollectionName = "player";
@@ -218,9 +218,33 @@ namespace TeamManager.Database
         {
             try
             {
-                throw new NotImplementedException();
-
-                List<Player> players = null;
+                List<Player> players = new List<Player>();
+                using (Connection)
+                {
+                    ConnectDb();
+                    // Retrieve all rows
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM " + PlayersCollectionName + " WHERE team_id = " + teamId, Connection))
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Player player = new Player("", "", "");
+                            var id = reader.GetString(0);
+                            var name = reader.GetString(1);
+                            var team_id = reader.GetString(2);
+                            Console.WriteLine(id + ";" + name + ";" + team_id);
+                            player.Id = id;
+                            player.Name = name;
+                            player.TeamId = team_id;
+                            Console.WriteLine(player.ToString());
+                            players.Add(player);
+                        }
+                        Console.WriteLine("Testing players:");
+                        foreach (Player p in players)
+                            Console.WriteLine(p.ToString());
+                    }
+                    DisconnectDb();
+                }
                 return players;
             }
             catch (TimeoutException e)

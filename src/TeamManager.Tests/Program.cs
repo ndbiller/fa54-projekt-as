@@ -124,11 +124,12 @@ namespace TeamManager.Tests.Modules
             // Test Players()
             //Postgres.Players();
             Console.WriteLine("Players tested.");
-            
-            // Test ShowTeams()
-
             // Test ShowPlayers()
-
+            //Postgres.ShowPlayers("1");
+            Console.WriteLine("ShowPlayers tested.");
+            // Test CreateTeam(name)
+            Postgres.CreateTeam("New Team 1");
+            Console.WriteLine("CreateTeam(name) tested.");
 
             Console.WriteLine("\nPress any key to continue.");
             Console.ReadKey();
