@@ -5,8 +5,6 @@ using log4net;
 using TeamManager.Models.ResourceData;
 using TeamManager.Utilities;
 using Npgsql;
-using System.Data;
-using System.Linq;
 
 namespace TeamManager.Database
 {
@@ -27,6 +25,7 @@ namespace TeamManager.Database
         internal static readonly String connectionString;
 
         private static NpgsqlConnection Connection { get; set; }
+
         //public static ICollection<Team> TeamCollection { get; set; }
         //public static ICollection<Player> PlayerCollection { get; set; }
 
@@ -79,6 +78,7 @@ namespace TeamManager.Database
 
         public void ExecuteSQL(string sql)
         {
+            Connection = new NpgsqlConnection(connectionString);
             // execute custom sql code
             var customCommand = new NpgsqlCommand(sql, Connection);
             ConnectDb();
@@ -91,6 +91,7 @@ namespace TeamManager.Database
         {
             try
             {
+                Connection = new NpgsqlConnection(connectionString);
                 List<Team> teams = new List<Team>();
                 using (Connection)
                 {
@@ -152,6 +153,7 @@ namespace TeamManager.Database
         {
             try
             {
+                Connection = new NpgsqlConnection(connectionString);
                 List<Player> players = new List<Player>();
                 using (Connection)
                 {
@@ -219,10 +221,11 @@ namespace TeamManager.Database
             try
             {
                 List<Player> players = new List<Player>();
+                Connection = new NpgsqlConnection(connectionString);
                 using (Connection)
                 {
                     ConnectDb();
-                    // Retrieve all rows
+                    // Retrieve all rows with matching team_id
                     using (var cmd = new NpgsqlCommand("SELECT * FROM " + PlayersCollectionName + " WHERE team_id = " + teamId, Connection))
                     using (var reader = cmd.ExecuteReader())
                     {
@@ -281,8 +284,35 @@ namespace TeamManager.Database
         {
             try
             {
-                throw new NotImplementedException();
-
+                Connection = new NpgsqlConnection(connectionString);
+                using (Connection)
+                {
+                    ConnectDb();
+                    // get last id from db
+                    string id = "";
+                    using (var cmd = new NpgsqlCommand("SELECT max(id) FROM " + TeamsCollectionName, Connection))
+                    {
+                        Console.WriteLine(cmd.CommandText.ToString());
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                               string value = reader.GetString(0);
+                                Console.WriteLine(value);
+                                int x = Int32.Parse(value);
+                                string nextValue = (x + 1).ToString();
+                                id = nextValue;
+                            }
+                        }
+                    }
+                    // write row to db
+                    using (var cmd = new NpgsqlCommand("INSERT INTO " + TeamsCollectionName + "(id,name) VALUES ("+ id +",'" + name + "')", Connection))
+                    {
+                        Console.WriteLine(cmd.CommandText.ToString());
+                        cmd.ExecuteNonQuery();
+                    }
+                    DisconnectDb();
+                }
                 return true;
             }
             catch (TimeoutException e)
@@ -292,6 +322,7 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
+                Console.WriteLine(e);
                 Log.Error("Failed to create team => ", e);
                 return false;
             }
@@ -320,8 +351,35 @@ namespace TeamManager.Database
         {
             try
             {
-                throw new NotImplementedException();
-
+                Connection = new NpgsqlConnection(connectionString);
+                using (Connection)
+                {
+                    ConnectDb();
+                    // get last id from db
+                    string id = "";
+                    using (var cmd = new NpgsqlCommand("SELECT max(id) FROM " + PlayersCollectionName, Connection))
+                    {
+                        Console.WriteLine(cmd.CommandText.ToString());
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string value = reader.GetString(0);
+                                Console.WriteLine(value);
+                                int x = Int32.Parse(value);
+                                string nextValue = (x + 1).ToString();
+                                id = nextValue;
+                            }
+                        }
+                    }
+                    // write row to db
+                    using (var cmd = new NpgsqlCommand("INSERT INTO " + PlayersCollectionName + "(id,name,team_id) VALUES (" + id + ",'" + name + "'," + teamId + ")", Connection))
+                    {
+                        Console.WriteLine(cmd.CommandText.ToString());
+                        cmd.ExecuteNonQuery();
+                    }
+                    DisconnectDb();
+                }
                 return true;
             }
             catch (TimeoutException e)

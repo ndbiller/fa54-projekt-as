@@ -58,6 +58,10 @@ namespace TeamManager.Tests.Modules
             String sqlSequenceTeam = @"
                 ALTER SEQUENCE team_id_seq RESTART WITH 1 INCREMENT BY 1;";
             Postgres.ExecuteSQL(sqlSequenceTeam);
+            String sqlSequenceTeamDefault = @"
+                ALTER TABLE team 
+                ALTER COLUMN id SET DEFAULT nextval('team_id_seq'::regclass);";
+            Postgres.ExecuteSQL(sqlSequenceTeamDefault);
             String sqlConstraintsTeam = @"
                 ALTER TABLE team
                 ADD CONSTRAINT pk_team_id PRIMARY KEY(id);";
@@ -119,17 +123,24 @@ namespace TeamManager.Tests.Modules
 
             // TODO: Test the database CRUD operations
             // Test Teams()
-            //Postgres.Teams();
+            Postgres.Teams();
             Console.WriteLine("Teams tested.");
             // Test Players()
-            //Postgres.Players();
+            Postgres.Players();
             Console.WriteLine("Players tested.");
-            // Test ShowPlayers()
-            //Postgres.ShowPlayers("1");
-            Console.WriteLine("ShowPlayers tested.");
+            // Test ShowPlayers(team_id)
+            Postgres.ShowPlayers("1");
+            Console.WriteLine("ShowPlayers(team_id) tested.");
             // Test CreateTeam(name)
             Postgres.CreateTeam("New Team 1");
+            Postgres.CreateTeam("New Team 2");
+            Postgres.CreateTeam("New Team 3");
             Console.WriteLine("CreateTeam(name) tested.");
+            // Test CreatePlayer(name, team_id)
+            Postgres.CreatePlayer("New Dude 1", "0");
+            Postgres.CreatePlayer("New Dude 2", "0");
+            Postgres.CreatePlayer("New Dude 3", "1");
+            Console.WriteLine("CreatePlayer(name, team_id) tested.");
 
             Console.WriteLine("\nPress any key to continue.");
             Console.ReadKey();
