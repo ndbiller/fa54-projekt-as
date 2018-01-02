@@ -149,6 +149,16 @@ namespace TeamManager.Tests.Modules
             Postgres.ReadPlayer("0");
             Postgres.ReadPlayer("1");
             Console.WriteLine("ReadPlayer(id) tested.");
+            // Test UpdateTeam(id, name)
+            Postgres.ReadTeam("1");
+            Postgres.UpdateTeam("1","Newly Named Team");
+            Postgres.ReadTeam("1");
+            Console.WriteLine("UpdateTeam(id, name) tested.");
+            // Test UpdatePlayer(id, name)
+            Postgres.ReadPlayer("1");
+            Postgres.UpdatePlayer("1", "Newly Named Player");
+            Postgres.ReadPlayer("1");
+            Console.WriteLine("UpdatePlayer(id, name) tested.");
 
             Console.WriteLine("\nPress any key to continue.");
             Console.ReadKey();

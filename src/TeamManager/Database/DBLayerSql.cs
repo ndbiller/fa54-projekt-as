@@ -531,11 +531,20 @@ namespace TeamManager.Database
 
         public bool UpdateTeam(string id, string name)
         {
-
             try
             {
-                throw new NotImplementedException();
-
+                Connection = new NpgsqlConnection(connectionString);
+                ConnectDb();
+                using (Connection)
+                {
+                    // write row to db
+                    using (var cmd = new NpgsqlCommand("UPDATE " + TeamsCollectionName + " SET name = '" + name + "' WHERE id = " + id, Connection))
+                    {
+                        Console.WriteLine(cmd.CommandText.ToString());
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                DisconnectDb();
                 return true;
             }
             catch (TimeoutException e)
@@ -574,8 +583,18 @@ namespace TeamManager.Database
 
             try
             {
-                throw new NotImplementedException();
-
+                Connection = new NpgsqlConnection(connectionString);
+                ConnectDb();
+                using (Connection)
+                {
+                    // write row to db
+                    using (var cmd = new NpgsqlCommand("UPDATE " + PlayersCollectionName + " SET name = '" + name + "' WHERE id = " + id, Connection))
+                    {
+                        Console.WriteLine(cmd.CommandText.ToString());
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                DisconnectDb();
                 return true;
             }
             catch (TimeoutException e)
