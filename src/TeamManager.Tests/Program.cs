@@ -27,15 +27,13 @@ namespace TeamManager.Tests.Modules
 
             // Testing SQL
             // Creating DB layer
-            Postgres = new DbLayerSql();
-            Console.WriteLine("SQL DB Layer created.");
-
-            Console.WriteLine("\nPress any key to continue.");
-            Console.ReadKey();
-
-            CreateTablesPostgresqlDb();
-            FillPostgresqlDb();
-            TestPostgresqlDb();
+            //Postgres = new DbLayerSql();
+            //Console.WriteLine("SQL DB Layer created.");
+            //Console.WriteLine("\nPress any key to continue.");
+            //Console.ReadKey();
+            //CreateTablesPostgresqlDb();
+            //FillPostgresqlDb();
+            //TestPostgresqlDb();
         }
 
         private static void CreateTablesPostgresqlDb()
@@ -80,7 +78,7 @@ namespace TeamManager.Tests.Modules
             String sqlConstraintsPlayer = @"
                 ALTER TABLE player
                 ADD CONSTRAINT pk_player_id PRIMARY KEY(id),
-                ADD CONSTRAINT fk_team_id FOREIGN KEY(team_id) REFERENCES team(id);";
+                ADD CONSTRAINT fk_team_id FOREIGN KEY(team_id) REFERENCES team(id) ON DELETE SET DEFAULT;";
             Postgres.ExecuteSQL(sqlConstraintsPlayer);
             Console.WriteLine("Tables created.");
 
@@ -171,6 +169,18 @@ namespace TeamManager.Tests.Modules
             Postgres.UpdatePlayer("1", "Newly Named And Now Reassigned Player");
             Postgres.ReadPlayer("1");
             Console.WriteLine("ChangePlayerTeam(id, team_id) tested.");
+            // Test DeletePlayer(id)
+            Postgres.ReadPlayer("1");
+            Postgres.DeletePlayer("1");
+            Postgres.Players();
+            Console.WriteLine("DeletePlayer(id) tested.");
+            // Test DeleteTeam(id)
+            Postgres.Teams();
+            Postgres.Players();
+            Postgres.DeleteTeam("2");
+            Postgres.Teams();
+            Postgres.Players();
+            Console.WriteLine("DeleteTeam(id) tested.");
 
             Console.WriteLine("\nPress any key to continue.");
             Console.ReadKey();

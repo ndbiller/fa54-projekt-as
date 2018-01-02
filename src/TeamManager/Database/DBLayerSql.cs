@@ -628,6 +628,7 @@ namespace TeamManager.Database
             }
         }
 
+        // NOTE: Setting teamId here. Is this the desired behaviour?
         public bool UpdatePlayer(string id, string teamId, string name)
         {
 
@@ -682,8 +683,18 @@ namespace TeamManager.Database
         {
             try
             {
-                throw new NotImplementedException();
-
+                Connection = new NpgsqlConnection(connectionString);
+                ConnectDb();
+                using (Connection)
+                {
+                    // delete row from db
+                    using (var cmd = new NpgsqlCommand("DELETE FROM " + TeamsCollectionName + " WHERE id = " + id, Connection))
+                    {
+                        Console.WriteLine(cmd.CommandText.ToString());
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                DisconnectDb();
                 return true;
             }
             catch (TimeoutException e)
@@ -721,8 +732,18 @@ namespace TeamManager.Database
         {
             try
             {
-                throw new NotImplementedException();
-
+                Connection = new NpgsqlConnection(connectionString);
+                ConnectDb();
+                using (Connection)
+                {
+                    // delete row from db
+                    using (var cmd = new NpgsqlCommand("DELETE FROM " + PlayersCollectionName + " WHERE id = " + id, Connection))
+                    {
+                        Console.WriteLine(cmd.CommandText.ToString());
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                DisconnectDb();
                 return true;
             }
             catch (TimeoutException e)
