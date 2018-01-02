@@ -59,21 +59,21 @@ namespace TeamManager.Database
 
         public DbLayerSql() : base()
         {
-            Console.Clear();
+            //Console.Clear();
             Connection = new NpgsqlConnection(connectionString);
-            Console.WriteLine("Connection created.");
+            //Console.WriteLine("Connection created.");
         }
 
         public void ConnectDb()
         {
             Connection.Open();
-            Console.WriteLine("\nConnection opened.");
+            //Console.WriteLine("\nConnection opened.");
         }
 
         public void DisconnectDb()
         {
             Connection.Close();
-            Console.WriteLine("Connection closed.");
+            //Console.WriteLine("Connection closed.");
         }
 
         public void ExecuteSQL(string sql)
@@ -84,7 +84,7 @@ namespace TeamManager.Database
             ConnectDb();
             customCommand.ExecuteNonQuery();
             DisconnectDb();
-            Console.WriteLine("Command executed: \n" + sql);
+            //Console.WriteLine("Command executed: \n" + sql);
         }
 
         public List<Team> Teams()
@@ -105,15 +105,15 @@ namespace TeamManager.Database
                             Team team = new Team("", "");
                             var id = reader.GetString(0);
                             var name = reader.GetString(1);
-                            Console.WriteLine(id + ";" + name);
+                            //Console.WriteLine(id + ";" + name);
                             team.Id = id;
                             team.Name = name;
-                            Console.WriteLine(team.ToString());
+                            //Console.WriteLine(team.ToString());
                             teams.Add(team);
                         }
-                        Console.WriteLine("Testing teams:");
-                        foreach (Team t in teams)
-                            Console.WriteLine(t.ToString());
+                        //Console.WriteLine("Testing teams:");
+                        //foreach (Team t in teams)
+                        //  Console.WriteLine(t.ToString());
                     }
                     DisconnectDb();
                 }
@@ -168,31 +168,31 @@ namespace TeamManager.Database
                             var id = reader.GetString(0);
                             var name = reader.GetString(1);
                             var team_id = reader.GetString(2);
-                            Console.WriteLine(id + ";" + name + ";" + team_id);
+                            //Console.WriteLine(id + ";" + name + ";" + team_id);
                             player.Id = id;
                             player.Name = name;
                             player.TeamId = team_id;
-                            Console.WriteLine(player.ToString());
+                            //Console.WriteLine(player.ToString());
                             players.Add(player);
                         }
-                        Console.WriteLine("Testing players:");
-                        foreach (Player p in players)
-                            Console.WriteLine(p.ToString());
+                        //Console.WriteLine("Testing players:");
+                        //foreach (Player p in players)
+                        //    Console.WriteLine(p.ToString());
                     }
                     DisconnectDb();
                 }
-                Console.WriteLine("TRY.");
+                //Console.WriteLine("TRY.");
                 return players;
             }
             catch (TimeoutException e)
             {
-                Console.WriteLine("TO.");
+                //Console.WriteLine("TO.");
                 Log.Error("Received time out for retrieving players => ", e);
                 return null;
             }
             catch (Exception e)
             {
-                Console.WriteLine("E.");
+                //Console.WriteLine("E.");
                 Log.Error("Failed to retrieve players => ", e);
                 return null;
             }
@@ -235,16 +235,16 @@ namespace TeamManager.Database
                             var id = reader.GetString(0);
                             var name = reader.GetString(1);
                             var team_id = reader.GetString(2);
-                            Console.WriteLine(id + ";" + name + ";" + team_id);
+                            //Console.WriteLine(id + ";" + name + ";" + team_id);
                             player.Id = id;
                             player.Name = name;
                             player.TeamId = team_id;
-                            Console.WriteLine(player.ToString());
+                            // Console.WriteLine(player.ToString());
                             players.Add(player);
                         }
-                        Console.WriteLine("Testing players:");
-                        foreach (Player p in players)
-                            Console.WriteLine(p.ToString());
+                        //Console.WriteLine("Testing players:");
+                        //foreach (Player p in players)
+                        //    Console.WriteLine(p.ToString());
                     }
                     DisconnectDb();
                 }
@@ -292,13 +292,13 @@ namespace TeamManager.Database
                     string id = "";
                     using (var cmd = new NpgsqlCommand("SELECT max(id) FROM " + TeamsCollectionName, Connection))
                     {
-                        Console.WriteLine(cmd.CommandText.ToString());
+                        //Console.WriteLine(cmd.CommandText.ToString());
                         using (var reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
                                string value = reader.GetString(0);
-                                Console.WriteLine(value);
+                                //Console.WriteLine(value);
                                 int x = Int32.Parse(value);
                                 string nextValue = (x + 1).ToString();
                                 id = nextValue;
@@ -308,7 +308,7 @@ namespace TeamManager.Database
                     // write row to db
                     using (var cmd = new NpgsqlCommand("INSERT INTO " + TeamsCollectionName + "(id,name) VALUES ("+ id +",'" + name + "')", Connection))
                     {
-                        Console.WriteLine(cmd.CommandText.ToString());
+                        //Console.WriteLine(cmd.CommandText.ToString());
                         cmd.ExecuteNonQuery();
                     }
                     DisconnectDb();
@@ -322,7 +322,7 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                //Console.WriteLine(e);
                 Log.Error("Failed to create team => ", e);
                 return false;
             }
@@ -359,13 +359,13 @@ namespace TeamManager.Database
                     string id = "";
                     using (var cmd = new NpgsqlCommand("SELECT max(id) FROM " + PlayersCollectionName, Connection))
                     {
-                        Console.WriteLine(cmd.CommandText.ToString());
+                        //Console.WriteLine(cmd.CommandText.ToString());
                         using (var reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
                                 string value = reader.GetString(0);
-                                Console.WriteLine(value);
+                                //Console.WriteLine(value);
                                 int x = Int32.Parse(value);
                                 string nextValue = (x + 1).ToString();
                                 id = nextValue;
@@ -375,7 +375,7 @@ namespace TeamManager.Database
                     // write row to db
                     using (var cmd = new NpgsqlCommand("INSERT INTO " + PlayersCollectionName + "(id,name,team_id) VALUES (" + id + ",'" + name + "'," + teamId + ")", Connection))
                     {
-                        Console.WriteLine(cmd.CommandText.ToString());
+                        // Console.WriteLine(cmd.CommandText.ToString());
                         cmd.ExecuteNonQuery();
                     }
                     DisconnectDb();
@@ -430,10 +430,10 @@ namespace TeamManager.Database
                         {
                             var teamId = reader.GetString(0);
                             var teamName = reader.GetString(1);
-                            Console.WriteLine(teamId + ";" + teamName);
+                            //Console.WriteLine(teamId + ";" + teamName);
                             team.Id = teamId;
                             team.Name = teamName;
-                            Console.WriteLine(team.ToString());
+                            //Console.WriteLine(team.ToString());
                         }
                     }
                     DisconnectDb();
@@ -488,11 +488,11 @@ namespace TeamManager.Database
                             var playerId = reader.GetString(0);
                             var playerName = reader.GetString(1);
                             var playerTeamId = reader.GetString(2);
-                            Console.WriteLine(playerId + ";" + playerName + ";" + playerTeamId);
+                            //Console.WriteLine(playerId + ";" + playerName + ";" + playerTeamId);
                             player.Id = playerId;
                             player.Name = playerName;
                             player.TeamId = playerTeamId;
-                            Console.WriteLine(player.ToString());
+                            //Console.WriteLine(player.ToString());
                         }
                     }
                     DisconnectDb();
@@ -540,7 +540,7 @@ namespace TeamManager.Database
                     // write row to db
                     using (var cmd = new NpgsqlCommand("UPDATE " + TeamsCollectionName + " SET name = '" + name + "' WHERE id = " + id, Connection))
                     {
-                        Console.WriteLine(cmd.CommandText.ToString());
+                        //Console.WriteLine(cmd.CommandText.ToString());
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -590,7 +590,7 @@ namespace TeamManager.Database
                     // write row to db
                     using (var cmd = new NpgsqlCommand("UPDATE " + PlayersCollectionName + " SET name = '" + name + "' WHERE id = " + id, Connection))
                     {
-                        Console.WriteLine(cmd.CommandText.ToString());
+                        //Console.WriteLine(cmd.CommandText.ToString());
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -641,7 +641,7 @@ namespace TeamManager.Database
                     // write row to db
                     using (var cmd = new NpgsqlCommand("UPDATE " + PlayersCollectionName + " SET name = '" + name + "', team_id = '" + teamId + "' WHERE id = " + id, Connection))
                     {
-                        Console.WriteLine(cmd.CommandText.ToString());
+                        //Console.WriteLine(cmd.CommandText.ToString());
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -690,7 +690,7 @@ namespace TeamManager.Database
                     // delete row from db
                     using (var cmd = new NpgsqlCommand("DELETE FROM " + TeamsCollectionName + " WHERE id = " + id, Connection))
                     {
-                        Console.WriteLine(cmd.CommandText.ToString());
+                        //Console.WriteLine(cmd.CommandText.ToString());
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -739,7 +739,7 @@ namespace TeamManager.Database
                     // delete row from db
                     using (var cmd = new NpgsqlCommand("DELETE FROM " + PlayersCollectionName + " WHERE id = " + id, Connection))
                     {
-                        Console.WriteLine(cmd.CommandText.ToString());
+                        //Console.WriteLine(cmd.CommandText.ToString());
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -789,7 +789,7 @@ namespace TeamManager.Database
                     // write row to db
                     using (var cmd = new NpgsqlCommand("UPDATE " + PlayersCollectionName + " SET team_id = '" + teamId + "' WHERE id = " + playerId, Connection))
                     {
-                        Console.WriteLine(cmd.CommandText.ToString());
+                        //Console.WriteLine(cmd.CommandText.ToString());
                         cmd.ExecuteNonQuery();
                     }
                 }
