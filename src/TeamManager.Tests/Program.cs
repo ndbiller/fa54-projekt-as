@@ -8,7 +8,7 @@ namespace TeamManager.Tests.Modules
 {
     static class Program
     {
-        private static DBLayerSql Postgres { get; set; }
+        private static DbLayerSql Postgres { get; set; }
 
         static void Main(string[] args)
         {
@@ -27,7 +27,7 @@ namespace TeamManager.Tests.Modules
 
             // Testing SQL
             // Creating DB layer
-            Postgres = new DBLayerSql();
+            Postgres = new DbLayerSql();
             Console.WriteLine("SQL DB Layer created.");
 
             Console.WriteLine("\nPress any key to continue.");
@@ -114,7 +114,7 @@ namespace TeamManager.Tests.Modules
         private static void TestPostgresqlDb()
         {
             Console.Clear();
-            // Testing connection
+            // Testing db
             Console.WriteLine("Testing Postgresql DB.");
 
             // TODO: Test the database CRUD operations
@@ -217,7 +217,7 @@ namespace TeamManager.Tests.Modules
 
             Console.Clear();
             Console.WriteLine("Querying for Team Name.");
-            List<Team> teams = DBLayerMongo.TeamCollection.Find(t => t.Name == "Arsenal").ToList();
+            List<Team> teams = DbLayerMongo.TeamCollection.Find(t => t.Name == "Arsenal").ToList();
             Console.WriteLine("Team found: {0}", teams.Count);
             foreach (Team team in teams)
             {
@@ -225,7 +225,7 @@ namespace TeamManager.Tests.Modules
                 Console.WriteLine("Name: {0}", team.Name);
                 teamID = team.Id;
                 Console.WriteLine("Querying for Players of {0}.", team.Name);
-                List<Player> players = DBLayerMongo.PlayerCollection.Find(p => p.TeamId == teamID).ToList();
+                List<Player> players = DbLayerMongo.PlayerCollection.Find(p => p.TeamId == teamID).ToList();
                 foreach (Player player in players)
                     Console.WriteLine("Name: {0}", player.Name);
             }
@@ -249,7 +249,6 @@ namespace TeamManager.Tests.Modules
             Console.WriteLine("\nPress any key to quit.");
             Console.ReadKey();
         }
-
 
         private static void FillMongoDb()
         {
@@ -295,7 +294,5 @@ namespace TeamManager.Tests.Modules
 
             DbLayerMongo.PlayerCollection.InsertMany(playersManchester);
         }
-
-
     }
 }

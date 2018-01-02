@@ -14,30 +14,46 @@ namespace TeamManager.Database
         private static readonly ILog Log = Logger.GetLogger();
 
         // get the postgresql db servers credentials from environment variables (set them with .env.bat)
-        internal static readonly String POSTGRESQL_USERNAME = Environment.GetEnvironmentVariable("POSTGRESQL_USERNAME");
-        internal static readonly String POSTGRESQL_PASSWORD = Environment.GetEnvironmentVariable("POSTGRESQL_PASSWORD");
-        internal static readonly String POSTGRESQL_URI = Environment.GetEnvironmentVariable("POSTGRESQL_URI");
-        internal static readonly String POSTGRESQL_PORT = Environment.GetEnvironmentVariable("POSTGRESQL_PORT");
-        internal static readonly String POSTGRESQL_DATABASE_NAME = Environment.GetEnvironmentVariable("POSTGRESQL_DATABASE_NAME");
+        internal static readonly String POSTGRESQL_USERNAME;
+        internal static readonly String POSTGRESQL_PASSWORD;
+        internal static readonly String POSTGRESQL_URI;
+        internal static readonly String POSTGRESQL_PORT;
+        internal static readonly String POSTGRESQL_DATABASE_NAME;
 
         // connect to heroku postgresql server
         // PostgeSQL-style connection string
-        internal static readonly String connectionString = "Server="+POSTGRESQL_URI+
-            ";Port="+POSTGRESQL_PORT+
-            ";User Id="+POSTGRESQL_USERNAME+
-            ";Password="+POSTGRESQL_PASSWORD+
-            ";Database="+POSTGRESQL_DATABASE_NAME+
-            ";SSL Mode=Require;"+
-            "Trust Server Certificate=true;";
+        internal static readonly String connectionString;
 
         private static NpgsqlConnection Connection { get; set; }
+
+        static DbLayerSql()
+        {
+            try
+            {
+                POSTGRESQL_USERNAME = Environment.GetEnvironmentVariable("POSTGRESQL_USERNAME");
+                POSTGRESQL_PASSWORD = Environment.GetEnvironmentVariable("POSTGRESQL_PASSWORD");
+                POSTGRESQL_URI = Environment.GetEnvironmentVariable("POSTGRESQL_URI");
+                POSTGRESQL_PORT = Environment.GetEnvironmentVariable("POSTGRESQL_PORT");
+                POSTGRESQL_DATABASE_NAME = Environment.GetEnvironmentVariable("POSTGRESQL_DATABASE_NAME");
+            }
+            catch (Exception e)
+            {
+                Log.Error("cctor - Failed to retrieve environment variables => ", e);
+            }
+            connectionString =  "Server=" + POSTGRESQL_URI +
+                                ";Port=" + POSTGRESQL_PORT +
+                                ";User Id=" + POSTGRESQL_USERNAME +
+                                ";Password=" + POSTGRESQL_PASSWORD +
+                                ";Database=" + POSTGRESQL_DATABASE_NAME +
+                                ";SSL Mode=Require;" +
+                                "Trust Server Certificate=true;";
+        }
 
         public DbLayerSql() : base()
         {
             Console.Clear();
             Connection = new NpgsqlConnection(connectionString);
             Console.WriteLine("Connection created.");
-            //ConnectDB();
         }
 
         public void ConnectDb()
@@ -60,12 +76,6 @@ namespace TeamManager.Database
             customCommand.ExecuteNonQuery();
             DisconnectDb();
             Console.WriteLine("Command executed: \n" + sql);
-        }
-
-
-        public void ConnectDb()
-        {
-            throw new NotImplementedException();
         }
 
         public List<Team> Teams()
