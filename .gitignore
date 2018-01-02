@@ -1,9 +1,10 @@
 # TODO
 
-*.ide
-src/TeamManager/TeamManager/obj/
-src/TeamManager/TeamManager/bin/
 .env*
-src/TeamManager/.vs/
-src/TeamManager/TeamManager.Tests/bin/
-src/TeamManager/TeamManager.Tests/obj/
+.vs/
+*.ide
+src/.vs/
+src/TeamManager/obj/
+src/TeamManager/bin/
+src/TeamManager.Tests/bin/
+src/TeamManager.Tests/obj/
