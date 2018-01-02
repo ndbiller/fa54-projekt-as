@@ -444,6 +444,7 @@ namespace TeamManager.Database
             }
         }
 
+        // NOTE: Where is this used? It seems to be the same as the other UpdatePlayer Method. What is teamId used for here?
         public bool UpdatePlayer(string id, string teamId, string name)
         {
             var filter = Builders<BsonDocument>.Filter.Eq("_id", id);

@@ -1,0 +1,21 @@
+[x] 00. start debugging with different args:
+        - Right-click the default project (the one to be run) in Visual Studio and select "Properties".
+        - Click on the "Debug" tab on the left.
+        - Enter your command line arguments in the textbox labeled "Command line arguments".
+[x] 01. psql driver dll einbinden
+[x] 02. connect to db
+[x] 03. create tables - write a script as a method
+[x] 04. alter tables 1 - add constraints, p_key, f_key to script
+[x]     alter tables 2 - add cascades, id sequence, default team id to script
+[x] 05. fill tables - use guids in script
+[x] !!! fix errors due to merge-rename-move   
+[ ] 06. write interface methods
+[ ] 07. test data (query all tables, delete a team, query again) - is the data there?, is default team id set on player if team is deleted?
+[ ] 08. read task description again and do any missing work, push branch to master
+[ ] 09. write tests
+[ ] 10. write documentation - read up, create missing diagramms, what is the required final form?
+[ ] 11. meet up - is everybody happy with the final result?, distribution of points, hold internal project feedback round
+
+# School:
+
+[ ] 12. present product
