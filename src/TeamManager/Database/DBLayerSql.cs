@@ -5,6 +5,8 @@ using log4net;
 using TeamManager.Models.ResourceData;
 using TeamManager.Utilities;
 using Npgsql;
+using System.Data;
+using System.Linq;
 
 namespace TeamManager.Database
 {
@@ -25,6 +27,13 @@ namespace TeamManager.Database
         internal static readonly String connectionString;
 
         private static NpgsqlConnection Connection { get; set; }
+        public static ICollection<Team> TeamCollection { get; set; }
+        public static ICollection<Player> PlayerCollection { get; set; }
+
+        private const string TeamsCollectionName = "team";
+        private const string PlayersCollectionName = "player";
+
+        private const int TimeoutMilisec = 3000;
 
         static DbLayerSql()
         {
@@ -82,9 +91,31 @@ namespace TeamManager.Database
         {
             try
             {
-                throw new NotImplementedException();
-
-                List<Team> teams = null;
+                List<Team> teams = new List<Team>();
+                using (Connection)
+                {
+                    ConnectDb();
+                    // Retrieve all rows
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM " + TeamsCollectionName, Connection))
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Team team = new Team("", "");
+                            var id = reader.GetString(0);
+                            var name = reader.GetString(1);
+                            Console.WriteLine(id + ";" + name);
+                            team.Id = id;
+                            team.Name = name;
+                            Console.WriteLine(team.ToString());
+                            teams.Add(team);
+                        }
+                        Console.WriteLine("Testing teams:");
+                        foreach (Team t in teams)
+                            Console.WriteLine(t.ToString());
+                    }
+                    DisconnectDb();
+                }
                 return teams;
             }
             catch (TimeoutException e)
@@ -121,18 +152,45 @@ namespace TeamManager.Database
         {
             try
             {
-                throw new NotImplementedException();
-
-                List<Player> players = null;
+                List<Player> players = new List<Player>();
+                using (Connection)
+                {
+                    ConnectDb();
+                    // Retrieve all rows
+                    using (var cmd = new NpgsqlCommand("SELECT * FROM " + PlayersCollectionName, Connection))
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Player player = new Player("", "", "");
+                            var id = reader.GetString(0);
+                            var name = reader.GetString(1);
+                            var team_id = reader.GetString(2);
+                            Console.WriteLine(id + ";" + name + ";" + team_id);
+                            player.Id = id;
+                            player.Name = name;
+                            player.TeamId = team_id;
+                            Console.WriteLine(player.ToString());
+                            players.Add(player);
+                        }
+                        Console.WriteLine("Testing players:");
+                        foreach (Player p in players)
+                            Console.WriteLine(p.ToString());
+                    }
+                    DisconnectDb();
+                }
+                Console.WriteLine("TRY.");
                 return players;
             }
             catch (TimeoutException e)
             {
+                Console.WriteLine("TO.");
                 Log.Error("Received time out for retrieving players => ", e);
                 return null;
             }
             catch (Exception e)
             {
+                Console.WriteLine("E.");
                 Log.Error("Failed to retrieve players => ", e);
                 return null;
             }

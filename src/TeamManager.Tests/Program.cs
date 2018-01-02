@@ -118,6 +118,17 @@ namespace TeamManager.Tests.Modules
             Console.WriteLine("Testing Postgresql DB.");
 
             // TODO: Test the database CRUD operations
+            // Test Teams()
+            //Postgres.Teams();
+            Console.WriteLine("Teams tested.");
+            // Test Players()
+            //Postgres.Players();
+            Console.WriteLine("Players tested.");
+            
+            // Test ShowTeams()
+
+            // Test ShowPlayers()
+
 
             Console.WriteLine("\nPress any key to continue.");
             Console.ReadKey();

@@ -28,6 +28,12 @@ namespace TeamManager.Models.ResourceData
             Name = name;
         }
 
+        // for reading the db
+        public Team(string id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
 
 
         /// <summary>
