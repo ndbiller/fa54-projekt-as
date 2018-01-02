@@ -159,6 +159,18 @@ namespace TeamManager.Tests.Modules
             Postgres.UpdatePlayer("1", "Newly Named Player");
             Postgres.ReadPlayer("1");
             Console.WriteLine("UpdatePlayer(id, name) tested.");
+            // Test UpdatePlayer(id, team_id, name)
+            Postgres.ReadPlayer("1");
+            Postgres.UpdatePlayer("1", "0", "Newly Named And Unsigned Player");
+            Postgres.ReadPlayer("1");
+            Console.WriteLine("UpdatePlayer(id, name, team_id) tested.");
+            // Test ChangePlayerTeam(id, team_id)
+            Postgres.ReadPlayer("1");
+            Postgres.ChangePlayerTeam("1", "1");
+            Postgres.ReadPlayer("1");
+            Postgres.UpdatePlayer("1", "Newly Named And Now Reassigned Player");
+            Postgres.ReadPlayer("1");
+            Console.WriteLine("ChangePlayerTeam(id, team_id) tested.");
 
             Console.WriteLine("\nPress any key to continue.");
             Console.ReadKey();

@@ -633,8 +633,18 @@ namespace TeamManager.Database
 
             try
             {
-                throw new NotImplementedException();
-
+                Connection = new NpgsqlConnection(connectionString);
+                ConnectDb();
+                using (Connection)
+                {
+                    // write row to db
+                    using (var cmd = new NpgsqlCommand("UPDATE " + PlayersCollectionName + " SET name = '" + name + "', team_id = '" + teamId + "' WHERE id = " + id, Connection))
+                    {
+                        Console.WriteLine(cmd.CommandText.ToString());
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                DisconnectDb();
                 return true;
             }
             catch (TimeoutException e)
@@ -751,9 +761,18 @@ namespace TeamManager.Database
 
             try
             {
-                throw new NotImplementedException();
-
-
+                Connection = new NpgsqlConnection(connectionString);
+                ConnectDb();
+                using (Connection)
+                {
+                    // write row to db
+                    using (var cmd = new NpgsqlCommand("UPDATE " + PlayersCollectionName + " SET team_id = '" + teamId + "' WHERE id = " + playerId, Connection))
+                    {
+                        Console.WriteLine(cmd.CommandText.ToString());
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                DisconnectDb();
                 return true;
             }
             catch (TimeoutException e)
