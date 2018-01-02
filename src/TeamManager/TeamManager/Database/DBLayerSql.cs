@@ -9,38 +9,55 @@ namespace TeamManager.Database
     public class DBLayerSql : IDataLayer
     {
         // get the postgresql db servers credentials from environment variables (set them with .env.bat)
-        internal static readonly string POSTGRESQL_USERNAME = Environment.GetEnvironmentVariable("POSTGRESQL_USERNAME");
-        internal static readonly string POSTGRESQL_PASSWORD = Environment.GetEnvironmentVariable("POSTGRESQL_PASSWORD");
-        internal static readonly string POSTGRESQL_URI = Environment.GetEnvironmentVariable("POSTGRESQL_URI");
-        internal static readonly string POSTGRESQL_PORT = Environment.GetEnvironmentVariable("POSTGRESQL_PORT");
-        internal static readonly string POSTGRESQL_DATABASE_NAME = Environment.GetEnvironmentVariable("POSTGRESQL_DATABASE_NAME");
+        internal static readonly String POSTGRESQL_USERNAME = Environment.GetEnvironmentVariable("POSTGRESQL_USERNAME");
+        internal static readonly String POSTGRESQL_PASSWORD = Environment.GetEnvironmentVariable("POSTGRESQL_PASSWORD");
+        internal static readonly String POSTGRESQL_URI = Environment.GetEnvironmentVariable("POSTGRESQL_URI");
+        internal static readonly String POSTGRESQL_PORT = Environment.GetEnvironmentVariable("POSTGRESQL_PORT");
+        internal static readonly String POSTGRESQL_DATABASE_NAME = Environment.GetEnvironmentVariable("POSTGRESQL_DATABASE_NAME");
 
         // connect to heroku postgresql server
         // PostgeSQL-style connection string
-        string connectionString = "Server="+POSTGRESQL_URI+";Port="+POSTGRESQL_PORT+";User Id="+POSTGRESQL_USERNAME+";Password="+POSTGRESQL_PASSWORD+";Database="+POSTGRESQL_DATABASE_NAME+ ";SSL Mode=Require;Trust Server Certificate=true;";
+        internal static readonly String connectionString = "Server="+POSTGRESQL_URI+
+            ";Port="+POSTGRESQL_PORT+
+            ";User Id="+POSTGRESQL_USERNAME+
+            ";Password="+POSTGRESQL_PASSWORD+
+            ";Database="+POSTGRESQL_DATABASE_NAME+
+            ";SSL Mode=Require;"+
+            "Trust Server Certificate=true;";
 
-        //private static MongoClient Client { get; set; }
+        private static NpgsqlConnection Connection { get; set; }
         //public static IMongoDatabase Database { get; private set; }
         //public static IMongoCollection<Team> TeamCollection { get; set; }
         //public static IMongoCollection<Player> PlayerCollection { get; set; }
 
         public DBLayerSql() : base()
         {
-            ConnectDB();
+            Console.Clear();
+            Connection = new NpgsqlConnection(connectionString);
+            Console.WriteLine("Connection created.");
+            //ConnectDB();
         }
 
         public void ConnectDB()
         {
-            NpgsqlConnection connection = new NpgsqlConnection(connectionString);
-            Console.WriteLine("NpgsqlConnection created. Opening...");
-            connection.Open();
-            Console.WriteLine("Connection opened. Querying for table teams...");
-            string sql = "SELECT * FROM team";
-            Console.WriteLine("Query done. Printing...");
-            NpgsqlDataAdapter dataAdaptor = new NpgsqlDataAdapter(sql, connection);
+            Connection.Open();
+            Console.WriteLine("\nConnection opened.");
+        }
 
-            Console.Read();
-            connection.Close();
+        public void DisconnectDB()
+        {
+            Connection.Close();
+            Console.WriteLine("Connection closed.");
+        }
+
+        public void ExecuteSQL(string sql)
+        {
+            // execute custom sql code
+            var customCommand = new NpgsqlCommand(sql, Connection);
+            ConnectDB();
+            customCommand.ExecuteNonQuery();
+            DisconnectDB();
+            Console.WriteLine("Command executed: \n" + sql);
         }
 
         public bool CreatePlayer(string name, string id)

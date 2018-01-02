@@ -8,30 +8,118 @@ namespace TeamManager.Tests
 {
     static class Program
     {
+        private static DBLayerSql Postgres { get; set; }
+
         static void Main(string[] args)
         {
-            Console.WriteLine("mLab MongoDB Connection via MongoDB.Driver 2.4.4 for ConceptType.Second:\n");
-            Console.WriteLine("- TeamManager temporarily set to Output type: Console Application. \n- Code in Program.cs Main temporarily commented out.\n");
+            Console.Clear();
+            Console.WriteLine("mLab MongoDB Connection via MongoDB.Driver 2.4.4");
+            Console.WriteLine("Heroku Postgresql DB Connection via Npgsql v4.0.30319\n");
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
 
+            // Testing Mongo
+            //Console.WriteLine("Testing mongoDB.");
             //TestMongoDB();
             //FillMongoDb();
+            //Console.WriteLine("Press any key to continue.");
+            //Console.ReadKey();
 
+            // Testing SQL
+            // Creating DB layer
+            Postgres = new DBLayerSql();
+            Console.WriteLine("SQL DB Layer created.");
+
+            Console.WriteLine("\nPress any key to continue.");
+            Console.ReadKey();
+
+            CreateTablesPostgresqlDb();
+            FillPostgresqlDb();
             TestPostgresqlDb();
-            //FillPostgresqlDb();
+        }
 
+        private static void CreateTablesPostgresqlDb()
+        {
+            Console.Clear();
+            // Dropping tables, if they exist
+            Console.WriteLine("Dropping existing tables.");
+            String sqlDropTables = @"
+                DROP TABLE IF EXISTS team, player;";
+            Postgres.ExecuteSQL(sqlDropTables);
+            // Create Tables
+            Console.WriteLine("Creating tables.");
+            // Create table team and add constraints
+            String sqlTeam = @"
+                CREATE TABLE team(
+                    id SERIAL,
+                    name CHAR(256)
+                );";
+            Postgres.ExecuteSQL(sqlTeam);
+            String sqlSequenceTeam = @"
+                ALTER SEQUENCE team_id_seq RESTART WITH 1 INCREMENT BY 1;";
+            Postgres.ExecuteSQL(sqlSequenceTeam);
+            String sqlConstraintsTeam = @"
+                ALTER TABLE team
+                ADD CONSTRAINT pk_team_id PRIMARY KEY(id);";
+            Postgres.ExecuteSQL(sqlConstraintsTeam);
+            // Create table player and add constraints
+            String sqlPlayer = @"
+                CREATE TABLE player(
+                    id SERIAL,
+                    name CHAR(256),
+                    team_id INTEGER DEFAULT 0
+                );";
+            Postgres.ExecuteSQL(sqlPlayer);
+            String sqlSequencePlayer = @"
+                ALTER SEQUENCE player_id_seq RESTART WITH 1 INCREMENT BY 1;";
+            Postgres.ExecuteSQL(sqlSequencePlayer);
+            String sqlConstraintsPlayer = @"
+                ALTER TABLE player
+                ADD CONSTRAINT pk_player_id PRIMARY KEY(id),
+                ADD CONSTRAINT fk_team_id FOREIGN KEY(team_id) REFERENCES team(id);";
+            Postgres.ExecuteSQL(sqlConstraintsPlayer);
+            Console.WriteLine("Tables created.");
 
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
+        }
+
+        private static void FillPostgresqlDb()
+        {
+            Console.Clear();
+            // Filling tables
+            Console.WriteLine("Filling tables.");
+            // Fill the database with teams
+            String sqlDefaultTeam = "INSERT INTO team(id,name) VALUES ('0','Unsigned');";
+            Postgres.ExecuteSQL(sqlDefaultTeam);
+            String sqlAddTeam1 = "INSERT INTO team(id,name) VALUES ('1','Greuther Fürth');";
+            Postgres.ExecuteSQL(sqlAddTeam1);
+            String sqlAddTeam2 = "INSERT INTO team(id,name) VALUES ('2','FC Nürnberg');";
+            Postgres.ExecuteSQL(sqlAddTeam2);
+            // Fill the database with players
+            String sqlAddPlayer1 = "INSERT INTO player(id,name,team_id) VALUES ('0','Spieler_1','0');";
+            Postgres.ExecuteSQL(sqlAddPlayer1);
+            String sqlAddPlayer2 = "INSERT INTO player(id,name,team_id) VALUES ('1','Spieler_2','1');";
+            Postgres.ExecuteSQL(sqlAddPlayer2);
+            String sqlAddPlayer3 = "INSERT INTO player(id,name,team_id) VALUES ('2','Spieler_3','2');";
+            Postgres.ExecuteSQL(sqlAddPlayer3);
+            String sqlAddPlayer4 = "INSERT INTO player(id,name,team_id) VALUES ('3','Spieler_4','0');";
+            Postgres.ExecuteSQL(sqlAddPlayer4);
+            Console.WriteLine("Tables filled with testdata.");
+
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
         }
 
         private static void TestPostgresqlDb()
         {
             Console.Clear();
-            Console.WriteLine("Connecting to Postgresql DB.");
-            DBLayerSql postgres = new DBLayerSql();
-            Console.WriteLine("DB Connected.");
+            // Testing connection
+            Console.WriteLine("Testing Postgresql DB.");
 
-            Console.WriteLine("Press any key to continue.");
+            // TODO: Test the database CRUD operations
+
+            Console.WriteLine("\nPress any key to continue.");
             Console.ReadKey();
         }
 
