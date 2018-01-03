@@ -34,14 +34,6 @@ namespace TeamManager.Models.ResourceData
             TeamId = teamId;
         }
 
-        // for reading the db
-        public Player(string id, string name, string teamId = "0")
-        {
-            Id = id;
-            Name = name;
-            TeamId = teamId;
-        }
-
 
 
         /// <summary>

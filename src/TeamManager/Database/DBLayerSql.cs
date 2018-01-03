@@ -99,7 +99,7 @@ namespace TeamManager.Database
                     {
                         while (reader.Read())
                         {
-                            Team team = new Team("", "");
+                            Team team = new Team(null);
                             var id = reader.GetString(0);
                             var name = reader.GetString(1);
                             //Console.WriteLine(id + ";" + name);
@@ -161,7 +161,7 @@ namespace TeamManager.Database
                     {
                         while (reader.Read())
                         {
-                            Player player = new Player("", "", "");
+                            Player player = new Player(null);
                             var id = reader.GetString(0);
                             var name = reader.GetString(1);
                             var team_id = reader.GetString(2);
@@ -229,7 +229,7 @@ namespace TeamManager.Database
                     {
                         while (reader.Read())
                         {
-                            Player player = new Player("", "", "");
+                            Player player = new Player(null);
                             var id = reader.GetString(0);
                             var name = reader.GetString(1);
                             var team_id = reader.GetString(2);
@@ -417,7 +417,7 @@ namespace TeamManager.Database
         {
             try
             {
-                Team team = new Team("", "");
+                Team team = new Team(null);
                 Connection = new NpgsqlConnection(connectionString);
                 using (Connection)
                 {
