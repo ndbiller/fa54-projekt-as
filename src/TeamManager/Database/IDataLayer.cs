@@ -6,7 +6,7 @@ namespace TeamManager.Database
 {
     public interface IDataLayer
     {
-        void ConnectDb();
+        void OpenConnection();
 
         List<Team> Teams();
         bool CreateTeam(string name);

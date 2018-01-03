@@ -43,7 +43,7 @@ namespace TeamManager.Tests.Modules
             Console.WriteLine("Dropping existing tables.");
             String sqlDropTables = @"
                 DROP TABLE IF EXISTS team, player;";
-            Postgres.ExecuteSQL(sqlDropTables);
+            Postgres.ExecuteSql(sqlDropTables);
             // Create Tables
             Console.WriteLine("Creating tables.");
             // Create table team and add constraints
@@ -52,18 +52,18 @@ namespace TeamManager.Tests.Modules
                     id SERIAL,
                     name CHAR(256)
                 );";
-            Postgres.ExecuteSQL(sqlTeam);
+            Postgres.ExecuteSql(sqlTeam);
             String sqlSequenceTeam = @"
                 ALTER SEQUENCE team_id_seq RESTART WITH 1 INCREMENT BY 1;";
-            Postgres.ExecuteSQL(sqlSequenceTeam);
+            Postgres.ExecuteSql(sqlSequenceTeam);
             String sqlSequenceTeamDefault = @"
                 ALTER TABLE team 
                 ALTER COLUMN id SET DEFAULT nextval('team_id_seq'::regclass);";
-            Postgres.ExecuteSQL(sqlSequenceTeamDefault);
+            Postgres.ExecuteSql(sqlSequenceTeamDefault);
             String sqlConstraintsTeam = @"
                 ALTER TABLE team
                 ADD CONSTRAINT pk_team_id PRIMARY KEY(id);";
-            Postgres.ExecuteSQL(sqlConstraintsTeam);
+            Postgres.ExecuteSql(sqlConstraintsTeam);
             // Create table player and add constraints
             String sqlPlayer = @"
                 CREATE TABLE player(
@@ -71,15 +71,15 @@ namespace TeamManager.Tests.Modules
                     name CHAR(256),
                     team_id INTEGER DEFAULT 0
                 );";
-            Postgres.ExecuteSQL(sqlPlayer);
+            Postgres.ExecuteSql(sqlPlayer);
             String sqlSequencePlayer = @"
                 ALTER SEQUENCE player_id_seq RESTART WITH 1 INCREMENT BY 1;";
-            Postgres.ExecuteSQL(sqlSequencePlayer);
+            Postgres.ExecuteSql(sqlSequencePlayer);
             String sqlConstraintsPlayer = @"
                 ALTER TABLE player
                 ADD CONSTRAINT pk_player_id PRIMARY KEY(id),
                 ADD CONSTRAINT fk_team_id FOREIGN KEY(team_id) REFERENCES team(id) ON DELETE SET DEFAULT;";
-            Postgres.ExecuteSQL(sqlConstraintsPlayer);
+            Postgres.ExecuteSql(sqlConstraintsPlayer);
             Console.WriteLine("Tables created.");
 
             Console.WriteLine("Press any key to continue.");
@@ -93,20 +93,20 @@ namespace TeamManager.Tests.Modules
             Console.WriteLine("Filling tables.");
             // Fill the database with teams
             String sqlDefaultTeam = "INSERT INTO team(id,name) VALUES ('0','Unsigned');";
-            Postgres.ExecuteSQL(sqlDefaultTeam);
+            Postgres.ExecuteSql(sqlDefaultTeam);
             String sqlAddTeam1 = "INSERT INTO team(id,name) VALUES ('1','Greuther Fürth');";
-            Postgres.ExecuteSQL(sqlAddTeam1);
+            Postgres.ExecuteSql(sqlAddTeam1);
             String sqlAddTeam2 = "INSERT INTO team(id,name) VALUES ('2','FC Nürnberg');";
-            Postgres.ExecuteSQL(sqlAddTeam2);
+            Postgres.ExecuteSql(sqlAddTeam2);
             // Fill the database with players
             String sqlAddPlayer1 = "INSERT INTO player(id,name,team_id) VALUES ('0','Spieler_1','0');";
-            Postgres.ExecuteSQL(sqlAddPlayer1);
+            Postgres.ExecuteSql(sqlAddPlayer1);
             String sqlAddPlayer2 = "INSERT INTO player(id,name,team_id) VALUES ('1','Spieler_2','1');";
-            Postgres.ExecuteSQL(sqlAddPlayer2);
+            Postgres.ExecuteSql(sqlAddPlayer2);
             String sqlAddPlayer3 = "INSERT INTO player(id,name,team_id) VALUES ('2','Spieler_3','2');";
-            Postgres.ExecuteSQL(sqlAddPlayer3);
+            Postgres.ExecuteSql(sqlAddPlayer3);
             String sqlAddPlayer4 = "INSERT INTO player(id,name,team_id) VALUES ('3','Spieler_4','0');";
-            Postgres.ExecuteSQL(sqlAddPlayer4);
+            Postgres.ExecuteSql(sqlAddPlayer4);
             Console.WriteLine("Tables filled with testdata.");
 
             Console.WriteLine("Press any key to continue.");

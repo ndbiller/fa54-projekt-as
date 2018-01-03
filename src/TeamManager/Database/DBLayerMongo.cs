@@ -66,10 +66,10 @@ namespace TeamManager.Database
 
         public DbLayerMongo()
         {
-            ConnectDb();
+            OpenConnection();
         }
 
-        public void ConnectDb()
+        public void OpenConnection()
         {
             try
             {
