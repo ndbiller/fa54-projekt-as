@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using log4net;
+using TeamManager.Models.Logic;
 using TeamManager.Models.ResourceData;
 using TeamManager.Presenters.Events;
 using TeamManager.Utilities;
@@ -332,5 +333,10 @@ namespace TeamManager.Presenters
         /// <summary> The <see cref="MainPresenter"/> not necessarly needs to invoke. </summary>
         public override void WindowClosed() { }
 
+        public void ChangeStrategy()
+        {
+            BusinessLogicBase.SortType = BusinessLogicBase.SortType == SortType.Ascending ? SortType.Descending : SortType.Ascending;
+            BindTeamsData();
+        }
     }
 }
