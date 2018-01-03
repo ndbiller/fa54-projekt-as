@@ -8,6 +8,12 @@ using Npgsql;
 
 namespace TeamManager.Database
 {
+    /// <summary>
+    /// <see cref="DbLayerSql"/> will contain relational data.
+    /// For more information, please refer to:
+    /// <see cref="DatabaseType"/>
+    /// <see cref="IDataLayer"/>
+    /// </summary>
     public sealed class DbLayerSql : IDataLayer
     {
         /// <summary> Logger instance of the class <see cref="DbLayerSql"/> </summary>

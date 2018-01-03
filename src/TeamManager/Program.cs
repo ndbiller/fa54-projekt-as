@@ -186,7 +186,7 @@ namespace TeamManager
 
                 case "/db:sql":
                     Log.Info("Using sql as database.");
-                    _dbType = DatabaseType.Sql;
+                    _dbType = DatabaseType.PostgreSql;
                     return true;
 
 

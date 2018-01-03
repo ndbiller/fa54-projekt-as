@@ -28,7 +28,7 @@ namespace TeamManager.Models.TechnicalConcept
                 case DatabaseType.Mongo:
                     DbLayer = new DbLayerMongo();
                     break;
-                case DatabaseType.Sql:
+                case DatabaseType.PostgreSql:
                     DbLayer = new DbLayerSql();
                     break;
                 default:
