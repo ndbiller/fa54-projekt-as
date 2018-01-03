@@ -152,7 +152,7 @@ namespace TeamManager.Database
                 {
                     OpenConnection();
                     // Retrieve all rows
-                    string query = $"SELECT (RTRIM(id), RTRIM(name), RTRIM(team_id)) FROM {PlayersCollectionName}";
+                    string query = $"SELECT (id, name, team_id) FROM {PlayersCollectionName}";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -212,7 +212,7 @@ namespace TeamManager.Database
                 {
                     OpenConnection();
                     // Retrieve all rows with matching team_id
-                    string query = $"SELECT * FROM {PlayersCollectionName} WHERE team_id = RTRIM({teamId})";
+                    string query = $"SELECT * FROM {PlayersCollectionName} WHERE team_id = {teamId}";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -402,7 +402,7 @@ namespace TeamManager.Database
                 {
                     OpenConnection();
                     // Retrieve all rows with matching id
-                    string query = $"SELECT * FROM {TeamsCollectionName} WHERE id = RTRIM({id})";
+                    string query = $"SELECT * FROM {TeamsCollectionName} WHERE id = {id}";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -457,7 +457,7 @@ namespace TeamManager.Database
                 {
                     OpenConnection();
                     // Retrieve all rows with matching id
-                    string query = $"SELECT * FROM {PlayersCollectionName} WHERE id = RTRIM({id})";
+                    string query = $"SELECT * FROM {PlayersCollectionName} WHERE id = {id}";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -511,7 +511,7 @@ namespace TeamManager.Database
                 using (Connection)
                 {
                     // write row to db
-                    string query = $"UPDATE {TeamsCollectionName} SET name = '{name}' WHERE id = RTRIM({id})";
+                    string query = $"UPDATE {TeamsCollectionName} SET name = '{name}' WHERE id = {id}";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                     {
                         cmd.ExecuteNonQuery();
@@ -561,7 +561,7 @@ namespace TeamManager.Database
                 using (Connection)
                 {
                     // write row to db
-                    string query = $"UPDATE {PlayersCollectionName} SET name = RTRIM(\'{name}\') WHERE id = RTRIM({id})";
+                    string query = $"UPDATE {PlayersCollectionName} SET name = \'{name}\' WHERE id = {id}";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                     {
                         cmd.ExecuteNonQuery();
@@ -613,7 +613,7 @@ namespace TeamManager.Database
                 using (Connection)
                 {
                     // write row to db
-                    string query = $"UPDATE {PlayersCollectionName} SET name = RTRIM(\'{name}\'), team_id = RTRIM(\'{teamId}\') WHERE id = RTRIM({id})";
+                    string query = $"UPDATE {PlayersCollectionName} SET name = \'{name}\', team_id = \'{teamId}\' WHERE id = {id}";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                     {
                         cmd.ExecuteNonQuery();
@@ -764,7 +764,7 @@ namespace TeamManager.Database
                 using (Connection)
                 {
                     // write row to db
-                    string query = $"UPDATE {PlayersCollectionName} SET team_id = RTRIM(\'{teamId}\') WHERE id = RTRIM({playerId})";
+                    string query = $"UPDATE {PlayersCollectionName} SET team_id = \'{teamId}\' WHERE id = {playerId}";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                     {
                         cmd.ExecuteNonQuery();
