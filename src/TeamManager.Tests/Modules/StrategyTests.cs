@@ -3,26 +3,26 @@ using System;
 using System.Collections.Generic;
 using TeamManager.Database;
 using TeamManager.Models.ResourceData;
-using TeamManager.Models.TechnicalConcept;
+using TeamManager.Models.Strategy;
 
 namespace TeamManager.Tests.Modules
 {
     [TestFixture]
-    public class TechnicalConceptTests
+    public class StrategyTests
     {
-        private ITechnicalConcept _concept1MongoDb = new TechnicalConcept1(DatabaseType.Mongo);
-        private ITechnicalConcept _concept2MongoDb = new TechnicalConcept2(DatabaseType.Mongo);
-        private ITechnicalConcept _concept1Sql     = new TechnicalConcept1(DatabaseType.PostgreSql);
-        private ITechnicalConcept _concept2Sql     = new TechnicalConcept2(DatabaseType.PostgreSql);
+        private IStrategy _ascendingStrategyMongoDb = new AscendingStrategy(DatabaseType.Mongo);
+        private IStrategy _descendingStrategyMongoDb = new DescendingStrategy(DatabaseType.Mongo);
+        private IStrategy _ascendingStrategySql = new AscendingStrategy(DatabaseType.PostgreSql);
+        private IStrategy _descendingStrategySql = new DescendingStrategy(DatabaseType.PostgreSql);
 
         /// <summary>
         /// Testing whether we get atleast 3 players count just as example for later testing.
         /// </summary>
         [Test]
-        public void MongoDB_Concept1_GetAllPlayers()
+        public void MongoDB_AscendingStrategy_GetAllPlayers()
         {
             // Arrange
-            List<Player> players = _concept1MongoDb.GetAllPlayers();
+            List<Player> players = _ascendingStrategyMongoDb.GetAllPlayers();
             int playersCountExpected = 3;
 
             // Actual

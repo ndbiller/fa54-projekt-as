@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using TeamManager.Models.ResourceData;
 
-namespace TeamManager.Models.TechnicalConcept
+namespace TeamManager.Models.Strategy
 {
     /// <summary>
-    /// This interface will get implemented by all the other <see cref="TechnicalConceptType"/>s so it allows us to retrieve the same
+    /// This interface will get implemented by all the other <see cref="StrategyType"/>s so it allows us to retrieve the same
     /// kind of data from the database, just in a different behavior by using this interface in the <see cref="Presenters.BasePresenter"/>
     /// in order to share the data between all the other presenters that will use it's data in the view.
     /// </summary>
-    public interface ITechnicalConcept
+    public interface IStrategy
     {
         /// <summary>
         /// Retrieves all the <see cref="Team"/>s from the database.

@@ -41,14 +41,14 @@ namespace TeamManager.Presenters
 
 
         /// <summary>
-        /// Gets all players from the <see cref="BasePresenter.Concept"/> that are not assign to a team and
+        /// Gets all players from the <see cref="BasePresenter.Strategy"/> that are not assign to a team and
         /// Initializes the ListBox to the view.
         /// </summary>
         public void BindPlayersData()
         {
             Log.Info("Binding players data to listbox.");
             _view.PlayersListBox.Clear();
-            List<Player> players = Concept.GetAllPlayers()?.Where(p => p.TeamId == "0").ToList();
+            List<Player> players = Strategy.GetAllPlayers()?.Where(p => p.TeamId == "0").ToList();
             if (players.IsNullOrEmpty()) return;
 
             players?.ForEach(player => _view.PlayersListBox.Add(player));
@@ -67,7 +67,7 @@ namespace TeamManager.Presenters
             Player player = _view.PlayersListBox[pSelIndex].ToPlayer();
             if (player == null) return; 
 
-            Concept.RemovePlayer(player.Id);
+            Strategy.RemovePlayer(player.Id);
             _view.PlayersListBox.RemoveAt(pSelIndex);
             if (_view.PlayersListBox.Count == pSelIndex)
                 pSelIndex--;
@@ -88,7 +88,7 @@ namespace TeamManager.Presenters
         }
 
         /// <summary>
-        /// Re-bindes players data to the view from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> when a child window closes.
+        /// Re-bindes players data to the view from the <see cref="Models.Strategy.IStrategy"/> when a child window closes.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>

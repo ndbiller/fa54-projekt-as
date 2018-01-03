@@ -1,9 +1,9 @@
-﻿namespace TeamManager.Models.TechnicalConcept
+﻿namespace TeamManager.Models.Strategy
 {
     /// <summary>
     /// This enum controls the way the data will get initialized from the database.
     /// </summary>
-    public enum TechnicalConceptType
+    public enum StrategyType
     {
         /// <summary>
         /// Retrieves the data in ascending order.
