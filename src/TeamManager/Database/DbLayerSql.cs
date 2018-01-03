@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using log4net;
 using TeamManager.Models.ResourceData;
@@ -61,10 +62,10 @@ namespace TeamManager.Database
 
             try
             {
-                POSTGRESQL_USERNAME = Environment.GetEnvironmentVariable("POSTGRESQL_USERNAME");
-                POSTGRESQL_PASSWORD = Environment.GetEnvironmentVariable("POSTGRESQL_PASSWORD");
-                POSTGRESQL_URI = Environment.GetEnvironmentVariable("POSTGRESQL_URI");
-                POSTGRESQL_PORT = Environment.GetEnvironmentVariable("POSTGRESQL_PORT");
+                POSTGRESQL_USERNAME      = Environment.GetEnvironmentVariable("POSTGRESQL_USERNAME");
+                POSTGRESQL_PASSWORD      = Environment.GetEnvironmentVariable("POSTGRESQL_PASSWORD");
+                POSTGRESQL_URI           = Environment.GetEnvironmentVariable("POSTGRESQL_URI");
+                POSTGRESQL_PORT          = Environment.GetEnvironmentVariable("POSTGRESQL_PORT");
                 POSTGRESQL_DATABASE_NAME = Environment.GetEnvironmentVariable("POSTGRESQL_DATABASE_NAME");
             }
             catch (Exception e)
@@ -72,9 +73,9 @@ namespace TeamManager.Database
                 Log.Error("cctor - Failed to retrieve environment variables for mongo-db connection string => ", e);
             }
 
-            ConnectionString = "Server=" + POSTGRESQL_URI +
-                               ";Port=" + POSTGRESQL_PORT +
-                               ";User Id=" + POSTGRESQL_USERNAME +
+            ConnectionString = "Server="    + POSTGRESQL_URI +
+                               ";Port="     + POSTGRESQL_PORT +
+                               ";User Id="  + POSTGRESQL_USERNAME +
                                ";Password=" + POSTGRESQL_PASSWORD +
                                ";Database=" + POSTGRESQL_DATABASE_NAME +
                                ";SSL Mode=Require;" +
@@ -86,24 +87,34 @@ namespace TeamManager.Database
         public DbLayerSql()
         {
             Database = new NpgsqlConnection(ConnectionString);
+
+            try
+            {
+                OpenConnection();
+                Thread.Sleep(75);
+                CloseConnection();
+            }
+            catch (Exception e)
+            {
+                Log.Fatal("Failed to initialize or create connection to postgreSql => ", e);
+                throw;
+            }
+
             Log.Info("Connection created.");
         }
 
         public void OpenConnection()
         {
             Database.Open();
-            Log.Info("Connection opened.");
         }
 
         public void CloseConnection()
         {
             Database.Close();
-            Log.Info("Connection closed.");
         }
 
         public void ExecuteSql(string query)
         {
-            Database = new NpgsqlConnection(ConnectionString);
             // execute custom query code
             NpgsqlCommand customCommand = new NpgsqlCommand(query, Database);
             OpenConnection();
@@ -114,32 +125,27 @@ namespace TeamManager.Database
 
         public List<Team> Teams()
         {
+            List<Team> teams = new List<Team>();
+
             try
             {
-                Database = new NpgsqlConnection(ConnectionString);
-                List<Team> teams = new List<Team>();
-                using (Database)
+                OpenConnection();
+                // Retrieve all rows
+                string query = $"SELECT id, TRIM(name) FROM {TeamsCollectionName}";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
-                    OpenConnection();
-                    // Retrieve all rows
-                    string query = $"SELECT id, TRIM(name) FROM {TeamsCollectionName}";
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
-                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    while (reader.Read())
                     {
-                        while (reader.Read())
+                        Team team = new Team(null)
                         {
-                            Team team = new Team(null)
-                            {
-                                Id   = reader.GetString(0),
-                                Name = reader.GetString(1)
-                            };
-                            teams.Add(team);
-                        }
+                            Id   = reader.GetString(0),
+                            Name = reader.GetString(1)
+                        };
+                        teams.Add(team);
                     }
-                    CloseConnection();
                 }
-
-                return teams;
+                CloseConnection();
             }
             catch (TimeoutException e)
             {
@@ -151,6 +157,8 @@ namespace TeamManager.Database
                 Log.Error("Failed to retrieve teams => ", e);
                 return null;
             }
+
+            return teams;
         }
 
         public async Task<List<Team>> TeamsAsync()
@@ -173,33 +181,28 @@ namespace TeamManager.Database
 
         public List<Player> Players()
         {
+            List<Player> players = new List<Player>();
+
             try
             {
-                Database = new NpgsqlConnection(ConnectionString);
-                List<Player> players = new List<Player>();
-                using (Database)
+                OpenConnection();
+                // Retrieve all rows
+                string query = $"SELECT id, TRIM(name), team_id FROM {PlayersCollectionName}";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
-                    OpenConnection();
-                    // Retrieve all rows
-                    string query = $"SELECT id, TRIM(name), team_id FROM {PlayersCollectionName}";
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
-                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    while (reader.Read())
                     {
-                        while (reader.Read())
+                        Player player = new Player(null)
                         {
-                            Player player = new Player(null)
-                            {
-                                Id     = reader.GetString(0),
-                                Name   = reader.GetString(1),
-                                TeamId = reader.GetString(2)
-                            };
-                            players.Add(player);
-                        }
+                            Id     = reader.GetString(0),
+                            Name   = reader.GetString(1),
+                            TeamId = reader.GetString(2)
+                        };
+                        players.Add(player);
                     }
-                    CloseConnection();
                 }
-
-                return players;
+                CloseConnection();                
             }
             catch (TimeoutException e)
             {
@@ -211,6 +214,8 @@ namespace TeamManager.Database
                 Log.Error("Failed to retrieve players => ", e);
                 return null;
             }
+
+            return players;
         }
 
         public async Task<List<Player>> PlayersAsync()
@@ -233,33 +238,28 @@ namespace TeamManager.Database
 
         public List<Player> ShowPlayers(string teamId)
         {
+            List<Player> players = new List<Player>();
+
             try
             {
-                List<Player> players = new List<Player>();
-                Database = new NpgsqlConnection(ConnectionString);
-                using (Database)
+                OpenConnection();
+                // Retrieve all rows with matching team_id
+                string query = $"SELECT id, TRIM(name), team_id FROM {PlayersCollectionName} WHERE team_id = {teamId}";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
-                    OpenConnection();
-                    // Retrieve all rows with matching team_id
-                    string query = $"SELECT id, TRIM(name), team_id FROM {PlayersCollectionName} WHERE team_id = {teamId}";
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
-                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    while (reader.Read())
                     {
-                        while (reader.Read())
+                        Player player = new Player(null)
                         {
-                            Player player = new Player(null)
-                            {
-                                Id     = reader.GetString(0),
-                                Name   = reader.GetString(1),
-                                TeamId = reader.GetString(2)
-                            };
-                            players.Add(player);
-                        }
+                            Id     = reader.GetString(0),
+                            Name   = reader.GetString(1),
+                            TeamId = reader.GetString(2)
+                        };
+                        players.Add(player);
                     }
-                    CloseConnection();
                 }
-
-                return players;
+                CloseConnection();   
             }
             catch (TimeoutException e)
             {
@@ -271,6 +271,8 @@ namespace TeamManager.Database
                 Log.Error("Failed to retrieve players => ", e);
                 return null;
             }
+
+            return players;
         }
 
         public async Task<List<Player>> ShowPlayersAsync(string teamId)
@@ -295,35 +297,29 @@ namespace TeamManager.Database
         {
             try
             {
-                Database = new NpgsqlConnection(ConnectionString);
-                using (Database)
+                OpenConnection();
+                // gets last id from db
+                string id = string.Empty;
+                string query = $"SELECT max(id) FROM {TeamsCollectionName}";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
-                    OpenConnection();
-                    // gets last id from db
-                    string id = string.Empty;
-                    string query = $"SELECT max(id) FROM {TeamsCollectionName}";
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
-                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            string value = reader.GetString(0);
-                            int x = int.Parse(value);
-                            string nextValue = (x + 1).ToString();
-                            id = nextValue;
-                        }
+                        string value = reader.GetString(0);
+                        int x = int.Parse(value);
+                        string nextValue = (x + 1).ToString();
+                        id = nextValue;
                     }
-
-                    // write row to db
-                    string query2 = $"INSERT INTO {TeamsCollectionName} (id, name) VALUES ({id}, \'{name}\')";
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query2, Database))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                    CloseConnection();
                 }
 
-                return true;
+                // write row to db
+                string query2 = $"INSERT INTO {TeamsCollectionName} (id, name) VALUES ({id}, \'{name}\')";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query2, Database))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                CloseConnection();
             }
             catch (TimeoutException e)
             {
@@ -335,6 +331,8 @@ namespace TeamManager.Database
                 Log.Error("Failed to create team => ", e);
                 return false;
             }
+
+            return true;
         }
 
         public async Task<bool> CreateTeamAsync(string name)
@@ -342,7 +340,6 @@ namespace TeamManager.Database
             try
             {
                 await Task.Factory.StartNew(() => CreateTeamAsync(name));
-                return true;
             }
             catch (TimeoutException e)
             {
@@ -354,41 +351,37 @@ namespace TeamManager.Database
                 Log.Error("Failed to create team async => ", e);
                 return false;
             }
+
+            return true;
         }
 
         public bool CreatePlayer(string name, string teamId)
         {
             try
             {
-                Database = new NpgsqlConnection(ConnectionString);
-                using (Database)
+                OpenConnection();
+                // get last id from db
+                string id = string.Empty;
+                string query = $"SELECT max(id) FROM {PlayersCollectionName}";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
-                    OpenConnection();
-                    // get last id from db
-                    string id = string.Empty;
-                    string query = $"SELECT max(id) FROM {PlayersCollectionName}";
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
-                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            string value = reader.GetString(0);
-                            int x = int.Parse(value);
-                            string nextValue = (x + 1).ToString();
-                            id = nextValue;
-                        }
+                        string value = reader.GetString(0);
+                        int x = int.Parse(value);
+                        string nextValue = (x + 1).ToString();
+                        id = nextValue;
                     }
-                 
-                    // write row to db
-                    string query2 = $"INSERT INTO {PlayersCollectionName} (id, name, team_id) VALUES ({id}, \'{name}\', {teamId})";
-                    using (var cmd = new NpgsqlCommand(query2, Database))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
-                    CloseConnection();
                 }
-
-                return true;
+                 
+                // write row to db
+                string query2 = $"INSERT INTO {PlayersCollectionName} (id, name, team_id) VALUES ({id}, \'{name}\', {teamId})";
+                using (var cmd = new NpgsqlCommand(query2, Database))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                CloseConnection();
             }
             catch (TimeoutException e)
             {
@@ -400,6 +393,8 @@ namespace TeamManager.Database
                 Log.Error("Failed to create player => ", e);
                 return false;
             }
+
+            return true;
         }
 
         public async Task<bool> CreatePlayerAsync(string name, string teamId)
@@ -407,7 +402,6 @@ namespace TeamManager.Database
             try
             {
                 await Task.Factory.StartNew(() => CreatePlayer(name, teamId));
-                return true;
             }
             catch (TimeoutException e)
             {
@@ -419,32 +413,29 @@ namespace TeamManager.Database
                 Log.Error("Failed to create player async => ", e);
                 return false;
             }
+
+            return true;
         }
 
         public Team ReadTeam(string id)
         {
+            Team team = new Team(null);
+
             try
             {
-                Team team = new Team(null);
-                Database = new NpgsqlConnection(ConnectionString);
-                using (Database)
+                OpenConnection();
+                // Retrieve all rows with matching id
+                string query = $"SELECT id, TRIM(name) FROM {TeamsCollectionName} WHERE id = {id}";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
-                    OpenConnection();
-                    // Retrieve all rows with matching id
-                    string query = $"SELECT id, TRIM(name) FROM {TeamsCollectionName} WHERE id = {id}";
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
-                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            team.Id = reader.GetString(0);
-                            team.Name = reader.GetString(1);
-                        }
+                        team.Id = reader.GetString(0);
+                        team.Name = reader.GetString(1);
                     }
-                    CloseConnection();
                 }
-
-                return team;
+                CloseConnection();
             }
             catch (TimeoutException e)
             {
@@ -456,6 +447,8 @@ namespace TeamManager.Database
                 Log.Error("Failed to read team => ", e);
                 return null;
             }
+
+            return team;
         }
 
         public async Task<Team> ReadTeamAsync(string id)
@@ -478,28 +471,24 @@ namespace TeamManager.Database
 
         public Player ReadPlayer(string id)
         {
+            Player player = new Player(null);
+
             try
             {
-                Player player = new Player(null);
-                Database = new NpgsqlConnection(ConnectionString);
-                using (Database)
+                OpenConnection();
+                // Retrieve all rows with matching id
+                string query = $"SELECT id, TRIM(name), team_id FROM {PlayersCollectionName} WHERE id = {id}";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
-                    OpenConnection();
-                    // Retrieve all rows with matching id
-                    string query = $"SELECT id, TRIM(name), team_id FROM {PlayersCollectionName} WHERE id = {id}";
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
-                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            player.Id = reader.GetString(0);
-                            player.Name = reader.GetString(1);
-                            player.TeamId = reader.GetString(2);
-                        }
+                        player.Id = reader.GetString(0);
+                        player.Name = reader.GetString(1);
+                        player.TeamId = reader.GetString(2);
                     }
-                    CloseConnection();
                 }
-                return player;
+                CloseConnection();
             }
             catch (TimeoutException e)
             {
@@ -511,6 +500,8 @@ namespace TeamManager.Database
                 Log.Error("Failed to read player => ", e);
                 return null;
             }
+
+            return player;
         }
 
         public async Task<Player> ReadPlayerAsync(string id)
@@ -535,19 +526,14 @@ namespace TeamManager.Database
         {
             try
             {
-                Database = new NpgsqlConnection(ConnectionString);
                 OpenConnection();
-                using (Database)
+                // write row to db
+                string query = $"UPDATE {TeamsCollectionName} SET name = '{name}' WHERE id = {id}";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
                 {
-                    // write row to db
-                    string query = $"UPDATE {TeamsCollectionName} SET name = '{name}' WHERE id = {id}";
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
+                    cmd.ExecuteNonQuery();
                 }
                 CloseConnection();
-                return true;
             }
             catch (TimeoutException e)
             {
@@ -559,6 +545,8 @@ namespace TeamManager.Database
                 Log.Error("Failed to update team => ", e);
                 return false;
             }
+
+            return true;
         }
 
         public async Task<bool> UpdateTeamAsync(string id, string name)
@@ -566,7 +554,6 @@ namespace TeamManager.Database
             try
             {
                 await Task.Factory.StartNew(() => UpdateTeamAsync(id, name));
-                return true;
             }
             catch (TimeoutException e)
             {
@@ -578,27 +565,22 @@ namespace TeamManager.Database
                 Log.Error("Failed to update team async => ", e);
                 return false;
             }
+
+            return true;
         }
 
         public bool UpdatePlayer(string id, string name)
         {
-
             try
             {
-                Database = new NpgsqlConnection(ConnectionString);
                 OpenConnection();
-                using (Database)
+                // write row to db
+                string query = $"UPDATE {PlayersCollectionName} SET name = \'{name}\' WHERE id = {id}";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
                 {
-                    // write row to db
-                    string query = $"UPDATE {PlayersCollectionName} SET name = \'{name}\' WHERE id = {id}";
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
+                    cmd.ExecuteNonQuery();
                 }
                 CloseConnection();
-
-                return true;
             }
             catch (TimeoutException e)
             {
@@ -610,6 +592,8 @@ namespace TeamManager.Database
                 Log.Error("Failed to update player => ", e);
                 return false;
             }
+
+            return true;
         }
 
         public async Task<bool> UpdatePlayerAsync(string id, string name)
@@ -617,7 +601,6 @@ namespace TeamManager.Database
             try
             {
                 await Task.Factory.StartNew(() => UpdatePlayerAsync(id, name));
-                return true;
             }
             catch (TimeoutException e)
             {
@@ -629,6 +612,8 @@ namespace TeamManager.Database
                 Log.Error("Failed to update player async => ", e);
                 return false;
             }
+
+            return true;
         }
 
         public bool UpdatePlayer(string id, string teamId, string name)
@@ -636,20 +621,14 @@ namespace TeamManager.Database
 
             try
             {
-                Database = new NpgsqlConnection(ConnectionString);
                 OpenConnection();
-                using (Database)
+                // write row to db
+                string query = $"UPDATE {PlayersCollectionName} SET name = \'{name}\', team_id = \'{teamId}\' WHERE id = {id}";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
                 {
-                    // write row to db
-                    string query = $"UPDATE {PlayersCollectionName} SET name = \'{name}\', team_id = \'{teamId}\' WHERE id = {id}";
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
+                    cmd.ExecuteNonQuery();
                 }
                 CloseConnection();
-
-                return true;
             }
             catch (TimeoutException e)
             {
@@ -661,6 +640,8 @@ namespace TeamManager.Database
                 Log.Error("Failed to update player => ", e);
                 return false;
             }
+
+            return true;
         }
 
         public async Task<bool> UpdatePlayerAsync(string id, string teamId, string name)
@@ -668,7 +649,6 @@ namespace TeamManager.Database
             try
             {
                 await Task.Factory.StartNew(() => UpdatePlayerAsync(id, teamId, name));
-                return true;
             }
             catch (TimeoutException e)
             {
@@ -680,26 +660,22 @@ namespace TeamManager.Database
                 Log.Error("Failed to update player async => ", e);
                 return false;
             }
+
+            return true;
         }
 
         public bool DeleteTeam(string id)
         {
             try
             {
-                Database = new NpgsqlConnection(ConnectionString);
                 OpenConnection();
-                using (Database)
+                // delete row from db
+                string query = $"DELETE FROM {TeamsCollectionName} WHERE id = {id}";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
                 {
-                    // delete row from db
-                    string query = $"DELETE FROM {TeamsCollectionName} WHERE id = {id}";
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
+                    cmd.ExecuteNonQuery();
                 }
                 CloseConnection();
-
-                return true;
             }
             catch (TimeoutException e)
             {
@@ -711,6 +687,8 @@ namespace TeamManager.Database
                 Log.Error("Failed to delete team => ", e);
                 return false;
             }
+
+            return true;
         }
 
         public async Task<bool> DeleteTeamAsync(string id)
@@ -718,7 +696,6 @@ namespace TeamManager.Database
             try
             {
                 await Task.Factory.StartNew(() => DeleteTeamAsync(id));
-                return true;
             }
             catch (TimeoutException e)
             {
@@ -730,26 +707,22 @@ namespace TeamManager.Database
                 Log.Error("Failed to delete team async => ", e);
                 return false;
             }
+
+            return true;
         }
 
         public bool DeletePlayer(string id)
         {
             try
             {
-                Database = new NpgsqlConnection(ConnectionString);
                 OpenConnection();
-                using (Database)
+                // delete row from db
+                string query = $"DELETE FROM {PlayersCollectionName} WHERE id = {id}";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
                 {
-                    // delete row from db
-                    string query = $"DELETE FROM {PlayersCollectionName} WHERE id = {id}";
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
+                    cmd.ExecuteNonQuery();
                 }
                 CloseConnection();
-
-                return true;
             }
             catch (TimeoutException e)
             {
@@ -761,6 +734,8 @@ namespace TeamManager.Database
                 Log.Error("Failed to delete player => ", e);
                 return false;
             }
+
+            return true;
         }
 
         public async Task<bool> DeletePlayerAsync(string id)
@@ -768,7 +743,6 @@ namespace TeamManager.Database
             try
             {
                 await Task.Factory.StartNew(() => DeletePlayerAsync(id));
-                return true;
             }
             catch (TimeoutException e)
             {
@@ -780,6 +754,8 @@ namespace TeamManager.Database
                 Log.Error("Failed to delete player async => ", e);
                 return false;
             }
+
+            return true;
         }
 
         public bool ChangePlayerTeam(string playerId, string teamId)
@@ -787,20 +763,14 @@ namespace TeamManager.Database
 
             try
             {
-                Database = new NpgsqlConnection(ConnectionString);
                 OpenConnection();
-                using (Database)
+                // write row to db
+                string query = $"UPDATE {PlayersCollectionName} SET team_id = \'{teamId}\' WHERE id = {playerId}";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
                 {
-                    // write row to db
-                    string query = $"UPDATE {PlayersCollectionName} SET team_id = \'{teamId}\' WHERE id = {playerId}";
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
-                    {
-                        cmd.ExecuteNonQuery();
-                    }
+                    cmd.ExecuteNonQuery();
                 }
                 CloseConnection();
-
-                return true;
             }
             catch (TimeoutException e)
             {
@@ -812,6 +782,8 @@ namespace TeamManager.Database
                 Log.Error("Failed to change player team => ", e);
                 return false;
             }
+
+            return true;
         }
 
         public async Task<bool> ChangePlayerTeamAsync(string playerId, string teamId)
@@ -819,7 +791,6 @@ namespace TeamManager.Database
             try
             {
                 await Task.Factory.StartNew(() => ChangePlayerTeamAsync(playerId, teamId));
-                return true;
             }
             catch (TimeoutException e)
             {
@@ -831,6 +802,8 @@ namespace TeamManager.Database
                 Log.Error("Failed to change player team => async ", e);
                 return false;
             }
+
+            return true;
         }
 
 

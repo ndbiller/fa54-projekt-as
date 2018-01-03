@@ -38,7 +38,7 @@ namespace TeamManager
         private static readonly List<string> AllowedArgs = new List<string>
         {
             "/t", "/g",
-            "/c:1", "/c:2", "/c-mt:1", "/c-mt:2",
+            "/s:1", "/s:2", "/s-mt:1", "/s-mt:2",
             "/db:mongo", "/db:sql",
             "/?", "/h", "--help"
         };
@@ -59,7 +59,7 @@ namespace TeamManager
 
             // Uncomment me if you want debugging console arguments. 
             // NOTE: You'll also need to change output type in project configuration to console so debugging will work.
-            //args = new[] { "/t", "/c-mt:1", "/db:mongo" };
+            //args = new[] { "/g", "/s:1", "/db:sql" };
             if (args.Length > 0)
                 if (!ParseArgs(args)) { CloseCallback(CtrlType.CLOSE); return; }
 
@@ -257,10 +257,10 @@ namespace TeamManager
                               "\t/DB:MONGO   Using Mongo no-relational database.\n");
 
             Console.WriteLine("### Examples: ###\n" +
-                              "TeamManager /t /c-mt:1 /db:mongo\n" +
-                              "TeamManager /t /c-mt:1 /db:sql\n" +
-                              "TeamManager /g /c:2 /db:sql\n" +
-                              "TeamManager /g /c-mt:2 /db:mongo\n");
+                              "TeamManager /t /s-mt:1 /db:mongo\n" +
+                              "TeamManager /t /s-mt:1 /db:sql\n" +
+                              "TeamManager /g /s:2 /db:sql\n" +
+                              "TeamManager /g /s-mt:2 /db:mongo\n");
 
             Console.Write("\nPress any key to continue . . .");
             Console.ReadKey();
@@ -271,6 +271,7 @@ namespace TeamManager
         private static void InvalidSyntax()
         {
             Log.Info("Received invalid syntax from console.");
+            if (!_startGui) HookConsole();
             Console.WriteLine("Invalid syntax. Use /? parameter to display help.");
             Console.ReadKey();
         }

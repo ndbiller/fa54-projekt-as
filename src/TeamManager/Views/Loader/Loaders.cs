@@ -104,9 +104,16 @@ namespace TeamManager.Views.Loader
                 window.Location = new Point(posX, posY);
             }
 
-            Thread thread = new Thread(() => window.ShowDialog());
-            thread.Start();
-            Log.Info($"Running loader of type {_currentLoaderRunning} on thread id => {thread.ManagedThreadId}.");
+            try
+            {
+                Thread thread = new Thread(() => window.ShowDialog());
+                thread.Start();
+                Log.Info($"Running loader of type {_currentLoaderRunning} on thread id => {thread.ManagedThreadId}.");
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Failed to run loader of type {_currentLoaderRunning} on new thread." + e);
+            }
         }
 
         /// <summary>
