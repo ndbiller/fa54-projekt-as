@@ -28,17 +28,37 @@ namespace TeamManager.Database
 
         // connect to heroku postgresql server
         // PostgeSQL-style connection string
-        internal static readonly string connectionString;
+        internal static readonly string ConnectionString;
 
         private static NpgsqlConnection Connection { get; set; }
 
-        private const string TeamsCollectionName = "team";
-        private const string PlayersCollectionName = "player";
+        public string TeamsCollectionName => "team";
+        public string PlayersCollectionName => "player";
 
-        private const int TimeoutMilisec = 3000;
+        public int TimeoutMilisec => 3000;
+
+
 
         static DbLayerSql()
         {
+#if DB_LOCAL
+            Log.Info("Using PostgreSql local server connection.");
+            // connect to local PostgreSql server
+            POSTGRESQL_USERNAME      = "localuser";
+            POSTGRESQL_PASSWORD      = "localpass";
+            POSTGRESQL_URI           = "127.0.0.1";
+            POSTGRESQL_PORT          = "5432";
+            POSTGRESQL_DATABASE_NAME = "localdb";
+
+            ConnectionString = "Server=" + POSTGRESQL_URI +
+                               ";Port=" + POSTGRESQL_PORT +
+                               ";User Id=" + POSTGRESQL_USERNAME +
+                               ";Password=" + POSTGRESQL_PASSWORD +
+                               ";Database=" + POSTGRESQL_DATABASE_NAME +
+                               ";";
+#else
+            Log.Info("Using PostgreSql online server connection.");
+
             try
             {
                 POSTGRESQL_USERNAME = Environment.GetEnvironmentVariable("POSTGRESQL_USERNAME");
@@ -49,20 +69,23 @@ namespace TeamManager.Database
             }
             catch (Exception e)
             {
-                Log.Error("cctor - Failed to retrieve environment variables => ", e);
+                Log.Error("cctor - Failed to retrieve environment variables for mongo-db connection string => ", e);
             }
-            connectionString =  "Server=" + POSTGRESQL_URI +
-                                ";Port=" + POSTGRESQL_PORT +
-                                ";User Id=" + POSTGRESQL_USERNAME +
-                                ";Password=" + POSTGRESQL_PASSWORD +
-                                ";Database=" + POSTGRESQL_DATABASE_NAME +
-                                ";SSL Mode=Require;" +
-                                "Trust Server Certificate=true;";
+
+            ConnectionString = "Server=" + POSTGRESQL_URI +
+                               ";Port=" + POSTGRESQL_PORT +
+                               ";User Id=" + POSTGRESQL_USERNAME +
+                               ";Password=" + POSTGRESQL_PASSWORD +
+                               ";Database=" + POSTGRESQL_DATABASE_NAME +
+                               ";SSL Mode=Require;" +
+                               "Trust Server Certificate=true;";
+#endif
         }
+
 
         public DbLayerSql()
         {
-            Connection = new NpgsqlConnection(connectionString);
+            Connection = new NpgsqlConnection(ConnectionString);
             Log.Info("Connection created.");
         }
 
@@ -80,7 +103,7 @@ namespace TeamManager.Database
 
         public void ExecuteSql(string query)
         {
-            Connection = new NpgsqlConnection(connectionString);
+            Connection = new NpgsqlConnection(ConnectionString);
             // execute custom query code
             NpgsqlCommand customCommand = new NpgsqlCommand(query, Connection);
             OpenConnection();
@@ -93,7 +116,7 @@ namespace TeamManager.Database
         {
             try
             {
-                Connection = new NpgsqlConnection(connectionString);
+                Connection = new NpgsqlConnection(ConnectionString);
                 List<Team> teams = new List<Team>();
                 using (Connection)
                 {
@@ -152,7 +175,7 @@ namespace TeamManager.Database
         {
             try
             {
-                Connection = new NpgsqlConnection(connectionString);
+                Connection = new NpgsqlConnection(ConnectionString);
                 List<Player> players = new List<Player>();
                 using (Connection)
                 {
@@ -213,7 +236,7 @@ namespace TeamManager.Database
             try
             {
                 List<Player> players = new List<Player>();
-                Connection = new NpgsqlConnection(connectionString);
+                Connection = new NpgsqlConnection(ConnectionString);
                 using (Connection)
                 {
                     OpenConnection();
@@ -272,7 +295,7 @@ namespace TeamManager.Database
         {
             try
             {
-                Connection = new NpgsqlConnection(connectionString);
+                Connection = new NpgsqlConnection(ConnectionString);
                 using (Connection)
                 {
                     OpenConnection();
@@ -337,7 +360,7 @@ namespace TeamManager.Database
         {
             try
             {
-                Connection = new NpgsqlConnection(connectionString);
+                Connection = new NpgsqlConnection(ConnectionString);
                 using (Connection)
                 {
                     OpenConnection();
@@ -403,7 +426,7 @@ namespace TeamManager.Database
             try
             {
                 Team team = new Team(null);
-                Connection = new NpgsqlConnection(connectionString);
+                Connection = new NpgsqlConnection(ConnectionString);
                 using (Connection)
                 {
                     OpenConnection();
@@ -458,7 +481,7 @@ namespace TeamManager.Database
             try
             {
                 Player player = new Player(null);
-                Connection = new NpgsqlConnection(connectionString);
+                Connection = new NpgsqlConnection(ConnectionString);
                 using (Connection)
                 {
                     OpenConnection();
@@ -512,7 +535,7 @@ namespace TeamManager.Database
         {
             try
             {
-                Connection = new NpgsqlConnection(connectionString);
+                Connection = new NpgsqlConnection(ConnectionString);
                 OpenConnection();
                 using (Connection)
                 {
@@ -562,7 +585,7 @@ namespace TeamManager.Database
 
             try
             {
-                Connection = new NpgsqlConnection(connectionString);
+                Connection = new NpgsqlConnection(ConnectionString);
                 OpenConnection();
                 using (Connection)
                 {
@@ -613,7 +636,7 @@ namespace TeamManager.Database
 
             try
             {
-                Connection = new NpgsqlConnection(connectionString);
+                Connection = new NpgsqlConnection(ConnectionString);
                 OpenConnection();
                 using (Connection)
                 {
@@ -663,7 +686,7 @@ namespace TeamManager.Database
         {
             try
             {
-                Connection = new NpgsqlConnection(connectionString);
+                Connection = new NpgsqlConnection(ConnectionString);
                 OpenConnection();
                 using (Connection)
                 {
@@ -713,7 +736,7 @@ namespace TeamManager.Database
         {
             try
             {
-                Connection = new NpgsqlConnection(connectionString);
+                Connection = new NpgsqlConnection(ConnectionString);
                 OpenConnection();
                 using (Connection)
                 {
@@ -764,7 +787,7 @@ namespace TeamManager.Database
 
             try
             {
-                Connection = new NpgsqlConnection(connectionString);
+                Connection = new NpgsqlConnection(ConnectionString);
                 OpenConnection();
                 using (Connection)
                 {

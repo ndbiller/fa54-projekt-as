@@ -15,6 +15,21 @@ namespace TeamManager.Database
         /// </summary>
         void OpenConnection();
 
+        /// <summary>
+        /// The Timeout in miliseconds for task to execute when using the async calls.
+        /// </summary>
+        int TimeoutMilisec { get; }
+
+        /// <summary>
+        /// The collection/table of the <see cref="Team"/>s.
+        /// </summary>
+        string TeamsCollectionName { get; }
+
+        /// <summary>
+        /// The collection/table of the <see cref="Player"/>s.
+        /// </summary>
+        string PlayersCollectionName { get; }
+
 
         #region --- Normal Methods ---
         
