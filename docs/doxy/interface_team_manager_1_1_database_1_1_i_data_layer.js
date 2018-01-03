@@ -2,7 +2,6 @@ var interface_team_manager_1_1_database_1_1_i_data_layer =
 [
     [ "ChangePlayerTeam", "interface_team_manager_1_1_database_1_1_i_data_layer.html#ab0beb1f4d550857a591cd71405857ed9", null ],
     [ "ChangePlayerTeamAsync", "interface_team_manager_1_1_database_1_1_i_data_layer.html#a58408bfadf88a17ec77e837a5550e344", null ],
-    [ "ConnectDb", "interface_team_manager_1_1_database_1_1_i_data_layer.html#a76a1699bd166add5fb7d4c5c5727d1e0", null ],
     [ "CreatePlayer", "interface_team_manager_1_1_database_1_1_i_data_layer.html#ae2c27abc3188e15eb92567c4a0944393", null ],
     [ "CreatePlayerAsync", "interface_team_manager_1_1_database_1_1_i_data_layer.html#a37449a4b274ecbc9f7cce55e89cd36bc", null ],
     [ "CreateTeam", "interface_team_manager_1_1_database_1_1_i_data_layer.html#af94e6c13834661415a8c0829977408cf", null ],
@@ -11,6 +10,7 @@ var interface_team_manager_1_1_database_1_1_i_data_layer =
     [ "DeletePlayerAsync", "interface_team_manager_1_1_database_1_1_i_data_layer.html#a1da19b9e5090027f147953e6c6b43a9a", null ],
     [ "DeleteTeam", "interface_team_manager_1_1_database_1_1_i_data_layer.html#a896666368c9670a7c6a2a097c1e4715b", null ],
     [ "DeleteTeamAsync", "interface_team_manager_1_1_database_1_1_i_data_layer.html#aad1f442cf6160a77bb74450b4d3a0439", null ],
+    [ "OpenConnection", "interface_team_manager_1_1_database_1_1_i_data_layer.html#a17fba671c89c921e6fd6ef0ebea20217", null ],
     [ "Players", "interface_team_manager_1_1_database_1_1_i_data_layer.html#a4f22365c5c3e6d0f6e10220e8e317578", null ],
     [ "PlayersAsync", "interface_team_manager_1_1_database_1_1_i_data_layer.html#a5ac761c098fe29d379e9dfde7da6ab41", null ],
     [ "ReadPlayer", "interface_team_manager_1_1_database_1_1_i_data_layer.html#a9a44b9cd8aa9beedee10572c9caf38f6", null ],

@@ -1,0 +1,5 @@
+<map id="TeamManager.Utilities.NativeMethods.SetConsoleCtrlHandler" name="TeamManager.Utilities.NativeMethods.SetConsoleCtrlHandler">
+<area shape="rect" id="node2" href="$class_team_manager_1_1_program.html#a14dd180e4fa9bb0b10d28da58d7260f4" title="Hooks the console using the NativeMethods class methods that are exported from the windows api dlls i..." alt="" coords="260,5,451,47"/>
+<area shape="rect" id="node3" href="$class_team_manager_1_1_program.html#abcb8697bd1d929dcc314716829891414" title="Parses the arguments that are passed to the executeable and determines whether the parsing operation ..." alt="" coords="499,13,721,39"/>
+<area shape="rect" id="node4" href="$class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the S..." alt="" coords="769,13,959,39"/>
+</map>

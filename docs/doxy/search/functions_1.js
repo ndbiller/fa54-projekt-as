@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['begininvokesafe_3c_20t_20_3e',['BeginInvokeSafe&lt; T &gt;',['../class_team_manager_1_1_utilities_1_1_utility.html#a45768713edeeea9948d6e5b30a0ea238',1,'TeamManager::Utilities::Utility']]],
   ['bindplayersdata',['BindPlayersData',['../class_team_manager_1_1_presenters_1_1_all_players_presenter.html#a3040cf7bd29997c10ad7548b7d25ad88',1,'TeamManager.Presenters.AllPlayersPresenter.BindPlayersData()'],['../class_team_manager_1_1_presenters_1_1_main_presenter.html#a1d524f07f751f6b455dda292814006e1',1,'TeamManager.Presenters.MainPresenter.BindPlayersData()'],['../class_team_manager_1_1_presenters_1_1_unsigned_players_presenter.html#aa7bb2a2934ef60263b517aea85d2eb65',1,'TeamManager.Presenters.UnsignedPlayersPresenter.BindPlayersData()']]],
   ['bindteamsdata',['BindTeamsData',['../class_team_manager_1_1_presenters_1_1_edit_presenter.html#a076d61f43f91dc7ff5db736318dc0628',1,'TeamManager.Presenters.EditPresenter.BindTeamsData()'],['../class_team_manager_1_1_presenters_1_1_main_presenter.html#afa62d8dabe60cfd0e16dcab7a1c9b98f',1,'TeamManager.Presenters.MainPresenter.BindTeamsData()']]],
   ['btncancel_5fclick',['btnCancel_Click',['../class_team_manager_1_1_views_1_1_windows_1_1_dialogs_1_1_edit_window.html#ad785901c8816a74831fb3dc1f9ebb505',1,'TeamManager::Views::Windows::Dialogs::EditWindow']]],

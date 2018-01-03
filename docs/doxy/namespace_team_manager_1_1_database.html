@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">TeamManager AS Projekt
-   &#160;<span id="projectnumber">v1.0.0</span>
+   &#160;<span id="projectnumber">v1.0.1</span>
    </div>
    <div id="projectbrief">Softwaresystem als 3-Schichten-Architektur (Benutzungsoberfläche, Fachkonzept, Datenhaltung)</div>
   </td>
@@ -93,26 +93,63 @@ $(document).ready(function(){initNavTree('namespace_team_manager_1_1_database.ht
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_mongo.html">DbLayerMongo</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_mongo.html" title="DbLayerMongo will contain none-relational data. For more information, please refer to: DatabaseType I...">DbLayerMongo</a> will contain none-relational data. For more information, please refer to: <a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391" title="The DatabaseType that will be used when the project gets initialized. ">DatabaseType</a> <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any...">IDataLayer</a>  <a href="class_team_manager_1_1_database_1_1_db_layer_mongo.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html">DbLayerSql</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html" title="DbLayerSql will contain relational data. For more information, please refer to: DatabaseType IDataLay...">DbLayerSql</a> will contain relational data. For more information, please refer to: <a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391" title="The DatabaseType that will be used when the project gets initialized. ">DatabaseType</a> <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any...">IDataLayer</a>  <a href="class_team_manager_1_1_database_1_1_db_layer_sql.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html">IDataLayer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any...">IDataLayer</a> interface that each <a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391" title="The DatabaseType that will be used when the project gets initialized. ">DatabaseType</a> must implement. That way, the application can use any database while keeping the same consistent data.  <a href="interface_team_manager_1_1_database_1_1_i_data_layer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a9a831732ff4f96bc03e8453f9ce0e391"><td class="memItemLeft" align="right" valign="top"><a id="a9a831732ff4f96bc03e8453f9ce0e391"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>DatabaseType</b> { <b>Mongo</b>, 
-<b>Sql</b>
- }</td></tr>
+<tr class="memitem:a9a831732ff4f96bc03e8453f9ce0e391"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391">DatabaseType</a> { <a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391adf40477e9a75456ed53400041634f94b">DatabaseType.Mongo</a>, 
+<a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391a916034aa0fb4ca924846e1a6a2d54c9c">DatabaseType.PostgreSql</a>
+ }<tr class="memdesc:a9a831732ff4f96bc03e8453f9ce0e391"><td class="mdescLeft">&#160;</td><td class="mdescRight">The DatabaseType that will be used when the project gets initialized.  <a href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:a9a831732ff4f96bc03e8453f9ce0e391"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a9a831732ff4f96bc03e8453f9ce0e391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a831732ff4f96bc03e8453f9ce0e391">&#9670;&nbsp;</a></span>DatabaseType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391">TeamManager.Database.DatabaseType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The <a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391" title="The DatabaseType that will be used when the project gets initialized. ">DatabaseType</a> that will be used when the project gets initialized. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9a831732ff4f96bc03e8453f9ce0e391adf40477e9a75456ed53400041634f94b"></a>Mongo&#160;</td><td class="fielddoc"><p>Not-Relational database. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9a831732ff4f96bc03e8453f9ce0e391a916034aa0fb4ca924846e1a6a2d54c9c"></a>PostgreSql&#160;</td><td class="fielddoc"><p>Relational database. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_database_type_8cs_source.html#l00006">6</a> of file <a class="el" href="_database_type_8cs_source.html">DatabaseType.cs</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_team_manager.html">TeamManager</a></li><li class="navelem"><a class="el" href="namespace_team_manager_1_1_database.html">Database</a></li>
-    <li class="footer">Generated on Thu Dec 21 2017 22:20:55 for TeamManager AS Projekt by
+    <li class="footer">Generated on Wed Jan 3 2018 09:22:21 for TeamManager AS Projekt by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

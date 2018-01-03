@@ -1,8 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the ITechnicalConcept interface that will be used for retrieving data ..." alt="" coords="5,136,211,177"/>
-<area shape="rect" id="node2" href="$class_team_manager_1_1_presenters_1_1_all_players_presenter.html" title="The AllPlayersPresenter which will couple together with the Views.Windows.Dialogs.AllPlayersWindow and update its view. " alt="" coords="278,5,469,47"/>
-<area shape="rect" id="node3" href="$class_team_manager_1_1_presenters_1_1_console_presenter.html" title="The ConsolePresenter will be used differently in comparsion to other presenters. In here it&#39;s not nec..." alt="" coords="262,71,485,112"/>
-<area shape="rect" id="node4" href="$class_team_manager_1_1_presenters_1_1_edit_presenter.html" title="The EditPresenter which will couple together with the Views.Windows.Dialogs.EditWindow and update its..." alt="" coords="274,136,473,177"/>
-<area shape="rect" id="node5" href="$class_team_manager_1_1_presenters_1_1_main_presenter.html" title="The MainPresenter which will couple together with the Views.Windows.MainWindow and update its view..." alt="" coords="272,201,475,243"/>
-<area shape="rect" id="node6" href="$class_team_manager_1_1_presenters_1_1_unsigned_players_presenter.html" title="The UnsignedPlayersPresenter which will couple together with the Views.Windows.Dialogs.UnsignedPlayersWindow and update its view. " alt="" coords="259,267,488,308"/>
+<area shape="rect" id="node1" href="$interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="5,35,203,76"/>
+<area shape="rect" id="node2" href="$class_team_manager_1_1_database_1_1_db_layer_mongo.html" title="DbLayerMongo will contain none&#45;relational data. For more information, please refer to: DatabaseType I..." alt="" coords="261,5,475,47"/>
+<area shape="rect" id="node3" href="$class_team_manager_1_1_database_1_1_db_layer_sql.html" title="DbLayerSql will contain relational data. For more information, please refer to: DatabaseType IDataLay..." alt="" coords="251,71,485,98"/>
 </map>

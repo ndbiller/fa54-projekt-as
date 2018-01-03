@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">TeamManager AS Projekt
-   &#160;<span id="projectnumber">v1.0.0</span>
+   &#160;<span id="projectnumber">v1.0.1</span>
    </div>
    <div id="projectbrief">Softwaresystem als 3-Schichten-Architektur (Benutzungsoberfläche, Fachkonzept, Datenhaltung)</div>
   </td>
@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('class_team_manager_1_1_program.html','
 
 <div class="header">
   <div class="summary">
+<a href="#events">Events</a> &#124;
 <a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_team_manager_1_1_program-members.html">List of all members</a>  </div>
@@ -98,13 +99,37 @@ Collaboration diagram for TeamManager.Program:</div>
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="events"></a>
+Events</h2></td></tr>
+<tr class="memitem:a68596f9eaecfc80fbc30ded2d3519029"><td class="memItemLeft" align="right" valign="top">static ConsoleClosedHandler&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_program.html#a68596f9eaecfc80fbc30ded2d3519029">ClosedHandler</a></td></tr>
+<tr class="memdesc:a68596f9eaecfc80fbc30ded2d3519029"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event handler for the console closed event to call the <a class="el" href="class_team_manager_1_1_program.html#a0d7910bc789a7a5ac5536977a74c502a" title="Callback method that is registered to the windows kernal with the ConsoleClosedHandler for catching t...">CloseCallback</a> method so it doesn't get garbage collected.  <a href="#a68596f9eaecfc80fbc30ded2d3519029">More...</a><br /></td></tr>
+<tr class="separator:a68596f9eaecfc80fbc30ded2d3519029"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
 <tr class="memitem:a5e30dec2f1e00dc8044ee437aea19865"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865">Main</a> (string[] args)</td></tr>
-<tr class="memdesc:a5e30dec2f1e00dc8044ee437aea19865"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main father entrance for the application. We can define in the beginning of the application the TechnicalConcept(1,2,1mt,2mt), <a class="el" href="namespace_team_manager_1_1_database.html">Database</a> type and GUI or TUI. Checks whether the user passed arguments to the console and initialize the application with the wanted data.  <a href="#a5e30dec2f1e00dc8044ee437aea19865">More...</a><br /></td></tr>
+<tr class="memdesc:a5e30dec2f1e00dc8044ee437aea19865"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main father entrance for the application. We can define in the beginning of the application the Strategy(asc, desc, ascMt, descMt), <a class="el" href="namespace_team_manager_1_1_database.html">Database</a> type and GUI or TUI. Checks whether the user passed arguments to the console and initialize the application with the wanted data.  <a href="#a5e30dec2f1e00dc8044ee437aea19865">More...</a><br /></td></tr>
 <tr class="separator:a5e30dec2f1e00dc8044ee437aea19865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b7acd3df00e89e52badd70c9c327a25"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_program.html#a4b7acd3df00e89e52badd70c9c327a25">ValidateConfigurationFile</a> ()</td></tr>
+<tr class="memdesc:a4b7acd3df00e89e52badd70c9c327a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks to see whether the configuration file exists, otherwise, create it from stream.  <a href="#a4b7acd3df00e89e52badd70c9c327a25">More...</a><br /></td></tr>
+<tr class="separator:a4b7acd3df00e89e52badd70c9c327a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcb8697bd1d929dcc314716829891414"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_program.html#abcb8697bd1d929dcc314716829891414">ParseArgs</a> (string[] args)</td></tr>
+<tr class="memdesc:abcb8697bd1d929dcc314716829891414"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the arguments that are passed to the executeable and determines whether the parsing operation were successful.  <a href="#abcb8697bd1d929dcc314716829891414">More...</a><br /></td></tr>
+<tr class="separator:abcb8697bd1d929dcc314716829891414"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a064f54d0b60f07eb60629feac421d383"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_program.html#a064f54d0b60f07eb60629feac421d383">ParseStrategyTypeArg</a> (string arg)</td></tr>
+<tr class="memdesc:a064f54d0b60f07eb60629feac421d383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the StrategyType argument for modifying the <a class="el" href="class_team_manager_1_1_program.html#a23f3c02d31a9a6a835bcf4dbbbd06c74" title="The default StrategyType that is used for initializing the wanted IStrategy. ">_strategyType</a> before the main initializes the database and strategy type.  <a href="#a064f54d0b60f07eb60629feac421d383">More...</a><br /></td></tr>
+<tr class="separator:a064f54d0b60f07eb60629feac421d383"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91d7403e93c0a908a2caf71e2ee332b8"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_program.html#a91d7403e93c0a908a2caf71e2ee332b8">ParseDatabaseTypeArg</a> (string arg)</td></tr>
+<tr class="memdesc:a91d7403e93c0a908a2caf71e2ee332b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the DatabaseType argument for modifying the <a class="el" href="class_team_manager_1_1_program.html#a4c8b4bddb422fa4b93a2893709e80927" title="The default DatabaseType that is used for initializing the wanted IDataLayer. ">_dbType</a> before the main initializes the database and strategy type.  <a href="#a91d7403e93c0a908a2caf71e2ee332b8">More...</a><br /></td></tr>
+<tr class="separator:a91d7403e93c0a908a2caf71e2ee332b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14dd180e4fa9bb0b10d28da58d7260f4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_program.html#a14dd180e4fa9bb0b10d28da58d7260f4">HookConsole</a> ()</td></tr>
+<tr class="memdesc:a14dd180e4fa9bb0b10d28da58d7260f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hooks the console using the NativeMethods class methods that are exported from the windows api dlls in order to allow the console to show even when the project output type is set to Windows Application, that way we can swap between Gui or Tui. Also registers a callback method with the NativeMethods.SetConsoleCtrlHandler that will register a close event to the console even if someones click the X button on the top right side so we can do last wrapping before console closes.  <a href="#a14dd180e4fa9bb0b10d28da58d7260f4">More...</a><br /></td></tr>
+<tr class="separator:a14dd180e4fa9bb0b10d28da58d7260f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d7910bc789a7a5ac5536977a74c502a"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_program.html#a0d7910bc789a7a5ac5536977a74c502a">CloseCallback</a> (int eventType)</td></tr>
+<tr class="memdesc:a0d7910bc789a7a5ac5536977a74c502a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback method that is registered to the windows kernal with the ConsoleClosedHandler for catching the console close event and doing last wrapping. For more information, please see: https://docs.microsoft.com/en-us/windows/console/setconsolectrlhandler  <a href="#a0d7910bc789a7a5ac5536977a74c502a">More...</a><br /></td></tr>
+<tr class="separator:a0d7910bc789a7a5ac5536977a74c502a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8edb006dd3c63b0d03cd0469f15ba04c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_program.html#a8edb006dd3c63b0d03cd0469f15ba04c">PrintHelp</a> ()</td></tr>
-<tr class="memdesc:a8edb006dd3c63b0d03cd0469f15ba04c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints help to the user when using the application through the console.  <a href="#a8edb006dd3c63b0d03cd0469f15ba04c">More...</a><br /></td></tr>
+<tr class="memdesc:a8edb006dd3c63b0d03cd0469f15ba04c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the help window to the user with all the configuration options.  <a href="#a8edb006dd3c63b0d03cd0469f15ba04c">More...</a><br /></td></tr>
 <tr class="separator:a8edb006dd3c63b0d03cd0469f15ba04c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa968135dfadf32a580e7bed7a5f3d95a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_program.html#aa968135dfadf32a580e7bed7a5f3d95a">InvalidSyntax</a> ()</td></tr>
 <tr class="memdesc:aa968135dfadf32a580e7bed7a5f3d95a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints out invalid syntax when invalid syntax received.  <a href="#aa968135dfadf32a580e7bed7a5f3d95a">More...</a><br /></td></tr>
@@ -118,11 +143,126 @@ Static Private Attributes</h2></td></tr>
 <tr class="memitem:a7dea0fabee508ab5e295f85573896a1f"><td class="memItemLeft" align="right" valign="top">static readonly Guid&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_program.html#a7dea0fabee508ab5e295f85573896a1f">SessionId</a> = Guid.NewGuid()</td></tr>
 <tr class="memdesc:a7dea0fabee508ab5e295f85573896a1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique session id of the application.  <a href="#a7dea0fabee508ab5e295f85573896a1f">More...</a><br /></td></tr>
 <tr class="separator:a7dea0fabee508ab5e295f85573896a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac400d428b7db520b557521481c6ea266"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_program.html#ac400d428b7db520b557521481c6ea266">_startGui</a> = true</td></tr>
+<tr class="memdesc:ac400d428b7db520b557521481c6ea266"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default flag for specifying whether to use Gui or Tui.  <a href="#ac400d428b7db520b557521481c6ea266">More...</a><br /></td></tr>
+<tr class="separator:ac400d428b7db520b557521481c6ea266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c8b4bddb422fa4b93a2893709e80927"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391">DatabaseType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_program.html#a4c8b4bddb422fa4b93a2893709e80927">_dbType</a> = Defaults.DatabaseType</td></tr>
+<tr class="memdesc:a4c8b4bddb422fa4b93a2893709e80927"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default DatabaseType that is used for initializing the wanted IDataLayer.  <a href="#a4c8b4bddb422fa4b93a2893709e80927">More...</a><br /></td></tr>
+<tr class="separator:a4c8b4bddb422fa4b93a2893709e80927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23f3c02d31a9a6a835bcf4dbbbd06c74"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespace_team_manager_1_1_models_1_1_strategy.html#a4449fb08e3cdd0bd336f26a06b2f4507">StrategyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_program.html#a23f3c02d31a9a6a835bcf4dbbbd06c74">_strategyType</a> = Defaults.StrategyType</td></tr>
+<tr class="memdesc:a23f3c02d31a9a6a835bcf4dbbbd06c74"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default StrategyType that is used for initializing the wanted IStrategy.  <a href="#a23f3c02d31a9a6a835bcf4dbbbd06c74">More...</a><br /></td></tr>
+<tr class="separator:a23f3c02d31a9a6a835bcf4dbbbd06c74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72c4fb065233cdfd7eb7c23c5fed72ba"><td class="memItemLeft" align="right" valign="top">static readonly List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_program.html#a72c4fb065233cdfd7eb7c23c5fed72ba">AllowedArgs</a></td></tr>
+<tr class="memdesc:a72c4fb065233cdfd7eb7c23c5fed72ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">The allowed arguments that are acceptable to be pass to the executeable through the console for specifying different configurations.  <a href="#a72c4fb065233cdfd7eb7c23c5fed72ba">More...</a><br /></td></tr>
+<tr class="separator:a72c4fb065233cdfd7eb7c23c5fed72ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00014">14</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00017">17</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0d7910bc789a7a5ac5536977a74c502a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d7910bc789a7a5ac5536977a74c502a">&#9670;&nbsp;</a></span>CloseCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool TeamManager.Program.CloseCallback </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>eventType</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Callback method that is registered to the windows kernal with the ConsoleClosedHandler for catching the console close event and doing last wrapping. For more information, please see: https://docs.microsoft.com/en-us/windows/console/setconsolectrlhandler </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eventType</td><td>The event type that defines the kind of event that occured when the console application closed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00224">224</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_ctrl_type_8cs_source.html#l00016">TeamManager.Utilities.CtrlType.BREAK</a>, <a class="el" href="_ctrl_type_8cs_source.html#l00013">TeamManager.Utilities.CtrlType.C</a>, <a class="el" href="_ctrl_type_8cs_source.html#l00019">TeamManager.Utilities.CtrlType.CLOSE</a>, <a class="el" href="_ctrl_type_8cs_source.html#l00022">TeamManager.Utilities.CtrlType.LOGOFF</a>, and <a class="el" href="_ctrl_type_8cs_source.html#l00025">TeamManager.Utilities.CtrlType.SHUTDOWN</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_program_8cs_source.html#l00207">TeamManager.Program.HookConsole()</a>, and <a class="el" href="_program_8cs_source.html#l00055">TeamManager.Program.Main()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_team_manager_1_1_program_a0d7910bc789a7a5ac5536977a74c502a_icgraph.png" border="0" usemap="#class_team_manager_1_1_program_a0d7910bc789a7a5ac5536977a74c502a_icgraph" alt=""/></div>
+<map name="class_team_manager_1_1_program_a0d7910bc789a7a5ac5536977a74c502a_icgraph" id="class_team_manager_1_1_program_a0d7910bc789a7a5ac5536977a74c502a_icgraph">
+<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#a14dd180e4fa9bb0b10d28da58d7260f4" title="Hooks the console using the NativeMethods class methods that are exported from the windows api dlls i..." alt="" coords="248,5,439,47"/>
+<area shape="rect" id="node4" href="class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the S..." alt="" coords="757,45,947,71"/>
+<area shape="rect" id="node3" href="class_team_manager_1_1_program.html#abcb8697bd1d929dcc314716829891414" title="Parses the arguments that are passed to the executeable and determines whether the parsing operation ..." alt="" coords="487,17,709,43"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a14dd180e4fa9bb0b10d28da58d7260f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14dd180e4fa9bb0b10d28da58d7260f4">&#9670;&nbsp;</a></span>HookConsole()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void TeamManager.Program.HookConsole </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Hooks the console using the NativeMethods class methods that are exported from the windows api dlls in order to allow the console to show even when the project output type is set to Windows Application, that way we can swap between Gui or Tui. Also registers a callback method with the NativeMethods.SetConsoleCtrlHandler that will register a close event to the console even if someones click the X button on the top right side so we can do last wrapping before console closes. </p>
+
+<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00207">207</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="class_team_manager_1_1_utilities_1_1_native_methods.html#af7c43608d1ad8d276ccefb0ded7b415e">TeamManager.Utilities.NativeMethods.AllocConsole()</a>, <a class="el" href="_ctrl_type_8cs_source.html#l00019">TeamManager.Utilities.CtrlType.CLOSE</a>, <a class="el" href="_program_8cs_source.html#l00224">TeamManager.Program.CloseCallback()</a>, and <a class="el" href="class_team_manager_1_1_utilities_1_1_native_methods.html#aa5ff52fbcde11be2f651785b731f51cc">TeamManager.Utilities.NativeMethods.SetConsoleCtrlHandler()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_program_8cs_source.html#l00098">TeamManager.Program.ParseArgs()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_team_manager_1_1_program_a14dd180e4fa9bb0b10d28da58d7260f4_cgraph.png" border="0" usemap="#class_team_manager_1_1_program_a14dd180e4fa9bb0b10d28da58d7260f4_cgraph" alt=""/></div>
+<map name="class_team_manager_1_1_program_a14dd180e4fa9bb0b10d28da58d7260f4_cgraph" id="class_team_manager_1_1_program_a14dd180e4fa9bb0b10d28da58d7260f4_cgraph">
+<area shape="rect" id="node2" href="class_team_manager_1_1_utilities_1_1_native_methods.html#af7c43608d1ad8d276ccefb0ded7b415e" title="Allows to allocate console view even if the project configurations set to windows forms as output..." alt="" coords="252,5,443,47"/>
+<area shape="rect" id="node3" href="class_team_manager_1_1_program.html#a0d7910bc789a7a5ac5536977a74c502a" title="Callback method that is registered to the windows kernal with the ConsoleClosedHandler for catching t..." alt="" coords="250,71,445,112"/>
+<area shape="rect" id="node4" href="class_team_manager_1_1_utilities_1_1_native_methods.html#aa5ff52fbcde11be2f651785b731f51cc" title="Catches the close event chain of the windows api when using console in order to do some wrapping befo..." alt="" coords="244,136,451,177"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_team_manager_1_1_program_a14dd180e4fa9bb0b10d28da58d7260f4_icgraph.png" border="0" usemap="#class_team_manager_1_1_program_a14dd180e4fa9bb0b10d28da58d7260f4_icgraph" alt=""/></div>
+<map name="class_team_manager_1_1_program_a14dd180e4fa9bb0b10d28da58d7260f4_icgraph" id="class_team_manager_1_1_program_a14dd180e4fa9bb0b10d28da58d7260f4_icgraph">
+<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#abcb8697bd1d929dcc314716829891414" title="Parses the arguments that are passed to the executeable and determines whether the parsing operation ..." alt="" coords="244,13,467,39"/>
+<area shape="rect" id="node3" href="class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the S..." alt="" coords="515,13,704,39"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="aa968135dfadf32a580e7bed7a5f3d95a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa968135dfadf32a580e7bed7a5f3d95a">&#9670;&nbsp;</a></span>InvalidSyntax()</h2>
 
@@ -148,15 +288,18 @@ Static Private Attributes</h2></td></tr>
 
 <p>Prints out invalid syntax when invalid syntax received. </p>
 
-<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00167">167</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00271">271</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_program_8cs_source.html#l00029">TeamManager.Program.Main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_program_8cs_source.html#l00098">TeamManager.Program.ParseArgs()</a>, <a class="el" href="_program_8cs_source.html#l00178">TeamManager.Program.ParseDatabaseTypeArg()</a>, and <a class="el" href="_program_8cs_source.html#l00141">TeamManager.Program.ParseStrategyTypeArg()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_team_manager_1_1_program_aa968135dfadf32a580e7bed7a5f3d95a_icgraph.png" border="0" usemap="#class_team_manager_1_1_program_aa968135dfadf32a580e7bed7a5f3d95a_icgraph" alt=""/></div>
 <map name="class_team_manager_1_1_program_aa968135dfadf32a580e7bed7a5f3d95a_icgraph" id="class_team_manager_1_1_program_aa968135dfadf32a580e7bed7a5f3d95a_icgraph">
-<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the T..." alt="" coords="249,13,439,39"/>
+<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#abcb8697bd1d929dcc314716829891414" title="Parses the arguments that are passed to the executeable and determines whether the parsing operation ..." alt="" coords="492,32,715,59"/>
+<area shape="rect" id="node4" href="class_team_manager_1_1_program.html#a91d7403e93c0a908a2caf71e2ee332b8" title="Parses the DatabaseType argument for modifying the _dbType before the main initializes the database a..." alt="" coords="249,25,444,66"/>
+<area shape="rect" id="node5" href="class_team_manager_1_1_program.html#a064f54d0b60f07eb60629feac421d383" title="Parses the StrategyType argument for modifying the _strategyType before the main initializes the data..." alt="" coords="249,90,444,132"/>
+<area shape="rect" id="node3" href="class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the S..." alt="" coords="763,32,952,59"/>
 </map>
 </div>
 
@@ -186,29 +329,216 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>The main father entrance for the application. We can define in the beginning of the application the TechnicalConcept(1,2,1mt,2mt), <a class="el" href="namespace_team_manager_1_1_database.html">Database</a> type and GUI or TUI. Checks whether the user passed arguments to the console and initialize the application with the wanted data. </p>
+<p>The main father entrance for the application. We can define in the beginning of the application the Strategy(asc, desc, ascMt, descMt), <a class="el" href="namespace_team_manager_1_1_database.html">Database</a> type and GUI or TUI. Checks whether the user passed arguments to the console and initialize the application with the wanted data. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">args</td><td>The arguements that being passed to the executeable through the console.</td></tr>
+    <tr><td class="paramname">args</td><td>The arguements that are being passed to the executeable through the console. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00029">29</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00055">55</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="class_team_manager_1_1_utilities_1_1_native_methods.html#af7c43608d1ad8d276ccefb0ded7b415e">TeamManager.Utilities.NativeMethods.AllocConsole()</a>, <a class="el" href="_defaults_8cs_source.html#l00021">TeamManager.Utilities.Defaults.DatabaseType</a>, <a class="el" href="_program_8cs_source.html#l00167">TeamManager.Program.InvalidSyntax()</a>, <a class="el" href="_program_8cs_source.html#l00133">TeamManager.Program.PrintHelp()</a>, <a class="el" href="_base_presenter_8cs_source.html#l00047">TeamManager.Presenters.BasePresenter.SetConceptAndDatabaseType()</a>, <a class="el" href="_t_u_i_8cs_source.html#l00010">TeamManager.Views.Tui.Show()</a>, <a class="el" href="_g_u_i_8cs_source.html#l00012">TeamManager.Views.Gui.Show()</a>, and <a class="el" href="_defaults_8cs_source.html#l00015">TeamManager.Utilities.Defaults.TechnicalConceptType</a>.</p>
+<p class="reference">References <a class="el" href="_ctrl_type_8cs_source.html#l00019">TeamManager.Utilities.CtrlType.CLOSE</a>, <a class="el" href="_program_8cs_source.html#l00224">TeamManager.Program.CloseCallback()</a>, <a class="el" href="_program_8cs_source.html#l00098">TeamManager.Program.ParseArgs()</a>, <a class="el" href="_base_presenter_8cs_source.html#l00047">TeamManager.Presenters.BasePresenter.SetStrategyAndDatabaseType()</a>, <a class="el" href="_tui_8cs_source.html#l00010">TeamManager.Views.Tui.Show()</a>, <a class="el" href="_gui_8cs_source.html#l00012">TeamManager.Views.Gui.Show()</a>, and <a class="el" href="_program_8cs_source.html#l00086">TeamManager.Program.ValidateConfigurationFile()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_team_manager_1_1_program_a5e30dec2f1e00dc8044ee437aea19865_cgraph.png" border="0" usemap="#class_team_manager_1_1_program_a5e30dec2f1e00dc8044ee437aea19865_cgraph" alt=""/></div>
 <map name="class_team_manager_1_1_program_a5e30dec2f1e00dc8044ee437aea19865_cgraph" id="class_team_manager_1_1_program_a5e30dec2f1e00dc8044ee437aea19865_cgraph">
-<area shape="rect" id="node2" href="class_team_manager_1_1_utilities_1_1_native_methods.html#af7c43608d1ad8d276ccefb0ded7b415e" title="Allows to allocate console view even if the project configurations set to windows forms as output..." alt="" coords="275,5,466,47"/>
-<area shape="rect" id="node3" href="class_team_manager_1_1_program.html#aa968135dfadf32a580e7bed7a5f3d95a" title="Prints out invalid syntax when invalid syntax received. " alt="" coords="273,71,469,112"/>
-<area shape="rect" id="node4" href="class_team_manager_1_1_program.html#a8edb006dd3c63b0d03cd0469f15ba04c" title="Prints help to the user when using the application through the console. " alt="" coords="263,137,478,163"/>
-<area shape="rect" id="node5" href="class_team_manager_1_1_presenters_1_1_base_presenter.html#a605d80a1b961b46bcacb62e8512587ff" title="Initializes the Concept with the wanted TechnicalConceptType and DatabaseType. Note that this method ..." alt="" coords="243,188,499,229"/>
-<area shape="rect" id="node6" href="class_team_manager_1_1_views_1_1_tui.html#a4ee6f11d765e00c3912e50776f34c559" title="Starts the Team Manager application in console mode. " alt="" coords="271,254,471,281"/>
-<area shape="rect" id="node8" href="class_team_manager_1_1_views_1_1_gui.html#a2a07a4c6289ebb610c999f501410a649" title="Starts the Team Manager application in user interface(gui) mode. " alt="" coords="269,305,472,331"/>
-<area shape="rect" id="node7" href="class_team_manager_1_1_views_1_1_windows_1_1_main_tui.html#ae883752bb2dac3555c1a6c7630631222" title="Displays the menu to select one of the options within the _allowedKeys range. Note that this has to r..." alt="" coords="547,247,751,288"/>
+<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#a0d7910bc789a7a5ac5536977a74c502a" title="Callback method that is registered to the windows kernal with the ConsoleClosedHandler for catching t..." alt="" coords="817,5,1011,47"/>
+<area shape="rect" id="node3" href="class_team_manager_1_1_program.html#abcb8697bd1d929dcc314716829891414" title="Parses the arguments that are passed to the executeable and determines whether the parsing operation ..." alt="" coords="260,185,483,211"/>
+<area shape="rect" id="node11" href="class_team_manager_1_1_presenters_1_1_base_presenter.html#a03747207434669995d6368b3c3ce3063" title="Initializes the Strategy with the wanted StrategyType and DatabaseType. Note that this method gets tr..." alt="" coords="243,236,500,277"/>
+<area shape="rect" id="node12" href="class_team_manager_1_1_views_1_1_tui.html#a4ee6f11d765e00c3912e50776f34c559" title="Starts the Team Manager application in console mode. " alt="" coords="271,302,471,329"/>
+<area shape="rect" id="node14" href="class_team_manager_1_1_views_1_1_gui.html#a2a07a4c6289ebb610c999f501410a649" title="Starts the Team Manager application in user interface(gui) mode. " alt="" coords="270,353,473,379"/>
+<area shape="rect" id="node15" href="class_team_manager_1_1_program.html#a4b7acd3df00e89e52badd70c9c327a25" title="Checks to see whether the configuration file exists, otherwise, create it from stream. " alt="" coords="267,404,475,445"/>
+<area shape="rect" id="node4" href="class_team_manager_1_1_program.html#a14dd180e4fa9bb0b10d28da58d7260f4" title="Hooks the console using the NativeMethods class methods that are exported from the windows api dlls i..." alt="" coords="560,68,751,109"/>
+<area shape="rect" id="node7" href="class_team_manager_1_1_program.html#aa968135dfadf32a580e7bed7a5f3d95a" title="Prints out invalid syntax when invalid syntax received. " alt="" coords="816,236,1012,277"/>
+<area shape="rect" id="node8" href="class_team_manager_1_1_program.html#a8edb006dd3c63b0d03cd0469f15ba04c" title="Prints the help window to the user with all the configuration options. " alt="" coords="548,185,763,211"/>
+<area shape="rect" id="node9" href="class_team_manager_1_1_program.html#a064f54d0b60f07eb60629feac421d383" title="Parses the StrategyType argument for modifying the _strategyType before the main initializes the data..." alt="" coords="558,236,753,277"/>
+<area shape="rect" id="node10" href="class_team_manager_1_1_program.html#a91d7403e93c0a908a2caf71e2ee332b8" title="Parses the DatabaseType argument for modifying the _dbType before the main initializes the database a..." alt="" coords="558,301,753,343"/>
+<area shape="rect" id="node5" href="class_team_manager_1_1_utilities_1_1_native_methods.html#af7c43608d1ad8d276ccefb0ded7b415e" title="Allows to allocate console view even if the project configurations set to windows forms as output..." alt="" coords="819,71,1009,112"/>
+<area shape="rect" id="node6" href="class_team_manager_1_1_utilities_1_1_native_methods.html#aa5ff52fbcde11be2f651785b731f51cc" title="Catches the close event chain of the windows api when using console in order to do some wrapping befo..." alt="" coords="811,136,1017,177"/>
+<area shape="rect" id="node13" href="class_team_manager_1_1_views_1_1_windows_1_1_main_tui.html#ae883752bb2dac3555c1a6c7630631222" title="Displays the menu to select one of the options within the _allowedKeys range. Note that this has to r..." alt="" coords="553,367,757,408"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abcb8697bd1d929dcc314716829891414"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcb8697bd1d929dcc314716829891414">&#9670;&nbsp;</a></span>ParseArgs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool TeamManager.Program.ParseArgs </td>
+          <td>(</td>
+          <td class="paramtype">string []&#160;</td>
+          <td class="paramname"><em>args</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parses the arguments that are passed to the executeable and determines whether the parsing operation were successful. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">args</td><td>The arguments that are passed from the console. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns false if parse failed, true if successful. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00098">98</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_program_8cs_source.html#l00029">TeamManager.Program._startGui</a>, <a class="el" href="_program_8cs_source.html#l00207">TeamManager.Program.HookConsole()</a>, <a class="el" href="_program_8cs_source.html#l00271">TeamManager.Program.InvalidSyntax()</a>, <a class="el" href="_program_8cs_source.html#l00178">TeamManager.Program.ParseDatabaseTypeArg()</a>, <a class="el" href="_program_8cs_source.html#l00141">TeamManager.Program.ParseStrategyTypeArg()</a>, and <a class="el" href="_program_8cs_source.html#l00237">TeamManager.Program.PrintHelp()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_program_8cs_source.html#l00055">TeamManager.Program.Main()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_team_manager_1_1_program_abcb8697bd1d929dcc314716829891414_cgraph.png" border="0" usemap="#class_team_manager_1_1_program_abcb8697bd1d929dcc314716829891414_cgraph" alt=""/></div>
+<map name="class_team_manager_1_1_program_abcb8697bd1d929dcc314716829891414_cgraph" id="class_team_manager_1_1_program_abcb8697bd1d929dcc314716829891414_cgraph">
+<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#a14dd180e4fa9bb0b10d28da58d7260f4" title="Hooks the console using the NativeMethods class methods that are exported from the windows api dlls i..." alt="" coords="288,73,479,115"/>
+<area shape="rect" id="node6" href="class_team_manager_1_1_program.html#aa968135dfadf32a580e7bed7a5f3d95a" title="Prints out invalid syntax when invalid syntax received. " alt="" coords="544,201,740,243"/>
+<area shape="rect" id="node7" href="class_team_manager_1_1_program.html#a91d7403e93c0a908a2caf71e2ee332b8" title="Parses the DatabaseType argument for modifying the _dbType before the main initializes the database a..." alt="" coords="286,197,481,239"/>
+<area shape="rect" id="node8" href="class_team_manager_1_1_program.html#a064f54d0b60f07eb60629feac421d383" title="Parses the StrategyType argument for modifying the _strategyType before the main initializes the data..." alt="" coords="286,263,481,304"/>
+<area shape="rect" id="node9" href="class_team_manager_1_1_program.html#a8edb006dd3c63b0d03cd0469f15ba04c" title="Prints the help window to the user with all the configuration options. " alt="" coords="276,329,491,355"/>
+<area shape="rect" id="node3" href="class_team_manager_1_1_utilities_1_1_native_methods.html#af7c43608d1ad8d276ccefb0ded7b415e" title="Allows to allocate console view even if the project configurations set to windows forms as output..." alt="" coords="547,5,737,47"/>
+<area shape="rect" id="node4" href="class_team_manager_1_1_program.html#a0d7910bc789a7a5ac5536977a74c502a" title="Callback method that is registered to the windows kernal with the ConsoleClosedHandler for catching t..." alt="" coords="545,71,739,112"/>
+<area shape="rect" id="node5" href="class_team_manager_1_1_utilities_1_1_native_methods.html#aa5ff52fbcde11be2f651785b731f51cc" title="Catches the close event chain of the windows api when using console in order to do some wrapping befo..." alt="" coords="539,136,745,177"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_team_manager_1_1_program_abcb8697bd1d929dcc314716829891414_icgraph.png" border="0" usemap="#class_team_manager_1_1_program_abcb8697bd1d929dcc314716829891414_icgraph" alt=""/></div>
+<map name="class_team_manager_1_1_program_abcb8697bd1d929dcc314716829891414_icgraph" id="class_team_manager_1_1_program_abcb8697bd1d929dcc314716829891414_icgraph">
+<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the S..." alt="" coords="276,5,465,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a91d7403e93c0a908a2caf71e2ee332b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91d7403e93c0a908a2caf71e2ee332b8">&#9670;&nbsp;</a></span>ParseDatabaseTypeArg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool TeamManager.Program.ParseDatabaseTypeArg </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parses the DatabaseType argument for modifying the <a class="el" href="class_team_manager_1_1_program.html#a4c8b4bddb422fa4b93a2893709e80927" title="The default DatabaseType that is used for initializing the wanted IDataLayer. ">_dbType</a> before the main initializes the database and strategy type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td>The DatabaseType argument that is passed from the console. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns false if parse failed, true if successful. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00178">178</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_program_8cs_source.html#l00271">TeamManager.Program.InvalidSyntax()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_program_8cs_source.html#l00098">TeamManager.Program.ParseArgs()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_team_manager_1_1_program_a91d7403e93c0a908a2caf71e2ee332b8_cgraph.png" border="0" usemap="#class_team_manager_1_1_program_a91d7403e93c0a908a2caf71e2ee332b8_cgraph" alt=""/></div>
+<map name="class_team_manager_1_1_program_a91d7403e93c0a908a2caf71e2ee332b8_cgraph" id="class_team_manager_1_1_program_a91d7403e93c0a908a2caf71e2ee332b8_cgraph">
+<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#aa968135dfadf32a580e7bed7a5f3d95a" title="Prints out invalid syntax when invalid syntax received. " alt="" coords="248,5,444,47"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_team_manager_1_1_program_a91d7403e93c0a908a2caf71e2ee332b8_icgraph.png" border="0" usemap="#class_team_manager_1_1_program_a91d7403e93c0a908a2caf71e2ee332b8_icgraph" alt=""/></div>
+<map name="class_team_manager_1_1_program_a91d7403e93c0a908a2caf71e2ee332b8_icgraph" id="class_team_manager_1_1_program_a91d7403e93c0a908a2caf71e2ee332b8_icgraph">
+<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#abcb8697bd1d929dcc314716829891414" title="Parses the arguments that are passed to the executeable and determines whether the parsing operation ..." alt="" coords="248,13,471,39"/>
+<area shape="rect" id="node3" href="class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the S..." alt="" coords="519,13,708,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a064f54d0b60f07eb60629feac421d383"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a064f54d0b60f07eb60629feac421d383">&#9670;&nbsp;</a></span>ParseStrategyTypeArg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool TeamManager.Program.ParseStrategyTypeArg </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parses the StrategyType argument for modifying the <a class="el" href="class_team_manager_1_1_program.html#a23f3c02d31a9a6a835bcf4dbbbd06c74" title="The default StrategyType that is used for initializing the wanted IStrategy. ">_strategyType</a> before the main initializes the database and strategy type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td>The StrategyType argument that is passed from the console. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns false if parse failed, true if successful. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00141">141</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_program_8cs_source.html#l00271">TeamManager.Program.InvalidSyntax()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_program_8cs_source.html#l00098">TeamManager.Program.ParseArgs()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_team_manager_1_1_program_a064f54d0b60f07eb60629feac421d383_cgraph.png" border="0" usemap="#class_team_manager_1_1_program_a064f54d0b60f07eb60629feac421d383_cgraph" alt=""/></div>
+<map name="class_team_manager_1_1_program_a064f54d0b60f07eb60629feac421d383_cgraph" id="class_team_manager_1_1_program_a064f54d0b60f07eb60629feac421d383_cgraph">
+<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#aa968135dfadf32a580e7bed7a5f3d95a" title="Prints out invalid syntax when invalid syntax received. " alt="" coords="248,5,444,47"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_team_manager_1_1_program_a064f54d0b60f07eb60629feac421d383_icgraph.png" border="0" usemap="#class_team_manager_1_1_program_a064f54d0b60f07eb60629feac421d383_icgraph" alt=""/></div>
+<map name="class_team_manager_1_1_program_a064f54d0b60f07eb60629feac421d383_icgraph" id="class_team_manager_1_1_program_a064f54d0b60f07eb60629feac421d383_icgraph">
+<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#abcb8697bd1d929dcc314716829891414" title="Parses the arguments that are passed to the executeable and determines whether the parsing operation ..." alt="" coords="248,13,471,39"/>
+<area shape="rect" id="node3" href="class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the S..." alt="" coords="519,13,708,39"/>
 </map>
 </div>
 
@@ -237,23 +567,169 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Prints help to the user when using the application through the console. </p>
+<p>Prints the help window to the user with all the configuration options. </p>
 
-<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00133">133</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00237">237</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_program_8cs_source.html#l00029">TeamManager.Program.Main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_program_8cs_source.html#l00098">TeamManager.Program.ParseArgs()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_team_manager_1_1_program_a8edb006dd3c63b0d03cd0469f15ba04c_icgraph.png" border="0" usemap="#class_team_manager_1_1_program_a8edb006dd3c63b0d03cd0469f15ba04c_icgraph" alt=""/></div>
 <map name="class_team_manager_1_1_program_a8edb006dd3c63b0d03cd0469f15ba04c_icgraph" id="class_team_manager_1_1_program_a8edb006dd3c63b0d03cd0469f15ba04c_icgraph">
-<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the T..." alt="" coords="268,5,457,32"/>
+<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#abcb8697bd1d929dcc314716829891414" title="Parses the arguments that are passed to the executeable and determines whether the parsing operation ..." alt="" coords="268,5,491,32"/>
+<area shape="rect" id="node3" href="class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the S..." alt="" coords="539,5,728,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4b7acd3df00e89e52badd70c9c327a25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b7acd3df00e89e52badd70c9c327a25">&#9670;&nbsp;</a></span>ValidateConfigurationFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void TeamManager.Program.ValidateConfigurationFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks to see whether the configuration file exists, otherwise, create it from stream. </p>
+
+<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00086">86</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_program_8cs_source.html#l00055">TeamManager.Program.Main()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_team_manager_1_1_program_a4b7acd3df00e89e52badd70c9c327a25_icgraph.png" border="0" usemap="#class_team_manager_1_1_program_a4b7acd3df00e89e52badd70c9c327a25_icgraph" alt=""/></div>
+<map name="class_team_manager_1_1_program_a4b7acd3df00e89e52badd70c9c327a25_icgraph" id="class_team_manager_1_1_program_a4b7acd3df00e89e52badd70c9c327a25_icgraph">
+<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the S..." alt="" coords="261,13,451,39"/>
 </map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4c8b4bddb422fa4b93a2893709e80927"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c8b4bddb422fa4b93a2893709e80927">&#9670;&nbsp;</a></span>_dbType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391">DatabaseType</a> TeamManager.Program._dbType = Defaults.DatabaseType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The default DatabaseType that is used for initializing the wanted IDataLayer. </p>
+
+<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00032">32</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
+
+</div>
+</div>
+<a id="ac400d428b7db520b557521481c6ea266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac400d428b7db520b557521481c6ea266">&#9670;&nbsp;</a></span>_startGui</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TeamManager.Program._startGui = true</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The default flag for specifying whether to use Gui or Tui. </p>
+
+<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00029">29</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="_program_8cs_source.html#l00098">TeamManager.Program.ParseArgs()</a>.</p>
+
+</div>
+</div>
+<a id="a23f3c02d31a9a6a835bcf4dbbbd06c74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23f3c02d31a9a6a835bcf4dbbbd06c74">&#9670;&nbsp;</a></span>_strategyType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_team_manager_1_1_models_1_1_strategy.html#a4449fb08e3cdd0bd336f26a06b2f4507">StrategyType</a> TeamManager.Program._strategyType = Defaults.StrategyType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The default StrategyType that is used for initializing the wanted IStrategy. </p>
+
+<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00035">35</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
+
+</div>
+</div>
+<a id="a72c4fb065233cdfd7eb7c23c5fed72ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72c4fb065233cdfd7eb7c23c5fed72ba">&#9670;&nbsp;</a></span>AllowedArgs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">readonly List&lt;string&gt; TeamManager.Program.AllowedArgs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= <span class="keyword">new</span> List&lt;string&gt;</div><div class="line">        {</div><div class="line">            <span class="stringliteral">&quot;/t&quot;</span>, <span class="stringliteral">&quot;/g&quot;</span>,</div><div class="line">            <span class="stringliteral">&quot;/c:1&quot;</span>, <span class="stringliteral">&quot;/c:2&quot;</span>, <span class="stringliteral">&quot;/c-mt:1&quot;</span>, <span class="stringliteral">&quot;/c-mt:2&quot;</span>,</div><div class="line">            <span class="stringliteral">&quot;/db:mongo&quot;</span>, <span class="stringliteral">&quot;/db:sql&quot;</span>,</div><div class="line">            <span class="stringliteral">&quot;/?&quot;</span>, <span class="stringliteral">&quot;/h&quot;</span>, <span class="stringliteral">&quot;--help&quot;</span></div><div class="line">        }</div></div><!-- fragment -->
+<p>The allowed arguments that are acceptable to be pass to the executeable through the console for specifying different configurations. </p>
+
+<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00038">38</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
+
+</div>
+</div>
 <a id="a6d6c03ad52671cc7d11024d97f458be7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6d6c03ad52671cc7d11024d97f458be7">&#9670;&nbsp;</a></span>Log</h2>
 
@@ -276,7 +752,7 @@ Here is the caller graph for this function:</div>
 
 <p>Logger instance of the class <a class="el" href="class_team_manager_1_1_program.html">Program</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00017">17</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00020">20</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
 
 </div>
 </div>
@@ -302,12 +778,39 @@ Here is the caller graph for this function:</div>
 
 <p>Unique session id of the application. </p>
 
-<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00020">20</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00023">23</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Event Documentation</h2>
+<a id="a68596f9eaecfc80fbc30ded2d3519029"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68596f9eaecfc80fbc30ded2d3519029">&#9670;&nbsp;</a></span>ClosedHandler</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ConsoleClosedHandler TeamManager.Program.ClosedHandler</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Event handler for the console closed event to call the <a class="el" href="class_team_manager_1_1_program.html#a0d7910bc789a7a5ac5536977a74c502a" title="Callback method that is registered to the windows kernal with the ConsoleClosedHandler for catching t...">CloseCallback</a> method so it doesn't get garbage collected. </p>
+
+<p class="definition">Definition at line <a class="el" href="_program_8cs_source.html#l00026">26</a> of file <a class="el" href="_program_8cs_source.html">Program.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/TeamManager/TeamManager/<a class="el" href="_program_8cs_source.html">Program.cs</a></li>
+<li>src/TeamManager/<a class="el" href="_program_8cs_source.html">Program.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -315,7 +818,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_team_manager.html">TeamManager</a></li><li class="navelem"><a class="el" href="class_team_manager_1_1_program.html">Program</a></li>
-    <li class="footer">Generated on Thu Dec 21 2017 22:20:55 for TeamManager AS Projekt by
+    <li class="footer">Generated on Wed Jan 3 2018 09:22:21 for TeamManager AS Projekt by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

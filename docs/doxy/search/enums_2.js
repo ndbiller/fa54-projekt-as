@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['technicalconcepttype',['TechnicalConceptType',['../namespace_team_manager_1_1_models_1_1_technical_concept.html#a15f66cf3deecbf44c54c36ae51d079e6',1,'TeamManager::Models::TechnicalConcept']]]
+  ['loadertype',['LoaderType',['../namespace_team_manager_1_1_views_1_1_loader.html#acea0cbe0b385f2353fb1bbf6b7d91aca',1,'TeamManager::Views::Loader']]]
 ];

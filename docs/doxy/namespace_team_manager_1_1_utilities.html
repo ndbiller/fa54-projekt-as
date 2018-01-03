@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">TeamManager AS Projekt
-   &#160;<span id="projectnumber">v1.0.0</span>
+   &#160;<span id="projectnumber">v1.0.1</span>
    </div>
    <div id="projectbrief">Softwaresystem als 3-Schichten-Architektur (Benutzungsoberfläche, Fachkonzept, Datenhaltung)</div>
   </td>
@@ -83,7 +83,8 @@ $(document).ready(function(){initNavTree('namespace_team_manager_1_1_utilities.h
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">TeamManager.Utilities Namespace Reference</div>  </div>
 </div><!--header-->
@@ -91,6 +92,9 @@ $(document).ready(function(){initNavTree('namespace_team_manager_1_1_utilities.h
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_team_manager_1_1_utilities_1_1_ctrl_type.html">CtrlType</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type defintion for the id's of the <a class="el" href="struct_team_manager_1_1_utilities_1_1_ctrl_type.html" title="Type defintion for the id&#39;s of the CtrlType that can occur whenever the console closes. The event type we get back from the NativeMethods.SetConsoleCtrlHandler that registers to the kernal of the windows api a method callback in Program.CloseCallback. For more information, please see: https://docs.microsoft.com/en-us/windows/console/setconsolectrlhandler ">CtrlType</a> that can occur whenever the console closes. The event type we get back from the <a class="el" href="class_team_manager_1_1_utilities_1_1_native_methods.html#aa5ff52fbcde11be2f651785b731f51cc" title="Catches the close event chain of the windows api when using console in order to do some wrapping befo...">NativeMethods.SetConsoleCtrlHandler</a> that registers to the kernal of the windows api a method callback in <a class="el" href="class_team_manager_1_1_program.html#a0d7910bc789a7a5ac5536977a74c502a" title="Callback method that is registered to the windows kernal with the ConsoleClosedHandler for catching t...">Program.CloseCallback</a>. For more information, please see: https://docs.microsoft.com/en-us/windows/console/setconsolectrlhandler  <a href="struct_team_manager_1_1_utilities_1_1_ctrl_type.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html">Defaults</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defining all defaults to have in one place.  <a href="class_team_manager_1_1_utilities_1_1_defaults.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -103,14 +107,48 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_utilities_1_1_utility.html">Utility</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_team_manager_1_1_utilities_1_1_utility.html" title="Utility class used mostly for extensions methods in order to simplify code. ">Utility</a> class used mostly for extensions methods in order to simplify code.  <a href="class_team_manager_1_1_utilities_1_1_utility.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a4d56670aaf1ff27b5d42d62c4ebb5dc7"><td class="memItemLeft" align="right" valign="top">delegate bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_team_manager_1_1_utilities.html#a4d56670aaf1ff27b5d42d62c4ebb5dc7">ConsoleClosedHandler</a> (int eventType)</td></tr>
+<tr class="memdesc:a4d56670aaf1ff27b5d42d62c4ebb5dc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler that will be used to catch a callback for the console closed event since we need to hook it to the windows api if someone click on the right top exit button.  <a href="#a4d56670aaf1ff27b5d42d62c4ebb5dc7">More...</a><br /></td></tr>
+<tr class="separator:a4d56670aaf1ff27b5d42d62c4ebb5dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a4d56670aaf1ff27b5d42d62c4ebb5dc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d56670aaf1ff27b5d42d62c4ebb5dc7">&#9670;&nbsp;</a></span>ConsoleClosedHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">delegate bool TeamManager.Utilities.ConsoleClosedHandler </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>eventType</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handler that will be used to catch a callback for the console closed event since we need to hook it to the windows api if someone click on the right top exit button. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eventType</td><td>The close event type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_team_manager.html">TeamManager</a></li><li class="navelem"><a class="el" href="namespace_team_manager_1_1_utilities.html">Utilities</a></li>
-    <li class="footer">Generated on Thu Dec 21 2017 22:20:57 for TeamManager AS Projekt by
+    <li class="footer">Generated on Wed Jan 3 2018 09:22:22 for TeamManager AS Projekt by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['nametext',['NameText',['../class_team_manager_1_1_views_1_1_windows_1_1_dialogs_1_1_edit_window.html#a3512bf507d277c682e5ff00e762bb17d',1,'TeamManager::Views::Windows::Dialogs::EditWindow']]]
+  ['database',['Database',['../class_team_manager_1_1_utilities_1_1_defaults.html#a327c85e0ca3e1fbd271ca972bdb19042',1,'TeamManager::Utilities::Defaults']]],
+  ['databasetype',['DatabaseType',['../class_team_manager_1_1_utilities_1_1_defaults.html#a020292760f39500140f4f881a91a016a',1,'TeamManager::Utilities::Defaults']]],
+  ['dblayer',['DbLayer',['../class_team_manager_1_1_models_1_1_strategy_1_1_strategy_base.html#a0c405e46e0bfad719fef8901fd394eef',1,'TeamManager::Models::Strategy::StrategyBase']]]
 ];

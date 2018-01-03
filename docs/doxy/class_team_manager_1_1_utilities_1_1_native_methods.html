@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">TeamManager AS Projekt
-   &#160;<span id="projectnumber">v1.0.0</span>
+   &#160;<span id="projectnumber">v1.0.1</span>
    </div>
    <div id="projectbrief">Softwaresystem als 3-Schichten-Architektur (Benutzungsoberfläche, Fachkonzept, Datenhaltung)</div>
   </td>
@@ -83,7 +83,6 @@ $(document).ready(function(){initNavTree('class_team_manager_1_1_utilities_1_1_n
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pac-methods">Package Functions</a> &#124;
 <a href="class_team_manager_1_1_utilities_1_1_native_methods-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -101,20 +100,20 @@ Collaboration diagram for TeamManager.Utilities.NativeMethods:</div>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pac-methods"></a>
+Package Functions</h2></td></tr>
 <tr class="memitem:af7c43608d1ad8d276ccefb0ded7b415e"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_utilities_1_1_native_methods.html#af7c43608d1ad8d276ccefb0ded7b415e">AllocConsole</a> ()</td></tr>
 <tr class="memdesc:af7c43608d1ad8d276ccefb0ded7b415e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows to allocate console view even if the project configurations set to windows forms as output.  <a href="#af7c43608d1ad8d276ccefb0ded7b415e">More...</a><br /></td></tr>
 <tr class="separator:af7c43608d1ad8d276ccefb0ded7b415e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98865dac164ade3f9cff214345e0b5bc"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_utilities_1_1_native_methods.html#a98865dac164ade3f9cff214345e0b5bc">SetForegroundWindow</a> (int hWnd)</td></tr>
-<tr class="memdesc:a98865dac164ade3f9cff214345e0b5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Brings window focus to the front with the handle of the window.  <a href="#a98865dac164ade3f9cff214345e0b5bc">More...</a><br /></td></tr>
-<tr class="separator:a98865dac164ade3f9cff214345e0b5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pac-methods"></a>
-Package Functions</h2></td></tr>
 <tr class="memitem:a07628bad6a6594c621ac6078114c2568"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_utilities_1_1_native_methods.html#a07628bad6a6594c621ac6078114c2568">FreeConsole</a> ()</td></tr>
 <tr class="memdesc:a07628bad6a6594c621ac6078114c2568"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees console allocation.  <a href="#a07628bad6a6594c621ac6078114c2568">More...</a><br /></td></tr>
 <tr class="separator:a07628bad6a6594c621ac6078114c2568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5ff52fbcde11be2f651785b731f51cc"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_utilities_1_1_native_methods.html#aa5ff52fbcde11be2f651785b731f51cc">SetConsoleCtrlHandler</a> (<a class="el" href="namespace_team_manager_1_1_utilities.html#a4d56670aaf1ff27b5d42d62c4ebb5dc7">ConsoleClosedHandler</a> callback, bool add)</td></tr>
+<tr class="memdesc:aa5ff52fbcde11be2f651785b731f51cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Catches the close event chain of the windows api when using console in order to do some wrapping before terminating the application. Note that it can only catch the CTRL_CLOSE(eventType = 2) event when clicking the X button on the right top.  <a href="#aa5ff52fbcde11be2f651785b731f51cc">More...</a><br /></td></tr>
+<tr class="separator:aa5ff52fbcde11be2f651785b731f51cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98865dac164ade3f9cff214345e0b5bc"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_utilities_1_1_native_methods.html#a98865dac164ade3f9cff214345e0b5bc">SetForegroundWindow</a> (int hWnd)</td></tr>
+<tr class="memdesc:a98865dac164ade3f9cff214345e0b5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Brings window focus to the front with the handle of the window.  <a href="#a98865dac164ade3f9cff214345e0b5bc">More...</a><br /></td></tr>
+<tr class="separator:a98865dac164ade3f9cff214345e0b5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Windows api native methods wrapped into a class with suppress unmanaged code security in order to make the compiler happy. </p>
@@ -126,6 +125,9 @@ Package Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">static bool TeamManager.Utilities.NativeMethods.AllocConsole </td>
@@ -134,18 +136,25 @@ Package Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">package</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Allows to allocate console view even if the project configurations set to windows forms as output. </p>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="_program_8cs_source.html#l00029">TeamManager.Program.Main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_program_8cs_source.html#l00207">TeamManager.Program.HookConsole()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_team_manager_1_1_utilities_1_1_native_methods_af7c43608d1ad8d276ccefb0ded7b415e_icgraph.png" border="0" usemap="#class_team_manager_1_1_utilities_1_1_native_methods_af7c43608d1ad8d276ccefb0ded7b415e_icgraph" alt=""/></div>
 <map name="class_team_manager_1_1_utilities_1_1_native_methods_af7c43608d1ad8d276ccefb0ded7b415e_icgraph" id="class_team_manager_1_1_utilities_1_1_native_methods_af7c43608d1ad8d276ccefb0ded7b415e_icgraph">
-<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the T..." alt="" coords="244,13,433,39"/>
+<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#a14dd180e4fa9bb0b10d28da58d7260f4" title="Hooks the console using the NativeMethods class methods that are exported from the windows api dlls i..." alt="" coords="244,5,435,47"/>
+<area shape="rect" id="node3" href="class_team_manager_1_1_program.html#abcb8697bd1d929dcc314716829891414" title="Parses the arguments that are passed to the executeable and determines whether the parsing operation ..." alt="" coords="483,13,705,39"/>
+<area shape="rect" id="node4" href="class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the S..." alt="" coords="753,13,943,39"/>
 </map>
 </div>
 
@@ -179,11 +188,72 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="aa5ff52fbcde11be2f651785b731f51cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5ff52fbcde11be2f651785b731f51cc">&#9670;&nbsp;</a></span>SetConsoleCtrlHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool TeamManager.Utilities.NativeMethods.SetConsoleCtrlHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_team_manager_1_1_utilities.html#a4d56670aaf1ff27b5d42d62c4ebb5dc7">ConsoleClosedHandler</a>&#160;</td>
+          <td class="paramname"><em>callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>add</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">package</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Catches the close event chain of the windows api when using console in order to do some wrapping before terminating the application. Note that it can only catch the CTRL_CLOSE(eventType = 2) event when clicking the X button on the right top. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td>The method to call when the event occurs. </td></tr>
+    <tr><td class="paramname">add</td><td>Whether to add it to the windows messages api chain or not. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="_program_8cs_source.html#l00207">TeamManager.Program.HookConsole()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_team_manager_1_1_utilities_1_1_native_methods_aa5ff52fbcde11be2f651785b731f51cc_icgraph.png" border="0" usemap="#class_team_manager_1_1_utilities_1_1_native_methods_aa5ff52fbcde11be2f651785b731f51cc_icgraph" alt=""/></div>
+<map name="class_team_manager_1_1_utilities_1_1_native_methods_aa5ff52fbcde11be2f651785b731f51cc_icgraph" id="class_team_manager_1_1_utilities_1_1_native_methods_aa5ff52fbcde11be2f651785b731f51cc_icgraph">
+<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#a14dd180e4fa9bb0b10d28da58d7260f4" title="Hooks the console using the NativeMethods class methods that are exported from the windows api dlls i..." alt="" coords="260,5,451,47"/>
+<area shape="rect" id="node3" href="class_team_manager_1_1_program.html#abcb8697bd1d929dcc314716829891414" title="Parses the arguments that are passed to the executeable and determines whether the parsing operation ..." alt="" coords="499,13,721,39"/>
+<area shape="rect" id="node4" href="class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the S..." alt="" coords="769,13,959,39"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a98865dac164ade3f9cff214345e0b5bc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a98865dac164ade3f9cff214345e0b5bc">&#9670;&nbsp;</a></span>SetForegroundWindow()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">static int TeamManager.Utilities.NativeMethods.SetForegroundWindow </td>
@@ -193,6 +263,11 @@ Here is the caller graph for this function:</div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">package</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Brings window focus to the front with the handle of the window. </p>
@@ -204,7 +279,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="_loaders_8cs_source.html#l00094">TeamManager.Views.Loader.Loaders.WindowToFront()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_loaders_8cs_source.html#l00116">TeamManager.Views.Loader.Loaders.WindowToFront()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -217,7 +292,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/TeamManager/TeamManager/Utilities/<a class="el" href="_native_methods_8cs_source.html">NativeMethods.cs</a></li>
+<li>src/TeamManager/Utilities/<a class="el" href="_native_methods_8cs_source.html">NativeMethods.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -225,7 +300,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_team_manager.html">TeamManager</a></li><li class="navelem"><a class="el" href="namespace_team_manager_1_1_utilities.html">Utilities</a></li><li class="navelem"><a class="el" href="class_team_manager_1_1_utilities_1_1_native_methods.html">NativeMethods</a></li>
-    <li class="footer">Generated on Thu Dec 21 2017 22:20:57 for TeamManager AS Projekt by
+    <li class="footer">Generated on Wed Jan 3 2018 09:22:22 for TeamManager AS Projekt by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">TeamManager AS Projekt
-   &#160;<span id="projectnumber">v1.0.0</span>
+   &#160;<span id="projectnumber">v1.0.1</span>
    </div>
    <div id="projectbrief">Softwaresystem als 3-Schichten-Architektur (Benutzungsoberfläche, Fachkonzept, Datenhaltung)</div>
   </td>
@@ -84,18 +84,24 @@ $(document).ready(function(){initNavTree('class_team_manager_1_1_database_1_1_db
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pac-static-attribs">Static Package Attributes</a> &#124;
+<a href="#properties">Properties</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_team_manager_1_1_database_1_1_db_layer_sql-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">TeamManager.Database.DbLayerSql Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html" title="DbLayerSql will contain relational data. For more information, please refer to: DatabaseType IDataLay...">DbLayerSql</a> will contain relational data. For more information, please refer to: <a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391" title="The DatabaseType that will be used when the project gets initialized. ">DatabaseType</a> <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any...">IDataLayer</a>  
+ <a href="class_team_manager_1_1_database_1_1_db_layer_sql.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for TeamManager.Database.DbLayerSql:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_team_manager_1_1_database_1_1_db_layer_sql__inherit__graph.png" border="0" usemap="#_team_manager_8_database_8_db_layer_sql_inherit__map" alt="Inheritance graph"/></div>
 <map name="_team_manager_8_database_8_db_layer_sql_inherit__map" id="_team_manager_8_database_8_db_layer_sql_inherit__map">
-<area shape="rect" id="node2" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="{IDataLayer\n||+ ConnectDb()\l+ Teams()\l+ CreateTeam()\l+ ReadTeam()\l+ UpdateTeam()\l+ DeleteTeam()\l+ Players()\l+ ShowPlayers()\l+ CreatePlayer()\l+ ReadPlayer()\land 17 more...\l}" alt="" coords="63,5,182,229"/>
+<area shape="rect" id="node2" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="59,5,197,229"/>
 </map>
 </div>
 <div class="dynheader">
@@ -103,104 +109,1080 @@ Collaboration diagram for TeamManager.Database.DbLayerSql:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_team_manager_1_1_database_1_1_db_layer_sql__coll__graph.png" border="0" usemap="#_team_manager_8_database_8_db_layer_sql_coll__map" alt="Collaboration graph"/></div>
 <map name="_team_manager_8_database_8_db_layer_sql_coll__map" id="_team_manager_8_database_8_db_layer_sql_coll__map">
-<area shape="rect" id="node2" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="{IDataLayer\n||+ ConnectDb()\l+ Teams()\l+ CreateTeam()\l+ ReadTeam()\l+ UpdateTeam()\l+ DeleteTeam()\l+ Players()\l+ ShowPlayers()\l+ CreatePlayer()\l+ ReadPlayer()\land 17 more...\l}" alt="" coords="5,5,124,229"/>
+<area shape="rect" id="node2" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="5,5,144,229"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a83cf5ecaf011dadebd3682d646fd69d8"><td class="memItemLeft" align="right" valign="top"><a id="a83cf5ecaf011dadebd3682d646fd69d8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ConnectDb</b> ()</td></tr>
-<tr class="separator:a83cf5ecaf011dadebd3682d646fd69d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94d7b1c21a273841c3c76d7073682953"><td class="memItemLeft" align="right" valign="top"><a id="a94d7b1c21a273841c3c76d7073682953"></a>
-List&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_team.html">Team</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Teams</b> ()</td></tr>
+<tr class="memitem:a977cac073c266dc378c82f9af97d73cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a977cac073c266dc378c82f9af97d73cb">OpenConnection</a> ()</td></tr>
+<tr class="memdesc:a977cac073c266dc378c82f9af97d73cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the database connections.  <a href="#a977cac073c266dc378c82f9af97d73cb">More...</a><br /></td></tr>
+<tr class="separator:a977cac073c266dc378c82f9af97d73cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a511e825dd56c23b917be1e67cef32c63"><td class="memItemLeft" align="right" valign="top"><a id="a511e825dd56c23b917be1e67cef32c63"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>CloseConnection</b> ()</td></tr>
+<tr class="separator:a511e825dd56c23b917be1e67cef32c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a031a0300590a90a3a7822cdebafae2fe"><td class="memItemLeft" align="right" valign="top"><a id="a031a0300590a90a3a7822cdebafae2fe"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>ExecuteSql</b> (string query)</td></tr>
+<tr class="separator:a031a0300590a90a3a7822cdebafae2fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94d7b1c21a273841c3c76d7073682953"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_team.html">Team</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a94d7b1c21a273841c3c76d7073682953">Teams</a> ()</td></tr>
+<tr class="memdesc:a94d7b1c21a273841c3c76d7073682953"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all Teams in a list.  <a href="#a94d7b1c21a273841c3c76d7073682953">More...</a><br /></td></tr>
 <tr class="separator:a94d7b1c21a273841c3c76d7073682953"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70f778a90ae2b9eac73190d33df75a62"><td class="memItemLeft" align="right" valign="top"><a id="a70f778a90ae2b9eac73190d33df75a62"></a>
-async Task&lt; List&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_team.html">Team</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>TeamsAsync</b> ()</td></tr>
+<tr class="memitem:a70f778a90ae2b9eac73190d33df75a62"><td class="memItemLeft" align="right" valign="top">async Task&lt; List&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_team.html">Team</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a70f778a90ae2b9eac73190d33df75a62">TeamsAsync</a> ()</td></tr>
+<tr class="memdesc:a70f778a90ae2b9eac73190d33df75a62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all Teams in a list using async call.  <a href="#a70f778a90ae2b9eac73190d33df75a62">More...</a><br /></td></tr>
 <tr class="separator:a70f778a90ae2b9eac73190d33df75a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cfa708f1762863199c3fa4cf3112c59"><td class="memItemLeft" align="right" valign="top"><a id="a2cfa708f1762863199c3fa4cf3112c59"></a>
-List&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Players</b> ()</td></tr>
+<tr class="memitem:a2cfa708f1762863199c3fa4cf3112c59"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a2cfa708f1762863199c3fa4cf3112c59">Players</a> ()</td></tr>
+<tr class="memdesc:a2cfa708f1762863199c3fa4cf3112c59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all Players in a list.  <a href="#a2cfa708f1762863199c3fa4cf3112c59">More...</a><br /></td></tr>
 <tr class="separator:a2cfa708f1762863199c3fa4cf3112c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac05ac90defea99a035f6235f8baa231"><td class="memItemLeft" align="right" valign="top"><a id="aac05ac90defea99a035f6235f8baa231"></a>
-async Task&lt; List&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>PlayersAsync</b> ()</td></tr>
+<tr class="memitem:aac05ac90defea99a035f6235f8baa231"><td class="memItemLeft" align="right" valign="top">async Task&lt; List&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#aac05ac90defea99a035f6235f8baa231">PlayersAsync</a> ()</td></tr>
+<tr class="memdesc:aac05ac90defea99a035f6235f8baa231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all Players in a list using async call.  <a href="#aac05ac90defea99a035f6235f8baa231">More...</a><br /></td></tr>
 <tr class="separator:aac05ac90defea99a035f6235f8baa231"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ad61a338332fe273e7a7ccbf453a840"><td class="memItemLeft" align="right" valign="top"><a id="a7ad61a338332fe273e7a7ccbf453a840"></a>
-List&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ShowPlayers</b> (string teamId)</td></tr>
+<tr class="memitem:a7ad61a338332fe273e7a7ccbf453a840"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a7ad61a338332fe273e7a7ccbf453a840">ShowPlayers</a> (string teamId)</td></tr>
+<tr class="memdesc:a7ad61a338332fe273e7a7ccbf453a840"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all Players in a list with the specified teamId.  <a href="#a7ad61a338332fe273e7a7ccbf453a840">More...</a><br /></td></tr>
 <tr class="separator:a7ad61a338332fe273e7a7ccbf453a840"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bde0838cd7c162464a59b88349dbec1"><td class="memItemLeft" align="right" valign="top"><a id="a6bde0838cd7c162464a59b88349dbec1"></a>
-async Task&lt; List&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ShowPlayersAsync</b> (string teamId)</td></tr>
+<tr class="memitem:a6bde0838cd7c162464a59b88349dbec1"><td class="memItemLeft" align="right" valign="top">async Task&lt; List&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a6bde0838cd7c162464a59b88349dbec1">ShowPlayersAsync</a> (string teamId)</td></tr>
+<tr class="memdesc:a6bde0838cd7c162464a59b88349dbec1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all Players in a list with the specified teamId using async call.  <a href="#a6bde0838cd7c162464a59b88349dbec1">More...</a><br /></td></tr>
 <tr class="separator:a6bde0838cd7c162464a59b88349dbec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04852b37337d50d33e6eb4e1724eddde"><td class="memItemLeft" align="right" valign="top"><a id="a04852b37337d50d33e6eb4e1724eddde"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>CreateTeam</b> (string name)</td></tr>
+<tr class="memitem:a04852b37337d50d33e6eb4e1724eddde"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a04852b37337d50d33e6eb4e1724eddde">CreateTeam</a> (string name)</td></tr>
+<tr class="memdesc:a04852b37337d50d33e6eb4e1724eddde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new Team with the specified name.  <a href="#a04852b37337d50d33e6eb4e1724eddde">More...</a><br /></td></tr>
 <tr class="separator:a04852b37337d50d33e6eb4e1724eddde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5776c2fd1b3b843a0778720db6b72fd2"><td class="memItemLeft" align="right" valign="top"><a id="a5776c2fd1b3b843a0778720db6b72fd2"></a>
-async Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>CreateTeamAsync</b> (string name)</td></tr>
+<tr class="memitem:a5776c2fd1b3b843a0778720db6b72fd2"><td class="memItemLeft" align="right" valign="top">async Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a5776c2fd1b3b843a0778720db6b72fd2">CreateTeamAsync</a> (string name)</td></tr>
+<tr class="memdesc:a5776c2fd1b3b843a0778720db6b72fd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new Team with the specified name using async call.  <a href="#a5776c2fd1b3b843a0778720db6b72fd2">More...</a><br /></td></tr>
 <tr class="separator:a5776c2fd1b3b843a0778720db6b72fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9462e18f1ed43c3c57c8d055c7e57c21"><td class="memItemLeft" align="right" valign="top"><a id="a9462e18f1ed43c3c57c8d055c7e57c21"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>CreatePlayer</b> (string name, string teamId)</td></tr>
+<tr class="memitem:a9462e18f1ed43c3c57c8d055c7e57c21"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a9462e18f1ed43c3c57c8d055c7e57c21">CreatePlayer</a> (string name, string teamId)</td></tr>
+<tr class="memdesc:a9462e18f1ed43c3c57c8d055c7e57c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new Player with the specified name and teamId.  <a href="#a9462e18f1ed43c3c57c8d055c7e57c21">More...</a><br /></td></tr>
 <tr class="separator:a9462e18f1ed43c3c57c8d055c7e57c21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a319752f7d35103e4ae6b36b22ed937d2"><td class="memItemLeft" align="right" valign="top"><a id="a319752f7d35103e4ae6b36b22ed937d2"></a>
-async Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>CreatePlayerAsync</b> (string name, string teamId)</td></tr>
+<tr class="memitem:a319752f7d35103e4ae6b36b22ed937d2"><td class="memItemLeft" align="right" valign="top">async Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a319752f7d35103e4ae6b36b22ed937d2">CreatePlayerAsync</a> (string name, string teamId)</td></tr>
+<tr class="memdesc:a319752f7d35103e4ae6b36b22ed937d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new Player with the specified name and teamId using async call.  <a href="#a319752f7d35103e4ae6b36b22ed937d2">More...</a><br /></td></tr>
 <tr class="separator:a319752f7d35103e4ae6b36b22ed937d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a838accb4a87cd471d283ccd8cd80a4e1"><td class="memItemLeft" align="right" valign="top"><a id="a838accb4a87cd471d283ccd8cd80a4e1"></a>
-<a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_team.html">Team</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ReadTeam</b> (string id)</td></tr>
+<tr class="memitem:a838accb4a87cd471d283ccd8cd80a4e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_team.html">Team</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a838accb4a87cd471d283ccd8cd80a4e1">ReadTeam</a> (string id)</td></tr>
+<tr class="memdesc:a838accb4a87cd471d283ccd8cd80a4e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a Team with the specified id.  <a href="#a838accb4a87cd471d283ccd8cd80a4e1">More...</a><br /></td></tr>
 <tr class="separator:a838accb4a87cd471d283ccd8cd80a4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2de2c230b3c8814b663685aabda97457"><td class="memItemLeft" align="right" valign="top"><a id="a2de2c230b3c8814b663685aabda97457"></a>
-async Task&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_team.html">Team</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReadTeamAsync</b> (string id)</td></tr>
+<tr class="memitem:a2de2c230b3c8814b663685aabda97457"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_team.html">Team</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a2de2c230b3c8814b663685aabda97457">ReadTeamAsync</a> (string id)</td></tr>
+<tr class="memdesc:a2de2c230b3c8814b663685aabda97457"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a Team with the specified id using async call.  <a href="#a2de2c230b3c8814b663685aabda97457">More...</a><br /></td></tr>
 <tr class="separator:a2de2c230b3c8814b663685aabda97457"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad30b66396faf0b791e4244f3bae22c53"><td class="memItemLeft" align="right" valign="top"><a id="ad30b66396faf0b791e4244f3bae22c53"></a>
-<a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ReadPlayer</b> (string id)</td></tr>
+<tr class="memitem:ad30b66396faf0b791e4244f3bae22c53"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#ad30b66396faf0b791e4244f3bae22c53">ReadPlayer</a> (string id)</td></tr>
+<tr class="memdesc:ad30b66396faf0b791e4244f3bae22c53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a Player with the specified id.  <a href="#ad30b66396faf0b791e4244f3bae22c53">More...</a><br /></td></tr>
 <tr class="separator:ad30b66396faf0b791e4244f3bae22c53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc964442fddfa79a8eb34694e87e0a79"><td class="memItemLeft" align="right" valign="top"><a id="acc964442fddfa79a8eb34694e87e0a79"></a>
-async Task&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReadPlayerAsync</b> (string id)</td></tr>
+<tr class="memitem:acc964442fddfa79a8eb34694e87e0a79"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#acc964442fddfa79a8eb34694e87e0a79">ReadPlayerAsync</a> (string id)</td></tr>
+<tr class="memdesc:acc964442fddfa79a8eb34694e87e0a79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a Player with the specified id using async call.  <a href="#acc964442fddfa79a8eb34694e87e0a79">More...</a><br /></td></tr>
 <tr class="separator:acc964442fddfa79a8eb34694e87e0a79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4393e99e16db75e8e7249541eb2d6162"><td class="memItemLeft" align="right" valign="top"><a id="a4393e99e16db75e8e7249541eb2d6162"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateTeam</b> (string id, string name)</td></tr>
+<tr class="memitem:a4393e99e16db75e8e7249541eb2d6162"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a4393e99e16db75e8e7249541eb2d6162">UpdateTeam</a> (string id, string name)</td></tr>
+<tr class="memdesc:a4393e99e16db75e8e7249541eb2d6162"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the Team with the new Team name.  <a href="#a4393e99e16db75e8e7249541eb2d6162">More...</a><br /></td></tr>
 <tr class="separator:a4393e99e16db75e8e7249541eb2d6162"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcdc9acfc37f62f1ebb6b3efcfb5507d"><td class="memItemLeft" align="right" valign="top"><a id="adcdc9acfc37f62f1ebb6b3efcfb5507d"></a>
-async Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateTeamAsync</b> (string id, string name)</td></tr>
+<tr class="memitem:adcdc9acfc37f62f1ebb6b3efcfb5507d"><td class="memItemLeft" align="right" valign="top">async Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#adcdc9acfc37f62f1ebb6b3efcfb5507d">UpdateTeamAsync</a> (string id, string name)</td></tr>
+<tr class="memdesc:adcdc9acfc37f62f1ebb6b3efcfb5507d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the Team with the new Team name using async call.  <a href="#adcdc9acfc37f62f1ebb6b3efcfb5507d">More...</a><br /></td></tr>
 <tr class="separator:adcdc9acfc37f62f1ebb6b3efcfb5507d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf56c7472ca6462cc13bd85cb2c16717"><td class="memItemLeft" align="right" valign="top"><a id="aaf56c7472ca6462cc13bd85cb2c16717"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>UpdatePlayer</b> (string id, string name)</td></tr>
+<tr class="memitem:aaf56c7472ca6462cc13bd85cb2c16717"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#aaf56c7472ca6462cc13bd85cb2c16717">UpdatePlayer</a> (string id, string name)</td></tr>
+<tr class="memdesc:aaf56c7472ca6462cc13bd85cb2c16717"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the Player with the new Player name.  <a href="#aaf56c7472ca6462cc13bd85cb2c16717">More...</a><br /></td></tr>
 <tr class="separator:aaf56c7472ca6462cc13bd85cb2c16717"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3546cee35208ed9c8f13bc5f5dd025d"><td class="memItemLeft" align="right" valign="top"><a id="ab3546cee35208ed9c8f13bc5f5dd025d"></a>
-async Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>UpdatePlayerAsync</b> (string id, string name)</td></tr>
+<tr class="memitem:ab3546cee35208ed9c8f13bc5f5dd025d"><td class="memItemLeft" align="right" valign="top">async Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#ab3546cee35208ed9c8f13bc5f5dd025d">UpdatePlayerAsync</a> (string id, string name)</td></tr>
+<tr class="memdesc:ab3546cee35208ed9c8f13bc5f5dd025d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the Player with the new Player name using async call.  <a href="#ab3546cee35208ed9c8f13bc5f5dd025d">More...</a><br /></td></tr>
 <tr class="separator:ab3546cee35208ed9c8f13bc5f5dd025d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58c1be4905bdfba48ea903bf8c41c4e3"><td class="memItemLeft" align="right" valign="top"><a id="a58c1be4905bdfba48ea903bf8c41c4e3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>UpdatePlayer</b> (string id, string teamId, string name)</td></tr>
+<tr class="memitem:a58c1be4905bdfba48ea903bf8c41c4e3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a58c1be4905bdfba48ea903bf8c41c4e3">UpdatePlayer</a> (string id, string teamId, string name)</td></tr>
+<tr class="memdesc:a58c1be4905bdfba48ea903bf8c41c4e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the Player with the new Player name and teamId.  <a href="#a58c1be4905bdfba48ea903bf8c41c4e3">More...</a><br /></td></tr>
 <tr class="separator:a58c1be4905bdfba48ea903bf8c41c4e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d2f1446eb3598e32bec9bc81e30d75f"><td class="memItemLeft" align="right" valign="top"><a id="a4d2f1446eb3598e32bec9bc81e30d75f"></a>
-async Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>UpdatePlayerAsync</b> (string id, string teamId, string name)</td></tr>
+<tr class="memitem:a4d2f1446eb3598e32bec9bc81e30d75f"><td class="memItemLeft" align="right" valign="top">async Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a4d2f1446eb3598e32bec9bc81e30d75f">UpdatePlayerAsync</a> (string id, string teamId, string name)</td></tr>
+<tr class="memdesc:a4d2f1446eb3598e32bec9bc81e30d75f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the Player with the new Player name and teamId using async call.  <a href="#a4d2f1446eb3598e32bec9bc81e30d75f">More...</a><br /></td></tr>
 <tr class="separator:a4d2f1446eb3598e32bec9bc81e30d75f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc01d5f7901fb878d9b97a3d544f64ef"><td class="memItemLeft" align="right" valign="top"><a id="afc01d5f7901fb878d9b97a3d544f64ef"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>DeleteTeam</b> (string id)</td></tr>
+<tr class="memitem:afc01d5f7901fb878d9b97a3d544f64ef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#afc01d5f7901fb878d9b97a3d544f64ef">DeleteTeam</a> (string id)</td></tr>
+<tr class="memdesc:afc01d5f7901fb878d9b97a3d544f64ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a Team with the specified team id.  <a href="#afc01d5f7901fb878d9b97a3d544f64ef">More...</a><br /></td></tr>
 <tr class="separator:afc01d5f7901fb878d9b97a3d544f64ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbdddbc13909a8b337ab8f1d3692cfcc"><td class="memItemLeft" align="right" valign="top"><a id="abbdddbc13909a8b337ab8f1d3692cfcc"></a>
-async Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>DeleteTeamAsync</b> (string id)</td></tr>
+<tr class="memitem:abbdddbc13909a8b337ab8f1d3692cfcc"><td class="memItemLeft" align="right" valign="top">async Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#abbdddbc13909a8b337ab8f1d3692cfcc">DeleteTeamAsync</a> (string id)</td></tr>
+<tr class="memdesc:abbdddbc13909a8b337ab8f1d3692cfcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a Team with the specified team id using async call.  <a href="#abbdddbc13909a8b337ab8f1d3692cfcc">More...</a><br /></td></tr>
 <tr class="separator:abbdddbc13909a8b337ab8f1d3692cfcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfdf59523139d4c3ae151a7bb8d5159c"><td class="memItemLeft" align="right" valign="top"><a id="adfdf59523139d4c3ae151a7bb8d5159c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>DeletePlayer</b> (string id)</td></tr>
+<tr class="memitem:adfdf59523139d4c3ae151a7bb8d5159c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#adfdf59523139d4c3ae151a7bb8d5159c">DeletePlayer</a> (string id)</td></tr>
+<tr class="memdesc:adfdf59523139d4c3ae151a7bb8d5159c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a Player with the specified team id.  <a href="#adfdf59523139d4c3ae151a7bb8d5159c">More...</a><br /></td></tr>
 <tr class="separator:adfdf59523139d4c3ae151a7bb8d5159c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4015139cf14c8415130be8b378bcbfaf"><td class="memItemLeft" align="right" valign="top"><a id="a4015139cf14c8415130be8b378bcbfaf"></a>
-async Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>DeletePlayerAsync</b> (string id)</td></tr>
+<tr class="memitem:a4015139cf14c8415130be8b378bcbfaf"><td class="memItemLeft" align="right" valign="top">async Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a4015139cf14c8415130be8b378bcbfaf">DeletePlayerAsync</a> (string id)</td></tr>
+<tr class="memdesc:a4015139cf14c8415130be8b378bcbfaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a Player with the specified team id using async call.  <a href="#a4015139cf14c8415130be8b378bcbfaf">More...</a><br /></td></tr>
 <tr class="separator:a4015139cf14c8415130be8b378bcbfaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e5e698a01f079ed158ad7793f6be02c"><td class="memItemLeft" align="right" valign="top"><a id="a7e5e698a01f079ed158ad7793f6be02c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>ChangePlayerTeam</b> (string playerId, string teamId)</td></tr>
+<tr class="memitem:a7e5e698a01f079ed158ad7793f6be02c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a7e5e698a01f079ed158ad7793f6be02c">ChangePlayerTeam</a> (string playerId, string teamId)</td></tr>
+<tr class="memdesc:a7e5e698a01f079ed158ad7793f6be02c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the Player team with the specified teamId.  <a href="#a7e5e698a01f079ed158ad7793f6be02c">More...</a><br /></td></tr>
 <tr class="separator:a7e5e698a01f079ed158ad7793f6be02c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a594c68fbcf75eaeddd72ff982f6d75ac"><td class="memItemLeft" align="right" valign="top"><a id="a594c68fbcf75eaeddd72ff982f6d75ac"></a>
-async Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ChangePlayerTeamAsync</b> (string playerId, string teamId)</td></tr>
+<tr class="memitem:a594c68fbcf75eaeddd72ff982f6d75ac"><td class="memItemLeft" align="right" valign="top">async Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a594c68fbcf75eaeddd72ff982f6d75ac">ChangePlayerTeamAsync</a> (string playerId, string teamId)</td></tr>
+<tr class="memdesc:a594c68fbcf75eaeddd72ff982f6d75ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the Player team with the specified teamId using async call.  <a href="#a594c68fbcf75eaeddd72ff982f6d75ac">More...</a><br /></td></tr>
 <tr class="separator:a594c68fbcf75eaeddd72ff982f6d75ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pac-static-attribs"></a>
+Static Package Attributes</h2></td></tr>
+<tr class="memitem:a6020cc29e5aa96a5b5145ff63bc1a5a3"><td class="memItemLeft" align="right" valign="top"><a id="a6020cc29e5aa96a5b5145ff63bc1a5a3"></a>
+static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>POSTGRESQL_USERNAME</b></td></tr>
+<tr class="separator:a6020cc29e5aa96a5b5145ff63bc1a5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eafa74d92bde9eab30a6bc9297cc9ad"><td class="memItemLeft" align="right" valign="top"><a id="a4eafa74d92bde9eab30a6bc9297cc9ad"></a>
+static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>POSTGRESQL_PASSWORD</b></td></tr>
+<tr class="separator:a4eafa74d92bde9eab30a6bc9297cc9ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae47b6a7b83c3f01d2c42893805b057e7"><td class="memItemLeft" align="right" valign="top"><a id="ae47b6a7b83c3f01d2c42893805b057e7"></a>
+static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>POSTGRESQL_URI</b></td></tr>
+<tr class="separator:ae47b6a7b83c3f01d2c42893805b057e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af36e7ac95b8f3c4b8268456dc2ed842c"><td class="memItemLeft" align="right" valign="top"><a id="af36e7ac95b8f3c4b8268456dc2ed842c"></a>
+static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>POSTGRESQL_PORT</b></td></tr>
+<tr class="separator:af36e7ac95b8f3c4b8268456dc2ed842c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57fe6a9b282cee6abfd6c97aec090701"><td class="memItemLeft" align="right" valign="top"><a id="a57fe6a9b282cee6abfd6c97aec090701"></a>
+static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>POSTGRESQL_DATABASE_NAME</b></td></tr>
+<tr class="separator:a57fe6a9b282cee6abfd6c97aec090701"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac03056e6eb64152991b20aeafe02be0"><td class="memItemLeft" align="right" valign="top"><a id="aac03056e6eb64152991b20aeafe02be0"></a>
+static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>connectionString</b></td></tr>
+<tr class="separator:aac03056e6eb64152991b20aeafe02be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:a27f60b8f698daebd4e554b5863fdcaa4"><td class="memItemLeft" align="right" valign="top"><a id="a27f60b8f698daebd4e554b5863fdcaa4"></a>
+static NpgsqlConnection&#160;</td><td class="memItemRight" valign="bottom"><b>Connection</b><code> [get, set]</code></td></tr>
+<tr class="separator:a27f60b8f698daebd4e554b5863fdcaa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a5a8404db84a0d87f52664af8fb78cf8d"><td class="memItemLeft" align="right" valign="top"><a id="a5a8404db84a0d87f52664af8fb78cf8d"></a>
+const string&#160;</td><td class="memItemRight" valign="bottom"><b>TeamsCollectionName</b> = &quot;team&quot;</td></tr>
+<tr class="separator:a5a8404db84a0d87f52664af8fb78cf8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d7ac6bc7469ae51ff82aaeeefd9a28d"><td class="memItemLeft" align="right" valign="top"><a id="a3d7ac6bc7469ae51ff82aaeeefd9a28d"></a>
+const string&#160;</td><td class="memItemRight" valign="bottom"><b>PlayersCollectionName</b> = &quot;player&quot;</td></tr>
+<tr class="separator:a3d7ac6bc7469ae51ff82aaeeefd9a28d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0a449aee342aa5c953fafb61ef43683"><td class="memItemLeft" align="right" valign="top"><a id="ae0a449aee342aa5c953fafb61ef43683"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>TimeoutMilisec</b> = 3000</td></tr>
+<tr class="separator:ae0a449aee342aa5c953fafb61ef43683"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a1badc1d3c5d01f4f5bcabdfa9cc37e3a"><td class="memItemLeft" align="right" valign="top">static readonly ILog&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a1badc1d3c5d01f4f5bcabdfa9cc37e3a">Log</a> = Logger.GetLogger()</td></tr>
-<tr class="memdesc:a1badc1d3c5d01f4f5bcabdfa9cc37e3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger instance of the class <a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html">DbLayerSql</a>  <a href="#a1badc1d3c5d01f4f5bcabdfa9cc37e3a">More...</a><br /></td></tr>
+<tr class="memdesc:a1badc1d3c5d01f4f5bcabdfa9cc37e3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger instance of the class <a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html" title="DbLayerSql will contain relational data. For more information, please refer to: DatabaseType IDataLay...">DbLayerSql</a>  <a href="#a1badc1d3c5d01f4f5bcabdfa9cc37e3a">More...</a><br /></td></tr>
 <tr class="separator:a1badc1d3c5d01f4f5bcabdfa9cc37e3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_d_b_layer_sql_8cs_source.html#l00010">10</a> of file <a class="el" href="_d_b_layer_sql_8cs_source.html">DBLayerSql.cs</a>.</p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
+<div class="textblock"><p><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html" title="DbLayerSql will contain relational data. For more information, please refer to: DatabaseType IDataLay...">DbLayerSql</a> will contain relational data. For more information, please refer to: <a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391" title="The DatabaseType that will be used when the project gets initialized. ">DatabaseType</a> <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any...">IDataLayer</a> </p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00017">17</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7e5e698a01f079ed158ad7793f6be02c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e5e698a01f079ed158ad7793f6be02c">&#9670;&nbsp;</a></span>ChangePlayerTeam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TeamManager.Database.DbLayerSql.ChangePlayerTeam </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>playerId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>teamId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Changes the Player team with the specified teamId. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerId</td><td>The id of the Player. </td></tr>
+    <tr><td class="paramname">teamId</td><td>The id of the Team. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation were succesfull. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ab0beb1f4d550857a591cd71405857ed9">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00762">762</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="a594c68fbcf75eaeddd72ff982f6d75ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a594c68fbcf75eaeddd72ff982f6d75ac">&#9670;&nbsp;</a></span>ChangePlayerTeamAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;bool&gt; TeamManager.Database.DbLayerSql.ChangePlayerTeamAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>playerId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>teamId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Changes the Player team with the specified teamId using async call. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">playerId</td><td>The id of the Player. </td></tr>
+    <tr><td class="paramname">teamId</td><td>The id of the Team. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation were succesfull. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a58408bfadf88a17ec77e837a5550e344">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00794">794</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="a9462e18f1ed43c3c57c8d055c7e57c21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9462e18f1ed43c3c57c8d055c7e57c21">&#9670;&nbsp;</a></span>CreatePlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TeamManager.Database.DbLayerSql.CreatePlayer </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>teamId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new Player with the specified name and teamId. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the Player. </td></tr>
+    <tr><td class="paramname">teamId</td><td>The id of the Team. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation were succesfull. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ae2c27abc3188e15eb92567c4a0944393">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00336">336</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="a319752f7d35103e4ae6b36b22ed937d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a319752f7d35103e4ae6b36b22ed937d2">&#9670;&nbsp;</a></span>CreatePlayerAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;bool&gt; TeamManager.Database.DbLayerSql.CreatePlayerAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>teamId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new Player with the specified name and teamId using async call. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the Player. </td></tr>
+    <tr><td class="paramname">teamId</td><td>The id of the Team. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation were succesfull. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a37449a4b274ecbc9f7cce55e89cd36bc">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00382">382</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="a04852b37337d50d33e6eb4e1724eddde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04852b37337d50d33e6eb4e1724eddde">&#9670;&nbsp;</a></span>CreateTeam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TeamManager.Database.DbLayerSql.CreateTeam </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new Team with the specified name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name for the new created Team. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation were succesfull. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#af94e6c13834661415a8c0829977408cf">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00271">271</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="a5776c2fd1b3b843a0778720db6b72fd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5776c2fd1b3b843a0778720db6b72fd2">&#9670;&nbsp;</a></span>CreateTeamAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;bool&gt; TeamManager.Database.DbLayerSql.CreateTeamAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a new Team with the specified name using async call. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name for the new created Team. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation were succesfull. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a1d347104f438b55ec969ef76c0b770d4">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00317">317</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="adfdf59523139d4c3ae151a7bb8d5159c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfdf59523139d4c3ae151a7bb8d5159c">&#9670;&nbsp;</a></span>DeletePlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TeamManager.Database.DbLayerSql.DeletePlayer </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deletes a Player with the specified team id. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the Player. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation were succesfull. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a08fbf444fe7144922df75df6b7043e82">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00712">712</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="a4015139cf14c8415130be8b378bcbfaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4015139cf14c8415130be8b378bcbfaf">&#9670;&nbsp;</a></span>DeletePlayerAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;bool&gt; TeamManager.Database.DbLayerSql.DeletePlayerAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deletes a Player with the specified team id using async call. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the Player. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation were succesfull. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a1da19b9e5090027f147953e6c6b43a9a">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00743">743</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="afc01d5f7901fb878d9b97a3d544f64ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc01d5f7901fb878d9b97a3d544f64ef">&#9670;&nbsp;</a></span>DeleteTeam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TeamManager.Database.DbLayerSql.DeleteTeam </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deletes a Team with the specified team id. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the Team. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation were succesfull. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a896666368c9670a7c6a2a097c1e4715b">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00662">662</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="abbdddbc13909a8b337ab8f1d3692cfcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbdddbc13909a8b337ab8f1d3692cfcc">&#9670;&nbsp;</a></span>DeleteTeamAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;bool&gt; TeamManager.Database.DbLayerSql.DeleteTeamAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deletes a Team with the specified team id using async call. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the Team. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation were succesfull. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#aad1f442cf6160a77bb74450b4d3a0439">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00693">693</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="a977cac073c266dc378c82f9af97d73cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a977cac073c266dc378c82f9af97d73cb">&#9670;&nbsp;</a></span>OpenConnection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TeamManager.Database.DbLayerSql.OpenConnection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Opens the database connections. </p>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a17fba671c89c921e6fd6ef0ebea20217">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00069">69</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="a2cfa708f1762863199c3fa4cf3112c59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cfa708f1762863199c3fa4cf3112c59">&#9670;&nbsp;</a></span>Players()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a>&gt; TeamManager.Database.DbLayerSql.Players </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves all Players in a list. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a collections of Player. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a4f22365c5c3e6d0f6e10220e8e317578">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00151">151</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="aac05ac90defea99a035f6235f8baa231"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac05ac90defea99a035f6235f8baa231">&#9670;&nbsp;</a></span>PlayersAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;List&lt;<a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a>&gt; &gt; TeamManager.Database.DbLayerSql.PlayersAsync </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves all Players in a list using async call. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a collections of Player. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a5ac761c098fe29d379e9dfde7da6ab41">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00193">193</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="ad30b66396faf0b791e4244f3bae22c53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad30b66396faf0b791e4244f3bae22c53">&#9670;&nbsp;</a></span>ReadPlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a> TeamManager.Database.DbLayerSql.ReadPlayer </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a Player with the specified id. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the Player. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a Player. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a9a44b9cd8aa9beedee10572c9caf38f6">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00456">456</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_player_8cs_source.html#l00013">TeamManager.Models.ResourceData.Player.Id</a>, <a class="el" href="_player_8cs_source.html#l00016">TeamManager.Models.ResourceData.Player.Name</a>, and <a class="el" href="_player_8cs_source.html#l00019">TeamManager.Models.ResourceData.Player.TeamId</a>.</p>
+
+</div>
+</div>
+<a id="acc964442fddfa79a8eb34694e87e0a79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc964442fddfa79a8eb34694e87e0a79">&#9670;&nbsp;</a></span>ReadPlayerAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;<a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a>&gt; TeamManager.Database.DbLayerSql.ReadPlayerAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a Player with the specified id using async call. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the Player. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a Player. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a0ad9358ffcf3ea24b884fd1ec7f6385c">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00493">493</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="a838accb4a87cd471d283ccd8cd80a4e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a838accb4a87cd471d283ccd8cd80a4e1">&#9670;&nbsp;</a></span>ReadTeam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_team.html">Team</a> TeamManager.Database.DbLayerSql.ReadTeam </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a Team with the specified id. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the Team. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a Team. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a98be496ca7a4693ae85faf4cff5e66f5">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00401">401</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+<p class="reference">References <a class="el" href="_team_8cs_source.html#l00013">TeamManager.Models.ResourceData.Team.Id</a>, and <a class="el" href="_team_8cs_source.html#l00016">TeamManager.Models.ResourceData.Team.Name</a>.</p>
+
+</div>
+</div>
+<a id="a2de2c230b3c8814b663685aabda97457"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2de2c230b3c8814b663685aabda97457">&#9670;&nbsp;</a></span>ReadTeamAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;<a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_team.html">Team</a>&gt; TeamManager.Database.DbLayerSql.ReadTeamAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a Team with the specified id using async call. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the Team. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a Team. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a68cd9a48600b0cf1d9b6cfbe3b418b8a">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00438">438</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="a7ad61a338332fe273e7a7ccbf453a840"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ad61a338332fe273e7a7ccbf453a840">&#9670;&nbsp;</a></span>ShowPlayers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a>&gt; TeamManager.Database.DbLayerSql.ShowPlayers </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>teamId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves all Players in a list with the specified teamId. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">teamId</td><td>The teamId of the Player. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a collections of Player. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a5c83e333cf3eedb8d2096b74b473adfa">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00211">211</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="a6bde0838cd7c162464a59b88349dbec1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bde0838cd7c162464a59b88349dbec1">&#9670;&nbsp;</a></span>ShowPlayersAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;List&lt;<a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a>&gt; &gt; TeamManager.Database.DbLayerSql.ShowPlayersAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>teamId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves all Players in a list with the specified teamId using async call. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">teamId</td><td>The teamId of the Player. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a collections of Player. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a988ebb3d780c44058d40b2d4c112cd09">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00253">253</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="a94d7b1c21a273841c3c76d7073682953"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94d7b1c21a273841c3c76d7073682953">&#9670;&nbsp;</a></span>Teams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_team.html">Team</a>&gt; TeamManager.Database.DbLayerSql.Teams </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves all Teams in a list. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a collections of Team. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ad7368d21ddc45690aea63e1bae4ed2cf">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00092">92</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="a70f778a90ae2b9eac73190d33df75a62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70f778a90ae2b9eac73190d33df75a62">&#9670;&nbsp;</a></span>TeamsAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;List&lt;<a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_team.html">Team</a>&gt; &gt; TeamManager.Database.DbLayerSql.TeamsAsync </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieves all Teams in a list using async call. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a collections of Team. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ad50db6a3df0749044ebd023955b3260f">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00133">133</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="aaf56c7472ca6462cc13bd85cb2c16717"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf56c7472ca6462cc13bd85cb2c16717">&#9670;&nbsp;</a></span>UpdatePlayer() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TeamManager.Database.DbLayerSql.UpdatePlayer </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the Player with the new Player name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the Player. </td></tr>
+    <tr><td class="paramname">name</td><td>The new name of the Player. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation were succesfull. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a5eba514544c15e3ec8f9fc70b4977960">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00560">560</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="a58c1be4905bdfba48ea903bf8c41c4e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58c1be4905bdfba48ea903bf8c41c4e3">&#9670;&nbsp;</a></span>UpdatePlayer() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TeamManager.Database.DbLayerSql.UpdatePlayer </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>teamId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the Player with the new Player name and teamId. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the Player. </td></tr>
+    <tr><td class="paramname">teamId</td><td>The teamId of the Team. </td></tr>
+    <tr><td class="paramname">name</td><td>The new name of the Player. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation were succesfull. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a3d9adc5ade6594f14434f8c8d826dc9f">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00611">611</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="ab3546cee35208ed9c8f13bc5f5dd025d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3546cee35208ed9c8f13bc5f5dd025d">&#9670;&nbsp;</a></span>UpdatePlayerAsync() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;bool&gt; TeamManager.Database.DbLayerSql.UpdatePlayerAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the Player with the new Player name using async call. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the Player. </td></tr>
+    <tr><td class="paramname">name</td><td>The new name of the Player. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation were succesfull. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#aac104de644796603050cb287ae010035">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00592">592</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="a4d2f1446eb3598e32bec9bc81e30d75f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d2f1446eb3598e32bec9bc81e30d75f">&#9670;&nbsp;</a></span>UpdatePlayerAsync() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;bool&gt; TeamManager.Database.DbLayerSql.UpdatePlayerAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>teamId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the Player with the new Player name and teamId using async call. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the Player. </td></tr>
+    <tr><td class="paramname">teamId</td><td>The teamId of the Team. </td></tr>
+    <tr><td class="paramname">name</td><td>The new name of the Player. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation were succesfull. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ab661844177b07c810ef7474ffafbe1af">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00643">643</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="a4393e99e16db75e8e7249541eb2d6162"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4393e99e16db75e8e7249541eb2d6162">&#9670;&nbsp;</a></span>UpdateTeam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TeamManager.Database.DbLayerSql.UpdateTeam </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the Team with the new Team name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the Team. </td></tr>
+    <tr><td class="paramname">name</td><td>The new name of the Team. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation were succesfull. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a805c0d87966c0817e3955a776f3dcd40">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00511">511</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="adcdc9acfc37f62f1ebb6b3efcfb5507d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcdc9acfc37f62f1ebb6b3efcfb5507d">&#9670;&nbsp;</a></span>UpdateTeamAsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt;bool&gt; TeamManager.Database.DbLayerSql.UpdateTeamAsync </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the Team with the new Team name using async call. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the Team. </td></tr>
+    <tr><td class="paramname">name</td><td>The new name of the Team. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns true if operation were succesfull. </dd></dl>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a075920ec06efafe7f01070ae64310ebb">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00541">541</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
 <a id="a1badc1d3c5d01f4f5bcabdfa9cc37e3a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1badc1d3c5d01f4f5bcabdfa9cc37e3a">&#9670;&nbsp;</a></span>Log</h2>
 
@@ -221,14 +1203,14 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Logger instance of the class <a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html">DbLayerSql</a> </p>
+<p>Logger instance of the class <a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html" title="DbLayerSql will contain relational data. For more information, please refer to: DatabaseType IDataLay...">DbLayerSql</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_d_b_layer_sql_8cs_source.html#l00013">13</a> of file <a class="el" href="_d_b_layer_sql_8cs_source.html">DBLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00020">20</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/TeamManager/TeamManager/Database/<a class="el" href="_d_b_layer_sql_8cs_source.html">DBLayerSql.cs</a></li>
+<li>src/TeamManager/Database/<a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -236,7 +1218,7 @@ Static Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_team_manager.html">TeamManager</a></li><li class="navelem"><a class="el" href="namespace_team_manager_1_1_database.html">Database</a></li><li class="navelem"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html">DbLayerSql</a></li>
-    <li class="footer">Generated on Thu Dec 21 2017 22:20:55 for TeamManager AS Projekt by
+    <li class="footer">Generated on Wed Jan 3 2018 09:22:21 for TeamManager AS Projekt by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

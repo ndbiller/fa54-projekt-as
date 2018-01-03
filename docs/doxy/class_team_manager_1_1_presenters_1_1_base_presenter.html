@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">TeamManager AS Projekt
-   &#160;<span id="projectnumber">v1.0.0</span>
+   &#160;<span id="projectnumber">v1.0.1</span>
    </div>
    <div id="projectbrief">Softwaresystem als 3-Schichten-Architektur (Benutzungsoberfläche, Fachkonzept, Datenhaltung)</div>
   </td>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('class_team_manager_1_1_presenters_1_1_
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the ITechnicalConcept interface that will be used for retrieving data ...">BasePresenter</a> will contain the ITechnicalConcept interface that will be used for retrieving data from the database. It also contains common data to share between all presenters.  
+<p>The <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the IStrategy interface that will be used for retrieving data from the...">BasePresenter</a> will contain the IStrategy interface that will be used for retrieving data from the database. It also contains common data to share between all presenters.  
  <a href="class_team_manager_1_1_presenters_1_1_base_presenter.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for TeamManager.Presenters.BasePresenter:</div>
@@ -114,7 +114,7 @@ Collaboration diagram for TeamManager.Presenters.BasePresenter:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_team_manager_1_1_presenters_1_1_base_presenter__coll__graph.png" border="0" usemap="#_team_manager_8_presenters_8_base_presenter_coll__map" alt="Collaboration graph"/></div>
 <map name="_team_manager_8_presenters_8_base_presenter_coll__map" id="_team_manager_8_presenters_8_base_presenter_coll__map">
-<area shape="rect" id="node2" href="interface_team_manager_1_1_models_1_1_technical_concept_1_1_i_technical_concept.html" title="This interface will get implemented by all the other TechnicalConceptTypes so it allows us to retriev..." alt="" coords="5,5,215,303"/>
+<area shape="rect" id="node3" href="interface_team_manager_1_1_models_1_1_strategy_1_1_i_strategy.html" title="This interface will get implemented by all the other StrategyTypes so it allows us to retrieve the sa..." alt="" coords="164,5,371,303"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -126,21 +126,21 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a605d80a1b961b46bcacb62e8512587ff"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html#a605d80a1b961b46bcacb62e8512587ff">SetConceptAndDatabaseType</a> (<a class="el" href="namespace_team_manager_1_1_models_1_1_technical_concept.html#a15f66cf3deecbf44c54c36ae51d079e6">TechnicalConceptType</a> conceptType, DatabaseType dbType)</td></tr>
-<tr class="memdesc:a605d80a1b961b46bcacb62e8512587ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html#a31360bc1242426ce9fc3f39279e594f8" title="The ITechnicalConcept instance that will be used for retrieving data from the database. ">Concept</a> with the wanted TechnicalConceptType and DatabaseType. Note that this method gets triggered before the view gets initialized in <a class="el" href="class_team_manager_1_1_program.html">Program</a>.  <a href="#a605d80a1b961b46bcacb62e8512587ff">More...</a><br /></td></tr>
-<tr class="separator:a605d80a1b961b46bcacb62e8512587ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03747207434669995d6368b3c3ce3063"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html#a03747207434669995d6368b3c3ce3063">SetStrategyAndDatabaseType</a> (<a class="el" href="namespace_team_manager_1_1_models_1_1_strategy.html#a4449fb08e3cdd0bd336f26a06b2f4507">StrategyType</a> strategyType, <a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391">DatabaseType</a> dbType)</td></tr>
+<tr class="memdesc:a03747207434669995d6368b3c3ce3063"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html#a68c047cfc79aa6bf31acca1a70f450f0" title="The IStrategy instance that will be used for retrieving data from the database. ">Strategy</a> with the wanted StrategyType and DatabaseType. Note that this method gets triggered before the view gets initialized in <a class="el" href="class_team_manager_1_1_program.html">Program</a>.  <a href="#a03747207434669995d6368b3c3ce3063">More...</a><br /></td></tr>
+<tr class="separator:a03747207434669995d6368b3c3ce3063"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a9eae51fc54c8601189af3513f5c35656"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html#a9eae51fc54c8601189af3513f5c35656">OnChildClosed</a> (object sender, <a class="el" href="class_team_manager_1_1_presenters_1_1_events_1_1_presenter_args.html">PresenterArgs</a> e)</td></tr>
-<tr class="memdesc:a9eae51fc54c8601189af3513f5c35656"><td class="mdescLeft">&#160;</td><td class="mdescRight">The method that gets called when a child windows wanting to invoke the <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html#a34cecc279c1d2258fdfff6193a554f8b" title="The shared event definition that gets invoked every time a child window is closed. ">ChildClosed</a> event in order to notify all other presenters that inherit the <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the ITechnicalConcept interface that will be used for retrieving data ...">BasePresenter</a>.  <a href="#a9eae51fc54c8601189af3513f5c35656">More...</a><br /></td></tr>
+<tr class="memdesc:a9eae51fc54c8601189af3513f5c35656"><td class="mdescLeft">&#160;</td><td class="mdescRight">The method that gets called when a child windows wanting to invoke the <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html#a34cecc279c1d2258fdfff6193a554f8b" title="The shared event definition that gets invoked every time a child window is closed. ">ChildClosed</a> event in order to notify all other presenters that inherit the <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the IStrategy interface that will be used for retrieving data from the...">BasePresenter</a>.  <a href="#a9eae51fc54c8601189af3513f5c35656">More...</a><br /></td></tr>
 <tr class="separator:a9eae51fc54c8601189af3513f5c35656"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a31360bc1242426ce9fc3f39279e594f8"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="interface_team_manager_1_1_models_1_1_technical_concept_1_1_i_technical_concept.html">ITechnicalConcept</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html#a31360bc1242426ce9fc3f39279e594f8">Concept</a></td></tr>
-<tr class="memdesc:a31360bc1242426ce9fc3f39279e594f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ITechnicalConcept instance that will be used for retrieving data from the database.  <a href="#a31360bc1242426ce9fc3f39279e594f8">More...</a><br /></td></tr>
-<tr class="separator:a31360bc1242426ce9fc3f39279e594f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68c047cfc79aa6bf31acca1a70f450f0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="interface_team_manager_1_1_models_1_1_strategy_1_1_i_strategy.html">IStrategy</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html#a68c047cfc79aa6bf31acca1a70f450f0">Strategy</a></td></tr>
+<tr class="memdesc:a68c047cfc79aa6bf31acca1a70f450f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The IStrategy instance that will be used for retrieving data from the database.  <a href="#a68c047cfc79aa6bf31acca1a70f450f0">More...</a><br /></td></tr>
+<tr class="separator:a68c047cfc79aa6bf31acca1a70f450f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="events"></a>
 Events</h2></td></tr>
@@ -151,11 +151,11 @@ Events</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a8ff47e5714539820b2200c7f4bc5a003"><td class="memItemLeft" align="right" valign="top">static readonly ILog&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html#a8ff47e5714539820b2200c7f4bc5a003">Log</a> = Logger.GetLogger()</td></tr>
-<tr class="memdesc:a8ff47e5714539820b2200c7f4bc5a003"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger instance of the class <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the ITechnicalConcept interface that will be used for retrieving data ...">BasePresenter</a>  <a href="#a8ff47e5714539820b2200c7f4bc5a003">More...</a><br /></td></tr>
+<tr class="memdesc:a8ff47e5714539820b2200c7f4bc5a003"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger instance of the class <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the IStrategy interface that will be used for retrieving data from the...">BasePresenter</a>  <a href="#a8ff47e5714539820b2200c7f4bc5a003">More...</a><br /></td></tr>
 <tr class="separator:a8ff47e5714539820b2200c7f4bc5a003"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the ITechnicalConcept interface that will be used for retrieving data ...">BasePresenter</a> will contain the ITechnicalConcept interface that will be used for retrieving data from the database. It also contains common data to share between all presenters. </p>
+<div class="textblock"><p>The <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the IStrategy interface that will be used for retrieving data from the...">BasePresenter</a> will contain the IStrategy interface that will be used for retrieving data from the database. It also contains common data to share between all presenters. </p>
 
 <p class="definition">Definition at line <a class="el" href="_base_presenter_8cs_source.html#l00014">14</a> of file <a class="el" href="_base_presenter_8cs_source.html">BasePresenter.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
@@ -193,7 +193,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>The method that gets called when a child windows wanting to invoke the <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html#a34cecc279c1d2258fdfff6193a554f8b" title="The shared event definition that gets invoked every time a child window is closed. ">ChildClosed</a> event in order to notify all other presenters that inherit the <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the ITechnicalConcept interface that will be used for retrieving data ...">BasePresenter</a>. </p>
+<p>The method that gets called when a child windows wanting to invoke the <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html#a34cecc279c1d2258fdfff6193a554f8b" title="The shared event definition that gets invoked every time a child window is closed. ">ChildClosed</a> event in order to notify all other presenters that inherit the <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the IStrategy interface that will be used for retrieving data from the...">BasePresenter</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sender</td><td></td></tr>
@@ -206,8 +206,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a605d80a1b961b46bcacb62e8512587ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a605d80a1b961b46bcacb62e8512587ff">&#9670;&nbsp;</a></span>SetConceptAndDatabaseType()</h2>
+<a id="a03747207434669995d6368b3c3ce3063"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03747207434669995d6368b3c3ce3063">&#9670;&nbsp;</a></span>SetStrategyAndDatabaseType()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,15 +216,15 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void TeamManager.Presenters.BasePresenter.SetConceptAndDatabaseType </td>
+          <td class="memname">static void TeamManager.Presenters.BasePresenter.SetStrategyAndDatabaseType </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespace_team_manager_1_1_models_1_1_technical_concept.html#a15f66cf3deecbf44c54c36ae51d079e6">TechnicalConceptType</a>&#160;</td>
-          <td class="paramname"><em>conceptType</em>, </td>
+          <td class="paramtype"><a class="el" href="namespace_team_manager_1_1_models_1_1_strategy.html#a4449fb08e3cdd0bd336f26a06b2f4507">StrategyType</a>&#160;</td>
+          <td class="paramname"><em>strategyType</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">DatabaseType&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391">DatabaseType</a>&#160;</td>
           <td class="paramname"><em>dbType</em>&#160;</td>
         </tr>
         <tr>
@@ -240,10 +240,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html#a31360bc1242426ce9fc3f39279e594f8" title="The ITechnicalConcept instance that will be used for retrieving data from the database. ">Concept</a> with the wanted TechnicalConceptType and DatabaseType. Note that this method gets triggered before the view gets initialized in <a class="el" href="class_team_manager_1_1_program.html">Program</a>. </p>
+<p>Initializes the <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html#a68c047cfc79aa6bf31acca1a70f450f0" title="The IStrategy instance that will be used for retrieving data from the database. ">Strategy</a> with the wanted StrategyType and DatabaseType. Note that this method gets triggered before the view gets initialized in <a class="el" href="class_team_manager_1_1_program.html">Program</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">conceptType</td><td></td></tr>
+    <tr><td class="paramname">strategyType</td><td></td></tr>
     <tr><td class="paramname">dbType</td><td></td></tr>
   </table>
   </dd>
@@ -251,15 +251,15 @@ Static Private Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_base_presenter_8cs_source.html#l00047">47</a> of file <a class="el" href="_base_presenter_8cs_source.html">BasePresenter.cs</a>.</p>
 
-<p class="reference">References <a class="el" href="_defaults_8cs_source.html#l00012">TeamManager.Utilities.Defaults.TechnicalConcept</a>.</p>
+<p class="reference">References <a class="el" href="_defaults_8cs_source.html#l00012">TeamManager.Utilities.Defaults.Strategy</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_program_8cs_source.html#l00029">TeamManager.Program.Main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_program_8cs_source.html#l00055">TeamManager.Program.Main()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="class_team_manager_1_1_presenters_1_1_base_presenter_a605d80a1b961b46bcacb62e8512587ff_icgraph.png" border="0" usemap="#class_team_manager_1_1_presenters_1_1_base_presenter_a605d80a1b961b46bcacb62e8512587ff_icgraph" alt=""/></div>
-<map name="class_team_manager_1_1_presenters_1_1_base_presenter_a605d80a1b961b46bcacb62e8512587ff_icgraph" id="class_team_manager_1_1_presenters_1_1_base_presenter_a605d80a1b961b46bcacb62e8512587ff_icgraph">
-<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the T..." alt="" coords="309,13,499,39"/>
+<div class="center"><img src="class_team_manager_1_1_presenters_1_1_base_presenter_a03747207434669995d6368b3c3ce3063_icgraph.png" border="0" usemap="#class_team_manager_1_1_presenters_1_1_base_presenter_a03747207434669995d6368b3c3ce3063_icgraph" alt=""/></div>
+<map name="class_team_manager_1_1_presenters_1_1_base_presenter_a03747207434669995d6368b3c3ce3063_icgraph" id="class_team_manager_1_1_presenters_1_1_base_presenter_a03747207434669995d6368b3c3ce3063_icgraph">
+<area shape="rect" id="node2" href="class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the S..." alt="" coords="311,13,500,39"/>
 </map>
 </div>
 
@@ -295,32 +295,6 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a31360bc1242426ce9fc3f39279e594f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31360bc1242426ce9fc3f39279e594f8">&#9670;&nbsp;</a></span>Concept</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="interface_team_manager_1_1_models_1_1_technical_concept_1_1_i_technical_concept.html">ITechnicalConcept</a> TeamManager.Presenters.BasePresenter.Concept</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The ITechnicalConcept instance that will be used for retrieving data from the database. </p>
-
-<p class="definition">Definition at line <a class="el" href="_base_presenter_8cs_source.html#l00017">17</a> of file <a class="el" href="_base_presenter_8cs_source.html">BasePresenter.cs</a>.</p>
-
-</div>
-</div>
 <a id="a8ff47e5714539820b2200c7f4bc5a003"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8ff47e5714539820b2200c7f4bc5a003">&#9670;&nbsp;</a></span>Log</h2>
 
@@ -341,9 +315,35 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Logger instance of the class <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the ITechnicalConcept interface that will be used for retrieving data ...">BasePresenter</a> </p>
+<p>Logger instance of the class <a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the IStrategy interface that will be used for retrieving data from the...">BasePresenter</a> </p>
 
 <p class="definition">Definition at line <a class="el" href="_base_presenter_8cs_source.html#l00020">20</a> of file <a class="el" href="_base_presenter_8cs_source.html">BasePresenter.cs</a>.</p>
+
+</div>
+</div>
+<a id="a68c047cfc79aa6bf31acca1a70f450f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68c047cfc79aa6bf31acca1a70f450f0">&#9670;&nbsp;</a></span>Strategy</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="interface_team_manager_1_1_models_1_1_strategy_1_1_i_strategy.html">IStrategy</a> TeamManager.Presenters.BasePresenter.Strategy</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The IStrategy instance that will be used for retrieving data from the database. </p>
+
+<p class="definition">Definition at line <a class="el" href="_base_presenter_8cs_source.html#l00017">17</a> of file <a class="el" href="_base_presenter_8cs_source.html">BasePresenter.cs</a>.</p>
 
 </div>
 </div>
@@ -375,7 +375,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/TeamManager/TeamManager/Presenters/<a class="el" href="_base_presenter_8cs_source.html">BasePresenter.cs</a></li>
+<li>src/TeamManager/Presenters/<a class="el" href="_base_presenter_8cs_source.html">BasePresenter.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -383,7 +383,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_team_manager.html">TeamManager</a></li><li class="navelem"><a class="el" href="namespace_team_manager_1_1_presenters.html">Presenters</a></li><li class="navelem"><a class="el" href="class_team_manager_1_1_presenters_1_1_base_presenter.html">BasePresenter</a></li>
-    <li class="footer">Generated on Thu Dec 21 2017 22:20:56 for TeamManager AS Projekt by
+    <li class="footer">Generated on Wed Jan 3 2018 09:22:22 for TeamManager AS Projekt by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>
