@@ -93,7 +93,7 @@ namespace TeamManager.Database
                 {
                     OpenConnection();
                     // Retrieve all rows
-                    string query = $"SELECT * FROM {TeamsCollectionName}";
+                    string query = $"SELECT id, TRIM(name) FROM {TeamsCollectionName}";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -152,7 +152,7 @@ namespace TeamManager.Database
                 {
                     OpenConnection();
                     // Retrieve all rows
-                    string query = $"SELECT (id, name, team_id) FROM {PlayersCollectionName}";
+                    string query = $"SELECT id, TRIM(name), team_id FROM {PlayersCollectionName}";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -212,7 +212,7 @@ namespace TeamManager.Database
                 {
                     OpenConnection();
                     // Retrieve all rows with matching team_id
-                    string query = $"SELECT * FROM {PlayersCollectionName} WHERE team_id = {teamId}";
+                    string query = $"SELECT id, TRIM(name), team_id FROM {PlayersCollectionName} WHERE team_id = {teamId}";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -286,7 +286,7 @@ namespace TeamManager.Database
                     }
 
                     // write row to db
-                    string query2 = $"INSERT INTO {TeamsCollectionName} (id,name) VALUES ({id},\'{name}\')";
+                    string query2 = $"INSERT INTO {TeamsCollectionName} (id, name) VALUES ({id}, \'{name}\')";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query2, Connection))
                     {
                         cmd.ExecuteNonQuery();
@@ -351,7 +351,7 @@ namespace TeamManager.Database
                     }
                  
                     // write row to db
-                    string query2 = $"INSERT INTO {PlayersCollectionName}(id,name,team_id) VALUES ({id},\'{name}\',{teamId})";
+                    string query2 = $"INSERT INTO {PlayersCollectionName} (id, name, team_id) VALUES ({id}, \'{name}\', {teamId})";
                     using (var cmd = new NpgsqlCommand(query2, Connection))
                     {
                         cmd.ExecuteNonQuery();
@@ -402,7 +402,7 @@ namespace TeamManager.Database
                 {
                     OpenConnection();
                     // Retrieve all rows with matching id
-                    string query = $"SELECT * FROM {TeamsCollectionName} WHERE id = {id}";
+                    string query = $"SELECT id, TRIM(name) FROM {TeamsCollectionName} WHERE id = {id}";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -457,7 +457,7 @@ namespace TeamManager.Database
                 {
                     OpenConnection();
                     // Retrieve all rows with matching id
-                    string query = $"SELECT * FROM {PlayersCollectionName} WHERE id = {id}";
+                    string query = $"SELECT id, TRIM(name), team_id FROM {PlayersCollectionName} WHERE id = {id}";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                     using (NpgsqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -602,7 +602,6 @@ namespace TeamManager.Database
             }
         }
 
-        // NOTE: Setting teamId here. Is this the desired behaviour?
         public bool UpdatePlayer(string id, string teamId, string name)
         {
 
