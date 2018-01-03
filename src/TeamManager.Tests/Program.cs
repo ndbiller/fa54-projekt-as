@@ -197,8 +197,8 @@ namespace TeamManager.Tests.Modules
             
 
             //Console.WriteLine("Dropping old collections.");
-            //DBLayerMongo.Database.DropCollection("team");
-            //DBLayerMongo.Database.DropCollection("player");
+            //DBLayerMongo.Connection.DropCollection("team");
+            //DBLayerMongo.Connection.DropCollection("player");
 
             //Console.WriteLine("Creating Team.");
             //DBLayerMongo.Team.InsertOne(new Team()
@@ -316,8 +316,8 @@ namespace TeamManager.Tests.Modules
         private static void FillMongoDb()
         {
             DbLayerMongo dbLayerMongo = new DbLayerMongo();
-            DbLayerMongo.Database.DropCollection("team");
-            DbLayerMongo.Database.DropCollection("player");
+            DbLayerMongo.Connection.DropCollection("team");
+            DbLayerMongo.Connection.DropCollection("player");
 
             var teams = new List<Team>
             {

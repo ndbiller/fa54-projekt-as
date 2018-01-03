@@ -31,7 +31,7 @@ namespace TeamManager.Database
         private static readonly string ConnectionString;
 
         private static MongoClient Client { get; set; }
-        public static IMongoDatabase Database { get; private set; }
+        public static IMongoDatabase Connection { get; private set; }
         public static IMongoCollection<Team> TeamCollection { get; set; }
         public static IMongoCollection<Player> PlayerCollection { get; set; }
 
@@ -77,18 +77,18 @@ namespace TeamManager.Database
 
         public DbLayerMongo()
         {
-            OpenConnection();
+            CreateConnection();
         }
 
-        public void OpenConnection()
+        public void CreateConnection()
         {
             try
             {
                 Client = new MongoClient(ConnectionString);
 
-                Database = Client.GetDatabase(MLAB_DATABASE_NAME);
-                TeamCollection = Database.GetCollection<Team>(TeamsCollectionName);
-                PlayerCollection = Database.GetCollection<Player>(PlayersCollectionName);
+                Connection = Client.GetDatabase(MLAB_DATABASE_NAME);
+                TeamCollection = Connection.GetCollection<Team>(TeamsCollectionName);
+                PlayerCollection = Connection.GetCollection<Player>(PlayersCollectionName);
             }
             catch (Exception e)
             {
@@ -370,7 +370,7 @@ namespace TeamManager.Database
 
             try
             {
-                var collection = Database.GetCollection<BsonDocument>(TeamsCollectionName);
+                var collection = Connection.GetCollection<BsonDocument>(TeamsCollectionName);
                 collection.UpdateOne(filter, update);
                 return true;
             }
@@ -393,7 +393,7 @@ namespace TeamManager.Database
 
             try
             {
-                var collection = Database.GetCollection<BsonDocument>(TeamsCollectionName);
+                var collection = Connection.GetCollection<BsonDocument>(TeamsCollectionName);
                 await collection.UpdateOneAsync(filter, update).TimeoutAfter(TimeoutMilisec);
                 return true;
             }
@@ -416,7 +416,7 @@ namespace TeamManager.Database
 
             try
             {
-                var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
+                var collection = Connection.GetCollection<BsonDocument>(PlayersCollectionName);
                 collection.UpdateOne(filter, update);
                 return true;
             }
@@ -439,7 +439,7 @@ namespace TeamManager.Database
 
             try
             {
-                var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
+                var collection = Connection.GetCollection<BsonDocument>(PlayersCollectionName);
                 await collection.UpdateOneAsync(filter, update).TimeoutAfter(TimeoutMilisec);
                 return true;
             }
@@ -463,7 +463,7 @@ namespace TeamManager.Database
 
             try
             {
-                var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
+                var collection = Connection.GetCollection<BsonDocument>(PlayersCollectionName);
                 collection.UpdateOne(filter, update);
                 return true;
             }
@@ -486,7 +486,7 @@ namespace TeamManager.Database
 
             try
             {
-                var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
+                var collection = Connection.GetCollection<BsonDocument>(PlayersCollectionName);
                 await collection.UpdateOneAsync(filter, update).TimeoutAfter(TimeoutMilisec);
                 return true;
             }
@@ -585,7 +585,7 @@ namespace TeamManager.Database
 
             try
             {
-                var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
+                var collection = Connection.GetCollection<BsonDocument>(PlayersCollectionName);
                 collection.UpdateOne(filter, update);
                 return true;
             }
@@ -608,7 +608,7 @@ namespace TeamManager.Database
 
             try
             {
-                var collection = Database.GetCollection<BsonDocument>(PlayersCollectionName);
+                var collection = Connection.GetCollection<BsonDocument>(PlayersCollectionName);
                 await collection.UpdateOneAsync(filter, update).TimeoutAfter(TimeoutMilisec);
                 return true;
             }

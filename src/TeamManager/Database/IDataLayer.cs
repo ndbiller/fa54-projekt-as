@@ -11,9 +11,9 @@ namespace TeamManager.Database
     public interface IDataLayer
     {
         /// <summary>
-        /// Opens the database connections.
+        /// Creates the database connections.
         /// </summary>
-        void OpenConnection();
+        void CreateConnection();
 
         /// <summary>
         /// The Timeout in miliseconds for task to execute when using the async calls.

@@ -31,7 +31,7 @@ namespace TeamManager.Database
         // PostgeSQL-style connection string
         internal static readonly string ConnectionString;
 
-        private static NpgsqlConnection Database { get; set; }
+        private static NpgsqlConnection Connection { get; set; }
 
         public string TeamsCollectionName => "team";
         public string PlayersCollectionName => "player";
@@ -86,13 +86,18 @@ namespace TeamManager.Database
 
         public DbLayerSql()
         {
-            Database = new NpgsqlConnection(ConnectionString);
+            CreateConnection();
+        }
 
+        public void CreateConnection()
+        {
             try
             {
-                OpenConnection();
+                Connection = new NpgsqlConnection(ConnectionString);
+
+                Connection.Open();
                 Thread.Sleep(75);
-                CloseConnection();
+                Connection.Close();
             }
             catch (Exception e)
             {
@@ -103,23 +108,13 @@ namespace TeamManager.Database
             Log.Info("Connection created.");
         }
 
-        public void OpenConnection()
-        {
-            Database.Open();
-        }
-
-        public void CloseConnection()
-        {
-            Database.Close();
-        }
-
         public void ExecuteSql(string query)
         {
             // execute custom query code
-            NpgsqlCommand customCommand = new NpgsqlCommand(query, Database);
-            OpenConnection();
+            NpgsqlCommand customCommand = new NpgsqlCommand(query, Connection);
+            Connection.Open();
             customCommand.ExecuteNonQuery();
-            CloseConnection();
+            Connection.Close();
             Log.Info("Query executed: \n" + query);
         }
 
@@ -129,10 +124,10 @@ namespace TeamManager.Database
 
             try
             {
-                OpenConnection();
+                Connection.Open();
                 // Retrieve all rows
                 string query = $"SELECT id, TRIM(name) FROM {TeamsCollectionName}";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                 using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -145,7 +140,7 @@ namespace TeamManager.Database
                         teams.Add(team);
                     }
                 }
-                CloseConnection();
+                Connection.Close();
             }
             catch (TimeoutException e)
             {
@@ -185,10 +180,10 @@ namespace TeamManager.Database
 
             try
             {
-                OpenConnection();
+                Connection.Open();
                 // Retrieve all rows
                 string query = $"SELECT id, TRIM(name), team_id FROM {PlayersCollectionName}";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                 using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -202,7 +197,7 @@ namespace TeamManager.Database
                         players.Add(player);
                     }
                 }
-                CloseConnection();                
+                Connection.Close();                
             }
             catch (TimeoutException e)
             {
@@ -242,10 +237,10 @@ namespace TeamManager.Database
 
             try
             {
-                OpenConnection();
+                Connection.Open();
                 // Retrieve all rows with matching team_id
                 string query = $"SELECT id, TRIM(name), team_id FROM {PlayersCollectionName} WHERE team_id = {teamId}";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                 using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -259,7 +254,7 @@ namespace TeamManager.Database
                         players.Add(player);
                     }
                 }
-                CloseConnection();   
+                Connection.Close();   
             }
             catch (TimeoutException e)
             {
@@ -297,11 +292,11 @@ namespace TeamManager.Database
         {
             try
             {
-                OpenConnection();
+                Connection.Open();
                 // gets last id from db
                 string id = string.Empty;
                 string query = $"SELECT max(id) FROM {TeamsCollectionName}";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                 using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -315,11 +310,11 @@ namespace TeamManager.Database
 
                 // write row to db
                 string query2 = $"INSERT INTO {TeamsCollectionName} (id, name) VALUES ({id}, \'{name}\')";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query2, Database))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query2, Connection))
                 {
                     cmd.ExecuteNonQuery();
                 }
-                CloseConnection();
+                Connection.Close();
             }
             catch (TimeoutException e)
             {
@@ -359,11 +354,11 @@ namespace TeamManager.Database
         {
             try
             {
-                OpenConnection();
+                Connection.Open();
                 // get last id from db
                 string id = string.Empty;
                 string query = $"SELECT max(id) FROM {PlayersCollectionName}";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                 using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -377,11 +372,11 @@ namespace TeamManager.Database
                  
                 // write row to db
                 string query2 = $"INSERT INTO {PlayersCollectionName} (id, name, team_id) VALUES ({id}, \'{name}\', {teamId})";
-                using (var cmd = new NpgsqlCommand(query2, Database))
+                using (var cmd = new NpgsqlCommand(query2, Connection))
                 {
                     cmd.ExecuteNonQuery();
                 }
-                CloseConnection();
+                Connection.Close();
             }
             catch (TimeoutException e)
             {
@@ -423,10 +418,10 @@ namespace TeamManager.Database
 
             try
             {
-                OpenConnection();
+                Connection.Open();
                 // Retrieve all rows with matching id
                 string query = $"SELECT id, TRIM(name) FROM {TeamsCollectionName} WHERE id = {id}";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                 using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -435,7 +430,7 @@ namespace TeamManager.Database
                         team.Name = reader.GetString(1);
                     }
                 }
-                CloseConnection();
+                Connection.Close();
             }
             catch (TimeoutException e)
             {
@@ -475,10 +470,10 @@ namespace TeamManager.Database
 
             try
             {
-                OpenConnection();
+                Connection.Open();
                 // Retrieve all rows with matching id
                 string query = $"SELECT id, TRIM(name), team_id FROM {PlayersCollectionName} WHERE id = {id}";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                 using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -488,7 +483,7 @@ namespace TeamManager.Database
                         player.TeamId = reader.GetString(2);
                     }
                 }
-                CloseConnection();
+                Connection.Close();
             }
             catch (TimeoutException e)
             {
@@ -526,14 +521,14 @@ namespace TeamManager.Database
         {
             try
             {
-                OpenConnection();
+                Connection.Open();
                 // write row to db
                 string query = $"UPDATE {TeamsCollectionName} SET name = '{name}' WHERE id = {id}";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                 {
                     cmd.ExecuteNonQuery();
                 }
-                CloseConnection();
+                Connection.Close();
             }
             catch (TimeoutException e)
             {
@@ -573,14 +568,14 @@ namespace TeamManager.Database
         {
             try
             {
-                OpenConnection();
+                Connection.Open();
                 // write row to db
                 string query = $"UPDATE {PlayersCollectionName} SET name = \'{name}\' WHERE id = {id}";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                 {
                     cmd.ExecuteNonQuery();
                 }
-                CloseConnection();
+                Connection.Close();
             }
             catch (TimeoutException e)
             {
@@ -621,14 +616,14 @@ namespace TeamManager.Database
 
             try
             {
-                OpenConnection();
+                Connection.Open();
                 // write row to db
                 string query = $"UPDATE {PlayersCollectionName} SET name = \'{name}\', team_id = \'{teamId}\' WHERE id = {id}";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                 {
                     cmd.ExecuteNonQuery();
                 }
-                CloseConnection();
+                Connection.Close();
             }
             catch (TimeoutException e)
             {
@@ -668,14 +663,14 @@ namespace TeamManager.Database
         {
             try
             {
-                OpenConnection();
+                Connection.Open();
                 // delete row from db
                 string query = $"DELETE FROM {TeamsCollectionName} WHERE id = {id}";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                 {
                     cmd.ExecuteNonQuery();
                 }
-                CloseConnection();
+                Connection.Close();
             }
             catch (TimeoutException e)
             {
@@ -715,14 +710,14 @@ namespace TeamManager.Database
         {
             try
             {
-                OpenConnection();
+                Connection.Open();
                 // delete row from db
                 string query = $"DELETE FROM {PlayersCollectionName} WHERE id = {id}";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                 {
                     cmd.ExecuteNonQuery();
                 }
-                CloseConnection();
+                Connection.Close();
             }
             catch (TimeoutException e)
             {
@@ -763,14 +758,14 @@ namespace TeamManager.Database
 
             try
             {
-                OpenConnection();
+                Connection.Open();
                 // write row to db
                 string query = $"UPDATE {PlayersCollectionName} SET team_id = \'{teamId}\' WHERE id = {playerId}";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Database))
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, Connection))
                 {
                     cmd.ExecuteNonQuery();
                 }
-                CloseConnection();
+                Connection.Close();
             }
             catch (TimeoutException e)
             {
