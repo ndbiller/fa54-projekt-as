@@ -1,0 +1,4 @@
+<map id="TeamManager.Models.Logic.IBusinessLogic" name="TeamManager.Models.Logic.IBusinessLogic">
+<area shape="rect" id="node2" href="$class_team_manager_1_1_models_1_1_logic_1_1_business_logic.html" title="{TeamManager.Models.Logic.\lBusinessLogic\n||+ BusinessLogic()\l+ AddNewPlayer()\l+ AddNewPlayer()\l+ GetPlayerTeam()\l+ AddNewTeam()\l+ ChangePlayerName()\l+ ChangeTeamName()\l+ GetAllPlayers()\l+ GetAllPlayers()\l+ GetAllTeams()\land 6 more...\l}" alt="" coords="5,351,195,589"/>
+<area shape="rect" id="node3" href="$class_team_manager_1_1_models_1_1_logic_1_1_business_logic_mt.html" title="{TeamManager.Models.Logic.\lBusinessLogicMt\n||+ BusinessLogicMt()\l+ AddNewPlayer()\l+ AddNewPlayer()\l+ GetPlayerTeam()\l+ AddNewTeam()\l+ ChangePlayerName()\l+ ChangeTeamName()\l+ GetAllPlayers()\l+ GetAllPlayers()\l+ GetAllTeams()\land 6 more...\l}" alt="" coords="219,351,408,589"/>
+</map>

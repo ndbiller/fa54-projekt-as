@@ -13,5 +13,6 @@ var searchData=
   ['btntcreate_5fclick',['btnTCreate_Click',['../class_team_manager_1_1_views_1_1_windows_1_1_main_window.html#a4cd2e3816ef8c0cf5adb39eb88068654',1,'TeamManager::Views::Windows::MainWindow']]],
   ['btntdelete_5fclick',['btnTDelete_Click',['../class_team_manager_1_1_views_1_1_windows_1_1_main_window.html#a88e742ae2e2ef6f4667986b6234a3664',1,'TeamManager::Views::Windows::MainWindow']]],
   ['btntedit_5fclick',['btnTEdit_Click',['../class_team_manager_1_1_views_1_1_windows_1_1_main_window.html#a96fe14da5e3b5c8c3941287b58513961',1,'TeamManager::Views::Windows::MainWindow']]],
-  ['btnunsignedplayers_5fclick',['btnUnsignedPlayers_Click',['../class_team_manager_1_1_views_1_1_windows_1_1_main_window.html#ad738f2ae1161ee1ac56b5b6cad7befd3',1,'TeamManager::Views::Windows::MainWindow']]]
+  ['btnunsignedplayers_5fclick',['btnUnsignedPlayers_Click',['../class_team_manager_1_1_views_1_1_windows_1_1_main_window.html#ad738f2ae1161ee1ac56b5b6cad7befd3',1,'TeamManager::Views::Windows::MainWindow']]],
+  ['businesslogicbase',['BusinessLogicBase',['../class_team_manager_1_1_models_1_1_logic_1_1_business_logic_base.html#ac2d52c7c7d310f56e882cd40009fded2',1,'TeamManager::Models::Logic::BusinessLogicBase']]]
 ];

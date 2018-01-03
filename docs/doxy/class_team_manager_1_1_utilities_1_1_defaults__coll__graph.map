@@ -1,4 +1,4 @@
 <map id="TeamManager.Utilities.Defaults" name="TeamManager.Utilities.Defaults">
-<area shape="rect" id="node4" href="$interface_team_manager_1_1_models_1_1_strategy_1_1_i_strategy.html" title="This interface will get implemented by all the other StrategyTypes so it allows us to retrieve the sa..." alt="" coords="331,5,537,303"/>
-<area shape="rect" id="node5" href="$interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="562,35,759,273"/>
+<area shape="rect" id="node3" href="$interface_team_manager_1_1_models_1_1_logic_1_1_i_business_logic.html" title="This interface will get implemented by all the other StrategyTypes so it allows us to retrieve the sa..." alt="" coords="200,5,389,303"/>
+<area shape="rect" id="node6" href="$interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="715,20,912,288"/>
 </map>

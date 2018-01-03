@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">TeamManager AS Projekt
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.2</span>
    </div>
    <div id="projectbrief">Softwaresystem als 3-Schichten-Architektur (Benutzungsoberfläche, Fachkonzept, Datenhaltung)</div>
   </td>
@@ -97,19 +97,22 @@ Collaboration diagram for TeamManager.Utilities.Defaults:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_team_manager_1_1_utilities_1_1_defaults__coll__graph.png" border="0" usemap="#_team_manager_8_utilities_8_defaults_coll__map" alt="Collaboration graph"/></div>
 <map name="_team_manager_8_utilities_8_defaults_coll__map" id="_team_manager_8_utilities_8_defaults_coll__map">
-<area shape="rect" id="node4" href="interface_team_manager_1_1_models_1_1_strategy_1_1_i_strategy.html" title="This interface will get implemented by all the other StrategyTypes so it allows us to retrieve the sa..." alt="" coords="331,5,537,303"/>
-<area shape="rect" id="node5" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="562,35,759,273"/>
+<area shape="rect" id="node3" href="interface_team_manager_1_1_models_1_1_logic_1_1_i_business_logic.html" title="This interface will get implemented by all the other StrategyTypes so it allows us to retrieve the sa..." alt="" coords="200,5,389,303"/>
+<area shape="rect" id="node6" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="715,20,912,288"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:af196dc0fd61e058887b53af4e6eb4419"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="interface_team_manager_1_1_models_1_1_strategy_1_1_i_strategy.html">IStrategy</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html#af196dc0fd61e058887b53af4e6eb4419">Strategy</a> =&gt; new <a class="el" href="class_team_manager_1_1_models_1_1_strategy_1_1_ascending_strategy.html">AscendingStrategy</a>(<a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391">DatabaseType</a>)</td></tr>
-<tr class="memdesc:af196dc0fd61e058887b53af4e6eb4419"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new instance of AscendingStrategy with DbLayerMongo as database.  <a href="#af196dc0fd61e058887b53af4e6eb4419">More...</a><br /></td></tr>
-<tr class="separator:af196dc0fd61e058887b53af4e6eb4419"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bb2e22516c68b79b64acffc059b0216"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespace_team_manager_1_1_models_1_1_strategy.html#a4449fb08e3cdd0bd336f26a06b2f4507">StrategyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html#a2bb2e22516c68b79b64acffc059b0216">StrategyType</a> =&gt; StrategyType.FirstMt</td></tr>
-<tr class="memdesc:a2bb2e22516c68b79b64acffc059b0216"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html#a2bb2e22516c68b79b64acffc059b0216" title="Returns the StrategyType as StrategyType.FirstMt. ">StrategyType</a> as StrategyType.FirstMt.  <a href="#a2bb2e22516c68b79b64acffc059b0216">More...</a><br /></td></tr>
-<tr class="separator:a2bb2e22516c68b79b64acffc059b0216"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abadd759bb60abee49663e5fe59555e45"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="interface_team_manager_1_1_models_1_1_logic_1_1_i_business_logic.html">IBusinessLogic</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html#abadd759bb60abee49663e5fe59555e45">BusinessLogic</a> =&gt; new <a class="el" href="class_team_manager_1_1_models_1_1_logic_1_1_business_logic.html">BusinessLogic</a>(<a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391">DatabaseType</a>, <a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html#a96f9d26f6a3a1db84e9b40625fc80d24">SortType</a>)</td></tr>
+<tr class="memdesc:abadd759bb60abee49663e5fe59555e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new instance of <a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html#abadd759bb60abee49663e5fe59555e45" title="Returns a new instance of BusinessLogic with DbLayerMongo as database using default sorting as SortTy...">BusinessLogic</a> with DbLayerMongo as database using default sorting as SortType.Ascending.  <a href="#abadd759bb60abee49663e5fe59555e45">More...</a><br /></td></tr>
+<tr class="separator:abadd759bb60abee49663e5fe59555e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96ef7c4f51dd2074bb49e061a7472284"><td class="memItemLeft" align="right" valign="top">static BusinessLogicType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html#a96ef7c4f51dd2074bb49e061a7472284">BusinessLogicType</a> =&gt; BusinessLogicType.Normal</td></tr>
+<tr class="memdesc:a96ef7c4f51dd2074bb49e061a7472284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html#a96ef7c4f51dd2074bb49e061a7472284" title="Returns the BusinessLogicType as BusinessLogicType.Normal. ">BusinessLogicType</a> as BusinessLogicType.Normal.  <a href="#a96ef7c4f51dd2074bb49e061a7472284">More...</a><br /></td></tr>
+<tr class="separator:a96ef7c4f51dd2074bb49e061a7472284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96f9d26f6a3a1db84e9b40625fc80d24"><td class="memItemLeft" align="right" valign="top">static SortType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html#a96f9d26f6a3a1db84e9b40625fc80d24">SortType</a> =&gt; SortType.Ascending</td></tr>
+<tr class="memdesc:a96f9d26f6a3a1db84e9b40625fc80d24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the <a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html#a96f9d26f6a3a1db84e9b40625fc80d24" title="Returns the SortType as SortType.Ascending. ">SortType</a> as SortType.Ascending.  <a href="#a96f9d26f6a3a1db84e9b40625fc80d24">More...</a><br /></td></tr>
+<tr class="separator:a96f9d26f6a3a1db84e9b40625fc80d24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a327c85e0ca3e1fbd271ca972bdb19042"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html">IDataLayer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html#a327c85e0ca3e1fbd271ca972bdb19042">Database</a> =&gt; new <a class="el" href="class_team_manager_1_1_database_1_1_db_layer_mongo.html">DbLayerMongo</a>()</td></tr>
 <tr class="memdesc:a327c85e0ca3e1fbd271ca972bdb19042"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a new instance of DbLayerMongo.  <a href="#a327c85e0ca3e1fbd271ca972bdb19042">More...</a><br /></td></tr>
 <tr class="separator:a327c85e0ca3e1fbd271ca972bdb19042"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,6 +125,58 @@ Static Public Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="_defaults_8cs_source.html#l00009">9</a> of file <a class="el" href="_defaults_8cs_source.html">Defaults.cs</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="abadd759bb60abee49663e5fe59555e45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abadd759bb60abee49663e5fe59555e45">&#9670;&nbsp;</a></span>BusinessLogic</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="interface_team_manager_1_1_models_1_1_logic_1_1_i_business_logic.html">IBusinessLogic</a> TeamManager.Utilities.Defaults.BusinessLogic =&gt; new <a class="el" href="class_team_manager_1_1_models_1_1_logic_1_1_business_logic.html">BusinessLogic</a>(<a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391">DatabaseType</a>, <a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html#a96f9d26f6a3a1db84e9b40625fc80d24">SortType</a>)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a new instance of <a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html#abadd759bb60abee49663e5fe59555e45" title="Returns a new instance of BusinessLogic with DbLayerMongo as database using default sorting as SortTy...">BusinessLogic</a> with DbLayerMongo as database using default sorting as SortType.Ascending. </p>
+
+<p class="definition">Definition at line <a class="el" href="_defaults_8cs_source.html#l00013">13</a> of file <a class="el" href="_defaults_8cs_source.html">Defaults.cs</a>.</p>
+
+</div>
+</div>
+<a id="a96ef7c4f51dd2074bb49e061a7472284"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96ef7c4f51dd2074bb49e061a7472284">&#9670;&nbsp;</a></span>BusinessLogicType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BusinessLogicType TeamManager.Utilities.Defaults.BusinessLogicType =&gt; BusinessLogicType.Normal</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the <a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html#a96ef7c4f51dd2074bb49e061a7472284" title="Returns the BusinessLogicType as BusinessLogicType.Normal. ">BusinessLogicType</a> as BusinessLogicType.Normal. </p>
+
+<p class="definition">Definition at line <a class="el" href="_defaults_8cs_source.html#l00016">16</a> of file <a class="el" href="_defaults_8cs_source.html">Defaults.cs</a>.</p>
+
+</div>
+</div>
 <a id="a327c85e0ca3e1fbd271ca972bdb19042"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a327c85e0ca3e1fbd271ca972bdb19042">&#9670;&nbsp;</a></span>Database</h2>
 
@@ -144,9 +199,9 @@ Static Public Attributes</h2></td></tr>
 
 <p>Returns a new instance of DbLayerMongo. </p>
 
-<p class="definition">Definition at line <a class="el" href="_defaults_8cs_source.html#l00018">18</a> of file <a class="el" href="_defaults_8cs_source.html">Defaults.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_defaults_8cs_source.html#l00022">22</a> of file <a class="el" href="_defaults_8cs_source.html">Defaults.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="_strategy_base_8cs_source.html#l00024">TeamManager.Models.Strategy.StrategyBase.StrategyBase()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="_business_logic_base_8cs_source.html#l00038">TeamManager.Models.Logic.BusinessLogicBase.BusinessLogicBase()</a>.</p>
 
 </div>
 </div>
@@ -172,12 +227,12 @@ Static Public Attributes</h2></td></tr>
 
 <p>Returns the <a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html#a020292760f39500140f4f881a91a016a" title="Returns the DatabaseType as DatabaseType.Mongo. ">DatabaseType</a> as DatabaseType.Mongo. </p>
 
-<p class="definition">Definition at line <a class="el" href="_defaults_8cs_source.html#l00021">21</a> of file <a class="el" href="_defaults_8cs_source.html">Defaults.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_defaults_8cs_source.html#l00025">25</a> of file <a class="el" href="_defaults_8cs_source.html">Defaults.cs</a>.</p>
 
 </div>
 </div>
-<a id="af196dc0fd61e058887b53af4e6eb4419"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af196dc0fd61e058887b53af4e6eb4419">&#9670;&nbsp;</a></span>Strategy</h2>
+<a id="a96f9d26f6a3a1db84e9b40625fc80d24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96f9d26f6a3a1db84e9b40625fc80d24">&#9670;&nbsp;</a></span>SortType</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -186,7 +241,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="interface_team_manager_1_1_models_1_1_strategy_1_1_i_strategy.html">IStrategy</a> TeamManager.Utilities.Defaults.Strategy =&gt; new <a class="el" href="class_team_manager_1_1_models_1_1_strategy_1_1_ascending_strategy.html">AscendingStrategy</a>(<a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391">DatabaseType</a>)</td>
+          <td class="memname">SortType TeamManager.Utilities.Defaults.SortType =&gt; SortType.Ascending</td>
         </tr>
       </table>
   </td>
@@ -196,37 +251,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a new instance of AscendingStrategy with DbLayerMongo as database. </p>
+<p>Returns the <a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html#a96f9d26f6a3a1db84e9b40625fc80d24" title="Returns the SortType as SortType.Ascending. ">SortType</a> as SortType.Ascending. </p>
 
-<p class="definition">Definition at line <a class="el" href="_defaults_8cs_source.html#l00012">12</a> of file <a class="el" href="_defaults_8cs_source.html">Defaults.cs</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="_base_presenter_8cs_source.html#l00047">TeamManager.Presenters.BasePresenter.SetStrategyAndDatabaseType()</a>.</p>
-
-</div>
-</div>
-<a id="a2bb2e22516c68b79b64acffc059b0216"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bb2e22516c68b79b64acffc059b0216">&#9670;&nbsp;</a></span>StrategyType</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespace_team_manager_1_1_models_1_1_strategy.html#a4449fb08e3cdd0bd336f26a06b2f4507">StrategyType</a> TeamManager.Utilities.Defaults.StrategyType =&gt; StrategyType.FirstMt</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the <a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html#a2bb2e22516c68b79b64acffc059b0216" title="Returns the StrategyType as StrategyType.FirstMt. ">StrategyType</a> as StrategyType.FirstMt. </p>
-
-<p class="definition">Definition at line <a class="el" href="_defaults_8cs_source.html#l00015">15</a> of file <a class="el" href="_defaults_8cs_source.html">Defaults.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_defaults_8cs_source.html#l00019">19</a> of file <a class="el" href="_defaults_8cs_source.html">Defaults.cs</a>.</p>
 
 </div>
 </div>
@@ -239,7 +266,7 @@ Static Public Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_team_manager.html">TeamManager</a></li><li class="navelem"><a class="el" href="namespace_team_manager_1_1_utilities.html">Utilities</a></li><li class="navelem"><a class="el" href="class_team_manager_1_1_utilities_1_1_defaults.html">Defaults</a></li>
-    <li class="footer">Generated on Wed Jan 3 2018 09:22:22 for TeamManager AS Projekt by
+    <li class="footer">Generated on Wed Jan 3 2018 21:58:59 for TeamManager AS Projekt by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

@@ -1,0 +1,7 @@
+<map id="TeamManager.Program.ParseBusinessLogicTypeArg" name="TeamManager.Program.ParseBusinessLogicTypeArg">
+<area shape="rect" id="node2" href="$class_team_manager_1_1_program.html#aa968135dfadf32a580e7bed7a5f3d95a" title="Prints out invalid syntax when invalid syntax received. " alt="" coords="248,71,444,112"/>
+<area shape="rect" id="node3" href="$class_team_manager_1_1_program.html#a14dd180e4fa9bb0b10d28da58d7260f4" title="Hooks the console using the NativeMethods class methods that are exported from the windows api dlls i..." alt="" coords="492,71,683,112"/>
+<area shape="rect" id="node4" href="$class_team_manager_1_1_utilities_1_1_native_methods.html#af7c43608d1ad8d276ccefb0ded7b415e" title="Allows to allocate console view even if the project configurations set to windows forms as output..." alt="" coords="739,5,929,47"/>
+<area shape="rect" id="node5" href="$class_team_manager_1_1_program.html#a0d7910bc789a7a5ac5536977a74c502a" title="Callback method that is registered to the windows kernal with the ConsoleClosedHandler for catching t..." alt="" coords="737,71,931,112"/>
+<area shape="rect" id="node6" href="$class_team_manager_1_1_utilities_1_1_native_methods.html#aa5ff52fbcde11be2f651785b731f51cc" title="Catches the close event chain of the windows api when using console in order to do some wrapping befo..." alt="" coords="731,136,937,177"/>
+</map>

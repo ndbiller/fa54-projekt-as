@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">TeamManager AS Projekt
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.2</span>
    </div>
    <div id="projectbrief">Softwaresystem als 3-Schichten-Architektur (Benutzungsoberfläche, Fachkonzept, Datenhaltung)</div>
   </td>
@@ -84,9 +84,9 @@ $(document).ready(function(){initNavTree('class_team_manager_1_1_database_1_1_db
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pac-static-attribs">Static Package Attributes</a> &#124;
 <a href="#properties">Properties</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_team_manager_1_1_database_1_1_db_layer_sql-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -101,7 +101,7 @@ Inheritance diagram for TeamManager.Database.DbLayerSql:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_team_manager_1_1_database_1_1_db_layer_sql__inherit__graph.png" border="0" usemap="#_team_manager_8_database_8_db_layer_sql_inherit__map" alt="Inheritance graph"/></div>
 <map name="_team_manager_8_database_8_db_layer_sql_inherit__map" id="_team_manager_8_database_8_db_layer_sql_inherit__map">
-<area shape="rect" id="node2" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="59,5,197,229"/>
+<area shape="rect" id="node2" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="43,5,213,259"/>
 </map>
 </div>
 <div class="dynheader">
@@ -109,18 +109,15 @@ Collaboration diagram for TeamManager.Database.DbLayerSql:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_team_manager_1_1_database_1_1_db_layer_sql__coll__graph.png" border="0" usemap="#_team_manager_8_database_8_db_layer_sql_coll__map" alt="Collaboration graph"/></div>
 <map name="_team_manager_8_database_8_db_layer_sql_coll__map" id="_team_manager_8_database_8_db_layer_sql_coll__map">
-<area shape="rect" id="node2" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="5,5,144,229"/>
+<area shape="rect" id="node2" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="5,5,175,259"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a977cac073c266dc378c82f9af97d73cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a977cac073c266dc378c82f9af97d73cb">OpenConnection</a> ()</td></tr>
-<tr class="memdesc:a977cac073c266dc378c82f9af97d73cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the database connections.  <a href="#a977cac073c266dc378c82f9af97d73cb">More...</a><br /></td></tr>
-<tr class="separator:a977cac073c266dc378c82f9af97d73cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a511e825dd56c23b917be1e67cef32c63"><td class="memItemLeft" align="right" valign="top"><a id="a511e825dd56c23b917be1e67cef32c63"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>CloseConnection</b> ()</td></tr>
-<tr class="separator:a511e825dd56c23b917be1e67cef32c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac10665c14d940f6cbc6221523556d0a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#ac10665c14d940f6cbc6221523556d0a9">CreateConnection</a> ()</td></tr>
+<tr class="memdesc:ac10665c14d940f6cbc6221523556d0a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the database connections.  <a href="#ac10665c14d940f6cbc6221523556d0a9">More...</a><br /></td></tr>
+<tr class="separator:ac10665c14d940f6cbc6221523556d0a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a031a0300590a90a3a7822cdebafae2fe"><td class="memItemLeft" align="right" valign="top"><a id="a031a0300590a90a3a7822cdebafae2fe"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ExecuteSql</b> (string query)</td></tr>
 <tr class="separator:a031a0300590a90a3a7822cdebafae2fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -203,6 +200,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ExecuteSql</b> (strin
 <tr class="memdesc:a594c68fbcf75eaeddd72ff982f6d75ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the Player team with the specified teamId using async call.  <a href="#a594c68fbcf75eaeddd72ff982f6d75ac">More...</a><br /></td></tr>
 <tr class="separator:a594c68fbcf75eaeddd72ff982f6d75ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:af6b129595923a27c1a1c94e0a29292b7"><td class="memItemLeft" align="right" valign="top"><a id="af6b129595923a27c1a1c94e0a29292b7"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>TeamsCollectionName</b> =&gt; &quot;team&quot;</td></tr>
+<tr class="separator:af6b129595923a27c1a1c94e0a29292b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad084be615cba814ac6d4f0a040d0eaa7"><td class="memItemLeft" align="right" valign="top"><a id="ad084be615cba814ac6d4f0a040d0eaa7"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>PlayersCollectionName</b> =&gt; &quot;player&quot;</td></tr>
+<tr class="separator:ad084be615cba814ac6d4f0a040d0eaa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef62f5fa73133f41b4b67747594f3538"><td class="memItemLeft" align="right" valign="top"><a id="aef62f5fa73133f41b4b67747594f3538"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>TimeoutMilisec</b> =&gt; 3000</td></tr>
+<tr class="separator:aef62f5fa73133f41b4b67747594f3538"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pac-static-attribs"></a>
 Static Package Attributes</h2></td></tr>
 <tr class="memitem:a6020cc29e5aa96a5b5145ff63bc1a5a3"><td class="memItemLeft" align="right" valign="top"><a id="a6020cc29e5aa96a5b5145ff63bc1a5a3"></a>
@@ -220,27 +229,25 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>POS
 <tr class="memitem:a57fe6a9b282cee6abfd6c97aec090701"><td class="memItemLeft" align="right" valign="top"><a id="a57fe6a9b282cee6abfd6c97aec090701"></a>
 static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>POSTGRESQL_DATABASE_NAME</b></td></tr>
 <tr class="separator:a57fe6a9b282cee6abfd6c97aec090701"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac03056e6eb64152991b20aeafe02be0"><td class="memItemLeft" align="right" valign="top"><a id="aac03056e6eb64152991b20aeafe02be0"></a>
-static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>connectionString</b></td></tr>
-<tr class="separator:aac03056e6eb64152991b20aeafe02be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acba524091821dd2fd2fcba02e0697f88"><td class="memItemLeft" align="right" valign="top"><a id="acba524091821dd2fd2fcba02e0697f88"></a>
+static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>ConnectionString</b></td></tr>
+<tr class="separator:acba524091821dd2fd2fcba02e0697f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a27f60b8f698daebd4e554b5863fdcaa4"><td class="memItemLeft" align="right" valign="top"><a id="a27f60b8f698daebd4e554b5863fdcaa4"></a>
 static NpgsqlConnection&#160;</td><td class="memItemRight" valign="bottom"><b>Connection</b><code> [get, set]</code></td></tr>
 <tr class="separator:a27f60b8f698daebd4e554b5863fdcaa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a5a8404db84a0d87f52664af8fb78cf8d"><td class="memItemLeft" align="right" valign="top"><a id="a5a8404db84a0d87f52664af8fb78cf8d"></a>
-const string&#160;</td><td class="memItemRight" valign="bottom"><b>TeamsCollectionName</b> = &quot;team&quot;</td></tr>
-<tr class="separator:a5a8404db84a0d87f52664af8fb78cf8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d7ac6bc7469ae51ff82aaeeefd9a28d"><td class="memItemLeft" align="right" valign="top"><a id="a3d7ac6bc7469ae51ff82aaeeefd9a28d"></a>
-const string&#160;</td><td class="memItemRight" valign="bottom"><b>PlayersCollectionName</b> = &quot;player&quot;</td></tr>
-<tr class="separator:a3d7ac6bc7469ae51ff82aaeeefd9a28d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0a449aee342aa5c953fafb61ef43683"><td class="memItemLeft" align="right" valign="top"><a id="ae0a449aee342aa5c953fafb61ef43683"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>TimeoutMilisec</b> = 3000</td></tr>
-<tr class="separator:ae0a449aee342aa5c953fafb61ef43683"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td colspan="2" onclick="javascript:toggleInherit('properties_interface_team_manager_1_1_database_1_1_i_data_layer')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html">TeamManager.Database.IDataLayer</a></td></tr>
+<tr class="memitem:ab781a372bc40f107755040ee0da8c30e inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ab781a372bc40f107755040ee0da8c30e">TimeoutMilisec</a><code> [get]</code></td></tr>
+<tr class="memdesc:ab781a372bc40f107755040ee0da8c30e inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Timeout in miliseconds for task to execute when using the async calls.  <a href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ab781a372bc40f107755040ee0da8c30e">More...</a><br /></td></tr>
+<tr class="separator:ab781a372bc40f107755040ee0da8c30e inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af685f42a406758be7f904efa22a9efbf inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#af685f42a406758be7f904efa22a9efbf">TeamsCollectionName</a><code> [get]</code></td></tr>
+<tr class="memdesc:af685f42a406758be7f904efa22a9efbf inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The collection/table of the Teams.  <a href="interface_team_manager_1_1_database_1_1_i_data_layer.html#af685f42a406758be7f904efa22a9efbf">More...</a><br /></td></tr>
+<tr class="separator:af685f42a406758be7f904efa22a9efbf inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30f90e969079afcc26ed1fc04c3ba1ef inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a30f90e969079afcc26ed1fc04c3ba1ef">PlayersCollectionName</a><code> [get]</code></td></tr>
+<tr class="memdesc:a30f90e969079afcc26ed1fc04c3ba1ef inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The collection/table of the Players.  <a href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a30f90e969079afcc26ed1fc04c3ba1ef">More...</a><br /></td></tr>
+<tr class="separator:a30f90e969079afcc26ed1fc04c3ba1ef inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
@@ -251,7 +258,7 @@ Static Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html" title="DbLayerSql will contain relational data. For more information, please refer to: DatabaseType IDataLay...">DbLayerSql</a> will contain relational data. For more information, please refer to: <a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391" title="The DatabaseType that will be used when the project gets initialized. ">DatabaseType</a> <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any...">IDataLayer</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00017">17</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00018">18</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7e5e698a01f079ed158ad7793f6be02c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7e5e698a01f079ed158ad7793f6be02c">&#9670;&nbsp;</a></span>ChangePlayerTeam()</h2>
@@ -291,7 +298,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ab0beb1f4d550857a591cd71405857ed9">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00762">762</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00756">756</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -333,7 +340,30 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a58408bfadf88a17ec77e837a5550e344">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00794">794</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00784">784</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+
+</div>
+</div>
+<a id="ac10665c14d940f6cbc6221523556d0a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac10665c14d940f6cbc6221523556d0a9">&#9670;&nbsp;</a></span>CreateConnection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TeamManager.Database.DbLayerSql.CreateConnection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates the database connections. </p>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ae6762a0b636229d3210c2f33d3bc6ccc">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00092">92</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -375,7 +405,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ae2c27abc3188e15eb92567c4a0944393">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00336">336</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00353">353</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -417,7 +447,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a37449a4b274ecbc9f7cce55e89cd36bc">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00382">382</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00395">395</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -448,7 +478,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#af94e6c13834661415a8c0829977408cf">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00271">271</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00291">291</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -479,7 +509,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a1d347104f438b55ec969ef76c0b770d4">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00317">317</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00333">333</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -510,7 +540,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a08fbf444fe7144922df75df6b7043e82">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00712">712</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00709">709</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -541,7 +571,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a1da19b9e5090027f147953e6c6b43a9a">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00743">743</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00736">736</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -603,30 +633,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#aad1f442cf6160a77bb74450b4d3a0439">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00693">693</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
-
-</div>
-</div>
-<a id="a977cac073c266dc378c82f9af97d73cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a977cac073c266dc378c82f9af97d73cb">&#9670;&nbsp;</a></span>OpenConnection()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void TeamManager.Database.DbLayerSql.OpenConnection </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Opens the database connections. </p>
-
-<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a17fba671c89c921e6fd6ef0ebea20217">TeamManager.Database.IDataLayer</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00069">69</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00689">689</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -650,7 +657,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a4f22365c5c3e6d0f6e10220e8e317578">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00151">151</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00177">177</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -674,7 +681,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a5ac761c098fe29d379e9dfde7da6ab41">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00193">193</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00216">216</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -705,7 +712,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a9a44b9cd8aa9beedee10572c9caf38f6">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00456">456</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00467">467</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 <p class="reference">References <a class="el" href="_player_8cs_source.html#l00013">TeamManager.Models.ResourceData.Player.Id</a>, <a class="el" href="_player_8cs_source.html#l00016">TeamManager.Models.ResourceData.Player.Name</a>, and <a class="el" href="_player_8cs_source.html#l00019">TeamManager.Models.ResourceData.Player.TeamId</a>.</p>
 
@@ -738,7 +745,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a0ad9358ffcf3ea24b884fd1ec7f6385c">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00493">493</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00502">502</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -769,7 +776,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a98be496ca7a4693ae85faf4cff5e66f5">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00401">401</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00415">415</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 <p class="reference">References <a class="el" href="_team_8cs_source.html#l00013">TeamManager.Models.ResourceData.Team.Id</a>, and <a class="el" href="_team_8cs_source.html#l00016">TeamManager.Models.ResourceData.Team.Name</a>.</p>
 
@@ -802,7 +809,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a68cd9a48600b0cf1d9b6cfbe3b418b8a">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00438">438</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00449">449</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -833,7 +840,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a5c83e333cf3eedb8d2096b74b473adfa">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00211">211</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00234">234</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -864,7 +871,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a988ebb3d780c44058d40b2d4c112cd09">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00253">253</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00273">273</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -888,7 +895,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ad7368d21ddc45690aea63e1bae4ed2cf">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00092">92</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00121">121</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -912,7 +919,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ad50db6a3df0749044ebd023955b3260f">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00133">133</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00159">159</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -954,7 +961,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a5eba514544c15e3ec8f9fc70b4977960">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00560">560</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00567">567</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -1003,7 +1010,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a3d9adc5ade6594f14434f8c8d826dc9f">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00611">611</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00614">614</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -1045,7 +1052,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#aac104de644796603050cb287ae010035">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00592">592</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00594">594</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -1094,7 +1101,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ab661844177b07c810ef7474ffafbe1af">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00643">643</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00642">642</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -1136,7 +1143,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a805c0d87966c0817e3955a776f3dcd40">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00511">511</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00520">520</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -1178,7 +1185,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a075920ec06efafe7f01070ae64310ebb">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00541">541</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00547">547</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -1205,7 +1212,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Logger instance of the class <a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html" title="DbLayerSql will contain relational data. For more information, please refer to: DatabaseType IDataLay...">DbLayerSql</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00020">20</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_sql_8cs_source.html#l00021">21</a> of file <a class="el" href="_db_layer_sql_8cs_source.html">DbLayerSql.cs</a>.</p>
 
 </div>
 </div>
@@ -1218,7 +1225,7 @@ Static Private Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_team_manager.html">TeamManager</a></li><li class="navelem"><a class="el" href="namespace_team_manager_1_1_database.html">Database</a></li><li class="navelem"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html">DbLayerSql</a></li>
-    <li class="footer">Generated on Wed Jan 3 2018 09:22:21 for TeamManager AS Projekt by
+    <li class="footer">Generated on Wed Jan 3 2018 21:58:57 for TeamManager AS Projekt by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

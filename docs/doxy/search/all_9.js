@@ -1,6 +1,7 @@
 var searchData=
 [
   ['iallplayersview',['IAllPlayersView',['../class_i_all_players_view.html',1,'IAllPlayersView'],['../interface_team_manager_1_1_views_1_1_interfaces_1_1_i_all_players_view.html',1,'TeamManager.Views.Interfaces.IAllPlayersView']]],
+  ['ibusinesslogic',['IBusinessLogic',['../interface_team_manager_1_1_models_1_1_logic_1_1_i_business_logic.html',1,'TeamManager::Models::Logic']]],
   ['icomparable',['IComparable',['../class_i_comparable.html',1,'']]],
   ['iconsoleview',['IConsoleView',['../interface_team_manager_1_1_views_1_1_interfaces_1_1_i_console_view.html',1,'TeamManager::Views::Interfaces']]],
   ['id',['Id',['../class_team_manager_1_1_models_1_1_resource_data_1_1_player.html#ad050451317a62b31835969b1422d537b',1,'TeamManager.Models.ResourceData.Player.Id()'],['../class_team_manager_1_1_models_1_1_resource_data_1_1_team.html#aeba5b10a44dbdcc708d5a736b6fc7471',1,'TeamManager.Models.ResourceData.Team.Id()']]],
@@ -17,6 +18,6 @@ var searchData=
   ['invokeloader',['InvokeLoader',['../class_team_manager_1_1_views_1_1_loader_1_1_loaders.html#a3283df9909df7577b92d57d3f35509c4',1,'TeamManager::Views::Loader::Loaders']]],
   ['invokesafe_3c_20t_20_3e',['InvokeSafe&lt; T &gt;',['../class_team_manager_1_1_utilities_1_1_utility.html#a4f9a69e4b42e8d944722e7846a47701d',1,'TeamManager::Utilities::Utility']]],
   ['isnullorempty',['IsNullOrEmpty',['../class_team_manager_1_1_utilities_1_1_utility.html#a16926b0bddb790139f43a54213b30d42',1,'TeamManager::Utilities::Utility']]],
-  ['istrategy',['IStrategy',['../interface_team_manager_1_1_models_1_1_strategy_1_1_i_strategy.html',1,'TeamManager::Models::Strategy']]],
+  ['isortstrategy',['ISortStrategy',['../interface_team_manager_1_1_models_1_1_logic_1_1_i_sort_strategy.html',1,'TeamManager::Models::Logic']]],
   ['iunsignedplayersview',['IUnsignedPlayersView',['../interface_team_manager_1_1_views_1_1_interfaces_1_1_i_unsigned_players_view.html',1,'TeamManager.Views.Interfaces.IUnsignedPlayersView'],['../class_i_unsigned_players_view.html',1,'IUnsignedPlayersView']]]
 ];

@@ -1,0 +1,4 @@
+<map id="TeamManager.Models.Logic.BusinessLogicBase" name="TeamManager.Models.Logic.BusinessLogicBase">
+<area shape="rect" id="node2" href="$interface_team_manager_1_1_models_1_1_logic_1_1_i_sort_strategy.html" title="{TeamManager.Models.Logic.\lISortStrategy\n||+ Sort()\l+ Sort()\l}" alt="" coords="5,86,195,193"/>
+<area shape="rect" id="node4" href="$interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="355,5,552,273"/>
+</map>

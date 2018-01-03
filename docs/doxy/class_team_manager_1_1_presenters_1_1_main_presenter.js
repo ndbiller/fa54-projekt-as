@@ -3,6 +3,7 @@ var class_team_manager_1_1_presenters_1_1_main_presenter =
     [ "MainPresenter", "class_team_manager_1_1_presenters_1_1_main_presenter.html#a82582ae22caa09c63d2b1830fdbe1fba", null ],
     [ "BindPlayersData", "class_team_manager_1_1_presenters_1_1_main_presenter.html#a1d524f07f751f6b455dda292814006e1", null ],
     [ "BindTeamsData", "class_team_manager_1_1_presenters_1_1_main_presenter.html#afa62d8dabe60cfd0e16dcab7a1c9b98f", null ],
+    [ "ChangeStrategy", "class_team_manager_1_1_presenters_1_1_main_presenter.html#af3a2f4eae23a7ca36a74dffa150e50da", null ],
     [ "DeletePlayer", "class_team_manager_1_1_presenters_1_1_main_presenter.html#a048fa32130a570b1a6b0b47d07ca80fd", null ],
     [ "DeleteTeam", "class_team_manager_1_1_presenters_1_1_main_presenter.html#a639584280fec5c4d4201a333e7ed1c47", null ],
     [ "GetSelectedTeam", "class_team_manager_1_1_presenters_1_1_main_presenter.html#ac7fe6892a6d95c24fbc9f9c26ed72c7c", null ],

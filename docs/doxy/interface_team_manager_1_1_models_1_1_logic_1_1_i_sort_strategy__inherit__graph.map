@@ -1,0 +1,4 @@
+<map id="TeamManager.Models.Logic.ISortStrategy" name="TeamManager.Models.Logic.ISortStrategy">
+<area shape="rect" id="node2" href="$class_team_manager_1_1_models_1_1_logic_1_1_sort_ascending.html" title="{TeamManager.Models.Logic.\lSortAscending\n||+ Sort()\l+ Sort()\l}" alt="" coords="5,160,195,267"/>
+<area shape="rect" id="node3" href="$class_team_manager_1_1_models_1_1_logic_1_1_sort_descending.html" title="{TeamManager.Models.Logic.\lSortDescending\n||+ Sort()\l+ Sort()\l}" alt="" coords="219,160,408,267"/>
+</map>

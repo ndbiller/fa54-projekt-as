@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">TeamManager AS Projekt
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.2</span>
    </div>
    <div id="projectbrief">Softwaresystem als 3-Schichten-Architektur (Benutzungsoberfläche, Fachkonzept, Datenhaltung)</div>
   </td>
@@ -139,17 +139,22 @@ $(document).ready(function(){initNavTree('hierarchy.html','');});
 <area shape="rect" id="node3" href="class_team_manager_1_1_database_1_1_db_layer_sql.html" title="DbLayerSql will contain relational data. For more information, please refer to: DatabaseType IDataLay..." alt="" coords="251,71,485,98"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_7.png" border="0" alt="" usemap="#_team_manager_8_models_8_strategy_8_strategy_base"/>
-<map name="_team_manager_8_models_8_strategy_8_strategy_base" id="_team_manager_8_models_8_strategy_8_strategy_base">
-<area shape="rect" id="node1" href="interface_team_manager_1_1_models_1_1_strategy_1_1_i_strategy.html" title="This interface will get implemented by all the other StrategyTypes so it allows us to retrieve the sa..." alt="" coords="5,71,212,112"/>
-<area shape="rect" id="node2" href="class_team_manager_1_1_models_1_1_strategy_1_1_ascending_strategy.html" title="The AscendingStrategy implementation will retrieve the data from the StrategyBase.DbLayer in ascending order. The constructor that gets the DatabaseType will pass forward to the base constructor in order to initialize the IDataLayer which is used as the StrategyBase.DbLayer. For more details, please see IStrategy documentation. " alt="" coords="260,136,467,177"/>
-<area shape="rect" id="node3" href="class_team_manager_1_1_models_1_1_strategy_1_1_ascending_strategy_mt.html" title="The AscendingStrategyMt implementation will retrieve the data from the StrategyBase.DbLayer in ascending order using multi&#45;threaded calls. The constructor that gets the DatabaseType will pass forward to the base constructor in order to initialize the IDataLayer which is used as the StrategyBase.DbLayer. For more details, please see IStrategy documentation. " alt="" coords="260,201,467,243"/>
-<area shape="rect" id="node4" href="class_team_manager_1_1_models_1_1_strategy_1_1_descending_strategy.html" title="The DescendingStrategy implementation will retrieve the data from the StrategyBase.DbLayer in descending order. The constructor that gets the DatabaseType will pass forward to the base constructor in order to initialize the IDataLayer which is used as the StrategyBase.DbLayer. For more details, please see IStrategy documentation. " alt="" coords="260,5,467,47"/>
-<area shape="rect" id="node5" href="class_team_manager_1_1_models_1_1_strategy_1_1_descending_strategy_mt.html" title="The DescendingStrategyMt implementation will retrieve the data from the StrategyBase.DbLayer in descending order using multi&#45;threaded calls. The constructor that gets the DatabaseType will pass forward to the base constructor in order to initialize the IDataLayer which is used as the StrategyBase.DbLayer. For more details, please see IStrategy documentation. " alt="" coords="260,71,467,112"/>
-<area shape="rect" id="node6" href="class_team_manager_1_1_models_1_1_strategy_1_1_strategy_base.html" title="The StrategyBase will contain the IDataLayer interface which gives access to the choosen database in ..." alt="" coords="5,136,212,177"/>
+<tr><td><img src="inherit_graph_7.png" border="0" alt="" usemap="#_team_manager_8_models_8_logic_8_i_business_logic"/>
+<map name="_team_manager_8_models_8_logic_8_i_business_logic" id="_team_manager_8_models_8_logic_8_i_business_logic">
+<area shape="rect" id="node1" href="class_team_manager_1_1_models_1_1_logic_1_1_business_logic_base.html" title="TeamManager.Models.Logic.\lBusinessLogicBase" alt="" coords="5,5,195,47"/>
+<area shape="rect" id="node2" href="class_team_manager_1_1_models_1_1_logic_1_1_business_logic.html" title="TeamManager.Models.Logic.\lBusinessLogic" alt="" coords="243,5,432,47"/>
+<area shape="rect" id="node3" href="class_team_manager_1_1_models_1_1_logic_1_1_business_logic_mt.html" title="TeamManager.Models.Logic.\lBusinessLogicMt" alt="" coords="243,71,432,112"/>
+<area shape="rect" id="node4" href="interface_team_manager_1_1_models_1_1_logic_1_1_i_business_logic.html" title="This interface will get implemented by all the other StrategyTypes so it allows us to retrieve the sa..." alt="" coords="5,71,195,112"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_8.png" border="0" alt="" usemap="#_team_manager_8_presenters_8_base_presenter"/>
+<tr><td><img src="inherit_graph_8.png" border="0" alt="" usemap="#_team_manager_8_models_8_logic_8_i_sort_strategy"/>
+<map name="_team_manager_8_models_8_logic_8_i_sort_strategy" id="_team_manager_8_models_8_logic_8_i_sort_strategy">
+<area shape="rect" id="node1" href="interface_team_manager_1_1_models_1_1_logic_1_1_i_sort_strategy.html" title="TeamManager.Models.Logic.\lISortStrategy" alt="" coords="5,39,195,80"/>
+<area shape="rect" id="node2" href="class_team_manager_1_1_models_1_1_logic_1_1_sort_ascending.html" title="TeamManager.Models.Logic.\lSortAscending" alt="" coords="243,5,432,47"/>
+<area shape="rect" id="node3" href="class_team_manager_1_1_models_1_1_logic_1_1_sort_descending.html" title="TeamManager.Models.Logic.\lSortDescending" alt="" coords="243,71,432,112"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_9.png" border="0" alt="" usemap="#_team_manager_8_presenters_8_base_presenter"/>
 <map name="_team_manager_8_presenters_8_base_presenter" id="_team_manager_8_presenters_8_base_presenter">
 <area shape="rect" id="node1" href="class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the IStrategy interface that will be used for retrieving data from the..." alt="" coords="5,136,211,177"/>
 <area shape="rect" id="node2" href="class_team_manager_1_1_presenters_1_1_all_players_presenter.html" title="The AllPlayersPresenter which will couple together with the Views.Windows.Dialogs.AllPlayersWindow and update its view. " alt="" coords="278,5,469,47"/>
@@ -159,83 +164,83 @@ $(document).ready(function(){initNavTree('hierarchy.html','');});
 <area shape="rect" id="node6" href="class_team_manager_1_1_presenters_1_1_unsigned_players_presenter.html" title="The UnsignedPlayersPresenter which will couple together with the Views.Windows.Dialogs.UnsignedPlayersWindow and update its view. " alt="" coords="259,267,488,308"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_9.png" border="0" alt="" usemap="#_team_manager_8_program"/>
+<tr><td><img src="inherit_graph_10.png" border="0" alt="" usemap="#_team_manager_8_program"/>
 <map name="_team_manager_8_program" id="_team_manager_8_program">
 <area shape="rect" id="node1" href="class_team_manager_1_1_program.html" title="TeamManager.Program" alt="" coords="5,5,163,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_10.png" border="0" alt="" usemap="#_team_manager_8_properties_8_resources"/>
+<tr><td><img src="inherit_graph_11.png" border="0" alt="" usemap="#_team_manager_8_properties_8_resources"/>
 <map name="_team_manager_8_properties_8_resources" id="_team_manager_8_properties_8_resources">
 <area shape="rect" id="node1" href="class_team_manager_1_1_properties_1_1_resources.html" title="A strongly&#45;typed resource class, for looking up localized strings, etc. " alt="" coords="5,5,239,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_11.png" border="0" alt="" usemap="#_team_manager_8_properties_8_settings"/>
+<tr><td><img src="inherit_graph_12.png" border="0" alt="" usemap="#_team_manager_8_properties_8_settings"/>
 <map name="_team_manager_8_properties_8_settings" id="_team_manager_8_properties_8_settings">
 <area shape="rect" id="node2" href="class_team_manager_1_1_properties_1_1_settings.html" title="TeamManager.Properties.Settings" alt="" coords="217,5,436,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_12.png" border="0" alt="" usemap="#_team_manager_8_utilities_8_ctrl_type"/>
+<tr><td><img src="inherit_graph_13.png" border="0" alt="" usemap="#_team_manager_8_utilities_8_ctrl_type"/>
 <map name="_team_manager_8_utilities_8_ctrl_type" id="_team_manager_8_utilities_8_ctrl_type">
 <area shape="rect" id="node1" href="struct_team_manager_1_1_utilities_1_1_ctrl_type.html" title="Type defintion for the id&#39;s of the CtrlType that can occur whenever the console closes. The event type we get back from the NativeMethods.SetConsoleCtrlHandler that registers to the kernal of the windows api a method callback in Program.CloseCallback. For more information, please see: https://docs.microsoft.com/en&#45;us/windows/console/setconsolectrlhandler " alt="" coords="5,5,208,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_13.png" border="0" alt="" usemap="#_team_manager_8_utilities_8_defaults"/>
+<tr><td><img src="inherit_graph_14.png" border="0" alt="" usemap="#_team_manager_8_utilities_8_defaults"/>
 <map name="_team_manager_8_utilities_8_defaults" id="_team_manager_8_utilities_8_defaults">
 <area shape="rect" id="node1" href="class_team_manager_1_1_utilities_1_1_defaults.html" title="Defining all defaults to have in one place. " alt="" coords="5,5,208,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_14.png" border="0" alt="" usemap="#_team_manager_8_utilities_8_logger"/>
+<tr><td><img src="inherit_graph_15.png" border="0" alt="" usemap="#_team_manager_8_utilities_8_logger"/>
 <map name="_team_manager_8_utilities_8_logger" id="_team_manager_8_utilities_8_logger">
 <area shape="rect" id="node1" href="class_team_manager_1_1_utilities_1_1_logger.html" title="The logger that we use is from apache: http://logging.apache.org/log4net/ You can read the documentat..." alt="" coords="5,5,200,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_15.png" border="0" alt="" usemap="#_team_manager_8_utilities_8_native_methods"/>
+<tr><td><img src="inherit_graph_16.png" border="0" alt="" usemap="#_team_manager_8_utilities_8_native_methods"/>
 <map name="_team_manager_8_utilities_8_native_methods" id="_team_manager_8_utilities_8_native_methods">
 <area shape="rect" id="node1" href="class_team_manager_1_1_utilities_1_1_native_methods.html" title="Windows api native methods wrapped into a class with suppress unmanaged code security in order to mak..." alt="" coords="5,5,196,47"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_16.png" border="0" alt="" usemap="#_team_manager_8_utilities_8_utility"/>
+<tr><td><img src="inherit_graph_17.png" border="0" alt="" usemap="#_team_manager_8_utilities_8_utility"/>
 <map name="_team_manager_8_utilities_8_utility" id="_team_manager_8_utilities_8_utility">
 <area shape="rect" id="node1" href="class_team_manager_1_1_utilities_1_1_utility.html" title="Utility class used mostly for extensions methods in order to simplify code. " alt="" coords="5,5,193,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_17.png" border="0" alt="" usemap="#_team_manager_8_views_8_gui"/>
+<tr><td><img src="inherit_graph_18.png" border="0" alt="" usemap="#_team_manager_8_views_8_gui"/>
 <map name="_team_manager_8_views_8_gui" id="_team_manager_8_views_8_gui">
 <area shape="rect" id="node1" href="class_team_manager_1_1_views_1_1_gui.html" title="Graphic User Interface Class. " alt="" coords="5,5,172,32"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_18.png" border="0" alt="" usemap="#_team_manager_8_views_8_interfaces_8_i_all_players_view"/>
+<tr><td><img src="inherit_graph_19.png" border="0" alt="" usemap="#_team_manager_8_views_8_interfaces_8_i_all_players_view"/>
 <map name="_team_manager_8_views_8_interfaces_8_i_all_players_view" id="_team_manager_8_views_8_interfaces_8_i_all_players_view">
 <area shape="rect" id="node1" href="interface_team_manager_1_1_views_1_1_interfaces_1_1_i_all_players_view.html" title="The IAllPlayersView interface which the Windows.Dialogs.AllPlayersWindow implements in order to expos..." alt="" coords="5,5,212,47"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_19.png" border="0" alt="" usemap="#_team_manager_8_views_8_interfaces_8_i_console_view"/>
+<tr><td><img src="inherit_graph_20.png" border="0" alt="" usemap="#_team_manager_8_views_8_interfaces_8_i_console_view"/>
 <map name="_team_manager_8_views_8_interfaces_8_i_console_view" id="_team_manager_8_views_8_interfaces_8_i_console_view">
 <area shape="rect" id="node1" href="interface_team_manager_1_1_views_1_1_interfaces_1_1_i_console_view.html" title="The IConsoleView interface which the Windows.MainTui implements in order to expose properties to the ..." alt="" coords="5,5,212,47"/>
 <area shape="rect" id="node2" href="class_team_manager_1_1_views_1_1_windows_1_1_main_tui.html" title="The MainTui where the TUI starts which will allow you do the same things as in gui just without graph..." alt="" coords="260,5,464,47"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_20.png" border="0" alt="" usemap="#_team_manager_8_views_8_interfaces_8_i_edit_view"/>
+<tr><td><img src="inherit_graph_21.png" border="0" alt="" usemap="#_team_manager_8_views_8_interfaces_8_i_edit_view"/>
 <map name="_team_manager_8_views_8_interfaces_8_i_edit_view" id="_team_manager_8_views_8_interfaces_8_i_edit_view">
 <area shape="rect" id="node1" href="interface_team_manager_1_1_views_1_1_interfaces_1_1_i_edit_view.html" title="The IEditView interface which the Windows.Dialogs.EditWindow implements in order to expose properties..." alt="" coords="5,5,212,47"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_21.png" border="0" alt="" usemap="#_team_manager_8_views_8_interfaces_8_i_main_view"/>
+<tr><td><img src="inherit_graph_22.png" border="0" alt="" usemap="#_team_manager_8_views_8_interfaces_8_i_main_view"/>
 <map name="_team_manager_8_views_8_interfaces_8_i_main_view" id="_team_manager_8_views_8_interfaces_8_i_main_view">
 <area shape="rect" id="node1" href="interface_team_manager_1_1_views_1_1_interfaces_1_1_i_main_view.html" title="The IMainView interface which the Windows.MainWindow implements in order to expose properties to the ..." alt="" coords="5,5,212,47"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_22.png" border="0" alt="" usemap="#_team_manager_8_views_8_interfaces_8_i_unsigned_players_view"/>
+<tr><td><img src="inherit_graph_23.png" border="0" alt="" usemap="#_team_manager_8_views_8_interfaces_8_i_unsigned_players_view"/>
 <map name="_team_manager_8_views_8_interfaces_8_i_unsigned_players_view" id="_team_manager_8_views_8_interfaces_8_i_unsigned_players_view">
 <area shape="rect" id="node1" href="interface_team_manager_1_1_views_1_1_interfaces_1_1_i_unsigned_players_view.html" title="The IUnsignedPlayersView interface which the Windows.Dialogs.UnsignedPlayersWindow implements in orde..." alt="" coords="5,5,212,47"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_23.png" border="0" alt="" usemap="#_team_manager_8_views_8_loader_8_loaders"/>
+<tr><td><img src="inherit_graph_24.png" border="0" alt="" usemap="#_team_manager_8_views_8_loader_8_loaders"/>
 <map name="_team_manager_8_views_8_loader_8_loaders" id="_team_manager_8_views_8_loader_8_loaders">
 <area shape="rect" id="node1" href="class_team_manager_1_1_views_1_1_loader_1_1_loaders.html" title="Loaders class used for displaying a loader window without freezing the main thread in a thread safe m..." alt="" coords="5,5,196,47"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_24.png" border="0" alt="" usemap="#_team_manager_8_views_8_tui"/>
+<tr><td><img src="inherit_graph_25.png" border="0" alt="" usemap="#_team_manager_8_views_8_tui"/>
 <map name="_team_manager_8_views_8_tui" id="_team_manager_8_views_8_tui">
 <area shape="rect" id="node1" href="class_team_manager_1_1_views_1_1_tui.html" title="Terminal User Interface Class. " alt="" coords="5,5,169,32"/>
 </map>
@@ -246,7 +251,7 @@ $(document).ready(function(){initNavTree('hierarchy.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Jan 3 2018 09:22:24 for TeamManager AS Projekt by
+    <li class="footer">Generated on Wed Jan 3 2018 21:59:03 for TeamManager AS Projekt by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

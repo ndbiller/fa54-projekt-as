@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">TeamManager AS Projekt
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.2</span>
    </div>
    <div id="projectbrief">Softwaresystem als 3-Schichten-Architektur (Benutzungsoberfläche, Fachkonzept, Datenhaltung)</div>
   </td>
@@ -84,9 +84,9 @@ $(document).ready(function(){initNavTree('class_team_manager_1_1_database_1_1_db
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pac-static-attribs">Static Package Attributes</a> &#124;
 <a href="#properties">Properties</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_team_manager_1_1_database_1_1_db_layer_mongo-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -101,7 +101,7 @@ Inheritance diagram for TeamManager.Database.DbLayerMongo:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_team_manager_1_1_database_1_1_db_layer_mongo__inherit__graph.png" border="0" usemap="#_team_manager_8_database_8_db_layer_mongo_inherit__map" alt="Inheritance graph"/></div>
 <map name="_team_manager_8_database_8_db_layer_mongo_inherit__map" id="_team_manager_8_database_8_db_layer_mongo_inherit__map">
-<area shape="rect" id="node2" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="43,5,182,229"/>
+<area shape="rect" id="node2" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="28,5,197,259"/>
 </map>
 </div>
 <div class="dynheader">
@@ -109,15 +109,15 @@ Collaboration diagram for TeamManager.Database.DbLayerMongo:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_team_manager_1_1_database_1_1_db_layer_mongo__coll__graph.png" border="0" usemap="#_team_manager_8_database_8_db_layer_mongo_coll__map" alt="Collaboration graph"/></div>
 <map name="_team_manager_8_database_8_db_layer_mongo_coll__map" id="_team_manager_8_database_8_db_layer_mongo_coll__map">
-<area shape="rect" id="node2" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="5,5,144,229"/>
+<area shape="rect" id="node2" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="5,5,175,259"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae24789cce82a0121ad9203d1c245b047"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_mongo.html#ae24789cce82a0121ad9203d1c245b047">OpenConnection</a> ()</td></tr>
-<tr class="memdesc:ae24789cce82a0121ad9203d1c245b047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the database connections.  <a href="#ae24789cce82a0121ad9203d1c245b047">More...</a><br /></td></tr>
-<tr class="separator:ae24789cce82a0121ad9203d1c245b047"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97ef490c27c9db6b26f1b2c2e82588f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_mongo.html#a97ef490c27c9db6b26f1b2c2e82588f3">CreateConnection</a> ()</td></tr>
+<tr class="memdesc:a97ef490c27c9db6b26f1b2c2e82588f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the database connections.  <a href="#a97ef490c27c9db6b26f1b2c2e82588f3">More...</a><br /></td></tr>
+<tr class="separator:a97ef490c27c9db6b26f1b2c2e82588f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a478fcadb15da129638d43ba6f582b5bf"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_team.html">Team</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_mongo.html#a478fcadb15da129638d43ba6f582b5bf">Teams</a> ()</td></tr>
 <tr class="memdesc:a478fcadb15da129638d43ba6f582b5bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all Teams in a list.  <a href="#a478fcadb15da129638d43ba6f582b5bf">More...</a><br /></td></tr>
 <tr class="separator:a478fcadb15da129638d43ba6f582b5bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -197,6 +197,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6472ac271d326ba7ae53352bb4bd33f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the Player team with the specified teamId using async call.  <a href="#a6472ac271d326ba7ae53352bb4bd33f7">More...</a><br /></td></tr>
 <tr class="separator:a6472ac271d326ba7ae53352bb4bd33f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a6effa5550590b6ab279a4c03a9bf5dd7"><td class="memItemLeft" align="right" valign="top"><a id="a6effa5550590b6ab279a4c03a9bf5dd7"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>TeamsCollectionName</b> =&gt; &quot;team&quot;</td></tr>
+<tr class="separator:a6effa5550590b6ab279a4c03a9bf5dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5df0510244b92dd3fc0f24179b748b1f"><td class="memItemLeft" align="right" valign="top"><a id="a5df0510244b92dd3fc0f24179b748b1f"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>PlayersCollectionName</b> =&gt; &quot;player&quot;</td></tr>
+<tr class="separator:a5df0510244b92dd3fc0f24179b748b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cd74e83ed5512288ebbb70a442b952e"><td class="memItemLeft" align="right" valign="top"><a id="a2cd74e83ed5512288ebbb70a442b952e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>TimeoutMilisec</b> =&gt; 3000</td></tr>
+<tr class="separator:a2cd74e83ed5512288ebbb70a442b952e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pac-static-attribs"></a>
 Static Package Attributes</h2></td></tr>
 <tr class="memitem:afdbdcc346758061954a22e038c7261fd"><td class="memItemLeft" align="right" valign="top"><a id="afdbdcc346758061954a22e038c7261fd"></a>
@@ -220,36 +232,31 @@ Properties</h2></td></tr>
 <tr class="memitem:ac9994f9ef3db43f5bf3f9df78f8593b7"><td class="memItemLeft" align="right" valign="top"><a id="ac9994f9ef3db43f5bf3f9df78f8593b7"></a>
 static MongoClient&#160;</td><td class="memItemRight" valign="bottom"><b>Client</b><code> [get, set]</code></td></tr>
 <tr class="separator:ac9994f9ef3db43f5bf3f9df78f8593b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b0de233f7925cc8e224576301333778"><td class="memItemLeft" align="right" valign="top"><a id="a8b0de233f7925cc8e224576301333778"></a>
-static IMongoDatabase&#160;</td><td class="memItemRight" valign="bottom"><b>Database</b><code> [get, private set]</code></td></tr>
-<tr class="separator:a8b0de233f7925cc8e224576301333778"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ca0a7fe0da044f72154677e620ec268"><td class="memItemLeft" align="right" valign="top"><a id="a2ca0a7fe0da044f72154677e620ec268"></a>
+static IMongoDatabase&#160;</td><td class="memItemRight" valign="bottom"><b>Connection</b><code> [get, private set]</code></td></tr>
+<tr class="separator:a2ca0a7fe0da044f72154677e620ec268"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09422f3bffa56afd843d670f7611b700"><td class="memItemLeft" align="right" valign="top"><a id="a09422f3bffa56afd843d670f7611b700"></a>
 static IMongoCollection&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_team.html">Team</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>TeamCollection</b><code> [get, set]</code></td></tr>
 <tr class="separator:a09422f3bffa56afd843d670f7611b700"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a066dd0d625083ab7f650455b13bdfbdc"><td class="memItemLeft" align="right" valign="top"><a id="a066dd0d625083ab7f650455b13bdfbdc"></a>
 static IMongoCollection&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_player.html">Player</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>PlayerCollection</b><code> [get, set]</code></td></tr>
 <tr class="separator:a066dd0d625083ab7f650455b13bdfbdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:aa88510ff86e0d1d3a9622355e11e894b"><td class="memItemLeft" align="right" valign="top"><a id="aa88510ff86e0d1d3a9622355e11e894b"></a>
-const string&#160;</td><td class="memItemRight" valign="bottom"><b>TeamsCollectionName</b> = &quot;team&quot;</td></tr>
-<tr class="separator:aa88510ff86e0d1d3a9622355e11e894b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acea6c00911226f0d1f60be392f4de677"><td class="memItemLeft" align="right" valign="top"><a id="acea6c00911226f0d1f60be392f4de677"></a>
-const string&#160;</td><td class="memItemRight" valign="bottom"><b>PlayersCollectionName</b> = &quot;player&quot;</td></tr>
-<tr class="separator:acea6c00911226f0d1f60be392f4de677"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a148626d086b0ae2299dca7af474c03c7"><td class="memItemLeft" align="right" valign="top"><a id="a148626d086b0ae2299dca7af474c03c7"></a>
-const int&#160;</td><td class="memItemRight" valign="bottom"><b>TimeoutMilisec</b> = 3000</td></tr>
-<tr class="separator:a148626d086b0ae2299dca7af474c03c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td colspan="2" onclick="javascript:toggleInherit('properties_interface_team_manager_1_1_database_1_1_i_data_layer')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html">TeamManager.Database.IDataLayer</a></td></tr>
+<tr class="memitem:ab781a372bc40f107755040ee0da8c30e inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ab781a372bc40f107755040ee0da8c30e">TimeoutMilisec</a><code> [get]</code></td></tr>
+<tr class="memdesc:ab781a372bc40f107755040ee0da8c30e inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Timeout in miliseconds for task to execute when using the async calls.  <a href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ab781a372bc40f107755040ee0da8c30e">More...</a><br /></td></tr>
+<tr class="separator:ab781a372bc40f107755040ee0da8c30e inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af685f42a406758be7f904efa22a9efbf inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#af685f42a406758be7f904efa22a9efbf">TeamsCollectionName</a><code> [get]</code></td></tr>
+<tr class="memdesc:af685f42a406758be7f904efa22a9efbf inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The collection/table of the Teams.  <a href="interface_team_manager_1_1_database_1_1_i_data_layer.html#af685f42a406758be7f904efa22a9efbf">More...</a><br /></td></tr>
+<tr class="separator:af685f42a406758be7f904efa22a9efbf inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30f90e969079afcc26ed1fc04c3ba1ef inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a30f90e969079afcc26ed1fc04c3ba1ef">PlayersCollectionName</a><code> [get]</code></td></tr>
+<tr class="memdesc:a30f90e969079afcc26ed1fc04c3ba1ef inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="mdescLeft">&#160;</td><td class="mdescRight">The collection/table of the Players.  <a href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a30f90e969079afcc26ed1fc04c3ba1ef">More...</a><br /></td></tr>
+<tr class="separator:a30f90e969079afcc26ed1fc04c3ba1ef inherit properties_interface_team_manager_1_1_database_1_1_i_data_layer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a16188adf6b929c2078bbcb2f1deac129"><td class="memItemLeft" align="right" valign="top">static readonly ILog&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_mongo.html#a16188adf6b929c2078bbcb2f1deac129">Log</a> = Logger.GetLogger()</td></tr>
 <tr class="memdesc:a16188adf6b929c2078bbcb2f1deac129"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger instance of the class <a class="el" href="class_team_manager_1_1_database_1_1_db_layer_mongo.html" title="DbLayerMongo will contain none-relational data. For more information, please refer to: DatabaseType I...">DbLayerMongo</a>  <a href="#a16188adf6b929c2078bbcb2f1deac129">More...</a><br /></td></tr>
 <tr class="separator:a16188adf6b929c2078bbcb2f1deac129"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab76e64ace3df9ee9888438e93f8f1223"><td class="memItemLeft" align="right" valign="top"><a id="ab76e64ace3df9ee9888438e93f8f1223"></a>
-static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>DatabaseName</b></td></tr>
-<tr class="separator:ab76e64ace3df9ee9888438e93f8f1223"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77c9ee9ffb9773409f7a484a02d22c0e"><td class="memItemLeft" align="right" valign="top"><a id="a77c9ee9ffb9773409f7a484a02d22c0e"></a>
 static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>ConnectionString</b></td></tr>
 <tr class="separator:a77c9ee9ffb9773409f7a484a02d22c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -297,7 +304,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ab0beb1f4d550857a591cd71405857ed9">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00576">576</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00581">581</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -339,7 +346,30 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a58408bfadf88a17ec77e837a5550e344">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00599">599</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00604">604</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+
+</div>
+</div>
+<a id="a97ef490c27c9db6b26f1b2c2e82588f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97ef490c27c9db6b26f1b2c2e82588f3">&#9670;&nbsp;</a></span>CreateConnection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TeamManager.Database.DbLayerMongo.CreateConnection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates the database connections. </p>
+
+<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ae6762a0b636229d3210c2f33d3bc6ccc">TeamManager.Database.IDataLayer</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00083">83</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -381,7 +411,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ae2c27abc3188e15eb92567c4a0944393">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00247">247</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00252">252</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -423,7 +453,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a37449a4b274ecbc9f7cce55e89cd36bc">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00266">266</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00271">271</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -454,7 +484,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#af94e6c13834661415a8c0829977408cf">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00209">209</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00214">214</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -485,7 +515,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a1d347104f438b55ec969ef76c0b770d4">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00228">228</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00233">233</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -516,7 +546,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a08fbf444fe7144922df75df6b7043e82">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00538">538</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00543">543</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -547,7 +577,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a1da19b9e5090027f147953e6c6b43a9a">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00557">557</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00562">562</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -578,7 +608,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a896666368c9670a7c6a2a097c1e4715b">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00500">500</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00505">505</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -609,30 +639,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#aad1f442cf6160a77bb74450b4d3a0439">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00519">519</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
-
-</div>
-</div>
-<a id="ae24789cce82a0121ad9203d1c245b047"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae24789cce82a0121ad9203d1c245b047">&#9670;&nbsp;</a></span>OpenConnection()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void TeamManager.Database.DbLayerMongo.OpenConnection </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Opens the database connections. </p>
-
-<p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a17fba671c89c921e6fd6ef0ebea20217">TeamManager.Database.IDataLayer</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00078">78</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00524">524</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -656,7 +663,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a4f22365c5c3e6d0f6e10220e8e317578">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00133">133</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00138">138</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -680,7 +687,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a5ac761c098fe29d379e9dfde7da6ab41">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00152">152</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00157">157</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -711,7 +718,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a9a44b9cd8aa9beedee10572c9caf38f6">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00323">323</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00328">328</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -742,7 +749,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a0ad9358ffcf3ea24b884fd1ec7f6385c">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00342">342</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00347">347</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -773,7 +780,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a98be496ca7a4693ae85faf4cff5e66f5">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00285">285</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00290">290</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -804,7 +811,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a68cd9a48600b0cf1d9b6cfbe3b418b8a">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00304">304</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00309">309</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -835,7 +842,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a5c83e333cf3eedb8d2096b74b473adfa">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00171">171</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00176">176</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -866,7 +873,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a988ebb3d780c44058d40b2d4c112cd09">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00190">190</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00195">195</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -890,7 +897,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ad7368d21ddc45690aea63e1bae4ed2cf">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00095">95</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00100">100</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -914,7 +921,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ad50db6a3df0749044ebd023955b3260f">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00114">114</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00119">119</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -956,7 +963,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a5eba514544c15e3ec8f9fc70b4977960">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00407">407</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00412">412</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -1005,7 +1012,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a3d9adc5ade6594f14434f8c8d826dc9f">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00454">454</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00459">459</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -1047,7 +1054,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#aac104de644796603050cb287ae010035">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00430">430</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00435">435</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -1096,7 +1103,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ab661844177b07c810ef7474ffafbe1af">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00477">477</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00482">482</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -1138,7 +1145,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a805c0d87966c0817e3955a776f3dcd40">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00361">361</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00366">366</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -1180,7 +1187,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 
 <p>Implements <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a075920ec06efafe7f01070ae64310ebb">TeamManager.Database.IDataLayer</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00384">384</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_db_layer_mongo_8cs_source.html#l00389">389</a> of file <a class="el" href="_db_layer_mongo_8cs_source.html">DbLayerMongo.cs</a>.</p>
 
 </div>
 </div>
@@ -1220,7 +1227,7 @@ static readonly string&#160;</td><td class="memItemRight" valign="bottom"><b>Con
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_team_manager.html">TeamManager</a></li><li class="navelem"><a class="el" href="namespace_team_manager_1_1_database.html">Database</a></li><li class="navelem"><a class="el" href="class_team_manager_1_1_database_1_1_db_layer_mongo.html">DbLayerMongo</a></li>
-    <li class="footer">Generated on Wed Jan 3 2018 09:22:21 for TeamManager AS Projekt by
+    <li class="footer">Generated on Wed Jan 3 2018 21:58:57 for TeamManager AS Projekt by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>
