@@ -1,27 +1,41 @@
-﻿using TeamManager.Database;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TeamManager.Database;
 using TeamManager.Utilities;
 
-namespace TeamManager.Models.Strategy
+namespace TeamManager.Models.Logic
 {
-    /// <summary>
-    /// The <see cref="StrategyBase"/> will contain the <see cref="IDataLayer"/> interface which gives 
-    /// access to the choosen database in order to retrieve data for the inherited <see cref="StrategyType"/>s
-    /// in order to pass the neccessary data to the <see cref="Presenters.BasePresenter"/>.
-    /// </summary>
-    public abstract class StrategyBase
+    public abstract class BusinessLogicBase
     {
         /// <summary> The <see cref="IDataLayer"/> instance that will be used for retrieving data from the database. </summary>
         protected IDataLayer DbLayer;
 
 
+        protected static ISortStrategy SortBehaviour;
 
+        private static SortType _sortType;
+        public static SortType SortType
+        {
+            get => _sortType;
+            set
+            {
+                _sortType = value;
+                if (_sortType == SortType.Descending)
+                    SortBehaviour = new SortDescending();
+                else
+                    SortBehaviour = new SortAscending();
+            }
+        }
 
         /// <summary>
         /// The constructor of the <see cref="StrategyBase"/> will initialize the database type and receive the type
         /// from the constructors of it's inherited objects.
         /// </summary>
         /// <param name="dbType"></param>
-        protected StrategyBase(DatabaseType dbType)
+        protected BusinessLogicBase(DatabaseType dbType, SortType sortType)
         {
             switch (dbType)
             {
@@ -35,7 +49,8 @@ namespace TeamManager.Models.Strategy
                     DbLayer = Defaults.Database;
                     break;
             }
-        }
 
+            SortType = sortType;
+        }
     }
 }

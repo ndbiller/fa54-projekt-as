@@ -1,20 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using TeamManager.Database;
 using TeamManager.Models.ResourceData;
 
-namespace TeamManager.Models.Strategy
+namespace TeamManager.Models.Logic
 {
-    /// <summary>
-    /// The <see cref="AscendingStrategy"/> implementation will retrieve the data from the 
-    /// <see cref="StrategyBase.DbLayer"/> in ascending order.
-    /// The constructor that gets the <see cref="DatabaseType"/> will pass forward to the base constructor
-    /// in order to initialize the <see cref="IDataLayer"/> which is used as the <see cref="StrategyBase.DbLayer"/>.
-    /// For more details, please see <see cref="IStrategy"/> documentation.
-    /// </summary>
-    public class AscendingStrategy : StrategyBase, IStrategy
+    public class BusinessLogic : BusinessLogicBase, IBusinessLogic
     {
-        public AscendingStrategy(DatabaseType dbType) : base(dbType) { }
+        public BusinessLogic(DatabaseType dbType, SortType sortType) : base(dbType, sortType) { }
 
 
         public bool AddNewPlayer(string playerName)
@@ -49,7 +45,7 @@ namespace TeamManager.Models.Strategy
 
         public List<Player> GetAllPlayers()
         {
-            return DbLayer.Players()?.OrderBy(p => p.Name).ToList();
+            return SortBehaviour.Sort(DbLayer.Players());
         }
 
         public List<Player> GetAllPlayers(string filterText, bool ignoreCase)
@@ -62,24 +58,20 @@ namespace TeamManager.Models.Strategy
 
         public List<Team> GetAllTeams()
         {
-            return DbLayer.Teams()?
-                .Where(t => t.Id != "0")
-                .OrderBy(t => t.Name)
-                .ToList();
+            return SortBehaviour.Sort(DbLayer.Teams()?.Where(t => t.Id != "0"));
         }
 
         public List<Team> GetAllTeams(string filterText, bool ignoreCase)
         {
             return GetAllTeams()?
-                .Where(
-                    t => t.Id != "0"
-                         && t.Name.ToLower().Contains(ignoreCase ? filterText.ToLower() : filterText)
+                .Where(t =>
+                    t.Name.ToLower().Contains(ignoreCase ? filterText.ToLower() : filterText)
                 ).ToList();
         }
 
         public List<Player> GetTeamPlayers(string teamId)
         {
-            return DbLayer.ShowPlayers(teamId)?.OrderBy(p => p.Name).ToList();
+            return SortBehaviour.Sort(DbLayer.ShowPlayers(teamId));
         }
 
         public List<Player> GetTeamPlayers(string teamId, string filterText, bool ignoreCase)
@@ -104,6 +96,5 @@ namespace TeamManager.Models.Strategy
         {
             return DbLayer.ChangePlayerTeam(playerId, teamId);
         }
-
     }
 }

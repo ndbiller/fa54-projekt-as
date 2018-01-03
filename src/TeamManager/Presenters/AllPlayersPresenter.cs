@@ -58,7 +58,7 @@ namespace TeamManager.Presenters
             Player player = _view.PlayersListBox[pSelIndex].ToPlayer();
             if (player == null) return;
 
-            Strategy.RemovePlayer(player.Id);
+            BusinessLogic.RemovePlayer(player.Id);
             _view.PlayersListBox.RemoveAt(pSelIndex);
             if (_view.PlayersListBox.Count == pSelIndex)
                 pSelIndex--;
@@ -83,7 +83,7 @@ namespace TeamManager.Presenters
             Log.Info("Binding players data to listbox.");
             _allowPlayersDataBinding = false;
             _view.PlayersListBox.Clear();
-            List<Player> players = Strategy.GetAllPlayers();
+            List<Player> players = BusinessLogic.GetAllPlayers();
             if (players.IsNullOrEmpty()) return;
 
             players.ForEach(player => _view.PlayersListBox.Add(player));
@@ -100,7 +100,7 @@ namespace TeamManager.Presenters
 
             Log.Info("Updating player data view.");
             Player player = _view.PlayersListBox[_view.PlayerSelectedIndex].ToPlayer();
-            Team team = Strategy.GetPlayerTeam(player.TeamId);
+            Team team = BusinessLogic.GetPlayerTeam(player.TeamId);
 
             _view.PlayerNameText = player.Name;
             _view.TeamNameText = team.Name;
@@ -119,7 +119,7 @@ namespace TeamManager.Presenters
             Player player = _view.PlayersListBox[pSelIndex].ToPlayer();
             if (player == null) return null;
 
-            Team team = Strategy.GetPlayerTeam(player.TeamId);
+            Team team = BusinessLogic.GetPlayerTeam(player.TeamId);
             if (team == null) return new Tuple<Team, Player>(null, player);
 
             return new Tuple<Team, Player>(team, player);
