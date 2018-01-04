@@ -1,0 +1,4 @@
+<map id="TeamManager.Views.Windows.Dialogs.AllPlayersWindow" name="TeamManager.Views.Windows.Dialogs.AllPlayersWindow">
+<area shape="rect" id="node2" href="$class_custom_form.html" title="{CustomForm\n||}" alt="" coords="5,5,103,83"/>
+<area shape="rect" id="node3" href="$class_i_all_players_view.html" title="{IAllPlayersView\n||}" alt="" coords="127,5,239,83"/>
+</map>

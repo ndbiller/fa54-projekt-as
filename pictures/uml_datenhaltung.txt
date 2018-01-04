@@ -1,0 +1,98 @@
+@startuml
+hide class circle
+hide interface circle
+hide class empty methods
+
+skinparam { 
+classAttributeIconSize 0
+}
+
+IDataLayer <|.. DBLayerMongo
+IDataLayer <|.. DBLayerSql
+
+interface IDataLayer {
+{abstract}ConnectDB(String):void
+--
+{abstract}Teams():List<Team>
+..
+{abstract}CreateTeam(String):bool
+{abstract}ReadTeam(String):Team
+{abstract}UpdateTeam(String):bool
+{abstract}DeleteTeam(String):bool
+--
+{abstract}Players():List<Player>
+{abstract}ShowPlayers(String):List<Player>
+..
+{abstract}CreatePlayer(String):bool
+{abstract}ReadPlayer(String):Player
+{abstract}UpdatePlayer(String):bool
+{abstract}DeletePlayer(String):bool
+}
+
+class DBLayerMongo {
+-{static}CONNECTION_STRING
+==
++DBLayerMongo()
++DBLayerMongo(String)
+'+GetConnectionString():String
+'-SetConnectionString(String):void
+--
+-ConnectDB(String):void
+--
++Teams():List<Team>
+..
++CreateTeam(String):bool
++ReadTeam(String):Team
++UpdateTeam(String):bool
++DeleteTeam(String):bool
+--
++Players():List<Player>
++ShowPlayers(String):List<Player>
+..
++CreatePlayer(String):bool
++ReadPlayer(String):Player
++UpdatePlayer(String):bool
++DeletePlayer(String):bool
+}
+
+class DBLayerSql {
+-{static}CONNECTION_STRING
+==
++DBLayerSql()
++DBLayerSql(String)
+'+GetConnectionString():String
+'-SetConnectionString(String):void
+--
+-ConnectDB(String):void
+--
++Teams():List<Team>
+..
++CreateTeam(String):bool
++ReadTeam(String):Team
++UpdateTeam(String):bool
++DeleteTeam(String):bool
+--
++Players():List<Player>
++ShowPlayers(String):List<Player>
+..
++CreatePlayer(String):bool
++ReadPlayer(String):Player
++UpdatePlayer(String):bool
++DeletePlayer(String):bool
+}
+
+namespace DataModel {
+team "1" o-- "n" player : has
+
+object team {
+id = "2e2c46f3-a588-4e80-aa48-074331c39242"
+name = "Team One"
+}
+
+object player {
+id = "2e2c46f3-a588-4e80-aa48-074331c39242"
+name = "Player One"
+team = "1b9db300-7f60-439e-814c-371b25155dd1"
+}
+}
+@enduml

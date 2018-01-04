@@ -1,0 +1,10 @@
+<map id="TeamManager.Program.ParseArgs" name="TeamManager.Program.ParseArgs">
+<area shape="rect" id="node2" href="$class_team_manager_1_1_program.html#a14dd180e4fa9bb0b10d28da58d7260f4" title="Hooks the console using the NativeMethods class methods that are exported from the windows api dlls i..." alt="" coords="783,71,973,112"/>
+<area shape="rect" id="node6" href="$class_team_manager_1_1_program.html#aa968135dfadf32a580e7bed7a5f3d95a" title="Prints out invalid syntax when invalid syntax received. " alt="" coords="539,125,735,167"/>
+<area shape="rect" id="node7" href="$class_team_manager_1_1_program.html#a91d7403e93c0a908a2caf71e2ee332b8" title="Parses the DatabaseType argument for modifying the _dbType before the main initializes the database a..." alt="" coords="286,151,481,192"/>
+<area shape="rect" id="node8" href="$class_team_manager_1_1_program.html#a064f54d0b60f07eb60629feac421d383" title="Parses the StrategyType argument for modifying the _strategyType before the main initializes the data..." alt="" coords="286,216,481,257"/>
+<area shape="rect" id="node9" href="$class_team_manager_1_1_program.html#a8edb006dd3c63b0d03cd0469f15ba04c" title="Prints the help window to the user with all the configuration options. " alt="" coords="276,282,491,309"/>
+<area shape="rect" id="node3" href="$class_team_manager_1_1_utilities_1_1_native_methods.html#af7c43608d1ad8d276ccefb0ded7b415e" title="Allows to allocate console view even if the project configurations set to windows forms as output..." alt="" coords="1029,5,1220,47"/>
+<area shape="rect" id="node4" href="$class_team_manager_1_1_program.html#a0d7910bc789a7a5ac5536977a74c502a" title="Callback method that is registered to the windows kernal with the ConsoleClosedHandler for catching t..." alt="" coords="1027,71,1222,112"/>
+<area shape="rect" id="node5" href="$class_team_manager_1_1_utilities_1_1_native_methods.html#aa5ff52fbcde11be2f651785b731f51cc" title="Catches the close event chain of the windows api when using console in order to do some wrapping befo..." alt="" coords="1021,136,1228,177"/>
+</map>
