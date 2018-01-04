@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$interface_team_manager_1_1_database_1_1_i_data_layer.html" title="TeamManager.Database.IData\lLayer" alt="" coords="5,35,203,76"/>
-<area shape="rect" id="node2" href="$class_team_manager_1_1_database_1_1_db_layer_mongo.html" title="TeamManager.Database.DbLayer\lMongo" alt="" coords="261,5,475,47"/>
-<area shape="rect" id="node3" href="$class_team_manager_1_1_database_1_1_db_layer_sql.html" title="TeamManager.Database.DbLayerSql" alt="" coords="251,71,485,98"/>
+<area shape="rect" id="node1" href="$interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="5,35,203,76"/>
+<area shape="rect" id="node2" href="$class_team_manager_1_1_database_1_1_db_layer_mongo.html" title="DbLayerMongo will contain none&#45;relational data. For more information, please refer to: DatabaseType I..." alt="" coords="261,5,475,47"/>
+<area shape="rect" id="node3" href="$class_team_manager_1_1_database_1_1_db_layer_sql.html" title="DbLayerSql will contain relational data. For more information, please refer to: DatabaseType IDataLay..." alt="" coords="251,71,485,98"/>
 </map>

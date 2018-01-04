@@ -1,5 +1,0 @@
-<map id="TeamManager.Models.TechnicalConcept.TechnicalConcept2Mt" name="TeamManager.Models.TechnicalConcept.TechnicalConcept2Mt">
-<area shape="rect" id="node2" href="$class_team_manager_1_1_models_1_1_technical_concept_1_1_technical_concept_base.html" title="The TechnicalConceptBase will contain the IDataLayer interface which gives access to the choosen data..." alt="" coords="17,409,191,487"/>
-<area shape="rect" id="node3" href="$interface_team_manager_1_1_database_1_1_i_data_layer.html" title="{TeamManager.Database.IData\lLayer\n||+ ConnectDb()\l+ Teams()\l+ CreateTeam()\l+ ReadTeam()\l+ UpdateTeam()\l+ DeleteTeam()\l+ Players()\l+ ShowPlayers()\l+ CreatePlayer()\l+ ReadPlayer()\land 17 more...\l}" alt="" coords="5,5,203,244"/>
-<area shape="rect" id="node4" href="$interface_team_manager_1_1_models_1_1_technical_concept_1_1_i_technical_concept.html" title="This interface will get implemented by all the other TechnicalConceptTypes so it allows us to retriev..." alt="" coords="216,307,373,589"/>
-</map>

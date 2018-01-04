@@ -71,6 +71,27 @@ namespace TeamManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///
+        ///&lt;configuration&gt;
+        ///  &lt;configSections&gt;
+        ///    &lt;section name=&quot;log4net&quot; type=&quot;log4net.Config.Log4NetConfigurationSectionHandler, log4net&quot; /&gt;
+        ///  &lt;/configSections&gt;
+        ///  
+        ///  &lt;!-- Log4Net internal debugging if log4net doesn&apos;t log or there is internal issue, uncomment this to see log4net logs. --&gt;
+        ///  &lt;!--&lt;appSettings&gt;
+        ///    &lt;add key=&quot;log4net.Internal.Debug&quot; value=&quot;true&quot;/&gt;
+        ///  &lt;/appSettings&gt;--&gt;
+        ///
+        ///  &lt;!-- If you need to filter some stuff, there are various of options that can be put within your  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string AppConfig {
+            get {
+                return ResourceManager.GetString("AppConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap loader {

@@ -3,10 +3,10 @@
   <Comment CommentText="The resource data object that we use when initializing data to the view or the database.">
     <Position X="29.295" Y="20.834" Height="0.291" Width="5.192" />
   </Comment>
-  <Comment CommentText="All presenters inherit BasePresenter and having an interface that the forms implements to control the view. &#xD;&#xA;They also share the same concept type together that will retrieve data from the database.">
+  <Comment CommentText="All presenters inherit BasePresenter and having an interface that the forms implements to control the view. &#xD;&#xA;They also share the same strategy type together that will retrieve data from the database.">
     <Position X="10.521" Y="15.555" Height="0.588" Width="6.169" />
   </Comment>
-  <Comment CommentText="All technical concepts implements the ITechnicalConcept and inheriting the TechnicalConceptBase to initialize the database type by passing the DB Enum Type to the base constructor.">
+  <Comment CommentText="All strategy types implements the IStrategy interface and inheriting the StrategyBase to initialize the database type by passing the DB Enum Type to the base constructor.">
     <Position X="9.729" Y="4.244" Height="0.912" Width="3.395" />
   </Comment>
   <Comment CommentText="We use this enum when calling the EditForm so it knows how to treat the giving data by the defined EditMode.">
@@ -24,13 +24,13 @@
   <Comment CommentText="Application entry point that can receive optional parameters by the user to start the TUI or GUI on runtime so we don't need to re-compile every time in order to switch between the two.">
     <Position X="40.338" Y="18.15" Height="1.166" Width="2.587" />
   </Comment>
-  <Comment CommentText="We use 2 different types of database to hold the neccessary data. &#xD;&#xA;1. Relational Database which in this case is SQL.&#xD;&#xA;2. Non-Relational Database which in this case is Mongo-Db.&#xD;&#xA;&#xD;&#xA;When the program starts, the user can define the kind of databse that she/he wants to use and the TechnicalConcept will automatically initialize the type of database depending on the decision that the user provided by using the IDataLayer interface.&#xD;&#xA;Since each database have different implementation and both inheriting the IDataLayer interface, we get the exact same behavior by calling the database with the interface.">
+  <Comment CommentText="We use 2 different types of database to hold the neccessary data. &#xD;&#xA;1. Relational Database which in this case is SQL.&#xD;&#xA;2. Non-Relational Database which in this case is Mongo-Db.&#xD;&#xA;&#xD;&#xA;When the program starts, the user can define the kind of databse that she/he wants to use and the Strategy will automatically initialize the type of database depending on the decision that the user provided by using the IDataLayer interface.&#xD;&#xA;Since each database have different implementation and both inheriting the IDataLayer interface, we get the exact same behavior by calling the database with the interface.">
     <Position X="28.297" Y="4.899" Height="2.011" Width="5.181" />
   </Comment>
   <Class Name="TeamManager.Database.DbLayerMongo" BaseTypeListCollapsed="true">
     <Position X="28.75" Y="7.25" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AAAIGAGACEE4AFBACAAAKgAEBAggIIIABCgEUUVBAAQ=</HashCode>
+      <HashCode>AAAAGAGACEE4AFBACAAAKgAEBQggIIIABCgEUUVBAAQ=</HashCode>
       <FileName>Database\DbLayerMongo.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -38,7 +38,7 @@
   <Class Name="TeamManager.Database.DbLayerSql" BaseTypeListCollapsed="true">
     <Position X="33.5" Y="7.25" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AAAICAGAAAEwABBACAAAIAAEAAggIIIAAAgEUUVAAAA=</HashCode>
+      <HashCode>BAACCAGAAAF4ADlACCAAIBAGBQggIIIAAAgEUUVAAAA=</HashCode>
       <FileName>Database\DbLayerSql.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -59,43 +59,43 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TeamManager.Models.TechnicalConcept.TechnicalConcept1">
+  <Class Name="TeamManager.Models.Strategy.AscendingStrategy">
     <Position X="1" Y="9" Width="5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
-      <FileName>Models\TechnicalConcept\TechnicalConcept1.cs</FileName>
+      <FileName>Models\Strategy\AscendingStrategy.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TeamManager.Models.TechnicalConcept.TechnicalConcept1Mt">
+  <Class Name="TeamManager.Models.Strategy.AscendingStrategyMt">
     <Position X="6.25" Y="9" Width="5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
-      <FileName>Models\TechnicalConcept\TechnicalConcept1Mt.cs</FileName>
+      <FileName>Models\Strategy\AscendingStrategyMt.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TeamManager.Models.TechnicalConcept.TechnicalConcept2">
+  <Class Name="TeamManager.Models.Strategy.DescendingStrategy">
     <Position X="11.5" Y="9" Width="5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
-      <FileName>Models\TechnicalConcept\TechnicalConcept2.cs</FileName>
+      <FileName>Models\Strategy\DescendingStrategy.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TeamManager.Models.TechnicalConcept.TechnicalConcept2Mt">
+  <Class Name="TeamManager.Models.Strategy.DescendingStrategyMt">
     <Position X="16.75" Y="9" Width="5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
-      <FileName>Models\TechnicalConcept\TechnicalConcept2Mt.cs</FileName>
+      <FileName>Models\Strategy\DescendingStrategyMt.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TeamManager.Models.TechnicalConcept.TechnicalConceptBase">
+  <Class Name="TeamManager.Models.Strategy.StrategyBase">
     <Position X="9.75" Y="5.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\TechnicalConcept\TechnicalConceptBase.cs</FileName>
+      <FileName>Models\Strategy\StrategyBase.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TeamManager.Presenters.AllPlayersPresenter">
@@ -150,12 +150,12 @@
   <Class Name="TeamManager.Program">
     <Position X="40.75" Y="19.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAEgABACgISAAIIAAgAAAAgAAAEBAAAAAA=</HashCode>
+      <HashCode>AAABAAAAABAEgABAigIQAAIIAAgAAAAgAAAEBAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TeamManager.Utilities.Logger">
-    <Position X="29.25" Y="31.25" Width="2.75" />
+    <Position X="29.25" Y="31.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Utilities\Logger.cs</FileName>
@@ -164,7 +164,7 @@
   <Class Name="TeamManager.Utilities.Utility">
     <Position X="29.25" Y="28.25" Width="6.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAACAAAACAAAAAgAAAAgAgAAAAAAAAIBAAAACA=</HashCode>
+      <HashCode>AAAAAAAACAAAACAEAAAgAAAAgAgAAAAAAIAIBAAAACA=</HashCode>
       <FileName>Utilities\Utility.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -200,7 +200,7 @@
   <Class Name="TeamManager.Views.Loader.Loaders">
     <Position X="39.25" Y="28" Width="4" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAAIAAEAAAAAAAAAAgBAAAQAEAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAiAAIAAEAgAAAAAAAAgAAAAQAEAAACAAAAA=</HashCode>
       <FileName>Views\Loader\Loaders.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -229,9 +229,9 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TeamManager.Utilities.Defaults">
-    <Position X="32.25" Y="31.25" Width="3.75" />
+    <Position X="32.25" Y="31.5" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAEAAAAACAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <HashCode>AAIAAAAAAEAAAAAAAAAACAAAAAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>Utilities\Defaults.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -244,14 +244,14 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TeamManager.Utilities.NativeMethods">
-    <Position X="29.25" Y="32.5" Width="2.75" />
+    <Position X="29.25" Y="32.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAgAAA=</HashCode>
       <FileName>Utilities\NativeMethods.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="TeamManager.Utilities.CtrlType">
-    <Position X="29.25" Y="34.25" Width="2.75" />
+    <Position X="29.25" Y="34.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AIAEQAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
       <FileName>Utilities\CtrlType.cs</FileName>
@@ -260,15 +260,15 @@
   <Interface Name="TeamManager.Database.IDataLayer">
     <Position X="24" Y="7.25" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AAAICAGAAAEwABBACAAAIAAEAAAgIIIAAAgEUUVAAAA=</HashCode>
+      <HashCode>AAAACAGAAAEwABBACAAAIAAEAQAgIIIAAAgEUUVAAAA=</HashCode>
       <FileName>Database\IDataLayer.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="TeamManager.Models.TechnicalConcept.ITechnicalConcept">
+  <Interface Name="TeamManager.Models.Strategy.IStrategy">
     <Position X="4.5" Y="4.25" Width="5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
-      <FileName>Models\TechnicalConcept\ITechnicalConcept.cs</FileName>
+      <FileName>Models\Strategy\IStrategy.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="TeamManager.Views.Interfaces.IAllPlayersView">
@@ -309,15 +309,15 @@
   <Enum Name="TeamManager.Database.DatabaseType">
     <Position X="33.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Database\DatabaseType.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="TeamManager.Models.TechnicalConcept.TechnicalConceptType">
+  <Enum Name="TeamManager.Models.Strategy.StrategyType">
     <Position X="13.25" Y="5.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAQAQAAAAAAIAAAAAAAAAAAAAAAAAQAA=</HashCode>
-      <FileName>Models\TechnicalConcept\TechnicalConceptType.cs</FileName>
+      <FileName>Models\Strategy\StrategyType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="TeamManager.Views.Enums.EditMode">

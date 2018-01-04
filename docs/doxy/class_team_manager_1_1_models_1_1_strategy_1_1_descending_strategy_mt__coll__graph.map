@@ -1,0 +1,5 @@
+<map id="TeamManager.Models.Strategy.DescendingStrategyMt" name="TeamManager.Models.Strategy.DescendingStrategyMt">
+<area shape="rect" id="node2" href="$class_team_manager_1_1_models_1_1_strategy_1_1_strategy_base.html" title="The StrategyBase will contain the IDataLayer interface which gives access to the choosen database in ..." alt="" coords="44,439,164,516"/>
+<area shape="rect" id="node3" href="$interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="5,5,203,273"/>
+<area shape="rect" id="node4" href="$interface_team_manager_1_1_models_1_1_strategy_1_1_i_strategy.html" title="This interface will get implemented by all the other StrategyTypes so it allows us to retrieve the sa..." alt="" coords="188,336,345,619"/>
+</map>

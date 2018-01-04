@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['teamscombobox',['TeamsComboBox',['../class_team_manager_1_1_views_1_1_windows_1_1_dialogs_1_1_edit_window.html#a5c5da3a302de93267e53d70458dc309c',1,'TeamManager::Views::Windows::Dialogs::EditWindow']]],
-  ['teamslistbox',['TeamsListBox',['../class_team_manager_1_1_views_1_1_windows_1_1_main_window.html#aeda26577954f36b8aaa5f6e481d3e07d',1,'TeamManager::Views::Windows::MainWindow']]],
-  ['technicalconcept',['TechnicalConcept',['../class_team_manager_1_1_utilities_1_1_defaults.html#a0ae80ee2eb0e026ddc1175b91947e7f4',1,'TeamManager::Utilities::Defaults']]],
-  ['technicalconcepttype',['TechnicalConceptType',['../class_team_manager_1_1_utilities_1_1_defaults.html#aff902a0d375d8fcf83e509be49d23b51',1,'TeamManager::Utilities::Defaults']]]
+  ['playerslistbox',['PlayersListBox',['../class_team_manager_1_1_views_1_1_windows_1_1_dialogs_1_1_all_players_window.html#aa8ce717ab65c9928eb04e3eb9aa551c4',1,'TeamManager.Views.Windows.Dialogs.AllPlayersWindow.PlayersListBox()'],['../class_team_manager_1_1_views_1_1_windows_1_1_dialogs_1_1_unsigned_players_window.html#ac7e8e72544e795ead4b454d381445f0a',1,'TeamManager.Views.Windows.Dialogs.UnsignedPlayersWindow.PlayersListBox()'],['../class_team_manager_1_1_views_1_1_windows_1_1_main_window.html#a1151aceff1535a0f3f69b21de7f5a313',1,'TeamManager.Views.Windows.MainWindow.PlayersListBox()']]]
 ];

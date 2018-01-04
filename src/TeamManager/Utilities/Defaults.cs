@@ -1,5 +1,5 @@
 ﻿using TeamManager.Database;
-using TeamManager.Models.TechnicalConcept;
+using TeamManager.Models.Strategy;
 
 namespace TeamManager.Utilities
 {
@@ -8,11 +8,11 @@ namespace TeamManager.Utilities
     /// </summary>
     public static class Defaults
     {
-        /// <summary> Returns a new instance of <see cref="TechnicalConcept1"/> with <see cref="DbLayerMongo"/> as database. </summary>
-        public static ITechnicalConcept TechnicalConcept => new TechnicalConcept1(DatabaseType);
+        /// <summary> Returns a new instance of <see cref="AscendingStrategy"/> with <see cref="DbLayerMongo"/> as database. </summary>
+        public static IStrategy Strategy => new AscendingStrategy(DatabaseType);
 
-        /// <summary> Returns the <see cref="TechnicalConceptType"/> as <see cref="TechnicalConceptType.FirstMt"/>. </summary>
-        public static TechnicalConceptType TechnicalConceptType => TechnicalConceptType.FirstMt;
+        /// <summary> Returns the <see cref="StrategyType"/> as <see cref="StrategyType.FirstMt"/>. </summary>
+        public static StrategyType StrategyType => StrategyType.FirstMt;
 
         /// <summary> Returns a new instance of <see cref="DbLayerMongo"/>. </summary>
         public static IDataLayer Database => new DbLayerMongo();

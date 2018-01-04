@@ -1,10 +1,7 @@
-# TODO
-
 .env*
-.vs/
+*.suo
 *.ide
-src/.vs/
-src/TeamManager/obj/
-src/TeamManager/bin/
-src/TeamManager.Tests/bin/
-src/TeamManager.Tests/obj/
+*.user
+.vs
+obj
+bin

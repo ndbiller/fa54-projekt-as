@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['main',['Main',['../class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865',1,'TeamManager::Program']]],
-  ['mainpresenter',['MainPresenter',['../class_team_manager_1_1_presenters_1_1_main_presenter.html#a82582ae22caa09c63d2b1830fdbe1fba',1,'TeamManager::Presenters::MainPresenter']]],
-  ['maintui',['MainTui',['../class_team_manager_1_1_views_1_1_windows_1_1_main_tui.html#a037dfbf7136ab6305e461d8ca56a3e30',1,'TeamManager::Views::Windows::MainTui']]],
-  ['mainwindow',['MainWindow',['../class_team_manager_1_1_views_1_1_windows_1_1_main_window.html#a12519b101e302397462cc7893d054952',1,'TeamManager::Views::Windows::MainWindow']]],
-  ['mongodb_5fconcept1_5fgetallplayers',['MongoDB_Concept1_GetAllPlayers',['../class_team_manager_1_1_tests_1_1_modules_1_1_technical_concept_tests.html#ab3e6bb986b7945f8f5dc5f2cc0a9e305',1,'TeamManager::Tests::Modules::TechnicalConceptTests']]]
+  ['lbxplayers_5fselectedindexchanged',['lbxPlayers_SelectedIndexChanged',['../class_team_manager_1_1_views_1_1_windows_1_1_dialogs_1_1_all_players_window.html#a5db0788efcaf964ba397b41a6506c9d4',1,'TeamManager::Views::Windows::Dialogs::AllPlayersWindow']]],
+  ['lbxteams_5fselectedindexchanged',['lbxTeams_SelectedIndexChanged',['../class_team_manager_1_1_views_1_1_windows_1_1_main_window.html#a686cac2244de91bb4492f9effca3548b',1,'TeamManager::Views::Windows::MainWindow']]],
+  ['loaderwindow',['LoaderWindow',['../class_team_manager_1_1_views_1_1_loader_1_1_loader_window.html#a87388ae5e336839f6e12d4f248514c4f',1,'TeamManager::Views::Loader::LoaderWindow']]]
 ];

@@ -1,3 +1,3 @@
 <map id="TeamManager.Database.DbLayerSql" name="TeamManager.Database.DbLayerSql">
-<area shape="rect" id="node2" href="$interface_team_manager_1_1_database_1_1_i_data_layer.html" title="{IDataLayer\n||+ ConnectDb()\l+ Teams()\l+ CreateTeam()\l+ ReadTeam()\l+ UpdateTeam()\l+ DeleteTeam()\l+ Players()\l+ ShowPlayers()\l+ CreatePlayer()\l+ ReadPlayer()\land 17 more...\l}" alt="" coords="5,5,124,229"/>
+<area shape="rect" id="node2" href="$interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="5,5,175,259"/>
 </map>

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using log4net;
 using TeamManager.Database;
-using TeamManager.Models.TechnicalConcept;
+using TeamManager.Models.Strategy;
 using TeamManager.Presenters;
 using TeamManager.Utilities;
 using TeamManager.Views;
+using System.IO;
 
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
 [assembly: Fody.ConfigureAwait(false)]
@@ -22,7 +23,7 @@ namespace TeamManager
         private static readonly Guid SessionId = Guid.NewGuid();
 
         /// <summary> Event handler for the console closed event to call the <see cref="CloseCallback"/> method so it doesn't get garbage collected. </summary>
-        private static event ConsoleClosedHandler _closedHandler;
+        private static event ConsoleClosedHandler ClosedHandler;
 
         /// <summary> The default flag for specifying whether to use <see cref="Gui"/> or <see cref="Tui"/>. </summary>
         private static bool _startGui = true;
@@ -30,14 +31,14 @@ namespace TeamManager
         /// <summary> The default <see cref="DatabaseType"/> that is used for initializing the wanted <see cref="IDataLayer"/>. </summary>
         private static DatabaseType _dbType = Defaults.DatabaseType;
 
-        /// <summary> The default <see cref="TechnicalConceptType"/> that is used for initializing the wanted <see cref="ITechnicalConcept"/>. </summary>
-        private static TechnicalConceptType _conceptType = Defaults.TechnicalConceptType;
+        /// <summary> The default <see cref="StrategyType"/> that is used for initializing the wanted <see cref="IStrategy"/>. </summary>
+        private static StrategyType _strategyType = Defaults.StrategyType;
 
         /// <summary> The allowed arguments that are acceptable to be pass to the executeable through the console for specifying different configurations. </summary>
         private static readonly List<string> AllowedArgs = new List<string>
         {
             "/t", "/g",
-            "/c:1", "/c:2", "/c-mt:1", "/c-mt:2",
+            "/s:1", "/s:2", "/s-mt:1", "/s-mt:2",
             "/db:mongo", "/db:sql",
             "/?", "/h", "--help"
         };
@@ -47,27 +48,28 @@ namespace TeamManager
 
         /// <summary>
         /// The main father entrance for the application.
-        /// We can define in the beginning of the application the TechnicalConcept(1,2,1mt,2mt), Database type and GUI or TUI. 
+        /// We can define in the beginning of the application the Strategy(asc, desc, ascMt, descMt), Database type and GUI or TUI. 
         /// Checks whether the user passed arguments to the console and initialize the application with the wanted data.
         /// </summary>
         /// <param name="args">The arguements that are being passed to the executeable through the console. </param>
         static void Main(string[] args)
         {
+            ValidateConfigurationFile();
             Log.Info($"##### Application started with Session ID => {SessionId} #####");
 
-            // Uncomment me if you want debugging console arguments. 
+            // Uncomment me if you want debugging console arguments, you can also use the project configurations.
             // NOTE: You'll also need to change output type in project configuration to console so debugging will work.
-            //args = new[] { "/t", "/c-mt:1", "/db:mongo" };
+            //args = new[] { "/c", "/s-mt:1", "/db:mongo" };
             if (args.Length > 0)
-                if (!ParseArgs(args)) { CloseCallback(2); return; }
+                if (!ParseArgs(args)) { CloseCallback(CtrlType.CLOSE); return; }
 
-            BasePresenter.SetConceptAndDatabaseType(_conceptType, _dbType);
+            BasePresenter.SetStrategyAndDatabaseType(_strategyType, _dbType);
 
             if (_startGui)
             {
                 Log.Info("Starting GUI...");
                 Gui.Show();
-                CloseCallback(2);
+                CloseCallback(CtrlType.CLOSE);
             }
             else
             {
@@ -75,8 +77,18 @@ namespace TeamManager
                 Tui.Show();
             }
         }
+        
 
 
+        /// <summary>
+        /// Checks to see whether the configuration file exists, otherwise, create it from stream.
+        /// </summary>
+        private static void ValidateConfigurationFile()
+        {
+            string confFile = AppDomain.CurrentDomain.SetupInformation.ConfigurationFile;
+            if (!File.Exists(confFile))
+                File.WriteAllText(confFile, Properties.Resources.AppConfig);
+        }
 
         /// <summary>
         /// Parses the arguments that are passed to the executeable and determines whether the parsing operation were successful.
@@ -104,9 +116,9 @@ namespace TeamManager
                     return false;
                 }
 
-                if (arg.StartsWith("/c"))
+                if (arg.StartsWith("/s"))
                 {
-                    if (!ParseConceptTypeArg(arg))
+                    if (!ParseStrategyTypeArg(arg))
                         return false;
                 }
 
@@ -121,33 +133,33 @@ namespace TeamManager
         }
 
         /// <summary>
-        /// Parses the <see cref="TechnicalConceptType"/> argument for modifying the <see cref="_conceptType"/> before the main 
-        /// initializes the database and concept type.
+        /// Parses the <see cref="StrategyType"/> argument for modifying the <see cref="_strategyType"/> before the main 
+        /// initializes the database and strategy type.
         /// </summary>
-        /// <param name="arg">The <see cref="TechnicalConceptType"/> argument that is passed from the console. </param>
+        /// <param name="arg">The <see cref="StrategyType"/> argument that is passed from the console. </param>
         /// <returns>Returns false if parse failed, true if successful. </returns>
-        private static bool ParseConceptTypeArg(string arg)
+        private static bool ParseStrategyTypeArg(string arg)
         {
             switch (arg)
             {
-                case "/c:1":
-                    Log.Info("Using TechnicalConcept1.");
-                    _conceptType = TechnicalConceptType.First;
+                case "/s:1":
+                    Log.Info("Using AscendingStrategy.");
+                    _strategyType = StrategyType.First;
                     return true;
 
-                case "/c:2":
-                    Log.Info("Using TechnicalConcept2.");
-                    _conceptType = TechnicalConceptType.Second;
+                case "/s:2":
+                    Log.Info("Using DescendingStrategy.");
+                    _strategyType = StrategyType.Second;
                     return true;
 
-                case "/c-mt:1":
-                    Log.Info("Using multi-threaded TechnicalConcept1.");
-                    _conceptType = TechnicalConceptType.FirstMt;
+                case "/s-mt:1":
+                    Log.Info("Using multi-threaded AscendingStrategy.");
+                    _strategyType = StrategyType.FirstMt;
                     return true;
 
-                case "/c-mt:2":
-                    Log.Info("Using multi-threaded TechnicalConcept2.");
-                    _conceptType = TechnicalConceptType.SecondMt;
+                case "/s-mt:2":
+                    Log.Info("Using multi-threaded DescendingStrategy.");
+                    _strategyType = StrategyType.SecondMt;
                     return true;
 
 
@@ -159,7 +171,7 @@ namespace TeamManager
 
         /// <summary>
         /// Parses the <see cref="DatabaseType"/> argument for modifying the <see cref="_dbType"/> before the main 
-        /// initializes the database and concept type.
+        /// initializes the database and strategy type.
         /// </summary>
         /// <param name="arg">The <see cref="DatabaseType"/> argument that is passed from the console. </param>
         /// <returns>Returns false if parse failed, true if successful. </returns>
@@ -174,7 +186,7 @@ namespace TeamManager
 
                 case "/db:sql":
                     Log.Info("Using sql as database.");
-                    _dbType = DatabaseType.Sql;
+                    _dbType = DatabaseType.PostgreSql;
                     return true;
 
 
@@ -195,10 +207,10 @@ namespace TeamManager
         private static void HookConsole()
         {
             _startGui = false;
-            _closedHandler += CloseCallback;
+            ClosedHandler += CloseCallback;
             NativeMethods.AllocConsole();
-            NativeMethods.SetConsoleCtrlHandler(_closedHandler, true);
-            AppDomain.CurrentDomain.ProcessExit += delegate { _closedHandler(2); };
+            NativeMethods.SetConsoleCtrlHandler(ClosedHandler, true);
+            AppDomain.CurrentDomain.ProcessExit += delegate { ClosedHandler?.Invoke(CtrlType.CLOSE); };
         }
 
         /// <summary>
@@ -227,17 +239,17 @@ namespace TeamManager
             Console.WriteLine("\nStarts the team manager app from the tui or gui and allows you to specify " +
                               "different configurations.");
 
-            Console.WriteLine("\nTeamManager [/T | /G]   [[/C | /C-MT]:[1 | 2]]   [/DB:[SQL | MONGO]]\n");
+            Console.WriteLine("\nTeamManager [/T | /G]   [[/S | /S-MT]:[1 | 2]]   [/DB:[SQL | MONGO]]\n");
 
             Console.WriteLine("\tUser Interface Configuration:\n" +
                               "\t/T \t    Starts the app in console/terminal (TUI) mode.\n" +
                               "\t/G \t    Starts the app in windows user interface (GUI) mode.\n");
 
-            Console.WriteLine("\tTechnical Concept Configuration:\n" +
-                              "\t/C:1 \t    Using Technical Concept 1 that retrieves the data in ascending order.\n" +
-                              "\t/C:2 \t    Using Technical Concept 2 that retrieves the data in descending order.\n" +
-                              "\t/C-MT:1     Using Technical Concept 1 that retrieves the data in ascending order using multi-threaded calls.\n" +
-                              "\t/C-MT:2     Using Technical Concept 2 that retrieves the data in descending order using multi-threaded calls.\n");
+            Console.WriteLine("\tStrategy Configuration:\n" +
+                              "\t/S:1 \t    Using Ascending Strategy that retrieves the data in ascending order.\n" +
+                              "\t/S:2 \t    Using Descending Strategy that retrieves the data in descending order.\n" +
+                              "\t/S-MT:1     Using Ascending Strategy that retrieves the data in ascending order using multi-threaded calls.\n" +
+                              "\t/S-MT:2     Using Descending Strategy that retrieves the data in descending order using multi-threaded calls.\n");
 
 
             Console.WriteLine("\tDatabase Configuration:\n" +
@@ -245,10 +257,10 @@ namespace TeamManager
                               "\t/DB:MONGO   Using Mongo no-relational database.\n");
 
             Console.WriteLine("### Examples: ###\n" +
-                              "TeamManager /t /c-mt:1 /db:mongo\n" +
-                              "TeamManager /t /c-mt:1 /db:sql\n" +
-                              "TeamManager /g /c:2 /db:sql\n" +
-                              "TeamManager /g /c-mt:2 /db:mongo\n");
+                              "TeamManager /g /s-mt:1 /db:mongo\n" +
+                              "TeamManager /t /s-mt:1 /db:sql\n" +
+                              "TeamManager /g /s:2 /db:sql\n" +
+                              "TeamManager /t /s:2 /db:mongo\n");
 
             Console.Write("\nPress any key to continue . . .");
             Console.ReadKey();
@@ -259,6 +271,7 @@ namespace TeamManager
         private static void InvalidSyntax()
         {
             Log.Info("Received invalid syntax from console.");
+            if (!_startGui) HookConsole();
             Console.WriteLine("Invalid syntax. Use /? parameter to display help.");
             Console.ReadKey();
         }

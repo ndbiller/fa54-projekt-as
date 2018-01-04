@@ -89,7 +89,7 @@ namespace TeamManager.Presenters
         }
 
         /// <summary>
-        /// Gets the filtered data from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> and updates the view.
+        /// Gets the filtered data from the <see cref="Models.Strategy.IStrategy"/> and updates the view.
         /// </summary>
         /// <param name="tbxText"></param>
         /// <param name="searchInTeams"></param>
@@ -144,9 +144,9 @@ namespace TeamManager.Presenters
             // Change all players of the deleted team to Unsigned Team("0").
             if (teamPlayers.Count > 0)
                 for (int i = teamPlayers.Count - 1; i >= 0; i--)
-                    Concept.ChangePlayerTeam(teamPlayers[i].Id, "0");
+                    Strategy.ChangePlayerTeam(teamPlayers[i].Id, "0");
 
-            Concept.RemoveTeam(team.Id);
+            Strategy.RemoveTeam(team.Id);
 
             _allowPlayersDataBinding = false;
             int teamSelIndex = _view.TeamSelectedIndex;
@@ -175,7 +175,7 @@ namespace TeamManager.Presenters
             if (player == null) return;
 
             Log.Debug($"Removing {player.Name} player with Id: {player.Id} and moving to unsigned team.");
-            Concept.ChangePlayerTeam(player.Id, "0");
+            Strategy.ChangePlayerTeam(player.Id, "0");
 
             int playerSelIndex = _view.PlayerSelectedIndex;
             _view.PlayersListBox.RemoveAt(playerSelIndex);
@@ -188,7 +188,7 @@ namespace TeamManager.Presenters
         }
 
         /// <summary>
-        /// Gets <see cref="Team"/>s collection from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> and initialize them to the view.
+        /// Gets <see cref="Team"/>s collection from the <see cref="Models.Strategy.IStrategy"/> and initialize them to the view.
         /// It also changes the TeamSelectedIndex in order to invoke the SelectedIndexChanged in the view 
         /// which will call also to <see cref="BindPlayersData"/> to initialize team players into the view.
         /// </summary>
@@ -211,7 +211,7 @@ namespace TeamManager.Presenters
         }
 
         /// <summary>
-        /// Gets the selected team <see cref="Player"/>s collection from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> 
+        /// Gets the selected team <see cref="Player"/>s collection from the <see cref="Models.Strategy.IStrategy"/> 
         /// and initialize them to the view. 
         /// This method gets invoked every time the SelectedIndexChanged of the teams ListBox in the view gets invoked.
         /// </summary>
@@ -265,49 +265,49 @@ namespace TeamManager.Presenters
         }
 
         /// <summary>
-        /// Gets a collection of <see cref="Team"/>s from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> 
+        /// Gets a collection of <see cref="Team"/>s from the <see cref="Models.Strategy.IStrategy"/> 
         /// and checks whether to apply filter or not.
         /// </summary>
         /// <returns><see cref="List&lt;Team&gt;"/></returns>
         public List<Team> Teams()
         {
-            Log.Info("Requesting TechnicalConcept for Teams.");
+            Log.Info("Requesting Strategy for Teams.");
 
             return _filterTeams
-                ? Concept.GetAllTeams(_teamFilterText, true)
-                : Concept.GetAllTeams();
+                ? Strategy.GetAllTeams(_teamFilterText, true)
+                : Strategy.GetAllTeams();
         }
 
         /// <summary>
-        /// Gets a collection of <see cref="Player"/>s from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> 
+        /// Gets a collection of <see cref="Player"/>s from the <see cref="Models.Strategy.IStrategy"/> 
         /// and checks whether to apply filter or not.
         /// </summary>
         /// <returns><see cref="List&lt;Player&gt;"/></returns>
         public List<Player> Players()
         {
-            Log.Info("Requesting TechnicalConcept for Players.");
+            Log.Info("Requesting Strategy for Players.");
 
             return _filterPlayers
-                ? Concept.GetAllPlayers(_playerFilterText, true)
-                : Concept.GetAllPlayers();
+                ? Strategy.GetAllPlayers(_playerFilterText, true)
+                : Strategy.GetAllPlayers();
         }
 
         /// <summary>
-        /// Gets a collection of <see cref="Team"/> <see cref="Player"/>s from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> 
+        /// Gets a collection of <see cref="Team"/> <see cref="Player"/>s from the <see cref="Models.Strategy.IStrategy"/> 
         /// and checks whether to apply filter or not.
         /// </summary>
         /// <returns><see cref="List&lt;Player&gt;"/></returns>
         public List<Player> TeamPlayers(string teamId)
         {
-            Log.Info("Requesting TechnicalConcept for Team Players.");
+            Log.Info("Requesting Strategy for Team Players.");
 
             return _filterPlayers
-                ? Concept.GetTeamPlayers(teamId, _playerFilterText, true)
-                : Concept.GetTeamPlayers(teamId);
+                ? Strategy.GetTeamPlayers(teamId, _playerFilterText, true)
+                : Strategy.GetTeamPlayers(teamId);
         }
 
         /// <summary>
-        /// Re-bindes teams and players data to the view from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> 
+        /// Re-bindes teams and players data to the view from the <see cref="Models.Strategy.IStrategy"/> 
         /// when a child window closes.
         /// </summary>
         /// <param name="sender"></param>

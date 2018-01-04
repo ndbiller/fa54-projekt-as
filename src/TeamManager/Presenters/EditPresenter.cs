@@ -36,7 +36,7 @@ namespace TeamManager.Presenters
 
 
         /// <summary>
-        /// Gets <see cref="Team"/>s collection from the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> 
+        /// Gets <see cref="Team"/>s collection from the <see cref="Models.Strategy.IStrategy"/> 
         /// and initialize them to the view ComboBox.
         /// It also changes the TeamSelectedIndex when a <see cref="Player"/> <see cref="Team"/> is provided.
         /// </summary>
@@ -44,7 +44,7 @@ namespace TeamManager.Presenters
         {
             Log.Info("Binding teams data into the ComboBox.");
             _view.TeamsComboBox.Clear();
-            List<Team> teams = Concept.GetAllTeams();
+            List<Team> teams = Strategy.GetAllTeams();
             if (teams.IsNullOrEmpty()) return;
 
             teams.ForEach(team => _view.TeamsComboBox.Add(team));
@@ -58,16 +58,16 @@ namespace TeamManager.Presenters
         }
 
         /// <summary>
-        /// Creates a new <see cref="Team"/> by using the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> interface.
+        /// Creates a new <see cref="Team"/> by using the <see cref="Models.Strategy.IStrategy"/> interface.
         /// </summary>
         public void CreateTeam()
         {
             Log.Info("Creating new team.");
-            Concept.AddNewTeam(_view.NameText);
+            Strategy.AddNewTeam(_view.NameText);
         }
 
         /// <summary>
-        /// Edits a <see cref="Team"/> by using the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> interface 
+        /// Edits a <see cref="Team"/> by using the <see cref="Models.Strategy.IStrategy"/> interface 
         /// and passing the team id with the new name.
         /// </summary>
         public void EditTeam()
@@ -75,18 +75,18 @@ namespace TeamManager.Presenters
             if (_view.Team.Name == _view.NameText) return;
 
             Log.Info("Changing team name.");
-            Concept.ChangeTeamName(_view.Team.Id, _view.NameText);
+            Strategy.ChangeTeamName(_view.Team.Id, _view.NameText);
         }
 
         /// <summary>
-        /// Edits a <see cref="Player"/> by using the <see cref="Models.TechnicalConcept.ITechnicalConcept"/> interface 
+        /// Edits a <see cref="Player"/> by using the <see cref="Models.Strategy.IStrategy"/> interface 
         /// and passing the player id with the new name or different team.
         /// </summary>
         public void EditPlayer()
         {
             Log.Info("Editing player.");
             if (_view.Player.Name != _view.NameText)
-                Concept.ChangePlayerName(_view.Player.Id, _view.NameText);
+                Strategy.ChangePlayerName(_view.Player.Id, _view.NameText);
 
             if (_view.TeamsComboBox.Count == 0 || _view.TeamSelectedIndex == -1) return;
 
@@ -95,7 +95,7 @@ namespace TeamManager.Presenters
 
             if (team.Id == _view.Team.Id) return;
 
-            Concept.ChangePlayerTeam(_view.Player.Id, team.Id);
+            Strategy.ChangePlayerTeam(_view.Player.Id, team.Id);
         }
 
         /// <summary>
@@ -109,13 +109,13 @@ namespace TeamManager.Presenters
 
             if (tSelIndex == -1) // -1 means nothing selected.
             {
-                Concept.AddNewPlayer(_view.NameText);
+                Strategy.AddNewPlayer(_view.NameText);
             }
             else
             {
                 Team team = _view.TeamsComboBox[tSelIndex].ToTeam();
                 if (team != null)
-                    Concept.AddNewPlayer(_view.NameText, team.Id);
+                    Strategy.AddNewPlayer(_view.NameText, team.Id);
             }
         }
 
@@ -129,7 +129,7 @@ namespace TeamManager.Presenters
 
             Team team = _view.TeamsComboBox[tSelIndex].ToTeam();
             Log.Info($"Assigning player to {team.Name} team.");
-            Concept.ChangePlayerTeam(_view.Player.Id, team.Id);
+            Strategy.ChangePlayerTeam(_view.Player.Id, team.Id);
         }
 
         /// <summary>

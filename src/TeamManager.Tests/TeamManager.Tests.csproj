@@ -55,7 +55,7 @@
   <ItemGroup>
     <Compile Include="Modules\DatabaseTests.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Modules\TechnicalConceptTests.cs" />
+    <Compile Include="Modules\StrategyTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Modules\UiComponentsTests.cs" />
   </ItemGroup>

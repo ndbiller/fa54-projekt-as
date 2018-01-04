@@ -1,20 +1,20 @@
 ﻿using log4net;
 using TeamManager.Database;
-using TeamManager.Models.TechnicalConcept;
+using TeamManager.Models.Strategy;
 using TeamManager.Presenters.Events;
 using TeamManager.Utilities;
 
 namespace TeamManager.Presenters
 {
     /// <summary>
-    /// The <see cref="BasePresenter"/> will contain the <see cref="ITechnicalConcept"/> interface that will be used for 
+    /// The <see cref="BasePresenter"/> will contain the <see cref="IStrategy"/> interface that will be used for 
     /// retrieving data from the database.
     /// It also contains common data to share between all presenters.
     /// </summary>
     public abstract class BasePresenter
     {
-        /// <summary> The <see cref="ITechnicalConcept"/> instance that will be used for retrieving data from the database. </summary>
-        protected static ITechnicalConcept Concept;
+        /// <summary> The <see cref="IStrategy"/> instance that will be used for retrieving data from the database. </summary>
+        protected static IStrategy Strategy;
 
         /// <summary> Logger instance of the class <see cref="BasePresenter"/> </summary>
         private static readonly ILog Log = Logger.GetLogger();
@@ -39,33 +39,33 @@ namespace TeamManager.Presenters
         public abstract void WindowClosed();
 
         /// <summary>
-        /// Initializes the <see cref="Concept"/> with the wanted <see cref="TechnicalConceptType"/> and <see cref="DatabaseType"/>.
+        /// Initializes the <see cref="Strategy"/> with the wanted <see cref="StrategyType"/> and <see cref="DatabaseType"/>.
         /// Note that this method gets triggered before the view gets initialized in <see cref="Program"/>.
         /// </summary>
-        /// <param name="conceptType"></param>
+        /// <param name="strategyType"></param>
         /// <param name="dbType"></param>
-        public static void SetConceptAndDatabaseType(TechnicalConceptType conceptType, DatabaseType dbType)
+        public static void SetStrategyAndDatabaseType(StrategyType strategyType, DatabaseType dbType)
         {
-            switch (conceptType)
+            switch (strategyType)
             {
-                case TechnicalConceptType.First:
-                    Concept = new TechnicalConcept1(dbType);
+                case StrategyType.First:
+                    Strategy = new AscendingStrategy(dbType);
                     break;
 
-                case TechnicalConceptType.FirstMt:
-                    Concept = new TechnicalConcept1Mt(dbType);
+                case StrategyType.FirstMt:
+                    Strategy = new AscendingStrategyMt(dbType);
                     break;
 
-                case TechnicalConceptType.Second:
-                    Concept = new TechnicalConcept2(dbType);
+                case StrategyType.Second:
+                    Strategy = new DescendingStrategy(dbType);
                     break;
 
-                case TechnicalConceptType.SecondMt:
-                    Concept = new TechnicalConcept2Mt(dbType);
+                case StrategyType.SecondMt:
+                    Strategy = new DescendingStrategyMt(dbType);
                     break;
 
                 default:
-                    Concept = Defaults.TechnicalConcept;
+                    Strategy = Defaults.Strategy;
                     break;
             }
         }

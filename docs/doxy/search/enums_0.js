@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['editmode',['EditMode',['../namespace_team_manager_1_1_views_1_1_enums.html#adf77a3bd6a0c8eae839423ffaa7715d6',1,'TeamManager::Views::Enums']]]
+  ['databasetype',['DatabaseType',['../namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391',1,'TeamManager::Database']]]
 ];

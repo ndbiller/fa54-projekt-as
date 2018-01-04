@@ -1,12 +1,17 @@
 var searchData=
 [
-  ['tbxsearch_5ftextchanged',['tbxSearch_TextChanged',['../class_team_manager_1_1_views_1_1_windows_1_1_main_window.html#a47653ecb5dda81495a2c546877a68e10',1,'TeamManager::Views::Windows::MainWindow']]],
-  ['team',['Team',['../class_team_manager_1_1_models_1_1_resource_data_1_1_team.html#ad410cd6377863a5d3081a9d980b74d85',1,'TeamManager::Models::ResourceData::Team']]],
-  ['teamplayers',['TeamPlayers',['../class_team_manager_1_1_presenters_1_1_main_presenter.html#a27267afb158390d28ac83a637bfd0cd9',1,'TeamManager::Presenters::MainPresenter']]],
-  ['teams',['Teams',['../class_team_manager_1_1_presenters_1_1_main_presenter.html#a23bc73bed09b9700586fe0542007e336',1,'TeamManager::Presenters::MainPresenter']]],
-  ['technicalconceptbase',['TechnicalConceptBase',['../class_team_manager_1_1_models_1_1_technical_concept_1_1_technical_concept_base.html#a45bfc79d7ec1c8f0374f66525827bbbb',1,'TeamManager::Models::TechnicalConcept::TechnicalConceptBase']]],
-  ['timeoutafter',['TimeoutAfter',['../class_team_manager_1_1_utilities_1_1_utility.html#a25d0dc93a8c6a8d7d845723388ddf994',1,'TeamManager::Utilities::Utility']]],
-  ['toplayer',['ToPlayer',['../class_team_manager_1_1_utilities_1_1_utility.html#a0cc08fc169fc44e18cdbdb84f8749656',1,'TeamManager::Utilities::Utility']]],
-  ['tostring',['ToString',['../class_team_manager_1_1_models_1_1_resource_data_1_1_player.html#aafe08a9a1d8f193f9c098dd7a7f185f2',1,'TeamManager.Models.ResourceData.Player.ToString()'],['../class_team_manager_1_1_models_1_1_resource_data_1_1_team.html#a674b8269252e089a5ccac75f247f45f8',1,'TeamManager.Models.ResourceData.Team.ToString()']]],
-  ['toteam',['ToTeam',['../class_team_manager_1_1_utilities_1_1_utility.html#a043bbf5e996ce22e1bde47eec7b425db',1,'TeamManager::Utilities::Utility']]]
+  ['search',['Search',['../class_team_manager_1_1_presenters_1_1_main_presenter.html#a80e63aea831da55221e83e24d4e665ce',1,'TeamManager::Presenters::MainPresenter']]],
+  ['searchapplyfilter',['SearchApplyFilter',['../class_team_manager_1_1_presenters_1_1_main_presenter.html#a2ee1375340eaefd5a866c0482d300721',1,'TeamManager::Presenters::MainPresenter']]],
+  ['setconsolectrlhandler',['SetConsoleCtrlHandler',['../class_team_manager_1_1_utilities_1_1_native_methods.html#aa5ff52fbcde11be2f651785b731f51cc',1,'TeamManager::Utilities::NativeMethods']]],
+  ['setforegroundwindow',['SetForegroundWindow',['../class_team_manager_1_1_utilities_1_1_native_methods.html#a98865dac164ade3f9cff214345e0b5bc',1,'TeamManager::Utilities::NativeMethods']]],
+  ['setstrategyanddatabasetype',['SetStrategyAndDatabaseType',['../class_team_manager_1_1_presenters_1_1_base_presenter.html#a03747207434669995d6368b3c3ce3063',1,'TeamManager::Presenters::BasePresenter']]],
+  ['show',['Show',['../class_team_manager_1_1_views_1_1_gui.html#a2a07a4c6289ebb610c999f501410a649',1,'TeamManager.Views.Gui.Show()'],['../class_team_manager_1_1_views_1_1_tui.html#a4ee6f11d765e00c3912e50776f34c559',1,'TeamManager.Views.Tui.Show()'],['../class_team_manager_1_1_views_1_1_windows_1_1_main_tui.html#ae883752bb2dac3555c1a6c7630631222',1,'TeamManager.Views.Windows.MainTui.Show()']]],
+  ['showplayers',['ShowPlayers',['../class_team_manager_1_1_database_1_1_db_layer_mongo.html#abc04b92cc2aed2b9f6b64021a48007d2',1,'TeamManager.Database.DbLayerMongo.ShowPlayers()'],['../class_team_manager_1_1_database_1_1_db_layer_sql.html#a7ad61a338332fe273e7a7ccbf453a840',1,'TeamManager.Database.DbLayerSql.ShowPlayers()'],['../interface_team_manager_1_1_database_1_1_i_data_layer.html#a5c83e333cf3eedb8d2096b74b473adfa',1,'TeamManager.Database.IDataLayer.ShowPlayers()']]],
+  ['showplayersasync',['ShowPlayersAsync',['../class_team_manager_1_1_database_1_1_db_layer_mongo.html#a553cff48c5ea5a033b6851da8f12c652',1,'TeamManager.Database.DbLayerMongo.ShowPlayersAsync()'],['../class_team_manager_1_1_database_1_1_db_layer_sql.html#a6bde0838cd7c162464a59b88349dbec1',1,'TeamManager.Database.DbLayerSql.ShowPlayersAsync()'],['../interface_team_manager_1_1_database_1_1_i_data_layer.html#a988ebb3d780c44058d40b2d4c112cd09',1,'TeamManager.Database.IDataLayer.ShowPlayersAsync()']]],
+  ['showteamplayers',['ShowTeamPlayers',['../class_team_manager_1_1_presenters_1_1_console_presenter.html#a8e29a43a572bcbeb3aa71567758fc6ee',1,'TeamManager::Presenters::ConsolePresenter']]],
+  ['showunsignedplayers',['ShowUnsignedPlayers',['../class_team_manager_1_1_presenters_1_1_console_presenter.html#a261c06a8809dadd926300734b521c2cd',1,'TeamManager::Presenters::ConsolePresenter']]],
+  ['splashwindow',['SplashWindow',['../class_team_manager_1_1_views_1_1_loader_1_1_splash_window.html#ab4518b0d2ceaecc09e05dd43ddda8083',1,'TeamManager::Views::Loader::SplashWindow']]],
+  ['startloader',['StartLoader',['../class_team_manager_1_1_views_1_1_loader_1_1_loaders.html#a137fc5e3325873b13a1e497942c99be4',1,'TeamManager::Views::Loader::Loaders']]],
+  ['stoploader',['StopLoader',['../class_team_manager_1_1_views_1_1_loader_1_1_loaders.html#adb0f2f44391cb8c12fbe0e79b869d89f',1,'TeamManager::Views::Loader::Loaders']]],
+  ['strategybase',['StrategyBase',['../class_team_manager_1_1_models_1_1_strategy_1_1_strategy_base.html#a8d1f884979f1d8d7694b13749cc288bc',1,'TeamManager::Models::Strategy::StrategyBase']]]
 ];
