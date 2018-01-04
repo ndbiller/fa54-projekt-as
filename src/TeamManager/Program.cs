@@ -57,9 +57,9 @@ namespace TeamManager
             ValidateConfigurationFile();
             Log.Info($"##### Application started with Session ID => {SessionId} #####");
 
-            // Uncomment me if you want debugging console arguments. 
+            // Uncomment me if you want debugging console arguments, you can also use the project configurations.
             // NOTE: You'll also need to change output type in project configuration to console so debugging will work.
-            //args = new[] { "/g", "/s:1", "/db:sql" };
+            //args = new[] { "/c", "/s-mt:1", "/db:mongo" };
             if (args.Length > 0)
                 if (!ParseArgs(args)) { CloseCallback(CtrlType.CLOSE); return; }
 
@@ -257,10 +257,10 @@ namespace TeamManager
                               "\t/DB:MONGO   Using Mongo no-relational database.\n");
 
             Console.WriteLine("### Examples: ###\n" +
-                              "TeamManager /t /s-mt:1 /db:mongo\n" +
+                              "TeamManager /g /s-mt:1 /db:mongo\n" +
                               "TeamManager /t /s-mt:1 /db:sql\n" +
                               "TeamManager /g /s:2 /db:sql\n" +
-                              "TeamManager /g /s-mt:2 /db:mongo\n");
+                              "TeamManager /t /s:2 /db:mongo\n");
 
             Console.Write("\nPress any key to continue . . .");
             Console.ReadKey();
