@@ -1,5 +1,11 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_i_comparable.html" title="IComparable" alt="" coords="5,46,100,73"/>
-<area shape="rect" id="node2" href="$class_team_manager_1_1_models_1_1_resource_data_1_1_player.html" title="The one and the only Player object that is used as resource for almost every place in the project..." alt="" coords="148,5,357,47"/>
-<area shape="rect" id="node3" href="$class_team_manager_1_1_models_1_1_resource_data_1_1_team.html" title="The one and the only Team object that is used as resource for almost every place in the project..." alt="" coords="148,71,357,112"/>
+<area shape="rect" id="node1" href="$class_custom_form.html" title="CustomForm" alt="" coords="32,113,129,139"/>
+<area shape="rect" id="node2" href="$class_team_manager_1_1_views_1_1_windows_1_1_dialogs_1_1_all_players_window.html" title="TeamManager.Views.Windows.\lDialogs.AllPlayersWindow" alt="" coords="209,5,413,47"/>
+<area shape="rect" id="node3" href="$class_team_manager_1_1_views_1_1_windows_1_1_dialogs_1_1_edit_window.html" title="The EditWindow is pretty re&#45;useable in many cases where we can specify what we want to edit depending..." alt="" coords="209,71,413,112"/>
+<area shape="rect" id="node4" href="$class_team_manager_1_1_views_1_1_windows_1_1_dialogs_1_1_unsigned_players_window.html" title="TeamManager.Views.Windows.\lDialogs.UnsignedPlayersWindow" alt="" coords="204,137,417,179"/>
+<area shape="rect" id="node5" href="$class_team_manager_1_1_views_1_1_windows_1_1_main_window.html" title="The MainWindow where the GUI starts which will display the teams and players and various of other opt..." alt="" coords="209,204,413,245"/>
+<area shape="rect" id="node6" href="$class_i_all_players_view.html" title="IAllPlayersView" alt="" coords="25,11,137,38"/>
+<area shape="rect" id="node7" href="$class_i_edit_view.html" title="IEditView" alt="" coords="43,62,119,89"/>
+<area shape="rect" id="node8" href="$class_i_main_view.html" title="IMainView" alt="" coords="40,214,121,241"/>
+<area shape="rect" id="node9" href="$class_i_unsigned_players_view.html" title="IUnsignedPlayersView" alt="" coords="5,163,156,190"/>
 </map>

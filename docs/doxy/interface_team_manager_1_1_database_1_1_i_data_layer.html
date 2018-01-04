@@ -30,7 +30,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">TeamManager AS Projekt
-   &#160;<span id="projectnumber">v1.0.1</span>
+   &#160;<span id="projectnumber">v1.0.3</span>
    </div>
    <div id="projectbrief">Softwaresystem als 3-Schichten-Architektur (Benutzungsoberfläche, Fachkonzept, Datenhaltung)</div>
   </td>
@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('interface_team_manager_1_1_database_1_
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#properties">Properties</a> &#124;
 <a href="interface_team_manager_1_1_database_1_1_i_data_layer-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">TeamManager.Database.IDataLayer Interface Reference</div>  </div>
@@ -97,8 +98,8 @@ Inheritance diagram for TeamManager.Database.IDataLayer:</div>
 <div class="dyncontent">
 <div class="center"><img src="interface_team_manager_1_1_database_1_1_i_data_layer__inherit__graph.png" border="0" usemap="#_team_manager_8_database_8_i_data_layer_inherit__map" alt="Inheritance graph"/></div>
 <map name="_team_manager_8_database_8_i_data_layer_inherit__map" id="_team_manager_8_database_8_i_data_layer_inherit__map">
-<area shape="rect" id="node2" href="class_team_manager_1_1_database_1_1_db_layer_mongo.html" title="DbLayerMongo will contain none&#45;relational data. For more information, please refer to: DatabaseType I..." alt="" coords="5,292,220,751"/>
-<area shape="rect" id="node3" href="class_team_manager_1_1_database_1_1_db_layer_sql.html" title="DbLayerSql will contain relational data. For more information, please refer to: DatabaseType IDataLay..." alt="" coords="245,329,490,714"/>
+<area shape="rect" id="node2" href="class_team_manager_1_1_database_1_1_db_layer_mongo.html" title="DbLayerMongo will contain none&#45;relational data. For more information, please refer to: DatabaseType I..." alt="" coords="5,321,220,765"/>
+<area shape="rect" id="node3" href="class_team_manager_1_1_database_1_1_db_layer_sql.html" title="DbLayerSql will contain relational data. For more information, please refer to: DatabaseType IDataLay..." alt="" coords="245,351,490,736"/>
 </map>
 </div>
 <div class="dynheader">
@@ -111,9 +112,9 @@ Collaboration diagram for TeamManager.Database.IDataLayer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a17fba671c89c921e6fd6ef0ebea20217"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a17fba671c89c921e6fd6ef0ebea20217">OpenConnection</a> ()</td></tr>
-<tr class="memdesc:a17fba671c89c921e6fd6ef0ebea20217"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the database connections.  <a href="#a17fba671c89c921e6fd6ef0ebea20217">More...</a><br /></td></tr>
-<tr class="separator:a17fba671c89c921e6fd6ef0ebea20217"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6762a0b636229d3210c2f33d3bc6ccc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ae6762a0b636229d3210c2f33d3bc6ccc">CreateConnection</a> ()</td></tr>
+<tr class="memdesc:ae6762a0b636229d3210c2f33d3bc6ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the database connections.  <a href="#ae6762a0b636229d3210c2f33d3bc6ccc">More...</a><br /></td></tr>
+<tr class="separator:ae6762a0b636229d3210c2f33d3bc6ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7368d21ddc45690aea63e1bae4ed2cf"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_team_manager_1_1_models_1_1_resource_data_1_1_team.html">Team</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ad7368d21ddc45690aea63e1bae4ed2cf">Teams</a> ()</td></tr>
 <tr class="memdesc:ad7368d21ddc45690aea63e1bae4ed2cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all Teams in a list.  <a href="#ad7368d21ddc45690aea63e1bae4ed2cf">More...</a><br /></td></tr>
 <tr class="separator:ad7368d21ddc45690aea63e1bae4ed2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,6 +193,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a58408bfadf88a17ec77e837a5550e344"><td class="memItemLeft" align="right" valign="top">Task&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a58408bfadf88a17ec77e837a5550e344">ChangePlayerTeamAsync</a> (string playerId, string teamId)</td></tr>
 <tr class="memdesc:a58408bfadf88a17ec77e837a5550e344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the Player team with the specified teamId using async call.  <a href="#a58408bfadf88a17ec77e837a5550e344">More...</a><br /></td></tr>
 <tr class="separator:a58408bfadf88a17ec77e837a5550e344"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
+Properties</h2></td></tr>
+<tr class="memitem:ab781a372bc40f107755040ee0da8c30e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#ab781a372bc40f107755040ee0da8c30e">TimeoutMilisec</a><code> [get]</code></td></tr>
+<tr class="memdesc:ab781a372bc40f107755040ee0da8c30e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Timeout in miliseconds for task to execute when using the async calls.  <a href="#ab781a372bc40f107755040ee0da8c30e">More...</a><br /></td></tr>
+<tr class="separator:ab781a372bc40f107755040ee0da8c30e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af685f42a406758be7f904efa22a9efbf"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#af685f42a406758be7f904efa22a9efbf">TeamsCollectionName</a><code> [get]</code></td></tr>
+<tr class="memdesc:af685f42a406758be7f904efa22a9efbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The collection/table of the Teams.  <a href="#af685f42a406758be7f904efa22a9efbf">More...</a><br /></td></tr>
+<tr class="separator:af685f42a406758be7f904efa22a9efbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30f90e969079afcc26ed1fc04c3ba1ef"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html#a30f90e969079afcc26ed1fc04c3ba1ef">PlayersCollectionName</a><code> [get]</code></td></tr>
+<tr class="memdesc:a30f90e969079afcc26ed1fc04c3ba1ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">The collection/table of the Players.  <a href="#a30f90e969079afcc26ed1fc04c3ba1ef">More...</a><br /></td></tr>
+<tr class="separator:a30f90e969079afcc26ed1fc04c3ba1ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any...">IDataLayer</a> interface that each <a class="el" href="namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391" title="The DatabaseType that will be used when the project gets initialized. ">DatabaseType</a> must implement. That way, the application can use any database while keeping the same consistent data. </p>
@@ -275,6 +288,27 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Returns true if operation were succesfull. </dd></dl>
 
 <p>Implemented in <a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a594c68fbcf75eaeddd72ff982f6d75ac">TeamManager.Database.DbLayerSql</a>, and <a class="el" href="class_team_manager_1_1_database_1_1_db_layer_mongo.html#a6472ac271d326ba7ae53352bb4bd33f7">TeamManager.Database.DbLayerMongo</a>.</p>
+
+</div>
+</div>
+<a id="ae6762a0b636229d3210c2f33d3bc6ccc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6762a0b636229d3210c2f33d3bc6ccc">&#9670;&nbsp;</a></span>CreateConnection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TeamManager.Database.IDataLayer.CreateConnection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates the database connections. </p>
+
+<p>Implemented in <a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#ac10665c14d940f6cbc6221523556d0a9">TeamManager.Database.DbLayerSql</a>, and <a class="el" href="class_team_manager_1_1_database_1_1_db_layer_mongo.html#a97ef490c27c9db6b26f1b2c2e82588f3">TeamManager.Database.DbLayerMongo</a>.</p>
 
 </div>
 </div>
@@ -532,27 +566,6 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a17fba671c89c921e6fd6ef0ebea20217"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17fba671c89c921e6fd6ef0ebea20217">&#9670;&nbsp;</a></span>OpenConnection()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void TeamManager.Database.IDataLayer.OpenConnection </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Opens the database connections. </p>
-
-<p>Implemented in <a class="el" href="class_team_manager_1_1_database_1_1_db_layer_mongo.html#ae24789cce82a0121ad9203d1c245b047">TeamManager.Database.DbLayerMongo</a>, and <a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a977cac073c266dc378c82f9af97d73cb">TeamManager.Database.DbLayerSql</a>.</p>
-
-</div>
-</div>
 <a id="a4f22365c5c3e6d0f6e10220e8e317578"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4f22365c5c3e6d0f6e10220e8e317578">&#9670;&nbsp;</a></span>Players()</h2>
 
@@ -789,7 +802,7 @@ Public Member Functions</h2></td></tr>
 <p>Retrieves all Teams in a list. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns a collections of Team. </dd></dl>
 
-<p>Implemented in <a class="el" href="class_team_manager_1_1_database_1_1_db_layer_mongo.html#a478fcadb15da129638d43ba6f582b5bf">TeamManager.Database.DbLayerMongo</a>, and <a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a94d7b1c21a273841c3c76d7073682953">TeamManager.Database.DbLayerSql</a>.</p>
+<p>Implemented in <a class="el" href="class_team_manager_1_1_database_1_1_db_layer_sql.html#a94d7b1c21a273841c3c76d7073682953">TeamManager.Database.DbLayerSql</a>, and <a class="el" href="class_team_manager_1_1_database_1_1_db_layer_mongo.html#a478fcadb15da129638d43ba6f582b5bf">TeamManager.Database.DbLayerMongo</a>.</p>
 
 </div>
 </div>
@@ -1069,6 +1082,85 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<h2 class="groupheader">Property Documentation</h2>
+<a id="a30f90e969079afcc26ed1fc04c3ba1ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30f90e969079afcc26ed1fc04c3ba1ef">&#9670;&nbsp;</a></span>PlayersCollectionName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string TeamManager.Database.IDataLayer.PlayersCollectionName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The collection/table of the Players. </p>
+
+<p class="definition">Definition at line <a class="el" href="_i_data_layer_8cs_source.html#l00031">31</a> of file <a class="el" href="_i_data_layer_8cs_source.html">IDataLayer.cs</a>.</p>
+
+</div>
+</div>
+<a id="af685f42a406758be7f904efa22a9efbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af685f42a406758be7f904efa22a9efbf">&#9670;&nbsp;</a></span>TeamsCollectionName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string TeamManager.Database.IDataLayer.TeamsCollectionName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The collection/table of the Teams. </p>
+
+<p class="definition">Definition at line <a class="el" href="_i_data_layer_8cs_source.html#l00026">26</a> of file <a class="el" href="_i_data_layer_8cs_source.html">IDataLayer.cs</a>.</p>
+
+</div>
+</div>
+<a id="ab781a372bc40f107755040ee0da8c30e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab781a372bc40f107755040ee0da8c30e">&#9670;&nbsp;</a></span>TimeoutMilisec</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TeamManager.Database.IDataLayer.TimeoutMilisec</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The Timeout in miliseconds for task to execute when using the async calls. </p>
+
+<p class="definition">Definition at line <a class="el" href="_i_data_layer_8cs_source.html#l00021">21</a> of file <a class="el" href="_i_data_layer_8cs_source.html">IDataLayer.cs</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
 <li>src/TeamManager/Database/<a class="el" href="_i_data_layer_8cs_source.html">IDataLayer.cs</a></li>
 </ul>
@@ -1078,7 +1170,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespace_team_manager.html">TeamManager</a></li><li class="navelem"><a class="el" href="namespace_team_manager_1_1_database.html">Database</a></li><li class="navelem"><a class="el" href="interface_team_manager_1_1_database_1_1_i_data_layer.html">IDataLayer</a></li>
-    <li class="footer">Generated on Wed Jan 3 2018 09:22:21 for TeamManager AS Projekt by
+    <li class="footer">Generated on Thu Jan 4 2018 08:55:50 for TeamManager AS Projekt by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>

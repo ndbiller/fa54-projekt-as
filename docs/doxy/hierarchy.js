@@ -10,7 +10,6 @@ var hierarchy =
       [ "TeamManager.Presenters.MainPresenter", "class_team_manager_1_1_presenters_1_1_main_presenter.html", null ],
       [ "TeamManager.Presenters.UnsignedPlayersPresenter", "class_team_manager_1_1_presenters_1_1_unsigned_players_presenter.html", null ]
     ] ],
-    [ "Common", "class_common.html", null ],
     [ "TeamManager.Utilities.CtrlType", "struct_team_manager_1_1_utilities_1_1_ctrl_type.html", null ],
     [ "CustomForm", "class_custom_form.html", [
       [ "TeamManager.Views.Windows.Dialogs.AllPlayersWindow", "class_team_manager_1_1_views_1_1_windows_1_1_dialogs_1_1_all_players_window.html", null ],
@@ -42,15 +41,14 @@ var hierarchy =
       [ "TeamManager.Database.DbLayerMongo", "class_team_manager_1_1_database_1_1_db_layer_mongo.html", null ],
       [ "TeamManager.Database.DbLayerSql", "class_team_manager_1_1_database_1_1_db_layer_sql.html", null ]
     ] ],
-    [ "TeamManager.Views.Interfaces.IEditView", "interface_team_manager_1_1_views_1_1_interfaces_1_1_i_edit_view.html", null ],
     [ "IEditView", "class_i_edit_view.html", [
       [ "TeamManager.Views.Windows.Dialogs.EditWindow", "class_team_manager_1_1_views_1_1_windows_1_1_dialogs_1_1_edit_window.html", null ]
     ] ],
-    [ "ILTemplate", "class_i_l_template.html", null ],
-    [ "TeamManager.Views.Interfaces.IMainView", "interface_team_manager_1_1_views_1_1_interfaces_1_1_i_main_view.html", null ],
+    [ "TeamManager.Views.Interfaces.IEditView", "interface_team_manager_1_1_views_1_1_interfaces_1_1_i_edit_view.html", null ],
     [ "IMainView", "class_i_main_view.html", [
       [ "TeamManager.Views.Windows.MainWindow", "class_team_manager_1_1_views_1_1_windows_1_1_main_window.html", null ]
     ] ],
+    [ "TeamManager.Views.Interfaces.IMainView", "interface_team_manager_1_1_views_1_1_interfaces_1_1_i_main_view.html", null ],
     [ "TeamManager.Models.Strategy.IStrategy", "interface_team_manager_1_1_models_1_1_strategy_1_1_i_strategy.html", [
       [ "TeamManager.Models.Strategy.AscendingStrategy", "class_team_manager_1_1_models_1_1_strategy_1_1_ascending_strategy.html", null ],
       [ "TeamManager.Models.Strategy.AscendingStrategyMt", "class_team_manager_1_1_models_1_1_strategy_1_1_ascending_strategy_mt.html", null ],

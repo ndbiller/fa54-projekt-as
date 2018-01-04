@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_common.html" title="Common" alt="" coords="5,5,80,32"/>
+<area shape="rect" id="node1" href="$class_event_args.html" title="EventArgs" alt="" coords="5,13,87,39"/>
+<area shape="rect" id="node2" href="$class_team_manager_1_1_presenters_1_1_events_1_1_presenter_args.html" title="The PresenterArgs class will contain some data that we&#39;re interested in when the PresenterHandler get..." alt="" coords="135,5,353,47"/>
 </map>

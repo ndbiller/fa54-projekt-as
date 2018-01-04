@@ -1,4 +1,4 @@
 <map id="TeamManager.Database.IDataLayer" name="TeamManager.Database.IDataLayer">
-<area shape="rect" id="node2" href="$class_team_manager_1_1_database_1_1_db_layer_mongo.html" title="DbLayerMongo will contain none&#45;relational data. For more information, please refer to: DatabaseType I..." alt="" coords="5,292,220,751"/>
-<area shape="rect" id="node3" href="$class_team_manager_1_1_database_1_1_db_layer_sql.html" title="DbLayerSql will contain relational data. For more information, please refer to: DatabaseType IDataLay..." alt="" coords="245,329,490,714"/>
+<area shape="rect" id="node2" href="$class_team_manager_1_1_database_1_1_db_layer_mongo.html" title="DbLayerMongo will contain none&#45;relational data. For more information, please refer to: DatabaseType I..." alt="" coords="5,321,220,765"/>
+<area shape="rect" id="node3" href="$class_team_manager_1_1_database_1_1_db_layer_sql.html" title="DbLayerSql will contain relational data. For more information, please refer to: DatabaseType IDataLay..." alt="" coords="245,351,490,736"/>
 </map>

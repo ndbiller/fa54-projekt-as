@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_form.html" title="Form" alt="" coords="5,46,57,73"/>
-<area shape="rect" id="node2" href="$class_team_manager_1_1_views_1_1_loader_1_1_loader_window.html" title="Nothing more than a window to display the loader. " alt="" coords="105,5,296,47"/>
-<area shape="rect" id="node3" href="$class_team_manager_1_1_views_1_1_loader_1_1_splash_window.html" title="Nothing more than a window to display the loader. " alt="" coords="105,71,296,112"/>
+<area shape="rect" id="node1" href="$class_i_comparable.html" title="IComparable" alt="" coords="5,46,100,73"/>
+<area shape="rect" id="node2" href="$class_team_manager_1_1_models_1_1_resource_data_1_1_player.html" title="The one and the only Player object that is used as resource for almost every place in the project..." alt="" coords="148,5,357,47"/>
+<area shape="rect" id="node3" href="$class_team_manager_1_1_models_1_1_resource_data_1_1_team.html" title="The one and the only Team object that is used as resource for almost every place in the project..." alt="" coords="148,71,357,112"/>
 </map>
