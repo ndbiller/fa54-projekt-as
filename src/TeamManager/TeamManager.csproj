@@ -116,6 +116,7 @@
     <Compile Include="Models\Logic\ISortStrategy.cs" />
     <Compile Include="Models\Logic\IBusinessLogic.cs" />
     <Compile Include="Models\Logic\SortType.cs" />
+    <Compile Include="Models\ResourceData\ResourceBase.cs" />
     <Compile Include="Presenters\AllPlayersPresenter.cs" />
     <Compile Include="Presenters\BasePresenter.cs" />
     <Compile Include="Presenters\ConsolePresenter.cs" />

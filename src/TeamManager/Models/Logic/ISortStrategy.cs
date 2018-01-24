@@ -9,7 +9,6 @@ namespace TeamManager.Models.Logic
 {
     public interface ISortStrategy
     {
-        List<Team> Sort(IEnumerable<Team> list);
-        List<Player> Sort(IEnumerable<Player> list);
+        List<T> Sort<T>(IEnumerable<T> list) where T : ResourceBase;
     }
 }

@@ -9,14 +9,9 @@ namespace TeamManager.Models.Logic
 {
     public class SortAscending : ISortStrategy
     {
-        public List<Team> Sort(IEnumerable<Team> list)
+        public List<T> Sort<T>(IEnumerable<T> list) where T : ResourceBase
         {
-            return list?.OrderBy(team => team.Name).ToList();
-        }
-
-        public List<Player> Sort(IEnumerable<Player> list)
-        {
-            return list?.OrderBy(player => player.Name).ToList();
+            return list?.OrderBy(l => l.Name).ToList();
         }
     }
 }

@@ -7,14 +7,8 @@ namespace TeamManager.Models.ResourceData
     /// The one and the only <see cref="Player"/> object that is used as resource for almost every place in the project.
     /// It implements the <see cref="IComparable"/> interface in order to make the most of it when working with it in collections.
     /// </summary>
-    public class Player : IComparable<Player>
+    public class Player : ResourceBase, IComparable<Player>
     {
-        /// <summary> The <see cref="Id"/> of the <see cref="Player"/> which is defined with the <see cref="Guid"/>. </summary>
-        public string Id { get; set; }
-
-        /// <summary> The <see cref="Name"/> of the <see cref="Player"/> as string. </summary>
-        public string Name { get; set; }
-
         /// <summary> The <see cref="TeamId"/> of the <see cref="Player"/> which is in a relationship with the <see cref="Team.Id"/>. </summary>
         public string TeamId { get; set; }
 
@@ -34,17 +28,6 @@ namespace TeamManager.Models.ResourceData
             TeamId = teamId;
         }
 
-
-
-        /// <summary>
-        /// Implicit cast to a string so the <see cref="Player"/> object can be passed directly to a string variable without
-        /// using the .ToString() method everywhere.
-        /// </summary>
-        /// <param name="player"></param>
-        public static implicit operator string(Player player)
-        {
-            return player.Name;
-        }
 
         /// <summary>
         /// Overrides the <see cref="CompareTo"/> method in order to make the most of it when working with this object in collections.
