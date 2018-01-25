@@ -4,6 +4,7 @@ using System.Linq;
 using log4net;
 using TeamManager.Models.Logic;
 using TeamManager.Models.ResourceData;
+using TeamManager.Models.Strategy;
 using TeamManager.Presenters.Events;
 using TeamManager.Utilities;
 using TeamManager.Views.Interfaces;

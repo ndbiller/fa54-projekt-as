@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TeamManager.Database;
 using TeamManager.Models.ResourceData;
+using TeamManager.Models.Strategy;
 
 namespace TeamManager.Models.Logic
 {
+    /// <summary>
+    /// For more information refer to the comment in <see cref="IBusinessLogic"/> interface.
+    /// </summary>
     public class BusinessLogic : BusinessLogicBase, IBusinessLogic
     {
         public BusinessLogic(DatabaseType dbType, SortType sortType) : base(dbType, sortType) { }
@@ -45,7 +46,8 @@ namespace TeamManager.Models.Logic
 
         public List<Player> GetAllPlayers()
         {
-            return SortBehaviour.Sort(DbLayer.Players());
+            List<Player> players = DbLayer.Players();
+            return SortStrategy.Sort(players);
         }
 
         public List<Player> GetAllPlayers(string filterText, bool ignoreCase)
@@ -58,7 +60,8 @@ namespace TeamManager.Models.Logic
 
         public List<Team> GetAllTeams()
         {
-            return SortBehaviour.Sort(DbLayer.Teams()?.Where(t => t.Id != "0"));
+            IEnumerable<Team> teams = DbLayer.Teams()?.Where(t => t.Id != "0");
+            return SortStrategy.Sort(teams);
         }
 
         public List<Team> GetAllTeams(string filterText, bool ignoreCase)
@@ -71,7 +74,8 @@ namespace TeamManager.Models.Logic
 
         public List<Player> GetTeamPlayers(string teamId)
         {
-            return SortBehaviour.Sort(DbLayer.ShowPlayers(teamId));
+            List<Player> teamPlayers = DbLayer.ShowPlayers(teamId);
+            return SortStrategy.Sort(teamPlayers);
         }
 
         public List<Player> GetTeamPlayers(string teamId, string filterText, bool ignoreCase)

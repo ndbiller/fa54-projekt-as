@@ -122,7 +122,7 @@ namespace TeamManager.Views.Loader
         /// <param name="handle">The handle of the window. </param>
         private static void WindowToFront(IntPtr handle)
         {
-            NativeMethods.SetForegroundWindow(handle.ToInt32());
+            NativeMethods.SetForegroundWindow(handle);
         }
 
     }

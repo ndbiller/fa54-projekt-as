@@ -1,6 +1,7 @@
 ﻿using log4net;
 using TeamManager.Database;
 using TeamManager.Models.Logic;
+using TeamManager.Models.Strategy;
 using TeamManager.Presenters.Events;
 using TeamManager.Utilities;
 

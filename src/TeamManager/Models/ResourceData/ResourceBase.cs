@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TeamManager.Models.ResourceData
 {
+    /// <summary>
+    /// Commmon data that the resource data will be used.
+    /// It's important that every resource data objects inheriting this class due to the constraint in the 
+    /// <see cref="Strategy.ISortStrategy"/>.
+    /// </summary>
     public abstract class ResourceBase
     {
         /// <summary> The <see cref="Id"/> of the <see cref="ResourceBase"/> which is defined with the <see cref="Guid"/>. </summary>

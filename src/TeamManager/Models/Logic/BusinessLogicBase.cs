@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TeamManager.Database;
+﻿using TeamManager.Database;
+using TeamManager.Models.Strategy;
 using TeamManager.Utilities;
 
 namespace TeamManager.Models.Logic
@@ -13,10 +9,13 @@ namespace TeamManager.Models.Logic
         /// <summary> The <see cref="IDataLayer"/> instance that will be used for retrieving data from the database. </summary>
         protected IDataLayer DbLayer;
 
+        /// <summary> The <see cref="ISortStrategy"/> instance that will control the sort behavior using the strategy pattern. </summary>
+        protected static ISortStrategy SortStrategy;
 
-        protected static ISortStrategy SortBehaviour;
-
+        /// <summary> Place holder for the <see cref="SortType"/> property. </summary>
         private static SortType _sortType;
+
+        /// <summary> Static property that will allow to change the strategy beavhior in run-time. </summary>
         public static SortType SortType
         {
             get => _sortType;
@@ -24,9 +23,9 @@ namespace TeamManager.Models.Logic
             {
                 _sortType = value;
                 if (_sortType == SortType.Descending)
-                    SortBehaviour = new SortDescending();
+                    SortStrategy = new SortDescending();
                 else
-                    SortBehaviour = new SortAscending();
+                    SortStrategy = new SortAscending();
             }
         }
 

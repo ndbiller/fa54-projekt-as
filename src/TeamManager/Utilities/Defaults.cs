@@ -1,5 +1,6 @@
 ﻿using TeamManager.Database;
 using TeamManager.Models.Logic;
+using TeamManager.Models.Strategy;
 
 namespace TeamManager.Utilities
 {

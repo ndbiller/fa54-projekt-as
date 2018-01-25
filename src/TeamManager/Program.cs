@@ -8,6 +8,7 @@ using TeamManager.Utilities;
 using TeamManager.Views;
 using System.IO;
 using TeamManager.Models.Logic;
+using TeamManager.Models.Strategy;
 
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
 [assembly: Fody.ConfigureAwait(false)]
