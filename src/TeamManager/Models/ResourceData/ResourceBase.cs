@@ -15,6 +15,19 @@ namespace TeamManager.Models.ResourceData
         public string Name { get; set; }
 
 
+
+
+        /// <summary>
+        /// Initializes members and generates a new <see cref="Id"/> everytime the ctor is called.
+        /// </summary>
+        /// <param name="name"></param>
+        protected ResourceBase(string name)
+        {
+            Id = Guid.NewGuid().ToString();
+            Name = name;
+        }
+
+
         /// <summary>
         /// Implicit cast to a string so the <see cref="ResourceBase"/> object can be passed directly to a string variable without
         /// using the .ToString() method everywhere.

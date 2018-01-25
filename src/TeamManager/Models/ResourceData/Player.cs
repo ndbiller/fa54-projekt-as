@@ -21,10 +21,8 @@ namespace TeamManager.Models.ResourceData
         /// </summary>
         /// <param name="name">The name of the <see cref="Player"/>. </param>
         /// <param name="teamId">Default value = "0" which is unsigned team. </param>
-        public Player(string name, string teamId = "0")
+        public Player(string name, string teamId = "0") : base(name)
         {
-            Id = Guid.NewGuid().ToString();
-            Name = name;
             TeamId = teamId;
         }
 

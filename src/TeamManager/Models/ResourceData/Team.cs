@@ -13,11 +13,8 @@ namespace TeamManager.Models.ResourceData
         /// The constructor requires a <see cref="Name"/> to be passed as the <see cref="Id"/> will generate a new <see cref="Guid"/> automatically.
         /// </summary>
         /// <param name="name"></param>
-        public Team(string name)
-        {
-            Id = Guid.NewGuid().ToString();
-            Name = name;
-        }
+        public Team(string name) : base(name) { }
+
 
         /// <summary>
         /// Overrides the <see cref="CompareTo"/> method in order to make the most of it when working with this object in collections.
