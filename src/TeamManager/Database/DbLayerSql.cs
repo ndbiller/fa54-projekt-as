@@ -14,6 +14,7 @@ namespace TeamManager.Database
     /// For more information, please refer to:
     /// <see cref="DatabaseType"/>
     /// <see cref="IDataLayer"/>
+    /// TODO: Probably a better idea would be adding stored procedures instead of queries with string concatenations.
     /// </summary>
     public sealed class DbLayerSql : IDataLayer
     {

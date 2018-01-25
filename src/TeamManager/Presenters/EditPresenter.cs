@@ -44,7 +44,7 @@ namespace TeamManager.Presenters
         {
             Log.Info("Binding teams data into the ComboBox.");
             _view.TeamsComboBox.Clear();
-            List<Team> teams = Strategy.GetAllTeams();
+            List<Team> teams = BusinessLogic.GetAllTeams();
             if (teams.IsNullOrEmpty()) return;
 
             teams.ForEach(team => _view.TeamsComboBox.Add(team));
@@ -63,7 +63,7 @@ namespace TeamManager.Presenters
         public void CreateTeam()
         {
             Log.Info("Creating new team.");
-            Strategy.AddNewTeam(_view.NameText);
+            BusinessLogic.AddNewTeam(_view.NameText);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace TeamManager.Presenters
             if (_view.Team.Name == _view.NameText) return;
 
             Log.Info("Changing team name.");
-            Strategy.ChangeTeamName(_view.Team.Id, _view.NameText);
+            BusinessLogic.ChangeTeamName(_view.Team.Id, _view.NameText);
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace TeamManager.Presenters
         {
             Log.Info("Editing player.");
             if (_view.Player.Name != _view.NameText)
-                Strategy.ChangePlayerName(_view.Player.Id, _view.NameText);
+                BusinessLogic.ChangePlayerName(_view.Player.Id, _view.NameText);
 
             if (_view.TeamsComboBox.Count == 0 || _view.TeamSelectedIndex == -1) return;
 
@@ -95,7 +95,7 @@ namespace TeamManager.Presenters
 
             if (team.Id == _view.Team.Id) return;
 
-            Strategy.ChangePlayerTeam(_view.Player.Id, team.Id);
+            BusinessLogic.ChangePlayerTeam(_view.Player.Id, team.Id);
         }
 
         /// <summary>
@@ -109,13 +109,13 @@ namespace TeamManager.Presenters
 
             if (tSelIndex == -1) // -1 means nothing selected.
             {
-                Strategy.AddNewPlayer(_view.NameText);
+                BusinessLogic.AddNewPlayer(_view.NameText);
             }
             else
             {
                 Team team = _view.TeamsComboBox[tSelIndex].ToTeam();
                 if (team != null)
-                    Strategy.AddNewPlayer(_view.NameText, team.Id);
+                    BusinessLogic.AddNewPlayer(_view.NameText, team.Id);
             }
         }
 
@@ -129,7 +129,7 @@ namespace TeamManager.Presenters
 
             Team team = _view.TeamsComboBox[tSelIndex].ToTeam();
             Log.Info($"Assigning player to {team.Name} team.");
-            Strategy.ChangePlayerTeam(_view.Player.Id, team.Id);
+            BusinessLogic.ChangePlayerTeam(_view.Player.Id, team.Id);
         }
 
         /// <summary>

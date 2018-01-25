@@ -2,54 +2,52 @@
 using System.Linq;
 using TeamManager.Database;
 using TeamManager.Models.ResourceData;
+using TeamManager.Models.Strategy;
 
-namespace TeamManager.Models.Strategy
+namespace TeamManager.Models.Logic
 {
     /// <summary>
-    /// The <see cref="DescendingStrategyMt"/> implementation will retrieve the data from the 
-    /// <see cref="StrategyBase.DbLayer"/> in descending order using multi-threaded calls.
-    /// The constructor that gets the <see cref="DatabaseType"/> will pass forward to the base constructor
-    /// in order to initialize the <see cref="IDataLayer"/> which is used as the <see cref="StrategyBase.DbLayer"/>.
-    /// For more details, please see <see cref="IStrategy"/> documentation.
+    /// For more information refer to the comment in <see cref="IBusinessLogic"/> interface.
     /// </summary>
-    public class DescendingStrategyMt : StrategyBase, IStrategy
+    public class BusinessLogic : BusinessLogicBase, IBusinessLogic
     {
-        public DescendingStrategyMt(DatabaseType dbType) : base(dbType) { }
+        public BusinessLogic(DatabaseType dbType, SortType sortType) : base(dbType, sortType) { }
 
 
         public bool AddNewPlayer(string playerName)
         {
-            return DbLayer.CreatePlayerAsync(playerName, "0").Result;
+            return DbLayer.CreatePlayer(playerName, "0");
         }
 
         public bool AddNewPlayer(string playerName, string teamId)
         {
-            return DbLayer.CreatePlayerAsync(playerName, teamId).Result;
+            return DbLayer.CreatePlayer(playerName, teamId);
         }
 
         public Team GetPlayerTeam(string teamId)
         {
-            return DbLayer.ReadTeamAsync(teamId).Result;
+            return DbLayer.ReadTeam(teamId);
         }
 
         public bool AddNewTeam(string teamName)
         {
-            return DbLayer.CreateTeamAsync(teamName).Result;
+            return DbLayer.CreateTeam(teamName);
         }
 
         public bool ChangePlayerName(string playerId, string playerNewName)
         {
-            return DbLayer.UpdatePlayerAsync(playerId, playerNewName).Result;
+            return DbLayer.UpdatePlayer(playerId, playerNewName);
         }
 
         public bool ChangeTeamName(string teamId, string teamNewName)
         {
-            return DbLayer.UpdateTeamAsync(teamId, teamNewName).Result;
+            return DbLayer.UpdateTeam(teamId, teamNewName);
         }
 
         public List<Player> GetAllPlayers()
         {
-            return DbLayer.PlayersAsync().Result?.OrderByDescending(p => p.Name).ToList();
+            List<Player> players = DbLayer.Players();
+            return SortStrategy.Sort(players);
         }
 
         public List<Player> GetAllPlayers(string filterText, bool ignoreCase)
@@ -62,24 +60,22 @@ namespace TeamManager.Models.Strategy
 
         public List<Team> GetAllTeams()
         {
-            return DbLayer.TeamsAsync().Result?
-                .Where(t => t.Id != "0")
-                .OrderByDescending(t => t.Name)
-                .ToList();
+            IEnumerable<Team> teams = DbLayer.Teams()?.Where(t => t.Id != "0");
+            return SortStrategy.Sort(teams);
         }
 
         public List<Team> GetAllTeams(string filterText, bool ignoreCase)
         {
             return GetAllTeams()?
-                .Where(
-                    t => t.Id != "0"
-                         && t.Name.ToLower().Contains(ignoreCase ? filterText.ToLower() : filterText)
+                .Where(t =>
+                    t.Name.ToLower().Contains(ignoreCase ? filterText.ToLower() : filterText)
                 ).ToList();
         }
 
         public List<Player> GetTeamPlayers(string teamId)
         {
-            return DbLayer.ShowPlayersAsync(teamId).Result?.OrderByDescending(p => p.Name).ToList();
+            List<Player> teamPlayers = DbLayer.ShowPlayers(teamId);
+            return SortStrategy.Sort(teamPlayers);
         }
 
         public List<Player> GetTeamPlayers(string teamId, string filterText, bool ignoreCase)
@@ -92,17 +88,17 @@ namespace TeamManager.Models.Strategy
 
         public bool RemovePlayer(string playerId)
         {
-            return DbLayer.DeletePlayerAsync(playerId).Result;
+            return DbLayer.DeletePlayer(playerId);
         }
 
         public bool RemoveTeam(string teamId)
         {
-            return DbLayer.DeleteTeamAsync(teamId).Result;
+            return DbLayer.DeleteTeam(teamId);
         }
 
         public bool ChangePlayerTeam(string playerId, string teamId)
         {
-            return DbLayer.ChangePlayerTeamAsync(playerId, teamId).Result;
+            return DbLayer.ChangePlayerTeam(playerId, teamId);
         }
     }
 }

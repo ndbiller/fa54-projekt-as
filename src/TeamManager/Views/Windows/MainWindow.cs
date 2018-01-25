@@ -200,5 +200,9 @@ namespace TeamManager.Views.Windows
 
         #endregion --- Show Dialogs ---
 
+        private void btnStrategy_Click(object sender, EventArgs e)
+        {
+            _presenter.ChangeStrategy();
+        }
     }
 }

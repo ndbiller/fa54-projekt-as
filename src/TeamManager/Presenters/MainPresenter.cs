@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using log4net;
+using TeamManager.Models.Logic;
 using TeamManager.Models.ResourceData;
+using TeamManager.Models.Strategy;
 using TeamManager.Presenters.Events;
 using TeamManager.Utilities;
 using TeamManager.Views.Interfaces;
@@ -144,9 +146,9 @@ namespace TeamManager.Presenters
             // Change all players of the deleted team to Unsigned Team("0").
             if (teamPlayers.Count > 0)
                 for (int i = teamPlayers.Count - 1; i >= 0; i--)
-                    Strategy.ChangePlayerTeam(teamPlayers[i].Id, "0");
+                    BusinessLogic.ChangePlayerTeam(teamPlayers[i].Id, "0");
 
-            Strategy.RemoveTeam(team.Id);
+            BusinessLogic.RemoveTeam(team.Id);
 
             _allowPlayersDataBinding = false;
             int teamSelIndex = _view.TeamSelectedIndex;
@@ -175,7 +177,7 @@ namespace TeamManager.Presenters
             if (player == null) return;
 
             Log.Debug($"Removing {player.Name} player with Id: {player.Id} and moving to unsigned team.");
-            Strategy.ChangePlayerTeam(player.Id, "0");
+            BusinessLogic.ChangePlayerTeam(player.Id, "0");
 
             int playerSelIndex = _view.PlayerSelectedIndex;
             _view.PlayersListBox.RemoveAt(playerSelIndex);
@@ -274,8 +276,8 @@ namespace TeamManager.Presenters
             Log.Info("Requesting Strategy for Teams.");
 
             return _filterTeams
-                ? Strategy.GetAllTeams(_teamFilterText, true)
-                : Strategy.GetAllTeams();
+                ? BusinessLogic.GetAllTeams(_teamFilterText, true)
+                : BusinessLogic.GetAllTeams();
         }
 
         /// <summary>
@@ -288,8 +290,8 @@ namespace TeamManager.Presenters
             Log.Info("Requesting Strategy for Players.");
 
             return _filterPlayers
-                ? Strategy.GetAllPlayers(_playerFilterText, true)
-                : Strategy.GetAllPlayers();
+                ? BusinessLogic.GetAllPlayers(_playerFilterText, true)
+                : BusinessLogic.GetAllPlayers();
         }
 
         /// <summary>
@@ -302,8 +304,8 @@ namespace TeamManager.Presenters
             Log.Info("Requesting Strategy for Team Players.");
 
             return _filterPlayers
-                ? Strategy.GetTeamPlayers(teamId, _playerFilterText, true)
-                : Strategy.GetTeamPlayers(teamId);
+                ? BusinessLogic.GetTeamPlayers(teamId, _playerFilterText, true)
+                : BusinessLogic.GetTeamPlayers(teamId);
         }
 
         /// <summary>
@@ -332,5 +334,10 @@ namespace TeamManager.Presenters
         /// <summary> The <see cref="MainPresenter"/> not necessarly needs to invoke. </summary>
         public override void WindowClosed() { }
 
+        public void ChangeStrategy()
+        {
+            BusinessLogicBase.SortType = BusinessLogicBase.SortType == SortType.Ascending ? SortType.Descending : SortType.Ascending;
+            BindTeamsData();
+        }
     }
 }
