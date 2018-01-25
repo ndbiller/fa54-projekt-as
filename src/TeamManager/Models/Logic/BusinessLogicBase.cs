@@ -30,10 +30,11 @@ namespace TeamManager.Models.Logic
         }
 
         /// <summary>
-        /// The constructor of the <see cref="StrategyBase"/> will initialize the database type and receive the type
-        /// from the constructors of it's inherited objects.
+        /// The constructor will initialize the promoted database type and receive the type
+        /// from the constructors of the inherited objects.
         /// </summary>
         /// <param name="dbType"></param>
+        /// <param name="sortType"></param>
         protected BusinessLogicBase(DatabaseType dbType, SortType sortType)
         {
             switch (dbType)
