@@ -334,7 +334,7 @@ namespace TeamManager.Database
         {
             try
             {
-                await Task.Factory.StartNew(() => CreateTeamAsync(name));
+                await Task.Factory.StartNew(() => CreateTeam(name));
             }
             catch (TimeoutException e)
             {
@@ -548,7 +548,7 @@ namespace TeamManager.Database
         {
             try
             {
-                await Task.Factory.StartNew(() => UpdateTeamAsync(id, name));
+                await Task.Factory.StartNew(() => UpdateTeam(id, name));
             }
             catch (TimeoutException e)
             {
@@ -595,7 +595,7 @@ namespace TeamManager.Database
         {
             try
             {
-                await Task.Factory.StartNew(() => UpdatePlayerAsync(id, name));
+                await Task.Factory.StartNew(() => UpdatePlayer(id, name));
             }
             catch (TimeoutException e)
             {
@@ -643,7 +643,7 @@ namespace TeamManager.Database
         {
             try
             {
-                await Task.Factory.StartNew(() => UpdatePlayerAsync(id, teamId, name));
+                await Task.Factory.StartNew(() => UpdatePlayer(id, teamId, name));
             }
             catch (TimeoutException e)
             {
@@ -690,7 +690,7 @@ namespace TeamManager.Database
         {
             try
             {
-                await Task.Factory.StartNew(() => DeleteTeamAsync(id));
+                await Task.Factory.StartNew(() => DeleteTeam(id));
             }
             catch (TimeoutException e)
             {
@@ -737,7 +737,7 @@ namespace TeamManager.Database
         {
             try
             {
-                await Task.Factory.StartNew(() => DeletePlayerAsync(id));
+                await Task.Factory.StartNew(() => DeletePlayer(id));
             }
             catch (TimeoutException e)
             {
@@ -785,7 +785,7 @@ namespace TeamManager.Database
         {
             try
             {
-                await Task.Factory.StartNew(() => ChangePlayerTeamAsync(playerId, teamId));
+                await Task.Factory.StartNew(() => ChangePlayerTeam(playerId, teamId));
             }
             catch (TimeoutException e)
             {
