@@ -1,7 +1,0 @@
-<map id="TeamManager.Program.HookConsole" name="TeamManager.Program.HookConsole">
-<area shape="rect" id="node2" href="$class_team_manager_1_1_program.html#aa968135dfadf32a580e7bed7a5f3d95a" title="Prints out invalid syntax when invalid syntax received. " alt="" coords="244,65,440,106"/>
-<area shape="rect" id="node3" href="$class_team_manager_1_1_program.html#abcb8697bd1d929dcc314716829891414" title="Parses the arguments that are passed to the executeable and determines whether the parsing operation ..." alt="" coords="731,72,953,99"/>
-<area shape="rect" id="node5" href="$class_team_manager_1_1_program.html#a064f54d0b60f07eb60629feac421d383" title="Parses the StrategyType argument for modifying the _strategyType before the main initializes the data..." alt="" coords="488,31,683,73"/>
-<area shape="rect" id="node6" href="$class_team_manager_1_1_program.html#a91d7403e93c0a908a2caf71e2ee332b8" title="Parses the DatabaseType argument for modifying the _dbType before the main initializes the database a..." alt="" coords="488,97,683,138"/>
-<area shape="rect" id="node4" href="$class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the S..." alt="" coords="1001,72,1191,99"/>
-</map>

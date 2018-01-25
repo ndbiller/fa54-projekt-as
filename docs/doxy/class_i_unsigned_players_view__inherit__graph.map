@@ -1,3 +1,0 @@
-<map id="IUnsignedPlayersView" name="IUnsignedPlayersView">
-<area shape="rect" id="node2" href="$class_team_manager_1_1_views_1_1_windows_1_1_dialogs_1_1_unsigned_players_window.html" title="{TeamManager.Views.Windows.\lDialogs.UnsignedPlayersWindow\n|+ PlayersListBox\l+ PlayerSelectedIndex\l&#45; _presenter\l&#45; components\l&#45; customControlBoxDialog1\l&#45; customTableLayoutPanel1\l&#45; customTableLayoutPanel2\l&#45; lblHeader\l&#45; lbxPlayers\l&#45; btnPAddToTeam\l&#45; btnPCreate\l&#45; btnPDelete\l|+ UnsignedPlayersWindow()\l# Dispose()\l&#45; btnPDelete_Click()\l&#45; UnsignedPlayersForm\l_FormClosed()\l&#45; btnPAddToTeam_Click()\l&#45; btnPCreate_Click()\l&#45; InitializeComponent()\l}" alt="" coords="5,131,219,487"/>
-</map>

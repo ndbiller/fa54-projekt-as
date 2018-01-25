@@ -1,5 +1,0 @@
-<map id="TeamManager.Presenters.MainPresenter" name="TeamManager.Presenters.MainPresenter">
-<area shape="rect" id="node2" href="$class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the IStrategy interface that will be used for retrieving data from the..." alt="" coords="127,387,344,494"/>
-<area shape="rect" id="node4" href="$interface_team_manager_1_1_models_1_1_strategy_1_1_i_strategy.html" title="This interface will get implemented by all the other StrategyTypes so it allows us to retrieve the sa..." alt="" coords="164,5,371,303"/>
-<area shape="rect" id="node7" href="$interface_team_manager_1_1_views_1_1_interfaces_1_1_i_main_view.html" title="The IMainView interface which the Windows.MainWindow implements in order to expose properties to the ..." alt="" coords="580,365,787,516"/>
-</map>

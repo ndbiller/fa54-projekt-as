@@ -1,6 +1,0 @@
-<map id="TeamManager.Program.InvalidSyntax" name="TeamManager.Program.InvalidSyntax">
-<area shape="rect" id="node2" href="$class_team_manager_1_1_program.html#abcb8697bd1d929dcc314716829891414" title="Parses the arguments that are passed to the executeable and determines whether the parsing operation ..." alt="" coords="492,32,715,59"/>
-<area shape="rect" id="node4" href="$class_team_manager_1_1_program.html#a91d7403e93c0a908a2caf71e2ee332b8" title="Parses the DatabaseType argument for modifying the _dbType before the main initializes the database a..." alt="" coords="249,25,444,66"/>
-<area shape="rect" id="node5" href="$class_team_manager_1_1_program.html#a064f54d0b60f07eb60629feac421d383" title="Parses the StrategyType argument for modifying the _strategyType before the main initializes the data..." alt="" coords="249,90,444,132"/>
-<area shape="rect" id="node3" href="$class_team_manager_1_1_program.html#a5e30dec2f1e00dc8044ee437aea19865" title="The main father entrance for the application. We can define in the beginning of the application the S..." alt="" coords="763,32,952,59"/>
-</map>
