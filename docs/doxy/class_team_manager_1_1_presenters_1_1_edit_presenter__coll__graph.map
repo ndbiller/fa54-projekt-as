@@ -1,5 +1,0 @@
-<map id="TeamManager.Presenters.EditPresenter" name="TeamManager.Presenters.EditPresenter">
-<area shape="rect" id="node2" href="$class_team_manager_1_1_presenters_1_1_base_presenter.html" title="The BasePresenter will contain the IStrategy interface that will be used for retrieving data from the..." alt="" coords="21,387,238,494"/>
-<area shape="rect" id="node3" href="$interface_team_manager_1_1_models_1_1_logic_1_1_i_business_logic.html" title="This interface will get implemented by all the other StrategyTypes so it allows us to retrieve the sa..." alt="" coords="5,5,195,303"/>
-<area shape="rect" id="node5" href="$interface_team_manager_1_1_views_1_1_interfaces_1_1_i_edit_view.html" title="The IEditView interface which the Windows.Dialogs.EditWindow implements in order to expose properties..." alt="" coords="341,365,547,516"/>
-</map>

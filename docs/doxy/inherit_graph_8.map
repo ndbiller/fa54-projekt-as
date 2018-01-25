@@ -1,5 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$interface_team_manager_1_1_models_1_1_logic_1_1_i_sort_strategy.html" title="TeamManager.Models.Logic.\lISortStrategy" alt="" coords="5,39,195,80"/>
-<area shape="rect" id="node2" href="$class_team_manager_1_1_models_1_1_logic_1_1_sort_ascending.html" title="TeamManager.Models.Logic.\lSortAscending" alt="" coords="243,5,432,47"/>
-<area shape="rect" id="node3" href="$class_team_manager_1_1_models_1_1_logic_1_1_sort_descending.html" title="TeamManager.Models.Logic.\lSortDescending" alt="" coords="243,71,432,112"/>
-</map>

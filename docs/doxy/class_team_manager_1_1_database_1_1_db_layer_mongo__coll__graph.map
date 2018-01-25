@@ -1,3 +1,0 @@
-<map id="TeamManager.Database.DbLayerMongo" name="TeamManager.Database.DbLayerMongo">
-<area shape="rect" id="node2" href="$interface_team_manager_1_1_database_1_1_i_data_layer.html" title="The IDataLayer interface that each DatabaseType must implement. That way, the application can use any..." alt="" coords="5,5,175,259"/>
-</map>

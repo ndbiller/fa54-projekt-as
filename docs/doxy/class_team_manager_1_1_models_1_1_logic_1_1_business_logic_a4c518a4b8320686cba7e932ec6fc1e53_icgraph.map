@@ -1,3 +1,0 @@
-<map id="TeamManager.Models.Logic.BusinessLogic.GetAllPlayers" name="TeamManager.Models.Logic.BusinessLogic.GetAllPlayers">
-<area shape="rect" id="node2" href="$class_team_manager_1_1_presenters_1_1_main_presenter.html#a32a943a3d657b416ac60e4b4a422a9be" title="Gets a collection of Players from the Models.Strategy.IStrategy and checks whether to apply filter or..." alt="" coords="244,5,447,47"/>
-</map>

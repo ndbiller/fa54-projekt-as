@@ -1,5 +1,0 @@
-<map id="TeamManager.Program.HookConsole" name="TeamManager.Program.HookConsole">
-<area shape="rect" id="node2" href="$class_team_manager_1_1_utilities_1_1_native_methods.html#af7c43608d1ad8d276ccefb0ded7b415e" title="Allows to allocate console view even if the project configurations set to windows forms as output..." alt="" coords="252,5,443,47"/>
-<area shape="rect" id="node3" href="$class_team_manager_1_1_program.html#a0d7910bc789a7a5ac5536977a74c502a" title="Callback method that is registered to the windows kernal with the ConsoleClosedHandler for catching t..." alt="" coords="250,71,445,112"/>
-<area shape="rect" id="node4" href="$class_team_manager_1_1_utilities_1_1_native_methods.html#aa5ff52fbcde11be2f651785b731f51cc" title="Catches the close event chain of the windows api when using console in order to do some wrapping befo..." alt="" coords="244,136,451,177"/>
-</map>
