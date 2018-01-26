@@ -7,7 +7,7 @@
     <ProjectGuid>{68452FD8-31EB-417A-B6F3-E0283D34B354}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>TeamManager</RootNamespace>
-    <AssemblyName>TeamManager</AssemblyName>
+    <AssemblyName>TeamManager-v1.0.1</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
