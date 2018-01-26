@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['windowtype',['WindowType',['../namespace_team_manager_1_1_views_1_1_enums.html#abba7fffa242dd15e99f4b68036345a46',1,'TeamManager::Views::Enums']]]
+  ['sorttype',['SortType',['../namespace_team_manager_1_1_models_1_1_strategy.html#a693f1ddc6d9e837d4ae92642aaeea06e',1,'TeamManager::Models::Strategy']]]
 ];

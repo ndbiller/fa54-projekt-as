@@ -6,6 +6,7 @@ var searchData=
   ['events',['Events',['../namespace_team_manager_1_1_presenters_1_1_events.html',1,'TeamManager::Presenters']]],
   ['interfaces',['Interfaces',['../namespace_team_manager_1_1_views_1_1_interfaces.html',1,'TeamManager::Views']]],
   ['loader',['Loader',['../namespace_team_manager_1_1_views_1_1_loader.html',1,'TeamManager::Views']]],
+  ['logic',['Logic',['../namespace_team_manager_1_1_models_1_1_logic.html',1,'TeamManager::Models']]],
   ['models',['Models',['../namespace_team_manager_1_1_models.html',1,'TeamManager']]],
   ['presenters',['Presenters',['../namespace_team_manager_1_1_presenters.html',1,'TeamManager']]],
   ['properties',['Properties',['../namespace_team_manager_1_1_properties.html',1,'TeamManager']]],

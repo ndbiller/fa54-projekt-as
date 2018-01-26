@@ -1,0 +1,4 @@
+<map id="TeamManager.Models.Logic.BusinessLogicMt" name="TeamManager.Models.Logic.BusinessLogicMt">
+<area shape="rect" id="node2" href="$class_team_manager_1_1_models_1_1_logic_1_1_business_logic_base.html" title="{BusinessLogicBase\n|+ SortType\l# DbLayer\l# SortStrategy\l&#45; _sortType\l|# BusinessLogicBase()\l}" alt="" coords="5,86,161,207"/>
+<area shape="rect" id="node3" href="$interface_team_manager_1_1_models_1_1_logic_1_1_i_business_logic.html" title="This interface will get implemented by all the other StrategyTypes so it allows us to retrieve the sa..." alt="" coords="186,5,343,288"/>
+</map>

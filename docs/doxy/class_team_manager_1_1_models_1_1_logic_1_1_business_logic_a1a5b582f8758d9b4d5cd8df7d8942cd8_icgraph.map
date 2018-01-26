@@ -1,0 +1,3 @@
+<map id="TeamManager.Models.Logic.BusinessLogic.RemoveTeam" name="TeamManager.Models.Logic.BusinessLogic.RemoveTeam">
+<area shape="rect" id="node2" href="$class_team_manager_1_1_presenters_1_1_main_presenter.html#a639584280fec5c4d4201a333e7ed1c47" title="Gets the selected Team from the view ListBox and move all their players into unsigned team(id = 0) an..." alt="" coords="243,5,445,47"/>
+</map>

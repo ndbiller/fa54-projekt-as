@@ -31,8 +31,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_all_players_presenter_8cs_source.html",
-"class_team_manager_1_1_presenters_1_1_base_presenter.html",
-"class_team_manager_1_1_views_1_1_windows_1_1_main_window.html#a71e6256d60cf381abcdd19caeabdf0d3"
+"class_team_manager_1_1_presenters_1_1_all_players_presenter.html#a3040cf7bd29997c10ad7548b7d25ad88",
+"class_team_manager_1_1_views_1_1_windows_1_1_main_window.html#a3bf22eb3407a14631811188bc265160e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,4 +1,5 @@
 ﻿using TeamManager.Database;
+using TeamManager.Models.Logic;
 using TeamManager.Models.Strategy;
 
 namespace TeamManager.Utilities
@@ -8,16 +9,22 @@ namespace TeamManager.Utilities
     /// </summary>
     public static class Defaults
     {
-        /// <summary> Returns a new instance of <see cref="AscendingStrategy"/> with <see cref="DbLayerMongo"/> as database. </summary>
-        public static IStrategy Strategy => new AscendingStrategy(DatabaseType);
+        /// <summary> Returns a new instance of <see cref="BusinessLogic"/> with <see cref="DbLayerMongo"/> as database using 
+        /// default sorting as <see cref="SortType.Ascending"/>. </summary>
+        public static IBusinessLogic BusinessLogic => new BusinessLogic(DatabaseType, SortType);
 
-        /// <summary> Returns the <see cref="StrategyType"/> as <see cref="StrategyType.FirstMt"/>. </summary>
-        public static StrategyType StrategyType => StrategyType.FirstMt;
+        /// <summary> Returns the <see cref="BusinessLogicType"/> as <see cref="BusinessLogicType.Normal"/>. </summary>
+        public static BusinessLogicType BusinessLogicType => BusinessLogicType.Normal;
+
+        /// <summary> Returns the <see cref="SortType"/> as <see cref="SortType.Ascending"/>. </summary>
+        public static SortType SortType => SortType.Ascending;
 
         /// <summary> Returns a new instance of <see cref="DbLayerMongo"/>. </summary>
         public static IDataLayer Database => new DbLayerMongo();
 
         /// <summary> Returns the <see cref="DatabaseType"/> as <see cref="DatabaseType.Mongo"/>. </summary>
         public static DatabaseType DatabaseType => DatabaseType.Mongo;
+
+
     }
 }

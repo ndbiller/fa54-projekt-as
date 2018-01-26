@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['databasetype',['DatabaseType',['../namespace_team_manager_1_1_database.html#a9a831732ff4f96bc03e8453f9ce0e391',1,'TeamManager::Database']]]
+  ['businesslogictype',['BusinessLogicType',['../namespace_team_manager_1_1_models_1_1_logic.html#ab6a854907e843d7978bf7753b22cc773',1,'TeamManager::Models::Logic']]]
 ];
