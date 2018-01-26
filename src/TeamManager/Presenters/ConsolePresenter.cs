@@ -44,7 +44,7 @@ namespace TeamManager.Presenters
         public List<Team> AllTeams()
         {
             Log.Info("Displaying all teams to console.");
-            List<Team> teams = Strategy.GetAllTeams();
+            List<Team> teams = BusinessLogic.GetAllTeams();
             if (teams.IsNullOrEmpty())
             {
                 Console.WriteLine("Currently there is no teams to display.\n" +
@@ -68,7 +68,7 @@ namespace TeamManager.Presenters
         public List<Player> AllPlayers()
         {
             Log.Info("Displaying all players to console.");
-            List<Player> players = Strategy.GetAllPlayers();
+            List<Player> players = BusinessLogic.GetAllPlayers();
             for (int i = 0; i < players.Count; i++)
             {
                 Player player = players[i];
@@ -87,7 +87,7 @@ namespace TeamManager.Presenters
             Console.WriteLine("\nEnter the name of the new Team:");
             Console.Write("Team Name: ");
             string teamName = Console.ReadLine();
-            if (!string.IsNullOrEmpty(teamName) && Strategy.AddNewTeam(teamName))
+            if (!string.IsNullOrEmpty(teamName) && BusinessLogic.AddNewTeam(teamName))
                 Console.WriteLine($"Successfully created \"{teamName}\" as a new team!");
             else
                 Console.WriteLine($"Failed to create \"{teamName}\" as a new team...");
@@ -100,7 +100,7 @@ namespace TeamManager.Presenters
             Console.WriteLine("\nEnter the name of the new player:");
             Console.Write("Player Name: ");
             string playerName = Console.ReadLine();
-            if (!string.IsNullOrEmpty(playerName) && Strategy.AddNewPlayer(playerName))
+            if (!string.IsNullOrEmpty(playerName) && BusinessLogic.AddNewPlayer(playerName))
                 Console.WriteLine($"Successfully created \"{playerName}\" as a new player!");
             else
                 Console.WriteLine($"Failed to create \"{playerName}\" as a new player...");
@@ -127,7 +127,7 @@ namespace TeamManager.Presenters
             Console.Write("Team New Name: ");
             string newName = Console.ReadLine();
 
-            if (!string.IsNullOrEmpty(newName) && Strategy.ChangeTeamName(team.Id, newName))
+            if (!string.IsNullOrEmpty(newName) && BusinessLogic.ChangeTeamName(team.Id, newName))
                 Console.WriteLine($"Successfully changed team name from \"{team.Name}\" to \"{newName}\"!");
             else
                 Console.WriteLine("Failed to change team name...");
@@ -165,7 +165,7 @@ namespace TeamManager.Presenters
                 Console.WriteLine("Write the new name for the selected player: ");
                 Console.Write("Player New Name: ");
                 string playerNewName = Console.ReadLine();
-                if (!string.IsNullOrEmpty(playerNewName) && Strategy.ChangePlayerName(player.Id, playerNewName))
+                if (!string.IsNullOrEmpty(playerNewName) && BusinessLogic.ChangePlayerName(player.Id, playerNewName))
                     Console.WriteLine($"Successfully changed player name from \"{player.Name}\" to \"{playerNewName}\"!");
                 else
                     Console.WriteLine("Failed to change player name...");
@@ -188,7 +188,7 @@ namespace TeamManager.Presenters
                 }
 
                 Team team = teams[--teamIndex];
-                Console.WriteLine(Strategy.ChangePlayerTeam(player.Id, team.Id)
+                Console.WriteLine(BusinessLogic.ChangePlayerTeam(player.Id, team.Id)
                     ? $"Successfully changed player team from \"{playerTeamName}\" to \"{team.Name}\"!"
                     : "Failed to change player team...");
             }
@@ -218,12 +218,12 @@ namespace TeamManager.Presenters
                 return;
 
             // Set all players team id to 0 that contains the team id before we removing team.
-            List<Player> players = Strategy.GetAllPlayers();
+            List<Player> players = BusinessLogic.GetAllPlayers();
             foreach (Player player in players)
                 if (player.TeamId == team.Id)
-                    Strategy.ChangePlayerTeam(player.Id, "0");
+                    BusinessLogic.ChangePlayerTeam(player.Id, "0");
 
-            Console.WriteLine(Strategy.RemoveTeam(team.Id)
+            Console.WriteLine(BusinessLogic.RemoveTeam(team.Id)
                 ? $"Successfully removed {team.Name} from teams!"
                 : $"Failed to remove {team.Name} from teams...");
         }
@@ -246,7 +246,7 @@ namespace TeamManager.Presenters
             if (!ValidateUserInput($"Are you sure you want to delete {player.Name} from players? (Y/N)"))
                 return;
 
-            Console.WriteLine(Strategy.RemovePlayer(player.Id)
+            Console.WriteLine(BusinessLogic.RemovePlayer(player.Id)
                 ? $"Successfully removed {player.Name} from players!"
                 : $"Failed to remove {player.Name} from players...");
         }
@@ -257,7 +257,7 @@ namespace TeamManager.Presenters
         public void ShowUnsignedPlayers()
         {
             Log.Info("Displaying all unsigned players.");
-            List<Player> unsignedPlayers = Strategy.GetAllPlayers().Where(p => p.TeamId == "0").ToList();
+            List<Player> unsignedPlayers = BusinessLogic.GetAllPlayers().Where(p => p.TeamId == "0").ToList();
             for (int i = 0; i < unsignedPlayers.Count; i++)
             {
                 Player player = unsignedPlayers[i];
@@ -284,7 +284,7 @@ namespace TeamManager.Presenters
 
             Team team = teams[--teamIndex];
 
-            List<Player> players = Strategy.GetTeamPlayers(team.Id);
+            List<Player> players = BusinessLogic.GetTeamPlayers(team.Id);
             Console.WriteLine($"\n-- Team Players of \"{team.Name}\" --");
             if (players.IsNullOrEmpty())
             {

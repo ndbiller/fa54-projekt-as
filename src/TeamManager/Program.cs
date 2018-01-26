@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using log4net;
 using TeamManager.Database;
-using TeamManager.Models.Strategy;
 using TeamManager.Presenters;
 using TeamManager.Utilities;
 using TeamManager.Views;
 using System.IO;
+using TeamManager.Models.Logic;
+using TeamManager.Models.Strategy;
 
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
 [assembly: Fody.ConfigureAwait(false)]
@@ -32,14 +33,17 @@ namespace TeamManager
         private static DatabaseType _dbType = Defaults.DatabaseType;
 
         /// <summary> The default <see cref="StrategyType"/> that is used for initializing the wanted <see cref="IStrategy"/>. </summary>
-        private static StrategyType _strategyType = Defaults.StrategyType;
+        private static BusinessLogicType _businessLogicType = Defaults.BusinessLogicType;
+
+        private static SortType _sortType = Defaults.SortType;
 
         /// <summary> The allowed arguments that are acceptable to be pass to the executeable through the console for specifying different configurations. </summary>
         private static readonly List<string> AllowedArgs = new List<string>
         {
             "/t", "/g",
-            "/s:1", "/s:2", "/s-mt:1", "/s-mt:2",
+            "/b", "/b-mt",
             "/db:mongo", "/db:sql",
+            "/s:asc", "/s:dsc",
             "/?", "/h", "--help"
         };
 
@@ -63,7 +67,7 @@ namespace TeamManager
             if (args.Length > 0)
                 if (!ParseArgs(args)) { CloseCallback(CtrlType.CLOSE); return; }
 
-            BasePresenter.SetStrategyAndDatabaseType(_strategyType, _dbType);
+            BasePresenter.SetStrategyAndDatabaseType(_businessLogicType, _dbType, _sortType);
 
             if (_startGui)
             {
@@ -116,15 +120,21 @@ namespace TeamManager
                     return false;
                 }
 
-                if (arg.StartsWith("/s"))
+                if (arg.StartsWith("/b"))
                 {
-                    if (!ParseStrategyTypeArg(arg))
+                    if (!ParseBusinessLogicTypeArg(arg))
                         return false;
                 }
 
                 if (arg.StartsWith("/d"))
                 {
                     if (!ParseDatabaseTypeArg(arg))
+                        return false;
+                }
+
+                if (arg.StartsWith("/s"))
+                {
+                    if (!ParseSortType(arg))
                         return false;
                 }
             }
@@ -138,30 +148,19 @@ namespace TeamManager
         /// </summary>
         /// <param name="arg">The <see cref="StrategyType"/> argument that is passed from the console. </param>
         /// <returns>Returns false if parse failed, true if successful. </returns>
-        private static bool ParseStrategyTypeArg(string arg)
+        private static bool ParseBusinessLogicTypeArg(string arg)
         {
             switch (arg)
             {
-                case "/s:1":
-                    Log.Info("Using AscendingStrategy.");
-                    _strategyType = StrategyType.First;
+                case "/b":
+                    Log.Info("Using BusinessLogicType.Normal.");
+                    _businessLogicType = BusinessLogicType.Normal;
                     return true;
 
-                case "/s:2":
-                    Log.Info("Using DescendingStrategy.");
-                    _strategyType = StrategyType.Second;
+                case "/b-mt":
+                    Log.Info("Using BusinessLogicType.MultiThreaded.");
+                    _businessLogicType = BusinessLogicType.MultiThreaded;
                     return true;
-
-                case "/s-mt:1":
-                    Log.Info("Using multi-threaded AscendingStrategy.");
-                    _strategyType = StrategyType.FirstMt;
-                    return true;
-
-                case "/s-mt:2":
-                    Log.Info("Using multi-threaded DescendingStrategy.");
-                    _strategyType = StrategyType.SecondMt;
-                    return true;
-
 
                 default:
                     InvalidSyntax();
@@ -189,6 +188,31 @@ namespace TeamManager
                     _dbType = DatabaseType.PostgreSql;
                     return true;
 
+                default:
+                    InvalidSyntax();
+                    return false;
+            }
+        }
+
+        /// <summary>
+        /// Parses the <see cref="SortType"/> argument for modifying the <see cref="_sortType"/> before the main 
+        /// initializes the <see cref="IDataLayer"/> and <see cref="BusinessLogic"/>.
+        /// </summary>
+        /// <param name="arg">The <see cref="SortType"/> argument that is passed from the console. </param>
+        /// <returns>Returns false if parse failed, true if successful. </returns>
+        private static bool ParseSortType(string arg)
+        {
+            switch (arg)
+            {
+                case "/s:asc":
+                    Log.Info("Using SortType.Ascending.");
+                    _sortType = SortType.Ascending;
+                    return true;
+
+                case "/s:dsc":
+                    Log.Info("Using SortType.Descending.");
+                    _sortType = SortType.Descending;
+                    return true;
 
                 default:
                     InvalidSyntax();
@@ -239,29 +263,30 @@ namespace TeamManager
             Console.WriteLine("\nStarts the team manager app from the tui or gui and allows you to specify " +
                               "different configurations.");
 
-            Console.WriteLine("\nTeamManager [/T | /G]   [[/S | /S-MT]:[1 | 2]]   [/DB:[SQL | MONGO]]\n");
+            Console.WriteLine("\nTeamManager [/T | /G]   [[/B | /B-MT]]   [/DB:[SQL | MONGO]]   [/S:[ASC | DSC]]\n");
 
-            Console.WriteLine("\tUser Interface Configuration:\n" +
-                              "\t/T \t    Starts the app in console/terminal (TUI) mode.\n" +
-                              "\t/G \t    Starts the app in windows user interface (GUI) mode.\n");
+            Console.WriteLine("User Interface Configuration:\n" +
+                              "\t/T          Starts the app in console/terminal (TUI) mode.\n" +
+                              "\t/G          Starts the app in windows user interface (GUI) mode.\n");
 
-            Console.WriteLine("\tStrategy Configuration:\n" +
-                              "\t/S:1 \t    Using Ascending Strategy that retrieves the data in ascending order.\n" +
-                              "\t/S:2 \t    Using Descending Strategy that retrieves the data in descending order.\n" +
-                              "\t/S-MT:1     Using Ascending Strategy that retrieves the data in ascending order using multi-threaded calls.\n" +
-                              "\t/S-MT:2     Using Descending Strategy that retrieves the data in descending order using multi-threaded calls.\n");
+            Console.WriteLine("Business Logic Configuration:\n" +
+                              "\t/B          Using the normal business logic implementation.\n" +
+                              "\t/B-MT       Using the business logic multi-threaded implementation.\n");
 
-
-            Console.WriteLine("\tDatabase Configuration:\n" +
+            Console.WriteLine("Database Configuration:\n" +
                               "\t/DB:SQL     Using SQL relational database.\n" +
                               "\t/DB:MONGO   Using Mongo no-relational database.\n");
+
+            Console.WriteLine("Sorting Configuration:\n" +
+                              "\t/S:ASC      Using the normal business logic implementation. If not defined, this would be the default. \n" +
+                              "\t/S:DSC      Using the business logic multi-threaded implementation.\n");
 
             Console.WriteLine("### Examples: ###\n" +
                               "TeamManager /g /s-mt:1 /db:mongo\n" +
                               "TeamManager /t /s-mt:1 /db:sql\n" +
                               "TeamManager /g /s:2 /db:sql\n" +
                               "TeamManager /t /s:2 /db:mongo\n");
-
+            
             Console.Write("\nPress any key to continue . . .");
             Console.ReadKey();
         }

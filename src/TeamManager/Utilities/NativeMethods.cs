@@ -1,4 +1,5 @@
-﻿using System.Security;
+﻿using System;
+using System.Security;
 using System.Runtime.InteropServices;
 
 namespace TeamManager.Utilities
@@ -44,7 +45,7 @@ namespace TeamManager.Utilities
         /// <param name="hWnd"></param>
         /// <returns></returns>
         [DllImport("user32.dll")]
-        internal static extern int SetForegroundWindow(int hWnd);
+        internal static extern int SetForegroundWindow(IntPtr hWnd);
     }
 
     /// <summary>

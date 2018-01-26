@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Comment CommentText="The resource data object that we use when initializing data to the view or the database.">
-    <Position X="29.295" Y="20.834" Height="0.291" Width="5.192" />
+    <Position X="28.424" Y="18.827" Height="0.291" Width="5.192" />
   </Comment>
   <Comment CommentText="All presenters inherit BasePresenter and having an interface that the forms implements to control the view. &#xD;&#xA;They also share the same strategy type together that will retrieve data from the database.">
     <Position X="10.521" Y="15.555" Height="0.588" Width="6.169" />
   </Comment>
-  <Comment CommentText="All strategy types implements the IStrategy interface and inheriting the StrategyBase to initialize the database type by passing the DB Enum Type to the base constructor.">
-    <Position X="9.729" Y="4.244" Height="0.912" Width="3.395" />
+  <Comment CommentText="The SortStrategy interface will allow us in runtime to replace the sort behavior while still calling the same Sort method in the BusinessLogic.">
+    <Position X="15.283" Y="2.303" Height="0.912" Width="3.395" />
   </Comment>
   <Comment CommentText="We use this enum when calling the EditForm so it knows how to treat the giving data by the defined EditMode.">
     <Position X="1.497" Y="29.51" Height="1.119" Width="1.738" />
@@ -27,10 +27,13 @@
   <Comment CommentText="We use 2 different types of database to hold the neccessary data. &#xD;&#xA;1. Relational Database which in this case is SQL.&#xD;&#xA;2. Non-Relational Database which in this case is Mongo-Db.&#xD;&#xA;&#xD;&#xA;When the program starts, the user can define the kind of databse that she/he wants to use and the Strategy will automatically initialize the type of database depending on the decision that the user provided by using the IDataLayer interface.&#xD;&#xA;Since each database have different implementation and both inheriting the IDataLayer interface, we get the exact same behavior by calling the database with the interface.">
     <Position X="28.297" Y="4.899" Height="2.011" Width="5.181" />
   </Comment>
+  <Comment CommentText="This is where all the BusinessLogic happens while the Database type and SortStrategy gets initialized at the beginning of the execution. &#xD;&#xA;There are 2 different BusinessLogic which call different methods in the database, 1 is multithreaded and the other just calls the normal methods.">
+    <Position X="5.186" Y="2.495" Height="0.99" Width="5.046" />
+  </Comment>
   <Class Name="TeamManager.Database.DbLayerMongo" BaseTypeListCollapsed="true">
     <Position X="28.75" Y="7.25" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AAAAGAGACEE4AFBACAAAKgAEBQggIIIABCgEUUVBAAQ=</HashCode>
+      <HashCode>AAAAGAGACAE4AFFACAAAKgAEBAggIIIABCgEUUVAAAQ=</HashCode>
       <FileName>Database\DbLayerMongo.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -38,65 +41,26 @@
   <Class Name="TeamManager.Database.DbLayerSql" BaseTypeListCollapsed="true">
     <Position X="33.5" Y="7.25" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>BAACCAGAAAF4ADlACCAAIBAGBQggIIIAAAgEUUVAAAA=</HashCode>
+      <HashCode>BAACCAGAAAF4ADFACCAAIAAGBAggIIIAACgEUUVAAAA=</HashCode>
       <FileName>Database\DbLayerSql.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TeamManager.Models.ResourceData.Player" BaseTypeListCollapsed="true">
-    <Position X="32.25" Y="21.5" Width="3.25" />
+    <Position X="31.25" Y="21.75" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAACIAAAAAAAAAQEgAAAAAQCAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQEgAAAAAACAAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ResourceData\Player.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TeamManager.Models.ResourceData.Team" BaseTypeListCollapsed="true">
-    <Position X="29" Y="21.5" Width="3" />
+    <Position X="28.25" Y="21.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAACIAAAAAAAAAQEgAAAAAQAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAQEgAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\ResourceData\Team.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="TeamManager.Models.Strategy.AscendingStrategy">
-    <Position X="1" Y="9" Width="5" />
-    <TypeIdentifier>
-      <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
-      <FileName>Models\Strategy\AscendingStrategy.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="TeamManager.Models.Strategy.AscendingStrategyMt">
-    <Position X="6.25" Y="9" Width="5" />
-    <TypeIdentifier>
-      <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
-      <FileName>Models\Strategy\AscendingStrategyMt.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="TeamManager.Models.Strategy.DescendingStrategy">
-    <Position X="11.5" Y="9" Width="5" />
-    <TypeIdentifier>
-      <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
-      <FileName>Models\Strategy\DescendingStrategy.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="TeamManager.Models.Strategy.DescendingStrategyMt">
-    <Position X="16.75" Y="9" Width="5" />
-    <TypeIdentifier>
-      <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
-      <FileName>Models\Strategy\DescendingStrategyMt.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
-  </Class>
-  <Class Name="TeamManager.Models.Strategy.StrategyBase">
-    <Position X="9.75" Y="5.25" Width="3.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Strategy\StrategyBase.cs</FileName>
-    </TypeIdentifier>
   </Class>
   <Class Name="TeamManager.Presenters.AllPlayersPresenter">
     <Position X="11.5" Y="19.75" Width="4" />
@@ -108,7 +72,7 @@
   <Class Name="TeamManager.Presenters.BasePresenter">
     <Position X="10.5" Y="16.25" Width="6" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAkAAAAAAAAAEgAgAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAIgAgAAA=</HashCode>
       <FileName>Presenters\BasePresenter.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -129,7 +93,7 @@
   <Class Name="TeamManager.Presenters.MainPresenter">
     <Position X="15.75" Y="19.75" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAABAAAIDAAAIgAkoAAAAICAkACAwAAE=</HashCode>
+      <HashCode>AAAACAAAAAAAAABQAAIDAAAIgAkoAAAAICAkACAwAAE=</HashCode>
       <FileName>Presenters\MainPresenter.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -150,7 +114,7 @@
   <Class Name="TeamManager.Program">
     <Position X="40.75" Y="19.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAABAEgABAigIQAAIIAAgAAAAgAAAEBAAAAAA=</HashCode>
+      <HashCode>AAABAAAAABAEgAAAgoIwAAIMAAgAAAAgAAAEBAAIAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -171,7 +135,7 @@
   <Class Name="TeamManager.Views.Windows.MainWindow" BaseTypeListCollapsed="true">
     <Position X="18.75" Y="29.25" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>BQAAAAAoAChCIgCCpFSAQECCAAAkACAgCAQCgAAAgIg=</HashCode>
+      <HashCode>RQAAAAAoAChCIgCCpFSAQEiCAAAkACAgCAQCgAAAgIg=</HashCode>
       <FileName>Views\Windows\MainWindow.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -231,7 +195,7 @@
   <Class Name="TeamManager.Utilities.Defaults">
     <Position X="32.25" Y="31.5" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAEAAAAAAAAAACAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <HashCode>AAIAAAAAAEAAAAAAAAEAAAAAAAAAAAAAAAAAIAAAAAI=</HashCode>
       <FileName>Utilities\Defaults.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -250,6 +214,52 @@
       <FileName>Utilities\NativeMethods.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="TeamManager.Models.ResourceData.ResourceBase">
+    <Position X="29.5" Y="19.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ResourceData\ResourceBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Models.Logic.BusinessLogic">
+    <Position X="5" Y="8.25" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
+      <FileName>Models\Logic\BusinessLogic.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TeamManager.Models.Logic.BusinessLogicBase">
+    <Position X="8.5" Y="5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAABAAAgAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Models\Logic\BusinessLogicBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeamManager.Models.Logic.BusinessLogicMt">
+    <Position X="10.75" Y="8.25" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
+      <FileName>Models\Logic\BusinessLogicMt.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TeamManager.Models.Strategy.SortAscending" BaseTypeListCollapsed="true">
+    <Position X="14" Y="5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Strategy\SortAscending.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TeamManager.Models.Strategy.SortDescending" BaseTypeListCollapsed="true">
+    <Position X="17" Y="5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Strategy\SortDescending.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Struct Name="TeamManager.Utilities.CtrlType">
     <Position X="29.25" Y="34.5" Width="2.75" />
     <TypeIdentifier>
@@ -260,15 +270,8 @@
   <Interface Name="TeamManager.Database.IDataLayer">
     <Position X="24" Y="7.25" Width="4.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAGAAAEwABBACAAAIAAEAQAgIIIAAAgEUUVAAAA=</HashCode>
+      <HashCode>AAAACAGAAAE4ABFACAAAIAAEBAAgIIIAAAgEUUVAAAA=</HashCode>
       <FileName>Database\IDataLayer.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
-  <Interface Name="TeamManager.Models.Strategy.IStrategy">
-    <Position X="4.5" Y="4.25" Width="5" />
-    <TypeIdentifier>
-      <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
-      <FileName>Models\Strategy\IStrategy.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="TeamManager.Views.Interfaces.IAllPlayersView">
@@ -306,18 +309,25 @@
       <FileName>Views\Interfaces\IConsoleView.cs</FileName>
     </TypeIdentifier>
   </Interface>
+  <Interface Name="TeamManager.Models.Logic.IBusinessLogic">
+    <Position X="3.25" Y="3.75" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAIAAAAABABAAEEEAAQQAAAAAAAAQBAAAA=</HashCode>
+      <FileName>Models\Logic\IBusinessLogic.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TeamManager.Models.Strategy.ISortStrategy">
+    <Position X="15.75" Y="3.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Strategy\ISortStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Enum Name="TeamManager.Database.DatabaseType">
     <Position X="33.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Database\DatabaseType.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="TeamManager.Models.Strategy.StrategyType">
-    <Position X="13.25" Y="5.25" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAQAQAAAAAAIAAAAAAAAAAAAAAAAAQAA=</HashCode>
-      <FileName>Models\Strategy\StrategyType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="TeamManager.Views.Enums.EditMode">
@@ -339,6 +349,20 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAEAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\Loader\LoaderType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TeamManager.Models.Logic.BusinessLogicType">
+    <Position X="8.5" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Logic\BusinessLogicType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TeamManager.Models.Strategy.SortType">
+    <Position X="14" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Strategy\SortType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Delegate Name="TeamManager.Presenters.Events.PresenterHandler">

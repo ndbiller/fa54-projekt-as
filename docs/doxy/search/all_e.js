@@ -2,9 +2,10 @@ var searchData=
 [
   ['parentwindow',['ParentWindow',['../class_team_manager_1_1_views_1_1_loader_1_1_loaders.html#a3036288c424e3588290492abe4c4924d',1,'TeamManager::Views::Loader::Loaders']]],
   ['parseargs',['ParseArgs',['../class_team_manager_1_1_program.html#abcb8697bd1d929dcc314716829891414',1,'TeamManager::Program']]],
+  ['parsebusinesslogictypearg',['ParseBusinessLogicTypeArg',['../class_team_manager_1_1_program.html#a923affe983dfc042ec272777ed2f09fd',1,'TeamManager::Program']]],
   ['parsedatabasetypearg',['ParseDatabaseTypeArg',['../class_team_manager_1_1_program.html#a91d7403e93c0a908a2caf71e2ee332b8',1,'TeamManager::Program']]],
   ['parsekeycommand',['ParseKeyCommand',['../class_team_manager_1_1_views_1_1_windows_1_1_main_tui.html#a7cdb5fa1edab726f8e463eb2940ff662',1,'TeamManager::Views::Windows::MainTui']]],
-  ['parsestrategytypearg',['ParseStrategyTypeArg',['../class_team_manager_1_1_program.html#a064f54d0b60f07eb60629feac421d383',1,'TeamManager::Program']]],
+  ['parsesorttype',['ParseSortType',['../class_team_manager_1_1_program.html#a4def9e8ea1c581bca68dd990e9164b8e',1,'TeamManager::Program']]],
   ['player',['Player',['../class_team_manager_1_1_models_1_1_resource_data_1_1_player.html',1,'TeamManager.Models.ResourceData.Player'],['../interface_team_manager_1_1_views_1_1_interfaces_1_1_i_edit_view.html#a6f981bded5305b52939abbc64a92ac5f',1,'TeamManager.Views.Interfaces.IEditView.Player()'],['../class_team_manager_1_1_views_1_1_windows_1_1_dialogs_1_1_edit_window.html#a4743ed6836ce13ec0dde5fc7ccc8c64c',1,'TeamManager.Views.Windows.Dialogs.EditWindow.Player()'],['../class_team_manager_1_1_models_1_1_resource_data_1_1_player.html#a4bca1b6c04c6f77907555222f3dd60cb',1,'TeamManager.Models.ResourceData.Player.Player()']]],
   ['playerassigntoteam',['PlayerAssignToTeam',['../namespace_team_manager_1_1_views_1_1_enums.html#adf77a3bd6a0c8eae839423ffaa7715d6a933b383ca094ab20c18bf8d56f521259',1,'TeamManager::Views::Enums']]],
   ['playercreate',['PlayerCreate',['../namespace_team_manager_1_1_views_1_1_enums.html#adf77a3bd6a0c8eae839423ffaa7715d6a391bd42ab2ef4c60ff4ec8c132ac3281',1,'TeamManager::Views::Enums']]],

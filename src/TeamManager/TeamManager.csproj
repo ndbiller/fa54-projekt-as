@@ -107,9 +107,16 @@
     <Compile Include="Database\DbLayerMongo.cs" />
     <Compile Include="Database\DbLayerSql.cs" />
     <Compile Include="Database\IDataLayer.cs" />
-    <Compile Include="Models\Strategy\AscendingStrategyMt.cs" />
-    <Compile Include="Models\Strategy\DescendingStrategyMt.cs" />
-    <Compile Include="Models\Strategy\StrategyBase.cs" />
+    <Compile Include="Models\Logic\BusinessLogicBase.cs" />
+    <Compile Include="Models\Strategy\SortAscending.cs" />
+    <Compile Include="Models\Logic\BusinessLogicMt.cs" />
+    <Compile Include="Models\Logic\BusinessLogic.cs" />
+    <Compile Include="Models\Logic\BusinessLogicType.cs" />
+    <Compile Include="Models\Strategy\SortDescending.cs" />
+    <Compile Include="Models\Strategy\ISortStrategy.cs" />
+    <Compile Include="Models\Logic\IBusinessLogic.cs" />
+    <Compile Include="Models\Strategy\SortType.cs" />
+    <Compile Include="Models\ResourceData\ResourceBase.cs" />
     <Compile Include="Presenters\AllPlayersPresenter.cs" />
     <Compile Include="Presenters\BasePresenter.cs" />
     <Compile Include="Presenters\ConsolePresenter.cs" />
@@ -156,13 +163,10 @@
     <Compile Include="Views\Windows\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Strategy\IStrategy.cs" />
     <Compile Include="Models\ResourceData\Player.cs" />
     <Compile Include="Models\ResourceData\Team.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Strategy\AscendingStrategy.cs" />
-    <Compile Include="Models\Strategy\DescendingStrategy.cs" />
     <Compile Include="Views\Interfaces\IAllPlayersView.cs" />
     <Compile Include="Views\Interfaces\IConsoleView.cs" />
     <Compile Include="Views\Interfaces\IEditView.cs" />
@@ -178,7 +182,6 @@
     <Compile Include="Views\Loader\LoaderType.cs" />
     <Compile Include="Views\Windows\MainTui.cs" />
     <Compile Include="Views\Tui.cs" />
-    <Compile Include="Models\Strategy\StrategyType.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

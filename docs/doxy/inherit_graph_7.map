@@ -1,3 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_team_manager_1_1_program.html" title="TeamManager.Program" alt="" coords="5,5,163,32"/>
+<area shape="rect" id="node1" href="$class_i_comparable.html" title="IComparable" alt="" coords="63,15,157,42"/>
+<area shape="rect" id="node2" href="$class_team_manager_1_1_models_1_1_resource_data_1_1_player.html" title="The one and the only Player object that is used as resource for almost every place in the project..." alt="" coords="263,5,472,47"/>
+<area shape="rect" id="node3" href="$class_team_manager_1_1_models_1_1_resource_data_1_1_team.html" title="The one and the only Team object that is used as resource for almost every place in the project..." alt="" coords="263,71,472,112"/>
+<area shape="rect" id="node4" href="$class_team_manager_1_1_models_1_1_resource_data_1_1_resource_base.html" title="Commmon data that the resource data will be used. It&#39;s important that every resource data objects inh..." alt="" coords="5,68,215,109"/>
 </map>

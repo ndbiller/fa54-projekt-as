@@ -49,6 +49,7 @@
             this.rbnPlayers = new System.Windows.Forms.RadioButton();
             this.rbnTeams = new System.Windows.Forms.RadioButton();
             this.customControlBox1 = new System.Windows.Forms.Custom.CustomControlBox();
+            this.btnStrategy = new System.Windows.Forms.Button();
             this.customPanel1.SuspendLayout();
             this.customTableLayoutPanel1.SuspendLayout();
             this.customTableLayoutPanel2.SuspendLayout();
@@ -84,7 +85,7 @@
             this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.customTableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.customTableLayoutPanel1.Controls.Add(this.btnPCreate, 5, 3);
             this.customTableLayoutPanel1.Controls.Add(this.btnUnsignedPlayers, 3, 2);
             this.customTableLayoutPanel1.Controls.Add(this.btnTCreate, 1, 3);
@@ -120,7 +121,7 @@
             this.btnPCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPCreate.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPCreate.ForeColor = System.Drawing.Color.Black;
-            this.btnPCreate.Location = new System.Drawing.Point(629, 384);
+            this.btnPCreate.Location = new System.Drawing.Point(627, 384);
             this.btnPCreate.Margin = new System.Windows.Forms.Padding(67, 0, 67, 15);
             this.btnPCreate.Name = "btnPCreate";
             this.btnPCreate.Size = new System.Drawing.Size(87, 34);
@@ -137,10 +138,10 @@
             this.btnUnsignedPlayers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUnsignedPlayers.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUnsignedPlayers.ForeColor = System.Drawing.Color.Black;
-            this.btnUnsignedPlayers.Location = new System.Drawing.Point(334, 342);
+            this.btnUnsignedPlayers.Location = new System.Drawing.Point(333, 342);
             this.btnUnsignedPlayers.Margin = new System.Windows.Forms.Padding(33, 7, 33, 7);
             this.btnUnsignedPlayers.Name = "btnUnsignedPlayers";
-            this.btnUnsignedPlayers.Size = new System.Drawing.Size(155, 35);
+            this.btnUnsignedPlayers.Size = new System.Drawing.Size(154, 35);
             this.btnUnsignedPlayers.TabIndex = 7;
             this.btnUnsignedPlayers.Text = "Unsigned Players";
             this.btnUnsignedPlayers.UseVisualStyleBackColor = false;
@@ -157,7 +158,7 @@
             this.btnTCreate.Location = new System.Drawing.Point(107, 384);
             this.btnTCreate.Margin = new System.Windows.Forms.Padding(67, 0, 67, 15);
             this.btnTCreate.Name = "btnTCreate";
-            this.btnTCreate.Size = new System.Drawing.Size(87, 34);
+            this.btnTCreate.Size = new System.Drawing.Size(86, 34);
             this.btnTCreate.TabIndex = 2;
             this.btnTCreate.Text = "Create";
             this.btnTCreate.UseVisualStyleBackColor = false;
@@ -179,7 +180,7 @@
             "Dick Smith",
             "Walter Cartwright",
             "Harry Stafford"});
-            this.lbxPlayers.Location = new System.Drawing.Point(566, 41);
+            this.lbxPlayers.Location = new System.Drawing.Point(564, 41);
             this.lbxPlayers.Margin = new System.Windows.Forms.Padding(4);
             this.lbxPlayers.Name = "lbxPlayers";
             this.lbxPlayers.Size = new System.Drawing.Size(213, 290);
@@ -193,10 +194,10 @@
             this.btnShowAllPlayers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowAllPlayers.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowAllPlayers.ForeColor = System.Drawing.Color.Black;
-            this.btnShowAllPlayers.Location = new System.Drawing.Point(334, 384);
+            this.btnShowAllPlayers.Location = new System.Drawing.Point(333, 384);
             this.btnShowAllPlayers.Margin = new System.Windows.Forms.Padding(33, 0, 33, 15);
             this.btnShowAllPlayers.Name = "btnShowAllPlayers";
-            this.btnShowAllPlayers.Size = new System.Drawing.Size(155, 34);
+            this.btnShowAllPlayers.Size = new System.Drawing.Size(154, 34);
             this.btnShowAllPlayers.TabIndex = 8;
             this.btnShowAllPlayers.Text = "Show All Players";
             this.btnShowAllPlayers.UseVisualStyleBackColor = false;
@@ -221,7 +222,7 @@
             this.lblPlayers.AutoSize = true;
             this.lblPlayers.Font = new System.Drawing.Font("Microsoft YaHei UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayers.ForeColor = System.Drawing.Color.GhostWhite;
-            this.lblPlayers.Location = new System.Drawing.Point(625, 3);
+            this.lblPlayers.Location = new System.Drawing.Point(623, 3);
             this.lblPlayers.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPlayers.Name = "lblPlayers";
             this.lblPlayers.Size = new System.Drawing.Size(95, 31);
@@ -246,7 +247,7 @@
             this.lbxTeams.Location = new System.Drawing.Point(44, 41);
             this.lbxTeams.Margin = new System.Windows.Forms.Padding(4);
             this.lbxTeams.Name = "lbxTeams";
-            this.lbxTeams.Size = new System.Drawing.Size(213, 290);
+            this.lbxTeams.Size = new System.Drawing.Size(212, 290);
             this.lbxTeams.TabIndex = 0;
             this.lbxTeams.SelectedIndexChanged += new System.EventHandler(this.lbxTeams_SelectedIndexChanged);
             // 
@@ -264,7 +265,7 @@
             this.customTableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.customTableLayoutPanel2.DraggableForm = false;
             this.customTableLayoutPanel2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.customTableLayoutPanel2.Location = new System.Drawing.Point(566, 339);
+            this.customTableLayoutPanel2.Location = new System.Drawing.Point(564, 339);
             this.customTableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.customTableLayoutPanel2.Name = "customTableLayoutPanel2";
             this.customTableLayoutPanel2.RowCount = 1;
@@ -326,7 +327,7 @@
             this.customTableLayoutPanel3.Name = "customTableLayoutPanel3";
             this.customTableLayoutPanel3.RowCount = 1;
             this.customTableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.customTableLayoutPanel3.Size = new System.Drawing.Size(213, 41);
+            this.customTableLayoutPanel3.Size = new System.Drawing.Size(212, 41);
             this.customTableLayoutPanel3.TabIndex = 1;
             // 
             // btnTEdit
@@ -340,7 +341,7 @@
             this.btnTEdit.Location = new System.Drawing.Point(110, 4);
             this.btnTEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnTEdit.Name = "btnTEdit";
-            this.btnTEdit.Size = new System.Drawing.Size(99, 33);
+            this.btnTEdit.Size = new System.Drawing.Size(98, 33);
             this.btnTEdit.TabIndex = 1;
             this.btnTEdit.Text = "Edit";
             this.btnTEdit.UseVisualStyleBackColor = false;
@@ -371,6 +372,7 @@
             this.customTableLayoutPanel4.Color2 = System.Drawing.Color.Transparent;
             this.customTableLayoutPanel4.ColumnCount = 1;
             this.customTableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.customTableLayoutPanel4.Controls.Add(this.btnStrategy, 0, 3);
             this.customTableLayoutPanel4.Controls.Add(this.tbxSearch, 0, 0);
             this.customTableLayoutPanel4.Controls.Add(this.rbnPlayers, 0, 2);
             this.customTableLayoutPanel4.Controls.Add(this.rbnTeams, 0, 1);
@@ -378,7 +380,7 @@
             this.customTableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.customTableLayoutPanel4.DraggableForm = false;
             this.customTableLayoutPanel4.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.customTableLayoutPanel4.Location = new System.Drawing.Point(305, 41);
+            this.customTableLayoutPanel4.Location = new System.Drawing.Point(304, 41);
             this.customTableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.customTableLayoutPanel4.Name = "customTableLayoutPanel4";
             this.customTableLayoutPanel4.RowCount = 4;
@@ -386,7 +388,7 @@
             this.customTableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.customTableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.customTableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.customTableLayoutPanel4.Size = new System.Drawing.Size(213, 290);
+            this.customTableLayoutPanel4.Size = new System.Drawing.Size(212, 290);
             this.customTableLayoutPanel4.TabIndex = 6;
             // 
             // tbxSearch
@@ -416,7 +418,7 @@
             this.rbnPlayers.AutoSize = true;
             this.rbnPlayers.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbnPlayers.ForeColor = System.Drawing.Color.GhostWhite;
-            this.rbnPlayers.Location = new System.Drawing.Point(68, 189);
+            this.rbnPlayers.Location = new System.Drawing.Point(67, 189);
             this.rbnPlayers.Margin = new System.Windows.Forms.Padding(40, 4, 40, 4);
             this.rbnPlayers.Name = "rbnPlayers";
             this.rbnPlayers.Size = new System.Drawing.Size(77, 24);
@@ -431,7 +433,7 @@
             this.rbnTeams.Checked = true;
             this.rbnTeams.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbnTeams.ForeColor = System.Drawing.Color.GhostWhite;
-            this.rbnTeams.Location = new System.Drawing.Point(68, 154);
+            this.rbnTeams.Location = new System.Drawing.Point(67, 154);
             this.rbnTeams.Margin = new System.Windows.Forms.Padding(44, 4, 40, 4);
             this.rbnTeams.Name = "rbnTeams";
             this.rbnTeams.Size = new System.Drawing.Size(81, 24);
@@ -460,6 +462,23 @@
             this.customControlBox1.Size = new System.Drawing.Size(115, 31);
             this.customControlBox1.TabIndex = 0;
             this.customControlBox1.TabStop = false;
+            // 
+            // btnStrategy
+            // 
+            this.btnStrategy.BackColor = System.Drawing.Color.Lavender;
+            this.btnStrategy.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnStrategy.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnStrategy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStrategy.Font = new System.Drawing.Font("Microsoft YaHei UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStrategy.ForeColor = System.Drawing.Color.Black;
+            this.btnStrategy.Location = new System.Drawing.Point(33, 227);
+            this.btnStrategy.Margin = new System.Windows.Forms.Padding(33, 7, 33, 7);
+            this.btnStrategy.Name = "btnStrategy";
+            this.btnStrategy.Size = new System.Drawing.Size(146, 56);
+            this.btnStrategy.TabIndex = 8;
+            this.btnStrategy.Text = "Change Strategy";
+            this.btnStrategy.UseVisualStyleBackColor = false;
+            this.btnStrategy.Click += new System.EventHandler(this.btnStrategy_Click);
             // 
             // MainWindow
             // 
@@ -526,6 +545,7 @@
         private System.Windows.Forms.Button btnPDelete;
         private System.Windows.Forms.Button btnShowAllPlayers;
         private System.Windows.Forms.Button btnUnsignedPlayers;
+        private System.Windows.Forms.Button btnStrategy;
     }
 }
 

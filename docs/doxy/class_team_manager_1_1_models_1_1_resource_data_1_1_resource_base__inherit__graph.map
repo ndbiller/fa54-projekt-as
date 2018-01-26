@@ -1,0 +1,4 @@
+<map id="TeamManager.Models.ResourceData.ResourceBase" name="TeamManager.Models.ResourceData.ResourceBase">
+<area shape="rect" id="node2" href="$class_team_manager_1_1_models_1_1_resource_data_1_1_player.html" title="The one and the only Player object that is used as resource for almost every place in the project..." alt="" coords="5,175,215,325"/>
+<area shape="rect" id="node3" href="$class_team_manager_1_1_models_1_1_resource_data_1_1_team.html" title="The one and the only Team object that is used as resource for almost every place in the project..." alt="" coords="239,175,448,325"/>
+</map>
