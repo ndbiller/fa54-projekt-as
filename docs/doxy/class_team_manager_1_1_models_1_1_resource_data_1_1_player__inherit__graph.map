@@ -1,0 +1,4 @@
+<map id="TeamManager.Models.ResourceData.Player" name="TeamManager.Models.ResourceData.Player">
+<area shape="rect" id="node2" href="$class_team_manager_1_1_models_1_1_resource_data_1_1_resource_base.html" title="Commmon data that the resource data will be used. It&#39;s important that every resource data objects inh..." alt="" coords="5,5,132,112"/>
+<area shape="rect" id="node3" href="$class_i_comparable.html" title="{IComparable\&lt; Player \&gt;\n||}" alt="" coords="157,20,311,97"/>
+</map>

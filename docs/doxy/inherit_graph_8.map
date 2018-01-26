@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$interface_team_manager_1_1_models_1_1_strategy_1_1_i_sort_strategy.html" title="The ISortStrategy interface will be in the BusinessLogicBase in order to allow changing the sort beha..." alt="" coords="5,39,212,80"/>
+<area shape="rect" id="node2" href="$class_team_manager_1_1_models_1_1_strategy_1_1_sort_ascending.html" title="Sorting in Ascending order. For more info, refer to ISortStrategy. " alt="" coords="260,5,467,47"/>
+<area shape="rect" id="node3" href="$class_team_manager_1_1_models_1_1_strategy_1_1_sort_descending.html" title="Sorting in Descending order. For more info, refer to ISortStrategy. " alt="" coords="260,71,467,112"/>
+</map>

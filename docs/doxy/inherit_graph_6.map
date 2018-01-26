@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_team_manager_1_1_models_1_1_logic_1_1_business_logic_base.html" title="TeamManager.Models.Logic.\lBusinessLogicBase" alt="" coords="5,5,195,47"/>
+<area shape="rect" id="node2" href="$class_team_manager_1_1_models_1_1_logic_1_1_business_logic.html" title="For more information refer to the comment in IBusinessLogic interface. " alt="" coords="243,5,432,47"/>
+<area shape="rect" id="node3" href="$class_team_manager_1_1_models_1_1_logic_1_1_business_logic_mt.html" title="For more information refer to the comment in IBusinessLogic interface. " alt="" coords="243,71,432,112"/>
+<area shape="rect" id="node4" href="$interface_team_manager_1_1_models_1_1_logic_1_1_i_business_logic.html" title="This interface will get implemented by all the other StrategyTypes so it allows us to retrieve the sa..." alt="" coords="5,71,195,112"/>
+</map>

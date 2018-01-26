@@ -1,0 +1,4 @@
+<map id="TeamManager.Views.Windows.Dialogs.EditWindow.btnSave_Click" name="TeamManager.Views.Windows.Dialogs.EditWindow.btnSave_Click">
+<area shape="rect" id="node2" href="$class_team_manager_1_1_views_1_1_loader_1_1_loaders.html#a137fc5e3325873b13a1e497942c99be4" title="Starts a loader with the specified loader type and the amount in miliseconds to sleep the main thread..." alt="" coords="277,5,468,47"/>
+<area shape="rect" id="node3" href="$class_team_manager_1_1_views_1_1_loader_1_1_loaders.html#adb0f2f44391cb8c12fbe0e79b869d89f" title="Stops the specified loader thread with the window handle in order to get the parent window to front..." alt="" coords="277,71,468,112"/>
+</map>
